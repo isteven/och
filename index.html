@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Project Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <link rel="stylesheet" href="vendor/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
+
+    <div id="pageClues" class="fadePage">
+        <div class="centerElement">
+            <div>
+                <a href="#" ng-click="hidePage( '#pageClues' )" class="btnClose">X</a>
+            </div>
+            <div class="cluePics">
+                <div class="borderDebug">
+
+                </div>
+                <div class=" borderDebug">
+
+                </div>
+                <div class=" borderDebug">
+
+                </div>
+            </div>
+            <div>
+                <a href="#" ng-click="showPage( '#pageClues', '#pageGuessName' )" class="btnGuess">Guess</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="pageGuessName" class="fadePage">
+        <div>
+            <input type="text" ng-repeat="item in name" value="{{item.letter}}" ng-model="item.letter" size="2"/>
+        </div>
+        <div>
+            <button ng-click="submitGuessName()">Submit 1</button>
+        </div>
+    </div>
+
+    <div id="pageGuessDate" class="fadePage">
+        <a ng-repeat="date in dates">{{date.date}}</a>
+        <button ng-click="submitGuessDate()">Submit 2</button>
+    </div>
+
+    <div id="pano">
+        <div class="panoCenter borderDebug">
+        </div>
+
+        <div class="empMeter borderDebug">
+            1
+        </div>
+
+        <div class="cluesCtr borderDebug" ng-click="showPage( '', '#pageClues' )">
+            CLUES
+        </div>
+
+
+    </div>
+
+    <!-- <div id="textInfo" style="height: 400px; width: auto" class="borderDebug"> -->
+    <img id="textInfo" src="img/sadako.png" style="height: 400px; width: auto" />
+    <!-- <div class="hotspot">
+    <div class="out"></div>
+    <div class="in"></div>
+  </div> -->
+    <!-- <div class="tooltip-content">
+    <p>The Ash Room is the area where ash from the burned and raw coal was collected. Particular emphasis is given to the hard working conditions in this space, due to the intense heat and breathing in of ash from the coal burning. But the museum content does not end here, and examples of forging, carpentry and transport, as well as the origins and types of coal, are also presented. </p>
+  </div> -->
+    <!-- </div> -->
+    <div style="display:none">
+        <div id="sceneList">
+            <ul class="scenes">
+                <a href="#" class="scene" data-id="0-snowy">
+                    <li class="text">snowy</li>
+                </a>
+                <a href="#" class="scene" data-id="1-home">
+                    <li class="text">home</li>
+                </a>
+            </ul>
+        </div>
+
+        <div id="titleBar">
+            <h1 class="sceneName"></h1>
+        </div>
+
+        <a href="#" id="autorotateToggle">
+            <img class="icon off" src="img/play.png">
+            <img class="icon on" src="img/pause.png">
+        </a>
+
+        <a href="#" id="fullscreenToggle">
+            <img class="icon off" src="img/fullscreen.png">
+            <img class="icon on" src="img/windowed.png">
+        </a>
+
+        <a href="#" id="sceneListToggle">
+            <img class="icon off" src="img/expand.png">
+            <img class="icon on" src="img/collapse.png">
+        </a>
+
+        <a href="#" id="viewUp" class="viewControlButton viewControlButton-1">
+            <img class="icon" src="img/up.png">
+        </a>
+        <a href="#" id="viewDown" class="viewControlButton viewControlButton-2">
+            <img class="icon" src="img/down.png">
+        </a>
+        <a href="#" id="viewLeft" class="viewControlButton viewControlButton-3">
+            <img class="icon" src="img/left.png">
+        </a>
+        <a href="#" id="viewRight" class="viewControlButton viewControlButton-4">
+            <img class="icon" src="img/right.png">
+        </a>
+        <a href="#" id="viewIn" class="viewControlButton viewControlButton-5">
+            <img class="icon" src="img/plus.png">
+        </a>
+        <a href="#" id="viewOut" class="viewControlButton viewControlButton-6">
+            <img class="icon" src="img/minus.png">
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="vendor/es5-shim.js"></script>
+    <script src="vendor/eventShim.js"></script>
+    <script src="vendor/classList.js"></script>
+    <script src="vendor/requestAnimationFrame.js"></script>
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+    <script src="game.js"></script>
+
+
+</body>
+
+</html>
