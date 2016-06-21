@@ -79,7 +79,7 @@
             "tiles/" + sceneData.id + "/{f}.jpg", {
                 cubeMapPreviewUrl: "tiles/" + sceneData.id + "/preview.jpg"
             });
-        
+
         var geometry = new Marzipano.CubeGeometry(sceneData.levels);
 
         var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
@@ -141,6 +141,7 @@
     }
 
     // Set handler for scene switch.
+    /*
     scenes.forEach(function(scene) {
         var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
         el.addEventListener('click', function() {
@@ -151,6 +152,7 @@
             }
         });
     });
+    */
 
     // DOM elements for view controls.
     var viewUpElement = document.querySelector('#viewUp');
