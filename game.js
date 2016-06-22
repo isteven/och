@@ -14,7 +14,7 @@ var tempHotspot = activeScene.marzipanoObject.hotspotContainer().createHotspot(d
 // tempHotspot.hide();
 
 // Listen for the end of a drag.
-dragControlMethod.addEventListener( 'parameterDynamics' , function(e) {
+dragControlMethod.addEventListener( 'inactive' , function(e) {
     canClick = false;
     // Get the current viewport dimensions
     var size = activeScene.marzipanoObject.view().size();
@@ -28,42 +28,64 @@ dragControlMethod.addEventListener( 'parameterDynamics' , function(e) {
     // Check whether the hotspot is within regionSize pixels of the screen center.
 
     if (screen) {
-        if (
-            Math.abs(screen.x - size.width / 2) < 50 &&
-            Math.abs(screen.y - size.height / 2) < 100
-        ) {
+        var
+            xDistance = Math.abs(screen.x - size.width / 2),
+            yDistance = Math.abs(screen.y - size.height / 2);
+
+        if ( xDistance < 50 && yDistance < 100 ) {
             $('.empMeter').attr( 'src', 'img/emf_5.png');
             canClick = true;
+            $( '.panoCenter' ).show();
         }
-        else if (
-            Math.abs(screen.x - size.width / 2) < 70 &&
-            Math.abs(screen.y - size.height / 2) < 120
-        ) {
+        else if ( xDistance < 70 && yDistance < 120 ) {
             $('.empMeter').attr( 'src', 'img/emf_4.png');
-        } else if (
-            Math.abs(screen.x - size.width / 2) < 100  &&
-            Math.abs(screen.y - size.height / 2) < 150
-        ) {
-            $('.empMeter').attr( 'src', 'img/emf_3.png');
-        } else if (
-            Math.abs(screen.x - size.width / 2) < 130 &&
-            Math.abs(screen.y - size.height / 2) < 180
-        ) {
-            $('.empMeter').attr( 'src', 'img/emf_2.png');
-        } else {
-            $('.empMeter').attr( 'src', 'img/emf_1.png');
+            canClick = false;
+            $( '.panoCenter' ).hide();
         }
-    } else {
-        $('.empMeter').attr( 'src', 'img/emf_1.png');
-        canClick = false;
+        else if ( xDistance < 100 && yDistance < 150 ) {
+            $('.empMeter').attr( 'src', 'img/emf_3.png');
+            canClick = false;
+            $( '.panoCenter' ).hide();
+        }
+        else if ( xDistance < 130 && yDistance < 180 ) {
+            $('.empMeter').attr( 'src', 'img/emf_2.png');
+            canClick = false;
+            $( '.panoCenter' ).hide();
+        }
+        else {
+            $('.empMeter').attr( 'src', 'img/emf_1.png');
+            canClick = false;
+            $( '.panoCenter' ).hide();
+        }
     }
+    // else {
+    //     $('.empMeter').attr( 'src', 'img/emf_1.png');
+    //     canClick = false;
+    // }
 });
 
 $('.panoCenter').click(function(e) {
     if (canClick) {
-        $( '#cluePlaceholder' ).attr( 'src', 'img/photo_clue_' + clueIndex + '.png' );
-        clueIndex++;
+        console.log( 'here' );
+        $( '#cluePlaceholder' ).show();
+        $( '#cluePlaceholder > .closeButtonRed' ).show();
+        $( '#cluePlaceholder > img' ).attr( 'src', 'img/photo_clue_' + clueIndex + '.png' );
     }
+});
+
+$( '#cluePlaceholder > .closeButtonRed' ).click( function( e ) {
+    // $( '#cluePlaceholder' ).hide();
+    // $( '#cluePlaceholder > .closeButtonRed' ).hide();
+
+    $( '#cluePlaceholder' ).animate({
+       height: '20px',
+       width: '20px',
+       top: '85%',
+       left: '85%',
+   }, 450, function(){
+       $( this ).hide();
+       $( '#cluePlaceholder > img' ).attr( 'src', '' );
+   });
 });
 
 // $('.cluesCtr').click(function() {

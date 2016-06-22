@@ -3,8 +3,9 @@
 }
 
 .panoCenter {
-    width: 40px;
-    height: 40px;
+    display: none;
+    width: 180px;
+    height: auto;
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -98,4 +99,31 @@
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);*/
+}
+
+#cluePlaceholder {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: auto;
+    transform: translate(-50%, -50%);
+}
+
+#cluePlaceholder img {
+    height: 100%;
+    width: auto;
+}
+
+.closeButtonRed {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-image: url( '../img/close.png' );
 }

@@ -18,6 +18,7 @@
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
 
+    <!-- clues gallery -->
     <div id="pageClues" class="fadePage">
         <div class="centerElement">
             <div>
@@ -40,6 +41,7 @@
         </div>
     </div>
 
+    <!-- guess name -->
     <div id="pageGuessName" class="fadePage">
         <div>
             <input type="text" ng-repeat="item in name" value="{{item.letter}}" ng-model="item.letter" size="2"/>
@@ -49,38 +51,29 @@
         </div>
     </div>
 
+    <!-- guess date -->
     <div id="pageGuessDate" class="fadePage">
         <a ng-repeat="date in dates">{{date.date}}</a>
         <button ng-click="submitGuessDate()">Submit 2</button>
     </div>
 
+    <!-- Marzipano Pano -->
     <div id="pano">
-        <div class="panoCenter borderDebug">
-        </div>
-
-        <!-- <div class="empMeter borderDebug">
-        </div> -->
+        <img class="panoCenter" src="img/icon_camera.png" />
         <img src="img/emf_1.png" class="empMeter" />
-
         <div class="cluesCtr borderDebug" ng-click="showPage( '', '#pageClues' )">
             CLUES
         </div>
-
-
     </div>
 
-    <!-- <div id="textInfo" style="height: 400px; width: auto" class="borderDebug"> -->
-    <div id="clue-1" class="borderDebug" style="height: 1px; width: 1px" />
-    <img id="cluePlaceholder" />
+    <!-- Clues location in pano -->
+    <div id="clue-1" class="borderDebug" style="height: 1px; width: 1px"></div>
+    <div id="cluePlaceholder">
+        <a href="#" class="closeButtonRed">
+        </a>
+        <img/>
+    </div>
 
-    <!-- <div class="hotspot">
-    <div class="out"></div>
-    <div class="in"></div>
-  </div> -->
-    <!-- <div class="tooltip-content">
-    <p>The Ash Room is the area where ash from the burned and raw coal was collected. Particular emphasis is given to the hard working conditions in this space, due to the intense heat and breathing in of ash from the coal burning. But the museum content does not end here, and examples of forging, carpentry and transport, as well as the origins and types of coal, are also presented. </p>
-  </div> -->
-    <!-- </div> -->
     <div style="display:none">
         <div id="sceneList">
             <ul class="scenes">
