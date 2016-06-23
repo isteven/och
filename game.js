@@ -1,7 +1,7 @@
 'use strict';
 
-var canClick = false;
-var clueIndex = 1;
+var canClick = [ false, false, false ];
+var clueIndex = 0;
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
@@ -34,64 +34,52 @@ dragControlMethod.addEventListener( 'inactive' , function(e) {
 
         if ( xDistance < 50 && yDistance < 100 ) {
             $('.empMeter').attr( 'src', 'img/emf_5.png');
-            canClick = true;
+            canClick[ clueIndex ] = true;
             $( '.panoCenter' ).show();
         }
         else if ( xDistance < 70 && yDistance < 120 ) {
             $('.empMeter').attr( 'src', 'img/emf_4.png');
-            canClick = false;
+            canClick[ clueIndex ] = false;
             $( '.panoCenter' ).hide();
         }
         else if ( xDistance < 100 && yDistance < 150 ) {
             $('.empMeter').attr( 'src', 'img/emf_3.png');
-            canClick = false;
+            canClick[ clueIndex ] = false;
             $( '.panoCenter' ).hide();
         }
         else if ( xDistance < 130 && yDistance < 180 ) {
             $('.empMeter').attr( 'src', 'img/emf_2.png');
-            canClick = false;
+            canClick[ clueIndex ] = false;
             $( '.panoCenter' ).hide();
         }
         else {
             $('.empMeter').attr( 'src', 'img/emf_1.png');
-            canClick = false;
+            canClick[ clueIndex ] = false;
             $( '.panoCenter' ).hide();
         }
     }
-    // else {
-    //     $('.empMeter').attr( 'src', 'img/emf_1.png');
-    //     canClick = false;
-    // }
 });
 
 $('.panoCenter').click(function(e) {
-    if (canClick) {
-        console.log( 'here' );
+    if ( canClick[ clueIndex ] ) {
         $( '#cluePlaceholder' ).show();
         $( '#cluePlaceholder > .closeButtonRed' ).show();
-        $( '#cluePlaceholder > img' ).attr( 'src', 'img/photo_clue_' + clueIndex + '.png' );
+        $( '#cluePlaceholder > img' ).attr( 'src', 'img/photo_clue_' + ( clueIndex + 1 ) '.png' );
+        $( '.panoCenter' ).hide();
+        if ( clueIndex < 2 ) {
+            clueIndex++;
+        }
     }
 });
 
 $( '#cluePlaceholder > .closeButtonRed' ).click( function( e ) {
-    // $( '#cluePlaceholder' ).hide();
-    // $( '#cluePlaceholder > .closeButtonRed' ).hide();
-
     $( '#cluePlaceholder' ).animate({
        height: '20px',
        width: '20px',
        top: '85%',
-       left: '85%',
-   }, 450, function(){
+       left: '90%',
+   }, 400, function(){
        $( this ).hide();
        $( '#cluePlaceholder > img' ).attr( 'src', '' );
    });
 });
-
-// $('.cluesCtr').click(function() {
-//     console.log( 'here ');
-//     $('#fade-wrapper').fadeIn();
-// });
-// $('#fade-wrapper').click(function() {
-//     $(this).fadeOut();
-// });

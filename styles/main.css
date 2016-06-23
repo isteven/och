@@ -4,8 +4,7 @@
 
 .panoCenter {
     display: none;
-    width: 180px;
-    height: auto;
+    width: 140px;
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -18,7 +17,7 @@
     height: 40px;
     position: absolute;
     z-index: 1;
-    top: 85%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -29,8 +28,13 @@
     position: absolute;
     z-index: 1;
     top: 85%;
-    left: 85%;
+    left: 90%;
     transform: translate(-50%, -50%);
+}
+
+.cluesCtr img {
+    width: 100px;
+    height: auto;
 }
 
 .fadePage {

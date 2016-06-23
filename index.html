@@ -58,16 +58,24 @@
     </div>
 
     <!-- Marzipano Pano -->
-    <div id="pano">
-        <img class="panoCenter" src="img/icon_camera.png" />
-        <img src="img/emf_1.png" class="empMeter" />
-        <div class="cluesCtr borderDebug" ng-click="showPage( '', '#pageClues' )">
-            CLUES
-        </div>
+    <div id="pano"></div>
+
+    <!-- clues location in pano -->
+    <div id="clue-1" class="borderDebug" style="height: 1px; width: 1px"></div>
+
+    <!-- camera icon -->
+    <img class="panoCenter" src="img/icon_camera.png" />
+
+    <!-- EMP meter -->
+    <img src="img/emf_1.png" class="empMeter" />
+
+    <!-- clues counter -->
+    <div class="cluesCtr" ng-click="showPage( '', '#pageClues' )">
+        <img src="img/clue.png" />
     </div>
 
-    <!-- Clues location in pano -->
-    <div id="clue-1" class="borderDebug" style="height: 1px; width: 1px"></div>
+
+
     <div id="cluePlaceholder">
         <a href="#" class="closeButtonRed">
         </a>
