@@ -91,7 +91,7 @@
             view: view,
             pinFirstLevel: true
         });
-
+        // console.log( sceneData );
         // Create link hotspots.
         sceneData.linkHotspots.forEach(function(hotspot) {
             var element = createLinkHotspotElement(hotspot);
@@ -117,7 +117,7 @@
             marzipanoObject: marzipanoScene
         };
     });
-
+        
     // Display the initial scene.
     switchScene(scenes[0]);
 
@@ -180,13 +180,15 @@
     }
 
     function switchScene(scene) {
+        console.log( 'switching scene' );
         stopAutorotate();
         scene.marzipanoObject.switchTo();
         startAutorotate();
         updateSceneName(scene);
         updateSceneList(scene);
         activeScene = scene;
-        // console.log( scene )    ;
+
+        console.log( activeScene );
     }
 
     function updateSceneName(scene) {
