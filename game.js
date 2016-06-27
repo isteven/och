@@ -3,6 +3,7 @@
 var canClick        = [ false, false, false ];
 var clueIndex       = 0;
 var tempHotspots    = [];
+var activeSceneList = [ '0-scene-1', '0-scene-2', '0-scene-3' ];
 
 var activeSceneId = activeScene.data.id;
 
@@ -10,7 +11,7 @@ var activeSceneId = activeScene.data.id;
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
-var tempHotspot = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
+var tempHotspot[ activeSceneId ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
     yaw: 1.4,
     pitch: 0.06
 });
