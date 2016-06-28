@@ -1,44 +1,44 @@
 'use strict';
 
 var canClick        = [ false, false, false ];
+var cluesFound      = [ false, false, false ];
 var clueIndex       = 0;
 var tempHotspots    = [];
 var activeSceneList = [ '0-scene-1', '0-scene-2', '0-scene-3' ];
-
-var activeSceneId = activeScene.data.id;
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
-var tempHotspot[ activeSceneId ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
+tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
     yaw: 1.4,
     pitch: 0.06
 });
 
+// clue 2
+tempHotspots[ 1 ] = scenes[ 1 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"), {
+    yaw: -1.92,
+    pitch: -0.10
+});
 
-// switch 1
-/*
-var position = {
-    yaw: Math.PI / 4,
-    pitch: Math.PI / 8
-};
+// clue 3
+tempHotspots[ 2 ] = scenes[ 2 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
+    yaw: 1.9,
+    pitch: 0.00
+});
 
-activeScene.marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#switch-1"), position);
-*/
-
-// tempHotspot.hide();
 // Listen for the end of a drag.
 dragControlMethod.addEventListener('inactive', function(e) {
+
     // Get the current viewport dimensions
     var size = activeScene.marzipanoObject.view().size();
 
-    console.log( activeScene.data );
+    var activeSceneIdx = activeSceneList.indexOf( activeScene.data.id );
 
     // Transform the hotspot coordinates into screen coordinates.
     var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
-        yaw: tempHotspot.position().yaw,
-        pitch: tempHotspot.position().pitch
+        yaw: tempHotspots[ activeSceneIdx ].position().yaw,
+        pitch: tempHotspots[ activeSceneIdx ].position().pitch
     });
 
     // Check whether the hotspot is within regionSize pixels of the screen center.
@@ -49,37 +49,38 @@ dragControlMethod.addEventListener('inactive', function(e) {
 
         if (xDistance < 50 && yDistance < 100) {
             $('.empMeter').attr('src', 'img/emf_5.png');
-            canClick[clueIndex] = true;
+            canClick[ activeSceneIdx ] = true;
             $('.panoCenter').show();
         } else if (xDistance < 70 && yDistance < 120) {
             $('.empMeter').attr('src', 'img/emf_4.png');
-            canClick[clueIndex] = false;
+            canClick[ activeSceneIdx ] = false;
             $('.panoCenter').hide();
         } else if (xDistance < 100 && yDistance < 150) {
             $('.empMeter').attr('src', 'img/emf_3.png');
-            canClick[clueIndex] = false;
+            canClick[ activeSceneIdx ] = false;
             $('.panoCenter').hide();
         } else if (xDistance < 130 && yDistance < 180) {
             $('.empMeter').attr('src', 'img/emf_2.png');
-            canClick[clueIndex] = false;
+            canClick[ activeSceneIdx ] = false;
             $('.panoCenter').hide();
         } else {
             $('.empMeter').attr('src', 'img/emf_1.png');
-            canClick[clueIndex] = false;
+            canClick[  activeSceneIdx  ] = false;
             $('.panoCenter').hide();
         }
     }
 });
 
 $('.panoCenter').click(function(e) {
-    if (canClick[clueIndex]) {
+    var activeSceneIdx = activeSceneList.indexOf( activeScene.data.id );
+    if ( canClick[ activeSceneIdx ] && !cluesFound[ activeSceneIdx ] ) {
         $('#cluePlaceholder').show();
         $('#cluePlaceholder > .closeButtonRed').show();
-        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (clueIndex + 1) + '.png');
+        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
         $('.panoCenter').hide();
-        if (clueIndex < 2) {
-            clueIndex++;
-        }
+        $('.empMeter').attr('src', 'img/emf_1.png');
+        canClick[  activeSceneIdx  ] = false;
+        cluesFound[ activeSceneIdx ] = true;
     }
 });
 
@@ -92,5 +93,28 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
     }, 400, function() {
         $(this).hide();
         $('#cluePlaceholder > img').attr('src', '');
+        $( '#cluePlaceholder').attr( 'style', '' );
+        $( '#cluePlaceholder' ).addClass( 'cluePlaceholder' );
     });
 });
+
+var showPage = function( oldPage, newPage ) {
+    if ( oldPage != '' ) {
+        $( oldPage ).fadeOut();
+    }
+    $( newPage ).fadeIn();
+}
+
+var hidePage = function( page ) {
+    $( page ).fadeOut();
+}
+
+var showClues = function() {
+    for ( var i = 0; i < 3; i++ )
+    {
+        if ( cluesFound[ i ] ) {
+            var temp = $( '.cluePics > div' );
+            $( temp[ i ] ).append( '<img src="img/photo_clue_' + ( i + 1 ) + '.png">' );
+        }
+    }
+}

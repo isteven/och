@@ -22,21 +22,18 @@
     <div id="pageClues" class="fadePage">
         <div class="centerElement">
             <div>
-                <a href="#" ng-click="hidePage( '#pageClues' )" class="btnClose">X</a>
+                <a href="#" onclick="hidePage( '#pageClues' )" class="btnClose">X</a>
             </div>
             <div class="cluePics">
-                <div class="borderDebug">
-
+                <div>
                 </div>
-                <div class=" borderDebug">
-
+                <div>
                 </div>
-                <div class=" borderDebug">
-
+                <div>
                 </div>
             </div>
             <div>
-                <a href="#" ng-click="showPage( '#pageClues', '#pageGuessName' )" class="btnGuess">Guess</a>
+                <a href="#" onclick="showPage( '#pageClues', '#pageGuessName' )" class="btnGuess">Guess</a>
             </div>
         </div>
     </div>
@@ -61,7 +58,9 @@
     <div id="pano"></div>
 
     <!-- clues location in pano -->
-    <div id="clue-1" class="borderDebug" style="height: 1px; width: 1px"></div>
+    <div id="clue-1" class="borderDebug" style="height: 5px; width: 5px"></div>
+    <div id="clue-2" class="borderDebug" style="height: 5px; width: 5px"></div>
+    <div id="clue-3" class="borderDebug" style="height: 5px; width: 5px"></div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
@@ -72,11 +71,11 @@
     <img src="img/emf_1.png" class="empMeter" />
 
     <!-- clues counter -->
-    <div class="cluesCtr" ng-click="showPage( '', '#pageClues' )">
+    <div class="cluesCtr" onclick="showPage( '', '#pageClues' ); showClues();">
         <img src="img/clue.png" />
     </div>
 
-    <div id="cluePlaceholder">
+    <div id="cluePlaceholder" class="cluePlaceholder">
         <a href="#" class="closeButtonRed">
         </a>
         <img/>

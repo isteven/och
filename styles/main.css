@@ -23,8 +23,8 @@
 }
 
 .cluesCtr {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     z-index: 1;
     top: 85%;
@@ -67,7 +67,10 @@
     height: 200px;
     margin: 30px;
     display: inline-block;
+}
 
+.cluePics > div > img {
+    
 }
 
 .btnClose {
@@ -97,15 +100,7 @@
     top: 50%;
 }
 
-#pageGuessName > button {
-    /*position: relative;
-    z-index: 10;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
-}
-
-#cluePlaceholder {
+.cluePlaceholder {
     display: none;
     position: absolute;
     z-index: 10;

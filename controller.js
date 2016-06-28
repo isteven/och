@@ -14,16 +14,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         { letter: 'e' },
     ];
 
-    $scope.showPage = function( oldPage, newPage ) {
-        if ( oldPage != '' ) {
-            $( oldPage ).fadeOut();
-        }
-        $( newPage ).fadeIn();
-    }
-
-    $scope.hidePage = function( page ) {
-        $( page ).fadeOut();
-    }
+    
 
     $scope.checkName = function() {
         $http({
@@ -49,5 +40,5 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         },function() {
             // if name error; do ghost animation; increase error counter
         });
-    }    
+    }
 }]);
