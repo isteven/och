@@ -76,9 +76,7 @@
             });
         */
         var source = Marzipano.ImageUrlSource.fromString(
-            "tiles/" + sceneData.id + "/{f}.jpg", {
-                cubeMapPreviewUrl: "tiles/" + sceneData.id + "/preview.jpg"
-            });
+            "tiles/" + sceneData.id + "/{f}.jpg" );
 
         var geometry = new Marzipano.CubeGeometry(sceneData.levels);
 
@@ -117,7 +115,7 @@
             marzipanoObject: marzipanoScene
         };
     });
-        
+
     // Display the initial scene.
     switchScene(scenes[0]);
 

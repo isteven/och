@@ -91,6 +91,7 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
         top: '85%',
         left: '90%',
     }, 400, function() {
+        $( '.cluesCtr' ).show();
         $(this).hide();
         $('#cluePlaceholder > img').attr('src', '');
         $( '#cluePlaceholder').attr( 'style', '' );
@@ -110,11 +111,16 @@ var hidePage = function( page ) {
 }
 
 var showClues = function() {
+    $('#pageClues > .closeButtonRed').show();
     for ( var i = 0; i < 3; i++ )
     {
         if ( cluesFound[ i ] ) {
-            var temp = $( '.cluePics > div' );
-            $( temp[ i ] ).append( '<img src="img/photo_clue_' + ( i + 1 ) + '.png">' );
+            var tempDom = $( '#pageClues > img' );
+            $( tempDom[ i ] ).attr( 'src' , 'img/photo_clue_' + ( i + 1 ) + '.png' );
         }
     }
+    $('#pageClues > .closeButtonRed').click( function(e) {
+        $( '.fadePage').fadeOut();
+        $( '#pageClues').hide();
+    });
 }

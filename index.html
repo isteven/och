@@ -18,28 +18,8 @@
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
 
-    <!-- clues gallery -->
-    <div id="pageClues" class="fadePage">
-        <div class="centerElement">
-            <div>
-                <a href="#" onclick="hidePage( '#pageClues' )" class="btnClose">X</a>
-            </div>
-            <div class="cluePics">
-                <div>
-                </div>
-                <div>
-                </div>
-                <div>
-                </div>
-            </div>
-            <div>
-                <a href="#" onclick="showPage( '#pageClues', '#pageGuessName' )" class="btnGuess">Guess</a>
-            </div>
-        </div>
-    </div>
-
     <!-- guess name -->
-    <div id="pageGuessName" class="fadePage">
+    <div id="pageGuessName">
         <div>
             <input type="text" ng-repeat="item in name" value="{{item.letter}}" ng-model="item.letter" size="2"/>
         </div>
@@ -49,7 +29,7 @@
     </div>
 
     <!-- guess date -->
-    <div id="pageGuessDate" class="fadePage">
+    <div id="pageGuessDate">
         <a ng-repeat="date in dates">{{date.date}}</a>
         <button ng-click="submitGuessDate()">Submit 2</button>
     </div>
@@ -71,14 +51,32 @@
     <img src="img/emf_1.png" class="empMeter" />
 
     <!-- clues counter -->
-    <div class="cluesCtr" onclick="showPage( '', '#pageClues' ); showClues();">
+    <div class="cluesCtr" onclick="showPage( '', '.fadePage' );showPage( '', '#pageClues'); showClues();">
         <img src="img/clue.png" />
     </div>
 
+    <!-- single clue -->
     <div id="cluePlaceholder" class="cluePlaceholder">
         <a href="#" class="closeButtonRed">
         </a>
         <img/>
+    </div>
+
+    <!-- clues gallery -->
+    <div class="fadePage">
+    </div>
+
+    <div id="pageClues">
+        <a href="#" class="closeButtonRed">
+        </a>
+        <img src="img/photo_clue_blank.png" class="borderDebug"/>
+        <img src="img/photo_clue_blank.png" class="borderDebug"/>
+        <img src="img/photo_clue_blank.png" class="borderDebug"/>
+        <br />
+        <br />        
+        <a href="#" class="btnGuess">
+            Guess
+        </a>
     </div>
 
     <div style="display:none">
