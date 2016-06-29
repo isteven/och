@@ -19,8 +19,9 @@
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
 
     <!-- guess name -->
-    <div id="pageGuessName">
+    <div id="pageGuessName" class="borderDebug">
         <div>
+            
             <input type="text" ng-repeat="item in name" value="{{item.letter}}" ng-model="item.letter" size="2"/>
         </div>
         <div>
@@ -73,7 +74,7 @@
         <img src="img/photo_clue_blank.png" class="borderDebug"/>
         <img src="img/photo_clue_blank.png" class="borderDebug"/>
         <br />
-        <br />        
+        <br />
         <a href="#" class="btnGuess">
             Guess
         </a>

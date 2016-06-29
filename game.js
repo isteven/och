@@ -111,16 +111,30 @@ var hidePage = function( page ) {
 }
 
 var showClues = function() {
+    var allCluesFound = 0;
     $('#pageClues > .closeButtonRed').show();
     for ( var i = 0; i < 3; i++ )
     {
         if ( cluesFound[ i ] ) {
             var tempDom = $( '#pageClues > img' );
             $( tempDom[ i ] ).attr( 'src' , 'img/photo_clue_' + ( i + 1 ) + '.png' );
+            allCluesFound++;
         }
     }
     $('#pageClues > .closeButtonRed').click( function(e) {
         $( '.fadePage').fadeOut();
         $( '#pageClues').hide();
     });
+
+    if ( allCluesFound == 3 ) {
+        $( '#pageClues > .btnGuess' ).addClass( 'active' );
+        $( '#pageClues > .btnGuess.active' ).click( function(e) {
+
+        } );
+    }
+
+    // hidePage( '.fadePage' );
+    hidePage( '#pageClues' );
+    showPage( '', '#pageGuessName' );
+    $( '#pageGuessName' ).show();
 }
