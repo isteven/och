@@ -14,18 +14,41 @@
     <link rel="stylesheet" href="vendor/reset.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
 </head>
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
 
     <!-- guess name -->
-    <div id="pageGuessName" class="borderDebug">
-        <div>
-            
-            <input type="text" ng-repeat="item in name" value="{{item.letter}}" ng-model="item.letter" size="2"/>
-        </div>
-        <div>
-            <button ng-click="submitGuessName()">Submit 1</button>
+    <div id="pageGuessName">
+        <div class="centerElement">
+            <p class="centerInlineHor edoFont fg-black" ng-show="guessCorrect">WHO AM I?</p>
+            <p class="centerInlineHor edoFont fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</p>
+            <p class="centerInlineHor edoFont-sm fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</p>
+            <br /><br />
+            <div class="centerInlineHor">
+                <div class="inputBorder" ng-repeat="item in name1">
+                    <span ng-if="item.display">{{item.letter}}</span>
+                    <br />
+                    <img src="img/dash.png" />
+                </div>
+            </div>
+            <div class="centerInlineHor">
+                <div class="inputBorder" ng-repeat="item in name2">
+                    {{item.letter}}
+                    <br />
+                    <img src="img/dash.png" />
+                </div>
+            </div>
+            <br /><br />
+            <div class="centerInlineHor">
+                <div class="guessBox">
+                    <p>Enter a character to unravel the name</p>
+                    <br />
+                    <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
+                    <button ng-click="checkName()" class="btnGuess active">ENTER</button>
+                </div>
+            </div>
         </div>
     </div>
 

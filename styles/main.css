@@ -1,7 +1,6 @@
 .borderDebug {
     border: 1px solid red;
 }
-
 .panoCenter {
     display: none;
     width: 140px;
@@ -11,7 +10,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .empMeter {
     width: 100px;
     height: 40px;
@@ -21,7 +19,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .cluesCtr {
     width: 60px;
     height: 60px;
@@ -32,12 +29,10 @@
     transform: translate(-50%, -50%);
     display: none;
 }
-
 .cluesCtr img {
     width: 100px;
     height: auto;
 }
-
 .centerElement {
     position: absolute;
     z-index: 1;
@@ -45,12 +40,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.centerInlineHor {
+    text-align: center;
+    border: none;
 
+}
 .btnClose {
     position: absolute;
     left: 75%;
 }
-
 .fadePage {
     display: none;
     position: fixed;
@@ -61,7 +59,6 @@
     z-index: 20;
     text-align: center;
 }
-
 #pageClues {
     display: none;
     position: absolute;
@@ -72,16 +69,22 @@
     width: auto;
     transform: translate(-50%, -50%);
 }
-
-#pageClues > img {
+#pageClues> img {
     width: 30%;
     height: auto;
     margin-left: 10px;
 }
-
-#pageGuessName,
-#pageGuessDate {
+#pageGuessName, #pageGuessDate {
+    background-image: url('../img/q1_bg.png');
+    background-position: center;
+    background-size: cover;
     display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}
+#pageGuessName> div, #pageGuessDate> div {
     position: absolute;
     z-index: 30;
     top: 50%;
@@ -91,8 +94,8 @@
     transform: translate(-50%, -50%);
 }
 
-#pageGuessName > div > input {
-    /*display: none;*/
+/*#pageGuessName > div > input {
+    display: none;
     border: none;
     border-bottom: 5px red dotted;
     background-color: transparent;
@@ -100,7 +103,7 @@
     margin-right: 15px;
     position: relative;
     top: 50%;
-}
+}*/
 
 .cluePlaceholder {
     display: none;
@@ -112,12 +115,10 @@
     width: auto;
     transform: translate(-50%, -50%);
 }
-
 #cluePlaceholder img {
     height: 100%;
     width: auto;
 }
-
 .closeButtonRed {
     display: none;
     position: absolute;
@@ -126,26 +127,60 @@
     width: 40px;
     height: 40px;
     background-size: cover;
-    background-image: url( '../img/close.png' );
+    background-image: url('../img/close.png');
 }
-
 .btnGuess {
+    display: inline-block;
     padding: 10px;
     background-position: center;
     background-size: contain;
-    background-image: url( '../img/texture_inactive.jpg' );
-    position: relative;
-    left: 50%;
-}
-
-.btnGuess.active {
-    background-image: url( '../img/texture.jpg' );
-}
-
-#pageGuessName input {
+    background-image: url('../img/texture_inactive.jpg');
     border: none;
-    border-image:url("../img/dash.png");
-    border-top:0;
-    border-left:0;
-    border-right:0;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 100%;
+}
+.btnGuess.active {
+    background-image: url('../img/texture.jpg');
+}
+#pageGuessName .inputBorder {
+    /*border: none;*/
+    display: inline-block;
+    font-family: "edoregular", Serif;
+    font-size: 2em;
+    color: #45140e;
+    background-color: transparent;
+    /*float: left;*/
+    margin-left: 10px;
+    text-align: center;
+}
+.edoFont {
+    font-family: "edoregular", Serif;
+    font-size: 300%;
+}
+.edoFont-sm {
+    font-family: "edoregular", Serif;
+    font-size: 150%;
+}
+
+.fg-black {
+    color: #000;
+}
+.guessBox {
+    /*border-image-source: url('../img/texture.jpg');*/
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+    padding: 30px;
+}
+.guessBox> input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #a80101;
+    color: #fff;
 }
