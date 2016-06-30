@@ -33,7 +33,20 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         return result;
     }
 
+    function animatePontianak( triesLeft ) {
+        var startFrame = 6 - triesLeft;
+        console.log( startFrame );
+        $( '#pontianak' ).sprite({
+            no_of_frames: 8,
+            fps: 1,
+            start_at_frame: startFrame,
+            play_frames: 1
+        });
+        // $( '#pontianak' ).spStop();
+    }
+
     $scope.checkName = function() {
+        animatePontianak( $scope.triesLeft );
         if ( $scope.singleLetter != '' ) {
             var answerIsCorrect = false;
             var result1 = searchArrayOfObject( $scope.singleLetter, 'letter', $scope.name1 );
@@ -61,8 +74,8 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
             $scope.singleLetter = '';
 
             if ( $scope.triesLeft <= 0 ) {
-                hidePage( '#pageGuessName' );
-                showPage( '', '#pageFail' );
+                // hidePage( '#pageGuessName' );
+                // showPage( '', '#pageFail' );
             }
         }
     }

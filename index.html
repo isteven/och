@@ -21,41 +21,56 @@
 
     <!-- guess name -->
     <div id="pageGuessName">
-        <div class="centerElement">
-            <p class="centerInlineHor edoFont fg-black" ng-show="guessCorrect">WHO AM I?</p>
-            <p class="centerInlineHor edoFont fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</p>
-            <p class="centerInlineHor edoFont-sm fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</p>
-            <br /><br />
-            <div class="centerInlineHor">
-                <div class="inputBorder" ng-repeat="item in name1">
-                    <span ng-if="item.display">{{item.letter}}</span>
-                    <br />
-                    <img src="img/dash.png" />
-                </div>
-            </div>
-            <div class="centerInlineHor">
-                <div class="inputBorder" ng-repeat="item in name2">
-                    {{item.letter}}
-                    <br />
-                    <img src="img/dash.png" />
-                </div>
-            </div>
-            <br /><br />
-            <div class="centerInlineHor">
-                <div class="guessBox">
-                    <p>Enter a character to unravel the name</p>
-                    <br />
-                    <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
-                    <button ng-click="checkName()" class="btnGuess active">ENTER</button>
-                </div>
-            </div>
+        <div class="centerElement borderDebug">
+            <ul class="double-column borderDebug">
+                <li class="borderDebug">
+                    <p class="centerInlineHor edoFont fg-black" ng-show="guessCorrect">WHO AM I?</p>
+                    <p class="centerInlineHor edoFont fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</p>
+                    <p class="centerInlineHor edoFont-sm fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</p>
+                    <br /><br />
+                    <div class="centerInlineHor">
+                        <div class="inputBorder" ng-repeat="item in name1">
+                            <span ng-if="item.display">{{item.letter}}</span>
+                            <br />
+                            <img src="img/dash.png" />
+                        </div>
+                    </div>
+                    <div class="centerInlineHor">
+                        <div class="inputBorder" ng-repeat="item in name2">
+                            {{item.letter}}
+                            <br />
+                            <img src="img/dash.png" />
+                        </div>
+                    </div>
+                    <br /><br />
+                    <div class="centerInlineHor">
+                        <div class="guessBox">
+                            <p>Enter a character to unravel the name</p>
+                            <br />
+                            <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
+                            <button ng-click="checkName()" class="btnGuess active">ENTER</button>
+                        </div>
+                    </div>
+                </li>
+                <li  class="borderDebug">
+                    <div class="pontianak"></div>
+                </li>
+            </ul>
         </div>
     </div>
 
     <!-- guess date -->
     <div id="pageGuessDate">
-        <a ng-repeat="date in dates">{{date.date}}</a>
-        <button ng-click="submitGuessDate()">Submit 2</button>
+        <div class="centerElement borderDebug">
+            <ul class="double-column borderDebug">
+                <li class="borderDebug">
+                    <a ng-repeat="date in dates">{{date.date}}</a>
+                </li>
+                <li  class="borderDebug">
+                    <div class="pontianak"></div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Marzipano Pano -->
@@ -162,6 +177,7 @@
     <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
+    <script src="vendor/jquery.spritely.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="controller.js"></script>
