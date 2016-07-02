@@ -5,6 +5,7 @@ var cluesFound      = [ false, false, false ];
 var clueIndex       = 0;
 var tempHotspots    = [];
 var activeSceneList = [ '0-scene-1', '0-scene-2', '0-scene-3' ];
+var frameQty = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
@@ -137,4 +138,17 @@ var showClues = function() {
     hidePage( '#pageClues' );
     showPage( '', '#pageGuessName' );
     $( '#pageGuessName' ).show();
+}
+
+function animatePontianakError( triesLeft ) {
+    console.log( 'animating pontianak ERROR: ' + triesLeft );
+    $( '.pontianakBox div' ).fadeOut( 800 );
+    var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 1;
+    console.log( 'pontianak index:'  + pontianakIdx );
+    $( '.pontianak' + pontianakIdx ).show();
+    $( '.pontianak' + pontianakIdx ).sprite({
+        no_of_frames: frameQty[ pontianakIdx - 1 ],
+        fps: 8,
+        play_frames: frameQty[ pontianakIdx - 1 ]
+    });
 }

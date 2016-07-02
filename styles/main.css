@@ -185,11 +185,6 @@
     color: #fff;
 }
 
-#pontianak {
-    height: 100%;
-    background: transparent url( ../img/08_pondash.png ) 0 0 no-repeat;
-}
-
 .double-column {
     display: block;
     width: 100%;
@@ -206,4 +201,43 @@
 }
 .double-column li:first-child {
     width: 70%;
+}
+
+.double-column li.pontianakBox div {
+    height: 100%;
+    width: 300px;
+    display: none;
+    position: absolute;
+    /*background-position: center;*/
+}
+
+.pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
+.pontianak2 { background: transparent url( ../img/02_ponturn_1.png ) 0 0 no-repeat; }
+.pontianak3 { background: transparent url( ../img/03_ponwait_1.png ) 0 0 no-repeat; }
+.pontianak4 { background: transparent url( ../img/04_ponturn_2.png ) 0 0 no-repeat; }
+.pontianak5 { background: transparent url( ../img/05_ponwait_2.png ) 0 0 no-repeat; }
+.pontianak6 { background: transparent url( ../img/06_ponturn_3.png ) 0 0 no-repeat; }
+.pontianak7 { background: transparent url( ../img/07_ponwait_3.png ) 0 0 no-repeat; }
+.pontianak8 { background: transparent url( ../img/08_pondash.png ) 0 0 no-repeat; }
+
+#pageGuessDate li:first-child div {
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+#pageGuessDate li:first-child div a {
+    display: inline-block;
+    border: 1px solid #a80101;
+    text-align: center;
+    padding: 20px;
+    color: #ffc700;
+    font-weight: bold;
+    font-size: large;
+    border-right: 1px solid #a80101;
 }

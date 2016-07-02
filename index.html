@@ -21,9 +21,9 @@
 
     <!-- guess name -->
     <div id="pageGuessName">
-        <div class="centerElement borderDebug">
-            <ul class="double-column borderDebug">
-                <li class="borderDebug">
+        <div class="centerElement">
+            <ul class="double-column">
+                <li>
                     <p class="centerInlineHor edoFont fg-black" ng-show="guessCorrect">WHO AM I?</p>
                     <p class="centerInlineHor edoFont fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</p>
                     <p class="centerInlineHor edoFont-sm fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</p>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="centerInlineHor">
                         <div class="inputBorder" ng-repeat="item in name2">
-                            {{item.letter}}
+                            <span ng-if="item.display">{{item.letter}}</span>
                             <br />
                             <img src="img/dash.png" />
                         </div>
@@ -49,11 +49,19 @@
                             <br />
                             <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
                             <button ng-click="checkName()" class="btnGuess active">ENTER</button>
+                            <button onclick="hidePage( '#pageGuessName' ); showPage( '', '#pageGuessDate'); animatePontianakError( 0 );" class="btnGuess active">GUESS DATE</button>
                         </div>
                     </div>
                 </li>
-                <li  class="borderDebug">
-                    <div class="pontianak"></div>
+                <li  class="pontianakBox">
+                    <div class="pontianak1"></div>
+                    <div class="pontianak2"></div>
+                    <div class="pontianak3"></div>
+                    <div class="pontianak4"></div>
+                    <div class="pontianak5"></div>
+                    <div class="pontianak6"></div>
+                    <div class="pontianak7"></div>
+                    <div class="pontianak8"></div>
                 </li>
             </ul>
         </div>
@@ -61,13 +69,20 @@
 
     <!-- guess date -->
     <div id="pageGuessDate">
-        <div class="centerElement borderDebug">
-            <ul class="double-column borderDebug">
-                <li class="borderDebug">
-                    <a ng-repeat="date in dates">{{date.date}}</a>
+        <div class="centerElement">
+            <ul class="double-column">
+                <li>
+                    <p>THIS IS YET TO BE OVER</p>
+                    <p>How many nights will Halloween Horror Nights 6 be held?</p>
+                    <br />
+                    <div>
+                        <a ng-repeat="date in dates">
+                            {{date.date}}
+                        </a>
+                    </div>
                 </li>
                 <li  class="borderDebug">
-                    <div class="pontianak"></div>
+                    <div class="pontianak8"></div>
                 </li>
             </ul>
         </div>
