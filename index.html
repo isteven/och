@@ -80,9 +80,45 @@
                             {{date.date}}
                         </a>
                     </div>
+                    <button onclick="hidePage( '#pageGuessDate' ); showPage( '', '#pageShare'); animatePontianakError( 0 );" class="btnGuess active">SHARE</button>
                 </li>
-                <li  class="borderDebug">
-                    <div class="pontianak8"></div>
+                <li >
+                    <div class="pontianak8">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- guess date -->
+    <div id="pageShare">
+        <div class="centerElement">
+            <ul class="double-column">
+                <li>
+                    <img src="img/code.png" style="width: 150px" />
+                    <br />
+                    <p>
+                        Collect all 5 codes to unlock the final haunting
+                    </p>
+                    <p>
+                        <a href="#">
+                            <img src="img/download.svg"/>
+                            Download image
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <h3>Spread The Word Of Evil</h3>
+                    <p>
+                        Stand a chance to win 2 pairs of ticket to Halloween Horror
+                        Nights 6 by sharing your survival with friends.
+                    </p>
+                    <div class="guessBox">
+                        <p>Share &amp; win now</p>
+                        <p>Your time 04:05</p>
+                        <p>Leaderboard</p>
+                        ...
+                    </div>
                 </li>
             </ul>
         </div>
@@ -184,6 +220,8 @@
         </a>
     </div>
 
+    <script src=https://use.typekit.net/gmu3kbc.js></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="vendor/es5-shim.js"></script>
     <script src="vendor/eventShim.js"></script>
@@ -193,6 +231,8 @@
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
     <script src="vendor/jquery.spritely.js"></script>
+    <script src="vendor/motio.min.js"></script>
+    <script src="vendor/jquery.motio.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="controller.js"></script>

@@ -74,7 +74,26 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
             fps: 8,
             play_frames: frameQty[ pontianakIdx - 1 ]
         });
+
+
+        // let's try motio
+        // $( '.pontianakBox div' ).fadeOut( 800 );
+        // var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 1;
+        // console.log( 'pontianak index:'  + pontianakIdx );
+        // $( '.pontianak' + pontianakIdx ).show();
+        // var element = document.querySelector( '.pontianak' + pontianakIdx  );
+        // var sprite = new Motio(element, {
+        //     fps: 8,
+        //     frames: frameQty[ pontianakIdx - 1 ],
+        // });
+        // sprite.play();
+        // sprite.on( 'frame', function() {
+        //     if ( this.frame >= frameQty[ pontianakIdx - 1 ] ) {
+        //
+        //     }
+        // });
     }
+
 
     function animatePontianakWaiting( triesLeft ) {
         console.log( 'animating pontianak WAITING: ' + triesLeft );
@@ -152,6 +171,5 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
 
     $scope.name1 = angular.copy( nameArr1[ lang ]);
     $scope.name2 = angular.copy( nameArr2[ lang ]);
-    console.log( $scope.name1, $scope.name2 );
 
 }]);

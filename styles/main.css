@@ -74,7 +74,10 @@
     height: auto;
     margin-left: 10px;
 }
-#pageGuessName, #pageGuessDate {
+#pageGuessName,
+#pageGuessDate,
+#pageShare {
+    display: none;
     background-image: url('../img/q1_bg.png');
     background-position: center;
     background-size: cover;
@@ -235,9 +238,8 @@
     display: inline-block;
     border: 1px solid #a80101;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color: #ffc700;
     font-weight: bold;
-    font-size: large;
     border-right: 1px solid #a80101;
 }

@@ -178,7 +178,7 @@
     }
 
     function switchScene(scene) {
-        console.log( 'switching scene' );
+        // console.log( 'switching scene' );
         stopAutorotate();
         scene.marzipanoObject.switchTo();
         startAutorotate();
@@ -186,7 +186,7 @@
         updateSceneList(scene);
         activeScene = scene;
 
-        console.log( activeScene );
+        // console.log( activeScene );
     }
 
     function updateSceneName(scene) {
