@@ -4,7 +4,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
 
     $scope.guessCorrect = true;
     $scope.failLetter   = '';
-    $scope.triesLeft    = 4;
+    $scope.triesLeft    = 5;
     $scope.singleLetter = '';
     $scope.dates = [
         { date: 10 },
@@ -39,8 +39,8 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         { letter: 'a', display: false }
     ];
 
-    var lang = 'en';
-    var frameQty = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
+    var lang        = 'en';
+    var frameQty    = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
 
     function getUrlVar( variable )
     {
@@ -66,7 +66,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
     function animatePontianakError( triesLeft ) {
         console.log( 'animating pontianak ERROR: ' + triesLeft );
         $( '.pontianakBox div' ).fadeOut( 800 );
-        var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 1;
+        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
         console.log( 'pontianak index:'  + pontianakIdx );
         $( '.pontianak' + pontianakIdx ).show();
         $( '.pontianak' + pontianakIdx ).sprite({
@@ -75,29 +75,12 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
             play_frames: frameQty[ pontianakIdx - 1 ]
         });
 
-
-        // let's try motio
-        // $( '.pontianakBox div' ).fadeOut( 800 );
-        // var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 1;
-        // console.log( 'pontianak index:'  + pontianakIdx );
-        // $( '.pontianak' + pontianakIdx ).show();
-        // var element = document.querySelector( '.pontianak' + pontianakIdx  );
-        // var sprite = new Motio(element, {
-        //     fps: 8,
-        //     frames: frameQty[ pontianakIdx - 1 ],
-        // });
-        // sprite.play();
-        // sprite.on( 'frame', function() {
-        //     if ( this.frame >= frameQty[ pontianakIdx - 1 ] ) {
-        //
-        //     }
-        // });
     }
 
 
     function animatePontianakWaiting( triesLeft ) {
         console.log( 'animating pontianak WAITING: ' + triesLeft );
-        var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 2;
+        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
         console.log( 'pontianak index:'  + pontianakIdx );
         $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
         $( '.pontianakBox div' ).fadeOut( 800 );
@@ -133,9 +116,11 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
                 $scope.failLetter = $scope.singleLetter;
                 $scope.triesLeft--;
                 animatePontianakError( $scope.triesLeft + 1 );
-                setTimeout( function() {
-                    animatePontianakWaiting( $scope.triesLeft + 1 );
-                }, 2000 );
+                if ( $scope.triesLeft > 1 ) {
+                    setTimeout( function() {
+                        animatePontianakWaiting( $scope.triesLeft + 1 );
+                    }, 2000 );
+                }
                 // else {
                 //     setTimeout( function() {
                 //         // hidePage( '#pageGuessName' );
@@ -151,22 +136,55 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         }
     }
 
-    $scope.checkDate = function() {
-        $http({
-            method: 'POST',
-            url: 'http://www.corakrupa.com/checkDate',
-            data: JSON.stringify( name )
-        })
-        .then(function() {
-            // if name is correct; go to next screen (guess event date)
-        },function() {
-            // if name error; do ghost animation; increase error counter
-        });
-    }
-
     var tempLang = getUrlVar( 'lang' );
     if ( tempLang ) {
         lang = tempLang;
+    }
+
+    $scope.initiateJumpScare = function() {
+        $( '.pontianakBox div' ).fadeOut( 800 );
+        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
+        console.log( 'pontianak index:'  + pontianakIdx );
+        $( '.pontianak' + pontianakIdx ).show();
+        $( '.pontianak' + pontianakIdx ).sprite({
+            no_of_frames: frameQty[ pontianakIdx - 1 ],
+            fps: 8,
+            play_frames: frameQty[ pontianakIdx - 1 ]
+        });
+    }
+
+    $scope.showPage = function( domString ) {
+        window.showPage( domString );
+    }
+
+    $scope.hidePage = function( domString ) {
+        window.hidePage( domString );
+    }
+
+    $scope.checkDate = function() {
+        var dataToSend = {
+            id          : null,
+            game        : 1,
+            account     : 'facebook',
+            user_name   : 'test-user',
+            full_name   : 'mr. test-user',
+            time        : 885,
+            email       : 'test@test.com',
+            phone       : '99998888'
+        };
+
+        $http({
+            method  : 'POST',
+            url     : 'http://54.169.173.245/clients/rws/hhn6/_laravel/game/submit',
+            data    : dataToSend
+        }).then(
+            function( success ) {
+                console.log( success );
+            },
+            function( error ) {
+                console.log( error );
+            }
+        );
     }
 
     $scope.name1 = angular.copy( nameArr1[ lang ]);

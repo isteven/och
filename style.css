@@ -23,7 +23,8 @@ html, body {
   margin: 0;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  /* font-size: 16px;*/
+  font-size: 100%;
   background-color: #000;
   color: #fff;
 }

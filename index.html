@@ -12,9 +12,11 @@
         }
     </style>
     <link rel="stylesheet" href="vendor/reset.min.css">
+    <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
 </head>
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
@@ -22,11 +24,11 @@
     <!-- guess name -->
     <div id="pageGuessName">
         <div class="centerElement">
-            <ul class="double-column">
-                <li>
-                    <p class="centerInlineHor edoFont fg-black" ng-show="guessCorrect">WHO AM I?</p>
-                    <p class="centerInlineHor edoFont fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</p>
-                    <p class="centerInlineHor edoFont-sm fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</p>
+            <ul class="double-column borderDebug">
+                <li class="borderDebug">
+                    <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
+                    <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
+                    <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
                     <br /><br />
                     <div class="centerInlineHor">
                         <div class="inputBorder" ng-repeat="item in name1">
@@ -49,7 +51,7 @@
                             <br />
                             <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
                             <button ng-click="checkName()" class="btnGuess active">ENTER</button>
-                            <button onclick="hidePage( '#pageGuessName' ); showPage( '', '#pageGuessDate'); animatePontianakError( 0 );" class="btnGuess active">GUESS DATE</button>
+                            <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnGuess active">GUESS DATE</button>
                         </div>
                     </div>
                 </li>
@@ -62,6 +64,7 @@
                     <div class="pontianak6"></div>
                     <div class="pontianak7"></div>
                     <div class="pontianak8"></div>
+                    <div class="pontianak9"></div>
                 </li>
             </ul>
         </div>
@@ -71,19 +74,23 @@
     <div id="pageGuessDate">
         <div class="centerElement">
             <ul class="double-column">
-                <li>
-                    <p>THIS IS YET TO BE OVER</p>
-                    <p>How many nights will Halloween Horror Nights 6 be held?</p>
-                    <br />
-                    <div>
-                        <a ng-repeat="date in dates">
-                            {{date.date}}
-                        </a>
+                <li class="borderDebug">
+                    <div class="centerVer centerInlineHor">
+                        <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
+                        <br /><br />
+                        <h3 class="centerInlineHor">How many nights will <br />Halloween Horror Nights 6 be held?</h3>
+                        <br />
+                        <br />
+                        <div>
+                            <a ng-repeat="date in dates" ng-click="checkDate( date.date );hidePage( '#pageGuessDate' ); showPage( '#pageShare'); ">
+                                {{date.date}}
+                            </a>
+                        </div>
+                        <br /><br />
                     </div>
-                    <button onclick="hidePage( '#pageGuessDate' ); showPage( '', '#pageShare'); animatePontianakError( 0 );" class="btnGuess active">SHARE</button>
                 </li>
-                <li >
-                    <div class="pontianak8">
+                <li class="pontianakBox">
+                    <div class="pontianak9">
                     </div>
                 </li>
             </ul>
@@ -95,14 +102,14 @@
         <div class="centerElement">
             <ul class="double-column">
                 <li>
-                    <img src="img/code.png" style="width: 150px" />
+                    <img src="img/code.png" class="" />
                     <br />
                     <p>
                         Collect all 5 codes to unlock the final haunting
                     </p>
                     <p>
                         <a href="#">
-                            <img src="img/download.svg"/>
+                            <!-- <img src="img/download.svg"/> -->
                             Download image
                         </a>
                     </p>
@@ -141,7 +148,7 @@
     <img src="img/emf_1.png" class="empMeter" />
 
     <!-- clues counter -->
-    <div class="cluesCtr" onclick="showPage( '', '.fadePage' );showPage( '', '#pageClues'); showClues();">
+    <div class="cluesCtr" onclick="showPage( '.fadePage' );showPage( '', '#pageClues'); showClues();">
         <img src="img/clue.png" />
     </div>
 

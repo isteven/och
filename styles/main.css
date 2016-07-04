@@ -1,3 +1,8 @@
+body {
+    font-family: lato, sans-serif;
+    color: #e5e5cf;
+}
+
 .borderDebug {
     border: 1px solid red;
 }
@@ -43,8 +48,15 @@
 .centerInlineHor {
     text-align: center;
     border: none;
-
 }
+.centerVer {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
 .btnClose {
     position: absolute;
     left: 75%;
@@ -95,6 +107,12 @@
     height: 60%;
     width: 80%;
     transform: translate(-50%, -50%);
+}
+
+#pageGuessDate,
+#pageShare {
+    background-image: none;
+    background-color: #000;
 }
 
 /*#pageGuessName > div > input {
@@ -157,17 +175,23 @@
     margin-left: 10px;
     text-align: center;
 }
-.edoFont {
-    font-family: "edoregular", Serif;
-    font-size: 300%;
+.font-edo {
+    font-family: "edoregular", sans-serif;
 }
-.edoFont-sm {
-    font-family: "edoregular", Serif;
-    font-size: 150%;
+
+.font-trajan-pro {
+    font-family: "trajan-pro-3", courier;
+}
+
+.fg-whitish {
+    color: #e5e5cf;
 }
 
 .fg-black {
     color: #000;
+}
+.fg-red {
+    color: #a80101;
 }
 .guessBox {
     /*border-image-source: url('../img/texture.jpg');*/
@@ -199,12 +223,26 @@
     list-style: none;
     height: 100%;
 }
-.double-column li {
+#pageGuessName .double-column li {
     width: 30%;
 }
-.double-column li:first-child {
+#pageGuessName .double-column li:first-child {
     width: 70%;
 }
+
+#pageGuessDate > div {
+    width: 50%;
+}
+
+#pageGuessDate  .double-column li,
+#pageShare      .double-column li {
+    width: 50%;
+}
+#pageGuessDate  .double-column li:first-child,
+#pageShare      .double-column li:first-child {
+    width: 50%;
+}
+
 
 .double-column li.pontianakBox div {
     height: 100%;
@@ -215,15 +253,16 @@
 }
 
 .pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
-.pontianak2 { background: transparent url( ../img/02_ponturn_1.png ) 0 0 no-repeat; }
-.pontianak3 { background: transparent url( ../img/03_ponwait_1.png ) 0 0 no-repeat; }
-.pontianak4 { background: transparent url( ../img/04_ponturn_2.png ) 0 0 no-repeat; }
-.pontianak5 { background: transparent url( ../img/05_ponwait_2.png ) 0 0 no-repeat; }
-.pontianak6 { background: transparent url( ../img/06_ponturn_3.png ) 0 0 no-repeat; }
-.pontianak7 { background: transparent url( ../img/07_ponwait_3.png ) 0 0 no-repeat; }
-.pontianak8 { background: transparent url( ../img/08_pondash.png ) 0 0 no-repeat; }
+.pontianak2 { background: transparent url( ../img/02_ponwait.png ) 0 0 no-repeat; }
+.pontianak3 { background: transparent url( ../img/03_ponturn_1.png ) 0 0 no-repeat; }
+.pontianak4 { background: transparent url( ../img/04_ponwait_1.png ) 0 0 no-repeat; }
+.pontianak5 { background: transparent url( ../img/05_ponturn_2.png ) 0 0 no-repeat; }
+.pontianak6 { background: transparent url( ../img/06_ponwait_2.png ) 0 0 no-repeat; }
+.pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
+.pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
+.pontianak9 { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
 
-#pageGuessDate li:first-child div {
+#pageGuessDate li:first-child div div  {
     display: inline-block;
     border-style: solid;
     border-width: 4px 4px 4px 4px;
@@ -234,12 +273,40 @@
     background-color: rgba(0, 0, 0, 0.60);
 }
 
-#pageGuessDate li:first-child div a {
+#pageGuessDate li:first-child div div a {
     display: inline-block;
-    border: 1px solid #a80101;
+    border-left: 1px solid #a80101;
+    border-right: 1px solid #a80101;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
+    font-size: 120%;
     color: #ffc700;
     font-weight: bold;
     border-right: 1px solid #a80101;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 220%;
+}
+
+h3 {
+    font-size: 190%;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 160%;
+}
+
+h5 {
+    font-size: 130%;
+}
+
+h6 {
+    font-size: 110%;
 }

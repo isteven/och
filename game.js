@@ -5,7 +5,7 @@ var cluesFound      = [ false, false, false ];
 var clueIndex       = 0;
 var tempHotspots    = [];
 var activeSceneList = [ '0-scene-1', '0-scene-2', '0-scene-3' ];
-var frameQty = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
+var frameQty        = [ 9, 8, 7, 8, 6, 8, 6, 8, 8 ];
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
@@ -100,10 +100,7 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
     });
 });
 
-var showPage = function( oldPage, newPage ) {
-    if ( oldPage != '' ) {
-        $( oldPage ).fadeOut();
-    }
+var showPage = function( newPage ) {
     $( newPage ).fadeIn();
 }
 
@@ -136,19 +133,32 @@ var showClues = function() {
 
     // hidePage( '.fadePage' );
     hidePage( '#pageClues' );
-    showPage( '', '#pageGuessName' );
+    showPage( '#pageGuessName' );
     $( '#pageGuessName' ).show();
 }
 
 function animatePontianakError( triesLeft ) {
     console.log( 'animating pontianak ERROR: ' + triesLeft );
     $( '.pontianakBox div' ).fadeOut( 800 );
-    var pontianakIdx = ( ( 4 - triesLeft ) * 2 ) + 1;
+    var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
     console.log( 'pontianak index:'  + pontianakIdx );
     $( '.pontianak' + pontianakIdx ).show();
     $( '.pontianak' + pontianakIdx ).sprite({
         no_of_frames: frameQty[ pontianakIdx - 1 ],
         fps: 8,
         play_frames: frameQty[ pontianakIdx - 1 ]
+    });
+}
+
+function animatePontianakWaiting( triesLeft ) {
+    console.log( 'animating pontianak WAITING: ' + triesLeft );
+    var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
+    console.log( 'pontianak index:'  + pontianakIdx );
+    $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
+    $( '.pontianakBox div' ).fadeOut( 800 );
+    $( '.pontianak' + pontianakIdx ).show();
+    $( '.pontianak' + pontianakIdx ).sprite({
+        no_of_frames: frameQty[ pontianakIdx - 1 ],
+        fps: 4
     });
 }
