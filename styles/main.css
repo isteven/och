@@ -187,6 +187,10 @@ body {
     color: #e5e5cf;
 }
 
+.fg-yellow {
+    color: #ffc700;
+}
+
 .fg-black {
     color: #000;
 }
@@ -223,26 +227,26 @@ body {
     list-style: none;
     height: 100%;
 }
+
+#pageGuessDate > div {
+    width: 50%;
+}
+
+.double-column li,
+.double-column li {
+    width: 50%;
+}
+.double-column li:first-child,
+.double-column li:first-child {
+    width: 50%;
+}
+
 #pageGuessName .double-column li {
     width: 30%;
 }
 #pageGuessName .double-column li:first-child {
     width: 70%;
 }
-
-#pageGuessDate > div {
-    width: 50%;
-}
-
-#pageGuessDate  .double-column li,
-#pageShare      .double-column li {
-    width: 50%;
-}
-#pageGuessDate  .double-column li:first-child,
-#pageShare      .double-column li:first-child {
-    width: 50%;
-}
-
 
 .double-column li.pontianakBox div {
     height: 100%;
@@ -309,4 +313,17 @@ h5 {
 
 h6 {
     font-size: 110%;
+}
+
+.clueImage {
+    max-height: 200px;
+    width: auto;
+}
+
+.guessBoxHeader {
+    padding: 5px;
+    background-image: url(../img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
