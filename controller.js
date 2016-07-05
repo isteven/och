@@ -39,6 +39,21 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         { letter: 'a', display: false }
     ];
 
+    $scope.entry1to5 = [
+        { time: 100 },
+        { time: 200 },
+        { time: 300 },
+        { time: 400 },
+        { time: 500 },
+    ];
+    $scope.entry2to5 = [
+        { time: 600 },
+        { time: 700 },
+        { time: 800 },
+        { time: 900 },
+        { time: 1000 }, 
+    ]
+
     var lang        = 'en';
     var frameQty    = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
 

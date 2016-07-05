@@ -100,59 +100,61 @@
     <!-- guess date -->
     <div id="pageShare">
         <div class="centerElement">
-            <ul class="double-column borderDebug">
+            <ul class="double-column">
                 <li>
-                    <div class="centerInlineHor">
-                        <img src="img/code.png" class="clueImage" />
+                    <div class="clueImage">
+                        <img src="img/code.png" class="centerHor"/>
                     </div>
                     <br />
                     <p class="centerInlineHor">
                         Collect all 5 codes to unlock the final haunting
                     </p>
                     <p class="centerInlineHor">
-                        <a href="#">
+                        <a href="#" class="fg-yellow">
                             <!-- <img src="img/download.svg"/> -->
                             Download image
                         </a>
                     </p>
                 </li>
                 <li>
-                    <h5 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h5>
+                    <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
                     <br />
                     <p class="centerInlineHor">
                         Stand a chance to win 2 pairs of ticket to Halloween Horror
                         Nights 6 by sharing your survival with friends.
                     </p>
                     <br />
-                    <div class="guessBoxHeader">
-                        <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
-                    </div>
-                    <div class="guessBox">
-                        <p>YOUR TIME <span class="fg-yellow">04:05</span></p>
-                        <ul class="shareIcons">
-                            <li>
-                                FB
-                            </li>
-                            <li>
-                                TW
-                            </li>
-                            <li>
-                                WB
-                            </li>
-                        </ul>
-                        <p>LEADERBOARD</p>
-                        <ul class="double-column leaderboard">
-                            <li>
-                                <div ng-repeat="entry in entry1to5">
-                                    {{$index}}. {{entry.time}}
-                                </div>
-                            </li>
-                            <li>
-                                <div ng-repeat="entry in entry2to5">
-                                    {{$index}}. {{entry.time}}
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="leaderboardBox">
+                        <div class="guessBoxHeader">
+                            <p class="font-trajan-pro bold fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                        </div>
+                        <div class="guessBox leaderboardBox">
+                            <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">04:05</span></p>
+                            <br />
+                            <div class="centerInlineHor">
+                                <a href="#">FB</a>
+                                <a href="#">TW</a>
+                                <a href="#">WB</a>
+                            </div>
+                            <br />
+                            <div class="topBorderRed">
+                                <br />
+                                <p class="bold centerInlineHor">LEADERBOARD</p>
+                                <br />
+                                <ul class="double-column centerInlineHor leaderboard">
+                                    <li>
+                                        <div ng-repeat="entry in entry1to5">
+                                            {{$index}}. {{entry.time}}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div ng-repeat="entry in entry2to5">
+                                            {{$index}}. {{entry.time}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>

@@ -57,6 +57,11 @@ body {
     transform: translate(0%, -50%);
 }
 
+.centerHor {
+    display: block;
+    margin: 0 auto;
+}
+
 .btnClose {
     position: absolute;
     left: 75%;
@@ -186,11 +191,9 @@ body {
 .fg-whitish {
     color: #e5e5cf;
 }
-
 .fg-yellow {
     color: #ffc700;
 }
-
 .fg-black {
     color: #000;
 }
@@ -209,11 +212,12 @@ body {
     background-color: rgba(0, 0, 0, 0.60);
     padding: 30px;
 }
-.guessBox> input {
+.guessBox > input {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #a80101;
     color: #fff;
+    font-size: 200%;
 }
 
 .double-column {
@@ -316,14 +320,35 @@ h6 {
 }
 
 .clueImage {
-    max-height: 200px;
-    width: auto;
+    padding: 0px 80px 80px 80px;
+    background-image: url( ../img/code_bg.png );
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.clueImage > img {
+    min-width: 350px;
+    max-width: 70%;
+    height: auto;
 }
 
 .guessBoxHeader {
-    padding: 5px;
+    padding: 12px 7px 7px 7px;
     background-image: url(../img/texture.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.leaderboardBox {
+    width: 100%;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.topBorderRed {
+    border-top: 1px solid #a80101;
 }
