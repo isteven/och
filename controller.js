@@ -2,7 +2,8 @@ var myApp = angular.module('myApp',[]);
 
 myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
 
-    var gameStartTime = performance.now();
+    var gameStartTime   = null;
+    var gameEndTime     = null;
 
     $scope.guessCorrect = true;
     $scope.failLetter   = '';
@@ -178,9 +179,21 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         window.hidePage( domString );
     }
 
+    $scope.checkDate = function( date ) {
+        if ( date == 16 ) {
+            hidePage( '#pageGuessDate' );
+            showPage( '#pageShare');
+            $scope.share();
+        }
+        else {
+            hidePage( '#pageGuessDate' );
+            showPage( '#pageFails');
+        }
+    }
+
     $scope.share = function( type ) {
 
-        var gameEndTime = performance.now();
+        gameEndTime = performance.now();
         var elapsedGameTime = gameStartTime - gameEndTime;
 
         FB.ui({
@@ -218,7 +231,23 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         });
     }
 
-    $scope.name1 = angular.copy( nameArr1[ lang ]);
-    $scope.name2 = angular.copy( nameArr2[ lang ]);
+    $scope.startGame = function() {
 
+        gameStartTime   = null;
+        gameEndTime     = null;
+
+        $scope.guessCorrect = true;
+        $scope.failLetter   = '';
+        $scope.triesLeft    = 5;
+        $scope.singleLetter = '';
+
+        $scope.name1 = angular.copy( nameArr1[ lang ]);
+        $scope.name2 = angular.copy( nameArr2[ lang ]);
+
+        hidePage( '.fadePage' );
+        $( '#pageLanding' ).fadeOut( 400 );
+        hidePage( '#pageFails' );
+    }
+
+    showPage( '#pageLanding' );
 }]);

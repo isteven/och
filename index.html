@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 
 <head>
-    <title>Project Title</title>
+    <title>Halloween Horror Night 6</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
@@ -43,11 +43,48 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <!-- landing page -->
+    <div id="pageLanding">
+        <div class="centerElement">
+            <h3 class="font-trajan-pro fg-whitish">Old Changi Hospital</h3>
+            <p>
+                Evil takes form in the derelict hallways of Old Changi Hospital
+                as vengeful souls rise once again in the dead of the night.
+                Will Singapore's bloodiest history repeat itself?
+            </p>
+            <div>
+                <p class="fg-yellow">
+                    TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME
+                </p>
+                <a class="btnBlood active" ng-click="startGame();">
+                    START GAME
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="pageFails">
+        <div class="centerElement">
+            <h3 class="font-trajan-pro fg-whitish">
+                The Past Has Caught On You
+            </h3>
+            <br />
+            <p>
+                However, history tends to repeat itself. You've been given
+                another chance to unravel the true name of evil.
+            </p>
+            <br />
+            <a class="btnBlood active" ng-click="startGame();">
+                TRY AGAIN
+            </a>
+        </div>
+    </div>
+
     <!-- guess name -->
     <div id="pageGuessName">
         <div class="centerElement">
-            <ul class="double-column borderDebug">
-                <li class="borderDebug">
+            <ul class="double-column">
+                <li>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
@@ -74,8 +111,8 @@
                             <p>Enter a character to unravel the name</p>
                             <br />
                             <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont" />
-                            <button ng-click="checkName()" class="btnGuess active">ENTER</button>
-                            <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnGuess active">GUESS DATE</button>
+                            <button ng-click="checkName()" class="btnBlood active">ENTER</button>
+                            <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button>
                         </div>
                     </div>
                 </li>
@@ -107,7 +144,7 @@
                         <br />
                         <br />
                         <div>
-                            <a ng-repeat="date in dates" ng-click="checkDate( date.date );hidePage( '#pageGuessDate' ); showPage( '#pageShare'); ">
+                            <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
                                 {{date.date}}
                             </a>
                         </div>
@@ -226,7 +263,7 @@
         <img src="img/photo_clue_blank.png" class="borderDebug" />
         <br />
         <br />
-        <a href="#" class="btnGuess">
+        <a href="#" class="btnBlood">
             Guess
         </a>
     </div>
