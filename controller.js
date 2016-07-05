@@ -2,6 +2,8 @@ var myApp = angular.module('myApp',[]);
 
 myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
 
+    var gameStartTime = performance.now();
+
     $scope.guessCorrect = true;
     $scope.failLetter   = '';
     $scope.triesLeft    = 5;
@@ -51,7 +53,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         { time: 700 },
         { time: 800 },
         { time: 900 },
-        { time: 1000 }, 
+        { time: 1000 },
     ]
 
     var lang        = 'en';
@@ -176,30 +178,44 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         window.hidePage( domString );
     }
 
-    $scope.checkDate = function() {
-        var dataToSend = {
-            id          : null,
-            game        : 1,
-            account     : 'facebook',
-            user_name   : 'test-user',
-            full_name   : 'mr. test-user',
-            time        : 885,
-            email       : 'test@test.com',
-            phone       : '99998888'
-        };
+    $scope.share = function( type ) {
 
-        $http({
-            method  : 'POST',
-            url     : 'http://54.169.173.245/clients/rws/hhn6/_laravel/game/submit',
-            data    : dataToSend
-        }).then(
-            function( success ) {
-                console.log( success );
-            },
-            function( error ) {
-                console.log( error );
+        var gameEndTime = performance.now();
+        var elapsedGameTime = gameStartTime - gameEndTime;
+
+        FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.likes',
+            action_properties: JSON.stringify({
+                object: 'https://developers.facebook.com/docs/',
+            })
+        }, function(response) {
+            if ( typeof response != 'undefined' ) {
+                var dataToSend = {
+                    id          : null,
+                    game        : 1,
+                    account     : 'facebook',
+                    user_name   : 'test-user',
+                    full_name   : 'mr. test-user',
+                    time        : elapsedGameTime,
+                    email       : 'test@test.com',
+                    phone       : '99998888'
+                };
+
+                $http({
+                    method  : 'POST',
+                    url     : 'http://54.169.173.245/clients/rws/hhn6/_laravel/game/submit',
+                    data    : dataToSend
+                }).then(
+                    function( success ) {
+                        console.log( success );
+                    },
+                    function( error ) {
+                        console.log( error );
+                    }
+                );
             }
-        );
+        });
     }
 
     $scope.name1 = angular.copy( nameArr1[ lang ]);

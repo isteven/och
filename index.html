@@ -21,6 +21,28 @@
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
 
+    <!-- facebook share  -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1170183606339093',
+                xfbml: true,
+                version: 'v2.6'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <!-- guess name -->
     <div id="pageGuessName">
         <div class="centerElement">
@@ -29,7 +51,8 @@
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
-                    <br /><br />
+                    <br />
+                    <br />
                     <div class="centerInlineHor">
                         <div class="inputBorder" ng-repeat="item in name1">
                             <span ng-if="item.display">{{item.letter}}</span>
@@ -44,18 +67,19 @@
                             <img src="img/dash.png" />
                         </div>
                     </div>
-                    <br /><br />
+                    <br />
+                    <br />
                     <div class="centerInlineHor">
                         <div class="guessBox">
                             <p>Enter a character to unravel the name</p>
                             <br />
-                            <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont"/>
+                            <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont" />
                             <button ng-click="checkName()" class="btnGuess active">ENTER</button>
                             <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnGuess active">GUESS DATE</button>
                         </div>
                     </div>
                 </li>
-                <li  class="pontianakBox">
+                <li class="pontianakBox">
                     <div class="pontianak1"></div>
                     <div class="pontianak2"></div>
                     <div class="pontianak3"></div>
@@ -77,7 +101,8 @@
                 <li class="borderDebug">
                     <div class="centerVer centerInlineHor">
                         <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
-                        <br /><br />
+                        <br />
+                        <br />
                         <h3 class="centerInlineHor">How many nights will <br />Halloween Horror Nights 6 be held?</h3>
                         <br />
                         <br />
@@ -86,7 +111,8 @@
                                 {{date.date}}
                             </a>
                         </div>
-                        <br /><br />
+                        <br />
+                        <br />
                     </div>
                 </li>
                 <li class="pontianakBox">
@@ -103,16 +129,16 @@
             <ul class="double-column">
                 <li>
                     <div class="clueImage">
-                        <img src="img/code.png" class="centerHor"/>
+                        <img src="img/code.png" class="centerHor" />
                     </div>
                     <br />
                     <p class="centerInlineHor">
                         Collect all 5 codes to unlock the final haunting
                     </p>
                     <p class="centerInlineHor">
-                        <a href="#" class="fg-yellow">
+                        <a href="#" class="iconDownload fg-yellow">
                             <!-- <img src="img/download.svg"/> -->
-                            Download image
+                            DOWNLOAD IMAGE
                         </a>
                     </p>
                 </li>
@@ -120,21 +146,20 @@
                     <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
                     <br />
                     <p class="centerInlineHor">
-                        Stand a chance to win 2 pairs of ticket to Halloween Horror
-                        Nights 6 by sharing your survival with friends.
+                        Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
                     </p>
                     <br />
                     <div class="leaderboardBox">
-                        <div class="guessBoxHeader">
+                        <div>
                             <p class="font-trajan-pro bold fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
                         </div>
-                        <div class="guessBox leaderboardBox">
+                        <div class="guessBox">
                             <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">04:05</span></p>
                             <br />
                             <div class="centerInlineHor">
-                                <a href="#">FB</a>
-                                <a href="#">TW</a>
-                                <a href="#">WB</a>
+                                <a href="#" class="iconSocMed facebook" ng-click="share( 'facebook' )"></a>
+                                <a href="#" class="iconSocMed twitter"></a>
+                                <a href="#" class="iconSocMed weibo"></a>
                             </div>
                             <br />
                             <div class="topBorderRed">
@@ -196,9 +221,9 @@
     <div id="pageClues">
         <a href="#" class="closeButtonRed">
         </a>
-        <img src="img/photo_clue_blank.png" class="borderDebug"/>
-        <img src="img/photo_clue_blank.png" class="borderDebug"/>
-        <img src="img/photo_clue_blank.png" class="borderDebug"/>
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
+        <img src="img/photo_clue_blank.png" class="borderDebug" />
         <br />
         <br />
         <a href="#" class="btnGuess">
@@ -258,7 +283,13 @@
     </div>
 
     <script src=https://use.typekit.net/gmu3kbc.js></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="vendor/es5-shim.js"></script>
     <script src="vendor/eventShim.js"></script>

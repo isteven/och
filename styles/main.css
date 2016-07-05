@@ -192,7 +192,7 @@ body {
     color: #e5e5cf;
 }
 .fg-yellow {
-    color: #ffc700;
+    color: #ffc700 !important;
 }
 .fg-black {
     color: #000;
@@ -342,6 +342,11 @@ h6 {
 }
 
 .leaderboardBox {
+    min-width: 400px;
+    width: 70%;
+}
+
+.leaderboardBox > div:nth-child(2) {
     width: 100%;
 }
 
@@ -351,4 +356,34 @@ h6 {
 
 .topBorderRed {
     border-top: 1px solid #a80101;
+}
+
+.iconSocMed {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.iconSocMed.facebook        { background-image: url(../img/icon_fb.png); }
+.iconSocMed.facebook:hover  { background-image: url(../img/icon_fb_ro.png); }
+
+.iconSocMed.twitter         { background-image: url(../img/icon_twitter.png); }
+.iconSocMed.twitter:hover   { background-image: url(../img/icon_twitter_ro.png); }
+
+.iconSocMed.weibo           { background-image: url(../img/icon_fb.png); }
+.iconSocMed.weibo:hover     { background-image: url(../img/icon_fb_ro.png); }
+
+.iconDownload {
+    display: inline-block;
+    margin: 20px;
+    background-image: url( ../img/icon_download.png);
+    height: 30px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 37px;
+    line-height: 30px;
 }
