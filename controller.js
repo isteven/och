@@ -5,6 +5,11 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
     var gameStartTime   = null;
     var gameEndTime     = null;
 
+    $scope.menu         = {};
+    $scope.menu.active  = false;
+    $scope.footer               = {};
+    $scope.footer.section       = '';
+    $scope.footer.popupActive   = false;
     $scope.guessCorrect = true;
     $scope.failLetter   = '';
     $scope.triesLeft    = 5;
@@ -59,6 +64,15 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
 
     var lang        = 'en';
     var frameQty    = [ 9, 7, 8, 6, 8, 6, 8, 8 ];
+
+    $scope.showFooterPopup = function( type ) {
+        $scope.footer.popupActive  = true;
+        $scope.footer.section = type;
+    }
+
+    $scope.hideFooterPopup = function( type ) {
+        $scope.footer.popupActive  = false;
+    }
 
     function getUrlVar( variable )
     {
@@ -182,8 +196,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
     $scope.checkDate = function( date ) {
         if ( date == 16 ) {
             hidePage( '#pageGuessDate' );
-            showPage( '#pageShare');
-            $scope.share();
+            showPage( '#pageShare');            
         }
         else {
             hidePage( '#pageGuessDate' );
@@ -240,6 +253,7 @@ myApp.controller( 'bodyCtrl', [ '$scope', '$http', function( $scope, $http ) {
         $scope.failLetter   = '';
         $scope.triesLeft    = 5;
         $scope.singleLetter = '';
+        $scope.menu.active  = false;
 
         $scope.name1 = angular.copy( nameArr1[ lang ]);
         $scope.name2 = angular.copy( nameArr2[ lang ]);

@@ -1,0 +1,28 @@
+.hdr {
+    background: rgba(0, 0, 0, 0) url("../images/header-mask.png") no-repeat scroll 0 0 / 100% 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.hdr__logo {
+    display: block;
+    max-width: 543px;
+    opacity: 1;
+    width: 40%;
+}
+a {
+    text-decoration: none;
+    transition: all 0.5s ease-out 0s;
+}
+a, body {
+    color: #e5e5cf;
+}
+a {
+    background-color: transparent;
+}
+* {
+    box-sizing: border-box;
+}
+*::-moz-placeholder {
+    color: #e5e5cf;
+}
