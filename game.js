@@ -111,6 +111,7 @@ var hidePage = function( page ) {
 var showClues = function() {
     var allCluesFound = 0;
     $('#pageClues > .closeButtonRed').show();
+    showPage( '#pageClues' );
     for ( var i = 0; i < 3; i++ )
     {
         if ( cluesFound[ i ] ) {
@@ -125,40 +126,75 @@ var showClues = function() {
     });
 
     if ( allCluesFound == 3 ) {
-        $( '#pageClues > .btnGuess' ).addClass( 'active' );
-        $( '#pageClues > .btnGuess.active' ).click( function(e) {
-
-        } );
+        $( '#pageClues > .btnBlood' ).addClass( 'active' );
+        $( '#pageClues > .btnBlood.active' ).click( function(e) {
+            hidePage( '.fadePage' );
+            showPage( '#pageGuessName' );
+        });
     }
 
     // hidePage( '.fadePage' );
-    hidePage( '#pageClues' );
-    showPage( '#pageGuessName' );
-    $( '#pageGuessName' ).show();
+    // hidePage( '#pageClues' );
+    // showPage( '#pageGuessName' );
+    // $( '#pageGuessName' ).show();
 }
 
-function animatePontianakError( triesLeft ) {
-    console.log( 'animating pontianak ERROR: ' + triesLeft );
+
+function animatePontianakError( triesLeft, haveWaiting ) {
+
     $( '.pontianakBox div' ).fadeOut( 800 );
     var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
-    console.log( 'pontianak index:'  + pontianakIdx );
     $( '.pontianak' + pontianakIdx ).show();
-    $( '.pontianak' + pontianakIdx ).sprite({
+    var element = document.querySelector( '.pontianak' + pontianakIdx );
+    var sprite = new Motio(element, {
+        fps: 8,
+        frames: frameQty[ pontianakIdx - 1 ]
+    });
+    // sprite.play(); // start animation
+    sprite.to( ( frameQty[ pontianakIdx - 1 ] - 1 ) );
+    if ( typeof haveWaiting != 'undefined' && haveWaiting == true ) {
+        setTimeout( function() {
+            $( '.pontianak' + pontianakIdx ).hide();
+            $( '.pontianak' + (pontianakIdx + 1) ).show();
+            var element = document.querySelector( '.pontianak' + ( pontianakIdx + 1 ) );
+            var sprite = new Motio(element, {
+                fps: 8,
+                frames: frameQty[ pontianakIdx ]
+            });
+            sprite.play();
+        }, 1200 );
+    }
+
+    // $( '.pontianak' + pontianakIdx ).sprite({
+    /*
         no_of_frames: frameQty[ pontianakIdx - 1 ],
         fps: 8,
         play_frames: frameQty[ pontianakIdx - 1 ]
     });
+    */
+}
+
+function animatePontianakSpecial() {
+    $( '.pontianakSpecial' ).show();
+    var element = document.querySelector( '.pontianakSpecial' );
+    var sprite = new Motio(element, {
+        fps: 8,
+        frames: 8
+    });
+    sprite.to( 7 );
 }
 
 function animatePontianakWaiting( triesLeft ) {
+    /*
     console.log( 'animating pontianak WAITING: ' + triesLeft );
     var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
     console.log( 'pontianak index:'  + pontianakIdx );
-    $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
-    $( '.pontianakBox div' ).fadeOut( 800 );
+    // $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
+    $( '.pontianakBox div' ).hide();
     $( '.pontianak' + pontianakIdx ).show();
     $( '.pontianak' + pontianakIdx ).sprite({
         no_of_frames: frameQty[ pontianakIdx - 1 ],
         fps: 4
     });
+    */
 }

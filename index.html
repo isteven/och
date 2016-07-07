@@ -307,7 +307,7 @@
                             <br />
                             <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont" />
                             <button ng-click="checkName()" class="btnBlood active">ENTER</button>
-                            <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button>
+                            <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
                         </div>
                     </div>
                 </li>
@@ -330,7 +330,7 @@
     <div id="pageGuessDate">
         <div class="centerElement">
             <ul class="double-column">
-                <li class="borderDebug">
+                <li>
                     <div class="centerVer centerInlineHor">
                         <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
                         <br />
@@ -348,7 +348,7 @@
                     </div>
                 </li>
                 <li class="pontianakBox">
-                    <div class="pontianak9">
+                    <div class="pontianakSpecial">
                     </div>
                 </li>
             </ul>
@@ -362,17 +362,14 @@
                 <li>
                     <div class="clueImage">
                         <img src="img/code.png" class="centerHor" />
+                        <p class="centerInlineHor">
+                            Collect all 5 codes to unlock the final haunting
+                            <br />
+                            <a href="img/code.png" target="_blank" class="iconDownload">
+                                DOWNLOAD IMAGE
+                            </a>
+                        </p>
                     </div>
-                    <br />
-                    <p class="centerInlineHor">
-                        Collect all 5 codes to unlock the final haunting
-                    </p>
-                    <p class="centerInlineHor">
-                        <a href="#" class="iconDownload fg-yellow">
-                            <!-- <img src="img/download.svg"/> -->
-                            DOWNLOAD IMAGE
-                        </a>
-                    </p>
                 </li>
                 <li>
                     <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
@@ -381,37 +378,51 @@
                         Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
                     </p>
                     <br />
-                    <div class="leaderboardBox">
-                        <div>
-                            <p class="font-trajan-pro bold fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                    <div class="leaderboardBox centerHor">
+                        <div class="guessBoxHeader">
+                            <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
                         </div>
                         <div class="guessBox">
                             <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">04:05</span></p>
                             <br />
                             <div class="centerInlineHor">
-                                <a href="#" class="iconSocMed facebook" ng-click="share( 'facebook' )"></a>
-                                <a href="#" class="iconSocMed twitter"></a>
-                                <a href="#" class="iconSocMed weibo"></a>
+                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook" ng-click="share( 'facebook' )"></a>
+                                <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter"></a>
+                                <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo"></a>
+                            </div>
+                            <div class="centerInlineHor">
+                                <a href="#" class="url-yellow">Terms & Conditions</a> apply
                             </div>
                             <br />
-                            <div class="topBorderRed">
+                            <div class="topBorderRed ">
                                 <br />
                                 <p class="bold centerInlineHor">LEADERBOARD</p>
                                 <br />
-                                <ul class="double-column centerInlineHor leaderboard">
+                                <ul class="double-column centerHor leaderboardScore">
                                     <li>
                                         <div ng-repeat="entry in entry1to5">
-                                            {{$index}}. {{entry.time}}
+                                            <span class="numbering">
+                                                {{entry.idxString}}.
+                                            </span>
+                                            {{entry.time}}
                                         </div>
                                     </li>
                                     <li>
                                         <div ng-repeat="entry in entry2to5">
-                                            {{$index}}. {{entry.time}}
+                                            <span class="numbering">
+                                                {{entry.idxString}}.
+                                            </span>
+                                            {{entry.time}}
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div class="centerInlineHor">
+                        <a class="replay" onclick="location.reload()">
+                            REPLAY
+                        </a>
                     </div>
                 </li>
             </ul>
@@ -522,6 +533,7 @@
             });
         } catch (e) {}
     </script>
+    <script src="config.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="vendor/es5-shim.js"></script>
     <script src="vendor/eventShim.js"></script>
@@ -530,9 +542,13 @@
     <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
+    <!--
     <script src="vendor/jquery.spritely.js"></script>
+-->
     <script src="vendor/motio.min.js"></script>
     <script src="vendor/jquery.motio.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="controller.js"></script>
