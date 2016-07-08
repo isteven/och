@@ -1,29 +1,29 @@
 'use strict';
 
-var canClick        = [ false, false, false ];
-var cluesFound      = [ false, false, false ];
-var clueIndex       = 0;
-var tempHotspots    = [];
-var activeSceneList = [ '0-scene-1', '0-scene-2', '0-scene-3' ];
-var frameQty        = [ 9, 8, 7, 8, 6, 8, 6, 8, 8 ];
+var canClick = [false, false, false];
+var cluesFound = [false, false, false];
+var clueIndex = 0;
+var tempHotspots = [];
+var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
+var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
-tempHotspots[ 0 ] = scenes[ 0 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
+tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
     yaw: 1.4,
     pitch: 0.06
 });
 
 // clue 2
-tempHotspots[ 1 ] = scenes[ 1 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"), {
+tempHotspots[1] = scenes[1].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"), {
     yaw: -1.92,
     pitch: -0.10
 });
 
 // clue 3
-tempHotspots[ 2 ] = scenes[ 2 ].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
+tempHotspots[2] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
     yaw: 1.9,
     pitch: 0.00
 });
@@ -34,12 +34,12 @@ dragControlMethod.addEventListener('inactive', function(e) {
     // Get the current viewport dimensions
     var size = activeScene.marzipanoObject.view().size();
 
-    var activeSceneIdx = activeSceneList.indexOf( activeScene.data.id );
+    var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
     // Transform the hotspot coordinates into screen coordinates.
     var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
-        yaw: tempHotspots[ activeSceneIdx ].position().yaw,
-        pitch: tempHotspots[ activeSceneIdx ].position().pitch
+        yaw: tempHotspots[activeSceneIdx].position().yaw,
+        pitch: tempHotspots[activeSceneIdx].position().pitch
     });
 
     // Check whether the hotspot is within regionSize pixels of the screen center.
@@ -50,38 +50,38 @@ dragControlMethod.addEventListener('inactive', function(e) {
 
         if (xDistance < 50 && yDistance < 100) {
             $('.empMeter').attr('src', 'img/emf_5.png');
-            canClick[ activeSceneIdx ] = true;
+            canClick[activeSceneIdx] = true;
             $('.panoCenter').show();
         } else if (xDistance < 70 && yDistance < 120) {
             $('.empMeter').attr('src', 'img/emf_4.png');
-            canClick[ activeSceneIdx ] = false;
+            canClick[activeSceneIdx] = false;
             $('.panoCenter').hide();
         } else if (xDistance < 100 && yDistance < 150) {
             $('.empMeter').attr('src', 'img/emf_3.png');
-            canClick[ activeSceneIdx ] = false;
+            canClick[activeSceneIdx] = false;
             $('.panoCenter').hide();
         } else if (xDistance < 130 && yDistance < 180) {
             $('.empMeter').attr('src', 'img/emf_2.png');
-            canClick[ activeSceneIdx ] = false;
+            canClick[activeSceneIdx] = false;
             $('.panoCenter').hide();
         } else {
             $('.empMeter').attr('src', 'img/emf_1.png');
-            canClick[  activeSceneIdx  ] = false;
+            canClick[activeSceneIdx] = false;
             $('.panoCenter').hide();
         }
     }
 });
 
 $('.panoCenter').click(function(e) {
-    var activeSceneIdx = activeSceneList.indexOf( activeScene.data.id );
-    if ( canClick[ activeSceneIdx ] && !cluesFound[ activeSceneIdx ] ) {
+    var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
+    if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
         $('#cluePlaceholder').show();
         $('#cluePlaceholder > .closeButtonRed').show();
         $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
         $('.panoCenter').hide();
         $('.empMeter').attr('src', 'img/emf_1.png');
-        canClick[  activeSceneIdx  ] = false;
-        cluesFound[ activeSceneIdx ] = true;
+        canClick[activeSceneIdx] = false;
+        cluesFound[activeSceneIdx] = true;
     }
 });
 
@@ -92,44 +92,43 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
         top: '85%',
         left: '90%',
     }, 400, function() {
-        $( '.cluesCtr' ).show();
+        $('.cluesCtr').show();
         $(this).hide();
         $('#cluePlaceholder > img').attr('src', '');
-        $( '#cluePlaceholder').attr( 'style', '' );
-        $( '#cluePlaceholder' ).addClass( 'cluePlaceholder' );
+        $('#cluePlaceholder').attr('style', '');
+        $('#cluePlaceholder').addClass('cluePlaceholder');
     });
 });
 
-var showPage = function( newPage ) {
-    $( newPage ).fadeIn();
+var showPage = function(newPage) {
+    $(newPage).fadeIn();
 }
 
-var hidePage = function( page ) {
-    $( page ).fadeOut();
+var hidePage = function(page) {
+    $(page).fadeOut();
 }
 
 var showClues = function() {
     var allCluesFound = 0;
     $('#pageClues > .closeButtonRed').show();
-    showPage( '#pageClues' );
-    for ( var i = 0; i < 3; i++ )
-    {
-        if ( cluesFound[ i ] ) {
-            var tempDom = $( '#pageClues > img' );
-            $( tempDom[ i ] ).attr( 'src' , 'img/photo_clue_' + ( i + 1 ) + '.png' );
+    showPage('#pageClues');
+    for (var i = 0; i < 3; i++) {
+        if (cluesFound[i]) {
+            var tempDom = $('#pageClues > div > img');
+            $(tempDom[i]).attr('src', 'img/photo_clue_' + (i + 1) + '.png');
             allCluesFound++;
         }
     }
-    $('#pageClues > .closeButtonRed').click( function(e) {
-        $( '.fadePage').fadeOut();
-        $( '#pageClues').hide();
+    $('#pageClues > .closeButtonRed').click(function(e) {
+        $('.fadePage').fadeOut();
+        $('#pageClues').hide();
     });
 
-    if ( allCluesFound == 3 ) {
-        $( '#pageClues > .btnBlood' ).addClass( 'active' );
-        $( '#pageClues > .btnBlood.active' ).click( function(e) {
-            hidePage( '.fadePage' );
-            showPage( '#pageGuessName' );
+    if (allCluesFound == 3) {
+        $('#pageClues > div > .btnBlood').addClass('active');
+        $('#pageClues > div > .btnBlood.active').click(function(e) {
+            hidePage('#pageClues');
+            showPage('#pageGuessName');
         });
     }
 
@@ -140,29 +139,29 @@ var showClues = function() {
 }
 
 
-function animatePontianakError( triesLeft, haveWaiting ) {
+function animatePontianakError(triesLeft, haveWaiting) {
 
-    $( '.pontianakBox div' ).fadeOut( 800 );
-    var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
-    $( '.pontianak' + pontianakIdx ).show();
-    var element = document.querySelector( '.pontianak' + pontianakIdx );
+    $('.pontianakBox div').fadeOut(800);
+    var pontianakIdx = ((5 - triesLeft) * 2) + 1;
+    $('.pontianak' + pontianakIdx).show();
+    var element = document.querySelector('.pontianak' + pontianakIdx);
     var sprite = new Motio(element, {
         fps: 8,
-        frames: frameQty[ pontianakIdx - 1 ]
+        frames: frameQty[pontianakIdx - 1]
     });
     // sprite.play(); // start animation
-    sprite.to( ( frameQty[ pontianakIdx - 1 ] - 1 ) );
-    if ( typeof haveWaiting != 'undefined' && haveWaiting == true ) {
-        setTimeout( function() {
-            $( '.pontianak' + pontianakIdx ).hide();
-            $( '.pontianak' + (pontianakIdx + 1) ).show();
-            var element = document.querySelector( '.pontianak' + ( pontianakIdx + 1 ) );
+    sprite.to((frameQty[pontianakIdx - 1] - 1));
+    if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
+        setTimeout(function() {
+            $('.pontianak' + pontianakIdx).hide();
+            $('.pontianak' + (pontianakIdx + 1)).show();
+            var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
             var sprite = new Motio(element, {
                 fps: 8,
-                frames: frameQty[ pontianakIdx ]
+                frames: frameQty[pontianakIdx]
             });
             sprite.play();
-        }, 1200 );
+        }, 1200);
     }
 
     // $( '.pontianak' + pontianakIdx ).sprite({
@@ -175,16 +174,16 @@ function animatePontianakError( triesLeft, haveWaiting ) {
 }
 
 function animatePontianakSpecial() {
-    $( '.pontianakSpecial' ).show();
-    var element = document.querySelector( '.pontianakSpecial' );
+    $('.pontianakSpecial').show();
+    var element = document.querySelector('.pontianakSpecial');
     var sprite = new Motio(element, {
         fps: 8,
         frames: 8
     });
-    sprite.to( 7 );
+    sprite.to(7);
 }
 
-function animatePontianakWaiting( triesLeft ) {
+function animatePontianakWaiting(triesLeft) {
     /*
     console.log( 'animating pontianak WAITING: ' + triesLeft );
     var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
@@ -198,3 +197,38 @@ function animatePontianakWaiting( triesLeft ) {
     });
     */
 }
+
+twttr.ready(
+    function(twttr) {
+        // bind events here
+        // console.log( 'twitter OK');
+        twttr.events.bind('tweet', function(event) {
+            // do somethings here
+            console.log(event);
+            console.log("Tweet has been successfully posted");
+
+            var dataToSend = {
+                id          : null,
+                game        : configGet.gameId,
+                account     : 'twitter',
+                user_name   : param.user_name,
+                full_name   : param.full_name,
+                time        : $scope.elapsedGameTime,
+                email       : param.email,
+                phone       : param.phone
+            };
+
+            $.ajax({
+                    url: configGet('apiUrl') + '_laravel/game/submit',
+                    data: dataToSend
+                })
+                .done(function(success) {
+                    console.log( 'twitter to DB success');
+                    console.log( success );
+                }, function( error ) {
+                    console.log( 'twitter to DB error');
+                    console.log( error );
+                });
+        });
+    }
+);

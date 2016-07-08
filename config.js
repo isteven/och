@@ -5,13 +5,16 @@ var environment = 'local';
 var environmentConfigs = {
 
     local: {
-        apiUrl              : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId  : 1 // Old Changi Hospital
     },
     uat: {
-        apiUrl              : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId  : 1 // Old Changi Hospital
     },
     prod: {
-        apiUrl				: 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId  : 1 // Old Changi Hospital
     }
 };
 
