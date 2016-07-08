@@ -234,15 +234,41 @@ twttr.ready(
 );
 
 var cb = new Codebird;
-cb.setConsumerKey("bMdqxrquEtL9EonAu1RVE9HUx", "BE38cy1eBrPapx5OjfdndB50Z9f84Zb23sFfcObOJgyKlRQHAC");
-/*
+// cb.setConsumerKey("bMdqxrquEtL9EonAu1RVE9HUx", "BE38cy1eBrPapx5OjfdndB50Z9f84Zb23sFfcObOJgyKlRQHAC");
+cb.setConsumerKey("0zZsYGibxFLOYIH3FnBuEDO09", "qHvOA5YTjpdjZmGUFbV20Gtqb6QDnR5qYJpCnEmpUBlIQ7wDMW");
+// cb.setToken("751326231979667456-HyMlzvEtutiqFX8i6ZWqv5ADCIKdpnD", "AFLoy87eJiqHzl0LzR9NS7cCmr79CNFZEP5AUJJ33oJwW");
+
+
+// gets a request token
 cb.__call(
-    "statuses_update",
-    {"status": "Whohoo, I just tweeted!"},
-    function (reply, rate, err) {
-        console.log( reply );
-        console.log( rate );
-        console.log( err );
+    "oauth_requestToken",
+    {oauth_callback: "oob"},
+    function (reply,rate,err) {
+        if (err) {
+            console.log("error response or timeout exceeded" + err.error);
+        }
+        if (reply) {
+            // stores it
+            cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+
+            // gets the authorize screen URL
+            cb.__call(
+                "oauth_authorize",
+                {},
+                function (auth_url) {
+                    window.codebird_auth = window.open(auth_url);
+                }
+            );
+        }
     }
 );
-*/
+
+// cb.__call(
+//     "statuses_update",
+//     {"status": "Whohoo, I just tweeted!"},
+//     function (reply, rate, err) {
+//         console.log( reply );
+//         console.log( rate );
+//         console.log( err );
+//     }
+// );

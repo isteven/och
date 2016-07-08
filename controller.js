@@ -18,19 +18,19 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.dates = [
         {
             date: 10
-},
+        },
         {
             date: 12
-},
+        },
         {
             date: 14
-},
+        },
         {
             date: 16
-},
+        },
         {
             date: 18
-},
+        },
 ];
 
     $scope.lang = 'en';
@@ -241,11 +241,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         }
     }
 
-    var tempLang = getUrlVar('lang');
-    if (tempLang) {
-        $scope.lang = tempLang;
-    }
-
     $scope.initiateJumpScare = function() {
         $('.pontianakBox div').fadeOut(800);
         var pontianakIdx = ((5 - triesLeft) * 2) + 1;
@@ -332,7 +327,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                     "/" + response1.authResponse.userID,
                     function(response2) {
                         if (response2 && !response2.error) {
-                            console.log( 'FB get user info');
+                            console.log('FB get user info');
                             console.log(response2);
                             FB.ui({
                                 method: 'share',
@@ -341,23 +336,23 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                             }, function(response3) {
                                 console.log('FB posting.. ')
                                 var tempEmail = response2.email;
-                                if ( !tempEmail ) {
+                                if (!tempEmail) {
                                     tempEmail = '';
                                 }
                                 var tempPhone = response2.phone;
-                                if ( !tempPhone ) {
+                                if (!tempPhone) {
                                     tempPhone = '';
                                 }
-                                var dataToSend = {                                    
-                                    game        : configGet( 'gameId' ),
-                                    account     : 'facebook',
-                                    user_name   : response1.authResponse.userID,
-                                    full_name   : response2.name,
-                                    time        : Math.round( Number( $scope.elapsedGameTime ) ),
-                                    email       : tempEmail,
-                                    phone       : tempPhone
+                                var dataToSend = {
+                                    game: configGet('gameId'),
+                                    account: 'facebook',
+                                    user_name: response1.authResponse.userID,
+                                    full_name: response2.name,
+                                    time: Math.round(Number($scope.elapsedGameTime)),
+                                    email: tempEmail,
+                                    phone: tempPhone
                                 };
-                                postToDb( dataToSend );
+                                postToDb(dataToSend);
                             });
                         }
                     }
@@ -390,12 +385,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     //
     // }
 
-    var postToDb = function( param ) {
+    var postToDb = function(param) {
         console.log('postToDb()');
         $http({
-            method  : 'POST',
-            url     : configGet('apiUrl') + '_laravel/game/submit',
-            data    : param
+            method: 'POST',
+            url: configGet('apiUrl') + '_laravel/game/submit',
+            data: param
         }).then(
             function(success) {
                 console.log('postToDb success');
@@ -406,6 +401,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 console.log(error);
             }
         );
+    }
+
+    var tempLang = getUrlVar('lang');
+    if (tempLang) {
+        $scope.lang = tempLang;
     }
 
     $scope.startGame = function() {
@@ -419,8 +419,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $scope.singleLetter = '';
         $scope.menu.active = false;
 
-        $scope.name1 = angular.copy(nameArr1[lang]);
-        $scope.name2 = angular.copy(nameArr2[lang]);
+        $scope.name1 = angular.copy(nameArr1[$scope.lang]);
+        $scope.name2 = angular.copy(nameArr2[$scope.lang]);
 
         hidePage('.fadePage');
         $('#pageLanding').fadeOut(400);
@@ -429,4 +429,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
     showPage('#pageLanding');
+
+
 }]);
