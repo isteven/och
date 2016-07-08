@@ -12,19 +12,19 @@ var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
-    yaw: 1.4,
+    yaw: -0.2,
     pitch: 0.06
 });
 
 // clue 2
 tempHotspots[1] = scenes[1].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"), {
-    yaw: -1.92,
+    yaw: -3.52,
     pitch: -0.10
 });
 
 // clue 3
 tempHotspots[2] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
-    yaw: 1.9,
+    yaw: 1.1,
     pitch: 0.00
 });
 
@@ -232,3 +232,17 @@ twttr.ready(
         });
     }
 );
+
+var cb = new Codebird;
+cb.setConsumerKey("bMdqxrquEtL9EonAu1RVE9HUx", "BE38cy1eBrPapx5OjfdndB50Z9f84Zb23sFfcObOJgyKlRQHAC");
+/*
+cb.__call(
+    "statuses_update",
+    {"status": "Whohoo, I just tweeted!"},
+    function (reply, rate, err) {
+        console.log( reply );
+        console.log( rate );
+        console.log( err );
+    }
+);
+*/

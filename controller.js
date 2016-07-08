@@ -331,14 +331,33 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 FB.api(
                     "/" + response1.authResponse.userID,
                     function(response2) {
-                        if (response && !response.error) {
+                        if (response2 && !response2.error) {
+                            console.log( 'FB get user info');
+                            console.log(response2);
                             FB.ui({
                                 method: 'share',
                                 display: 'popup',
                                 href: 'http://www.halloweenhorrornights.com.sg/',
                             }, function(response3) {
                                 console.log('FB posting.. ')
-                                console.log(response3);
+                                var tempEmail = response2.email;
+                                if ( !tempEmail ) {
+                                    tempEmail = '';
+                                }
+                                var tempPhone = response2.phone;
+                                if ( !tempPhone ) {
+                                    tempPhone = '';
+                                }
+                                var dataToSend = {                                    
+                                    game        : configGet( 'gameId' ),
+                                    account     : 'facebook',
+                                    user_name   : response1.authResponse.userID,
+                                    full_name   : response2.name,
+                                    time        : Math.round( Number( $scope.elapsedGameTime ) ),
+                                    email       : tempEmail,
+                                    phone       : tempPhone
+                                };
+                                postToDb( dataToSend );
                             });
                         }
                     }
@@ -371,23 +390,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     //
     // }
 
-    var postToDb = function(type, param) {
+    var postToDb = function( param ) {
         console.log('postToDb()');
-        var dataToSend = {
-            id: null,
-            game: configGet.gameId,
-            account: type,
-            user_name: param.user_name,
-            full_name: param.full_name,
-            time: $scope.elapsedGameTime,
-            email: param.email,
-            phone: param.phone
-        };
-
         $http({
-            method: 'POST',
-            url: configGet('apiUrl') + '_laravel/game/submit',
-            data: dataToSend
+            method  : 'POST',
+            url     : configGet('apiUrl') + '_laravel/game/submit',
+            data    : param
         }).then(
             function(success) {
                 console.log('postToDb success');
