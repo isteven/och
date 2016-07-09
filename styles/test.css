@@ -963,8 +963,8 @@ a, body {
     color: #e5e5cf
 }
 a {
-    -webkit-transition: all .5s ease-out;
-    transition: all .5s ease-out;
+    /*-webkit-transition: all .5s ease-out;*/
+    /*transition: all .5s ease-out;*/
     text-decoration: none
 }
 a:hover {

@@ -86,24 +86,15 @@ a:hover {
     z-index: 20;
     text-align: center;
 }
-#pageClues {
-    display: none;
-    position: absolute;
-    z-index: 30;
-    top: 50%;
-    left: 50%;
-    height: 60%;
-    width: auto;
-    transform: translate(-50%, -50%);
-}
-#pageClues> img {
+#pageClues > div > img {
     width: 30%;
     height: auto;
     margin-left: 10px;
 }
 #pageGuessName,
 #pageGuessDate,
-#pageShare {
+#pageShare,
+#pageClues {
     display: none;
     background-image: url('../img/q1_bg.png');
     background-position: center;
@@ -124,11 +115,28 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 
+#pageClues,
 #pageGuessDate,
 #pageShare {
     background-image: none;
     background-color: #000;
 }
+
+#pageClues {
+    z-index: 100;
+}
+
+/*#pageClues {
+    display: none;
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+}*/
 
 /*#pageGuessName > div > input {
     display: none;
@@ -158,10 +166,10 @@ a:hover {
 .closeButtonRed {
     display: none;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
     background-size: cover;
     background-image: url('../img/icon-close.png');
 }
@@ -177,7 +185,15 @@ a:hover {
     color: #e5e5cf;
 }
 .btnBlood.active {
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
     background-image: url('../img/texture.jpg');
+}
+.btnBlood.active:hover {
+    background-image: none;
+    background-color: #CC0A00;
+
 }
 #pageGuessName .inputBorder {
     /*border: none;*/
@@ -202,7 +218,7 @@ a:hover {
     color: #e5e5cf;
 }
 .fg-yellow {
-    color: #ffc700 !important;
+    color: #ffab1a !important;
 }
 .fg-black {
     color: #000;
@@ -279,7 +295,7 @@ a:hover {
 .pontianak6 { background: transparent url( ../img/06_ponwait_2.png ) 0 0 no-repeat; }
 .pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
 .pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
-.pontianak9 { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
+.pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
 
 #pageGuessDate li:first-child div div  {
     display: inline-block;
@@ -299,7 +315,7 @@ a:hover {
     text-align: center;
     padding: 20px;
     font-size: 120%;
-    color: #ffc700;
+    color: #ffab1a;
     font-weight: bold;
     border-right: 1px solid #a80101;
     cursor: pointer;
@@ -357,8 +373,17 @@ h6 {
     width: 70%;
 }
 
-.leaderboardBox > div:nth-child(2) {
+.leaderboardBox > div {
     width: 100%;
+}
+
+.leaderboardBox  li  div {
+    text-align: left;
+}
+
+.leaderboardScore {
+    display: block;
+    width: 70%;
 }
 
 .bold {
@@ -397,6 +422,11 @@ h6 {
     background-size: contain;
     padding-left: 37px;
     line-height: 30px;
+    color: #ffab1a !important;
+}
+
+.iconDownload:hover {
+    color: #ffe14c !important;
 }
 
 #pageLanding {
@@ -446,5 +476,35 @@ h6 {
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 40;
+    z-index: 100;
+}
+
+.numbering {
+    display: inline;
+    text-align: right;
+}
+
+.url-yellow {
+    color: #ffab1a !important;
+}
+
+.url-yellow:hover {
+    color: #ffe14c !important;
+}
+
+.replay {
+    background-image: url( ../img/icon_replay.png );
+    background-positon: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 35px;
+    color: #ffab1a;
+}
+
+.replay:hover {
+    background-image: url( ../img/icon_replay_ro.png );
+    color: #ffe14c;
 }
