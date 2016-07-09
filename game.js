@@ -198,6 +198,7 @@ function animatePontianakWaiting(triesLeft) {
     */
 }
 
+/*
 twttr.ready(
     function(twttr) {
         // bind events here
@@ -232,14 +233,16 @@ twttr.ready(
         });
     }
 );
+*/
 
-var cb = new Codebird;
+// var cb = new Codebird;
 // cb.setConsumerKey("bMdqxrquEtL9EonAu1RVE9HUx", "BE38cy1eBrPapx5OjfdndB50Z9f84Zb23sFfcObOJgyKlRQHAC");
-cb.setConsumerKey("0zZsYGibxFLOYIH3FnBuEDO09", "qHvOA5YTjpdjZmGUFbV20Gtqb6QDnR5qYJpCnEmpUBlIQ7wDMW");
+// cb.setConsumerKey("0zZsYGibxFLOYIH3FnBuEDO09", "qHvOA5YTjpdjZmGUFbV20Gtqb6QDnR5qYJpCnEmpUBlIQ7wDMW");
 // cb.setToken("751326231979667456-HyMlzvEtutiqFX8i6ZWqv5ADCIKdpnD", "AFLoy87eJiqHzl0LzR9NS7cCmr79CNFZEP5AUJJ33oJwW");
 
 
 // gets a request token
+/*
 cb.__call(
     "oauth_requestToken",
     {oauth_callback: "oob"},
@@ -262,7 +265,7 @@ cb.__call(
         }
     }
 );
-
+*/
 // cb.__call(
 //     "statuses_update",
 //     {"status": "Whohoo, I just tweeted!"},
