@@ -3,6 +3,7 @@ html, body {
     color: #e5e5cf;
     font-weight: 500 !important;
     /*font-size: 16px !important;*/
+    overflow:hidden
 }
 
 a:hover {
@@ -55,9 +56,20 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media (max-width: 1024px) {
+    .centerElement {
+        position: relative;
+        z-index: 1;
+        top: 80px;
+        left: 0;
+        transform: none;
+    }
+}
+
 .centerInlineHor {
     text-align: center;
-    border: none;
+    /*border: none;*/
 }
 .centerVer {
     display: inline-block;
@@ -258,6 +270,11 @@ a:hover {
     list-style: none;
     height: 100%;
 }
+@media (max-width: 600px) {
+    .double-column li {
+        float: none;
+    }
+}
 
 #pageGuessDate > div {
     width: 50%;
@@ -451,11 +468,26 @@ h6 {
     width: 600px;
     height: 307px;
     background-image: url( ../img/landing_blood.png );
-    background-size: contain;
+    background-size: 100% 100%;
     background-position: top;
     background-repeat: no-repeat;
     position: relative;
     padding: 40px 50px 10px 50px;
+
+}
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div {
+        width: 100%;
+        height: 100%;
+        background-image: url( ../img/landing_blood.png );
+        background-size: 100% 100%  ;
+        background-position: top;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 50px 10px ;
+        overflow: visible;
+    }
 }
 
 #pageLanding > div > div > ul {
@@ -471,6 +503,12 @@ h6 {
 #pageLanding > div > div > ul > li > img {
     max-height: 50px;
     width: auto;
+}
+@media (max-width: 1024px) {
+    #pageLanding > div > div img {
+        max-height: auto;
+        max-width: 50px;
+    }
 }
 
 #pageFails {
@@ -626,4 +664,22 @@ h6 {
   90% {
     background-position: left top;
   }
+}
+
+.on-desktop {
+    display: block;
+}
+@media (max-width: 1024px) {
+    .on-desktop {
+        display: none;
+    }
+}
+
+.on-mobile {
+    display: none;
+}
+@media (max-width: 1024px) {
+    .on-mobile {
+        display: block;
+    }
 }
