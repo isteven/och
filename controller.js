@@ -342,6 +342,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         });
     }
 
+    $scope.share_twitter = function() {
+        window.open(
+            'http://stg.craftandcode.com.sg/clients/rws/360/twitter/?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
+            '1468140690854',
+            'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
+        );
+    }
+
     var fbPost = function( fbId, response1 ) {
         FB.api(
             "/" + fbId,
