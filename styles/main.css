@@ -705,8 +705,71 @@ h6 {
   animation: flicker .8s steps(1) infinite;
 }
 
+@keyframes flicker {
+  0% {
+    background-position: left top;
+  }
+  1% {
+    background-position: left bottom;
+  }
+  5% {
+    background-position: left top;
+  }
+
+  50% {
+    background-position: left top;
+  }
+  51% {
+    background-position: left bottom;
+  }
+  55% {
+    background-position: left top;
+  }
+
+  79% {
+    background-position: left top;
+  }
+  80% {
+    background-position: left bottom;
+  }
+  90% {
+    background-position: left top;
+  }
+}
 
 @-webkit-keyframes flicker {
+  0% {
+    background-position: left top;
+  }
+  1% {
+    background-position: left bottom;
+  }
+  5% {
+    background-position: left top;
+  }
+
+  50% {
+    background-position: left top;
+  }
+  51% {
+    background-position: left bottom;
+  }
+  55% {
+    background-position: left top;
+  }
+
+  79% {
+    background-position: left top;
+  }
+  80% {
+    background-position: left bottom;
+  }
+  90% {
+    background-position: left top;
+  }
+}
+
+@-moz-keyframes flicker {
   0% {
     background-position: left top;
   }
