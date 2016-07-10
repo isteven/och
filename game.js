@@ -18,14 +18,14 @@ tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(doc
 
 // clue 2
 tempHotspots[1] = scenes[1].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-2"), {
-    yaw: 2.8,
-    pitch: -0.10
+    yaw: 3.1,
+    pitch: 0.00
 });
 
 // clue 3
 tempHotspots[2] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
-    yaw: 1.1,
-    pitch: 0.00
+    yaw: -2.8,
+    pitch: -0.1
 });
 
 function abs_360(value, min, max) {
@@ -36,8 +36,8 @@ function abs_360(value, min, max) {
 }
 
 function is_in_range(current_x, hotspot, region_range) {
-  var min_360 = -3.15;
-  var max_360 = 3;
+  var min_360 = -3.14;
+  var max_360 = 3.14;
   var region_min = abs_360(hotspot - region_range, min_360, max_360);
   var region_max = abs_360(hotspot + region_range, min_360, max_360);
 
@@ -86,37 +86,37 @@ dragControlMethod.addEventListener('inactive', function(e) {
       //  region 1, at the max region, 5 lights
       $('.emf__container').attr('class', 'emf__container is-region-1');
       canClick[activeSceneIdx] = true;
-      $('.panoCenter').show();
+      showPanoCenter();
 
     } else if ( is_in_range( panningX, hotspotX, region_2_range ) ) {
       //  region 2, 4 lights blink 1
       $('.emf__container').attr('class', 'emf__container is-region-2');
       canClick[activeSceneIdx] = false;
-      $('.panoCenter').hide();
+      hidePanoCenter();
 
     } else if ( is_in_range( panningX, hotspotX, region_3_range ) ) {
       //  region 3, 3 lights blink 1
       $('.emf__container').attr('class', 'emf__container is-region-3');
       canClick[activeSceneIdx] = false;
-      $('.panoCenter').hide();
+      hidePanoCenter();
 
     } else if ( is_in_range( panningX, hotspotX, region_4_range )) {
       //  region 4, 2 lights blink 1
       $('.emf__container').attr('class', 'emf__container is-region-4');
       canClick[activeSceneIdx] = false;
-      $('.panoCenter').hide();
+      hidePanoCenter();
 
     } else if ( is_in_range( panningX, hotspotX, region_5_range )) {
       //  region 5, 1 light blink 1
       $('.emf__container').attr('class', 'emf__container is-region-5');
       canClick[activeSceneIdx] = false;
-      $('.panoCenter').hide();
+      hidePanoCenter();
 
     } else {
       //  region 6, 1 light stagnant
       $('.emf__container').attr('class', 'emf__container is-region-6');
       canClick[activeSceneIdx] = false;
-      $('.panoCenter').hide();
+      hidePanoCenter();
     }
 
     // Check whether the hotspot is within regionSize pixels of the screen center.
@@ -155,13 +155,25 @@ dragControlMethod.addEventListener('inactive', function(e) {
     // }
 });
 
+var showPanoCenter = function() {
+  $( ".panoCenter" ).fadeIn( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
+var hidePanoCenter = function() {
+  $( ".panoCenter" ).fadeOut( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
         $('#cluePlaceholder').show();
         $('#cluePlaceholder > .closeButtonRed').show();
         $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
-        $('.panoCenter').hide();
+        // $('.panoCenter').hide();
         $('.empMeter').attr('src', 'img/emf_1.png');
         canClick[activeSceneIdx] = false;
         cluesFound[activeSceneIdx] = true;
