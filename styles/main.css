@@ -518,13 +518,17 @@ h6 {
 .emf__container {
   list-style-type: none;
 
-  width: 140px;
-  height: 25px;
+  background-image: url('../img/emf-bg.png');
+
+  width: 150px;
+  height: 27px;
   position: absolute;
   z-index: 1;
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  text-align: center;
 }
 
 .emf__container > li {
