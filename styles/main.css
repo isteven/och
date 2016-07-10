@@ -832,3 +832,20 @@ h6 {
   background-size: cover;
   background-position: 0 0;
 }
+
+.scare-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000000;
+
+  display: none;
+}
+
+.scare-overlay.active {
+  display: block;
+}
