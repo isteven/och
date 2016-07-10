@@ -208,7 +208,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                     setTimeout(function() {
                         // hidePage( '#pageGuessName' );
                         showPage('#pageFails');
-                    }, 500);
+                    }, 800);
                 }
                 $scope.triesLeft--;
             }
@@ -230,9 +230,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 });
                 if (nameIsCorrect) {
                     console.log('correct answer page switch');
-                    hidePage('#pageGuessName');
-                    showPage('#pageGuessDate');
-                    window.animatePontianakSpecial();
+                    // hidePage('#pageGuessName');
+                    // showPage('#pageGuessDate');
+                    // window.animatePontianakSpecial();
+                    window.animatePontianakError(1);
+                    window.setTimeout(function () {
+                      hidePage('#pageGuessName');
+                      showPage('#pageGuessDate');
+                    }, 800);
                 }
             }
 

@@ -341,6 +341,12 @@ a:hover {
   height: 166% !important;
 }
 
+.pontianakSpecial {
+  background-position-x: -5400px;
+  display: block;
+  height: 100%;
+}
+
 #pageGuessDate li:first-child div div  {
     display: inline-block;
     border-style: solid;
