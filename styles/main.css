@@ -3,6 +3,7 @@ html, body {
     color: #e5e5cf;
     font-weight: 500 !important;
     /*font-size: 16px !important;*/
+    overflow:hidden
 }
 @media (max-width: 480px){
     html, body{
@@ -77,9 +78,19 @@ a:hover {
         display: none;
     }
 }
+
+@media (max-width: 1024px) {
+    .centerElement {
+        position: relative;
+        z-index: 1;
+        top: 80px;
+        left: 0;
+        transform: none;
+    }
+}
 .centerInlineHor {
     text-align: center;
-    border: none;
+    /*border: none;*/
 }
 .centerVer {
     display: inline-block;
@@ -280,6 +291,11 @@ a:hover {
     list-style: none;
     height: 100%;
 }
+@media (max-width: 600px) {
+    .double-column li {
+        float: none;
+    }
+}
 
 #pageGuessDate > div {
     width: 50%;
@@ -318,6 +334,12 @@ a:hover {
 .pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
 .pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
 .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
+
+.pontianak9 {
+  margin-left: -270px;
+  margin-top: -154px;
+  height: 166% !important;
+}
 
 #pageGuessDate li:first-child div div  {
     display: inline-block;
@@ -474,6 +496,20 @@ h6 {
     background-repeat: repeat;
 }
 
+@media (max-width: 1024px) {
+    #pageLanding > div > div {
+        width: 100%;
+        height: 100%;
+        background-image: url( ../img/landing_blood.png );
+        background-size: 100% 100%  ;
+        background-position: top;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 50px 10px ;
+        overflow: visible;
+    }
+}
+
 #pageLanding > div > div > ul {
     height: auto;
 }
@@ -488,6 +524,7 @@ h6 {
     max-height: 50px;
     width: auto;
 }
+
 @media (max-width: 480px){
     #pageLanding{
         height: auto;
@@ -528,6 +565,14 @@ h6 {
         padding-bottom: 10px;
     }
 }
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div img {
+        max-height: auto;
+        max-width: 50px;
+    }
+}
+
 #pageFails {
     background-image: url( ../img/fail_bg.jpg );
     background-size: cover;
@@ -681,4 +726,22 @@ h6 {
   90% {
     background-position: left top;
   }
+}
+
+.on-desktop {
+    display: block;
+}
+@media (max-width: 1024px) {
+    .on-desktop {
+        display: none;
+    }
+}
+
+.on-mobile {
+    display: none;
+}
+@media (max-width: 1024px) {
+    .on-mobile {
+        display: block;
+    }
 }

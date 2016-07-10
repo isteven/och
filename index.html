@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="vendor/reset.min.css">
     <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/test.css">
+    <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
@@ -309,7 +309,7 @@
                 <p class="fg-yellow bold">
                     TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME
                 </p>
-                <ul class="double-column">
+                <ul class="double-column on-desktop">
                     <li>
                         <img src="img/icon_search.png" />
                         <br /> Look for hidden clues with the help of an EMF indicator.
@@ -319,7 +319,25 @@
                         <br /> Snap a photo when the EMF indicator peaks.
                     </li>
                 </ul>
-                <ul class="double-column">
+                <ul class="double-column  on-desktop">
+                    <li>
+                        <img src="img/icon_clues.png" />
+                        <br /> Collect all 3 clues to unravel the name.
+                    </li>
+                    <li>
+                        <img src="img/icon_timer.png" />
+                        <br /> Time is the key to higher chances of winning.
+                    </li>
+                </ul>
+                <div class="on-desktop">
+                    <div>
+                        <img src="img/icon_search.png" />
+                        <br /> Look for hidden clues with the help of an EMF indicator.
+                    </div>
+                    <li>
+                        <img src="img/icon_camera.png" />
+                        <br /> Snap a photo when the EMF indicator peaks.
+                    </li>
                     <li>
                         <img src="img/icon_clues.png" />
                         <br /> Collect all 3 clues to unravel the name.
@@ -387,7 +405,7 @@
                         <div class="guessBox">
                             <p>Enter a character to unravel the name</p>
                             <br />
-                            <input type="text" ng-model="singleLetter" maxlength="1" size="5" class="edoFont" />
+                            <input type="text" ng-model="singleLetter" ng-keyup="$event.keyCode == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
                             <button ng-click="checkName()" class="btnBlood active">ENTER</button>
                             <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
                         </div>
@@ -515,14 +533,14 @@
     <div id="pano"></div>
 
     <!-- clues location in pano -->
-    <div id="clue-1" style="height: 5px; width: 5px"></div>
-    <div id="clue-2" style="height: 5px; width: 5px"></div>
-    <div id="clue-3" style="height: 5px; width: 5px"></div>
+    <div id="clue-1"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-2"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-3"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
     <!-- camera icon -->
-    <img class="panoCenter" src="img/icon_camera_ingame.png" />
+    <!-- <img class="panoCenter" src="img/icon_camera_ingame.png" /> -->
 
     <ul class="emf__container is-region-2">
       <li class="emf__1"></li>
@@ -634,9 +652,10 @@
     <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
+    <script src="vendor/DeviceOrientationControlMethod.js"></script>
     <script src="vendor/motio.min.js"></script>
     <script src="vendor/jquery.motio.min.js"></script>
-    <script src="vendor/codebird.js"></script>
+    <!-- <script src="vendor/codebird.js"></script> -->
 
     <script src="https://platform.twitter.com/widgets.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>

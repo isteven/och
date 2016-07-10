@@ -318,50 +318,73 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.share_facebook = function() {
         console.log('share_facebook()');
-        FB.getLoginStatus(function(response1) {
+        FB.getLoginStatus(function(response ) {
             // statusChangeCallback(response);
-            if (response1.status === 'connected') {
+            if (response.status === 'connected') {
                 console.log('FB logged in');
-                console.log(response1);
-                FB.api(
-                    "/" + response1.authResponse.userID,
-                    function(response2) {
-                        if (response2 && !response2.error) {
-                            console.log('FB get user info');
-                            console.log(response2);
-                            FB.ui({
-                                method: 'share',
-                                display: 'popup',
-                                href: 'http://www.halloweenhorrornights.com.sg/',
-                            }, function(response3) {
-                                console.log('FB posting.. ')
-                                var tempEmail = response2.email;
-                                if (!tempEmail) {
-                                    tempEmail = '';
-                                }
-                                var tempPhone = response2.phone;
-                                if (!tempPhone) {
-                                    tempPhone = '';
-                                }
-                                var dataToSend = {
-                                    game: configGet('gameId'),
-                                    account: 'facebook',
-                                    user_name: response1.authResponse.userID,
-                                    full_name: response2.name,
-                                    time: Math.round(Number($scope.elapsedGameTime)),
-                                    email: tempEmail,
-                                    phone: tempPhone
-                                };
-                                postToDb(dataToSend);
-                            });
-                        }
-                    }
-                );
+                console.log(response );
+                fbPost( response.authResponse.userID, response );
             } else {
-                alert('Please login into your Facebook account.');
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                        console.log('Welcome!  Fetching your information.... ');
+                        FB.api('/me', function(response) {
+                            console.log( response );
+                            fbPost( response.id, response );
+                            // console.log('Good to see you, ' + response.name + '.');
+                        });
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                });
+                // alert('Please login into your Facebook account.');
             }
         });
+    }
 
+    $scope.share_twitter = function() {
+        window.open(
+            'http://stg.craftandcode.com.sg/clients/rws/360/twitter/?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
+            '1468140690854',
+            'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
+        );
+    }
+
+    var fbPost = function( fbId, response1 ) {
+        FB.api(
+            "/" + fbId,
+            function(response2) {
+                if (response2 && !response2.error) {
+                    console.log('FB get user info');
+                    console.log(response2);
+                    FB.ui({
+                        method: 'share',
+                        display: 'popup',
+                        href: 'http://www.halloweenhorrornights.com.sg/',
+                    }, function(response3) {
+                        console.log('FB posting.. ')
+                        var tempEmail = response2.email;
+                        if (!tempEmail) {
+                            tempEmail = '';
+                        }
+                        var tempPhone = response2.phone;
+                        if (!tempPhone) {
+                            tempPhone = '';
+                        }
+                        var dataToSend = {
+                            game: configGet('gameId'),
+                            account: 'facebook',
+                            user_name: fbId,
+                            full_name: response2.name,
+                            time: Math.round(Number($scope.elapsedGameTime)),
+                            email: tempEmail,
+                            phone: tempPhone
+                        };
+                        postToDb(dataToSend);
+                    });
+                }
+            }
+        );
     }
 
     // $scope.share_twitter = function() {
@@ -403,11 +426,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         );
     }
 
-    var tempLang = getUrlVar('lang');
-    if (tempLang) {
-        $scope.lang = tempLang;
-    }
-
     $scope.startGame = function() {
 
         gameStartTime = null;
@@ -419,16 +437,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $scope.singleLetter = '';
         $scope.menu.active = false;
 
+        var tempLang = getUrlVar('lang');
+        if (tempLang) {
+            $scope.lang = tempLang;
+        }
+
         $scope.name1 = angular.copy(nameArr1[$scope.lang]);
         $scope.name2 = angular.copy(nameArr2[$scope.lang]);
 
+        showPage( '#pano' );
         hidePage('.fadePage');
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
     }
 
+    hidePage( '#pano' );
     showPage('#pageLanding');
 
-
+    // setTimeout( function() {
+    //     $scope.share_facebook();
+    // }, 1000 );
 }]);
