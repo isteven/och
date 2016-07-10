@@ -7,6 +7,7 @@
     var APP_DATA    = window.APP_DATA;
     var activeScene = null;
     var globalView  = null;
+    var shownScare  = false;
 
     // Grab elements from DOM.
     var panoElement             = document.querySelector('#pano');
@@ -194,6 +195,22 @@
         updateSceneList(scene);
         activeScene = scene;
 
+        var timeoutID;
+
+        if (scene.data.id == '0-scene-2' && !shownScare) {
+          timeoutID = window.setTimeout(function(){
+            $('#scare').show();
+            var element = document.querySelector('#scare');
+            var sprite = new Motio(element, {
+                fps: 8,
+                frames: 10
+            });
+            sprite.to(9);
+            shownScare = true;
+          }, 10000);
+        } else {
+          window.clearTimeout(timeoutID);
+        }
         // console.log( activeScene );
     }
 

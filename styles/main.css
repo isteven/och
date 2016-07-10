@@ -3,6 +3,12 @@ html, body {
     color: #e5e5cf;
     font-weight: 500 !important;
     /*font-size: 16px !important;*/
+    overflow:hidden
+}
+@media (max-width: 480px){
+    html, body{
+        overflow: auto;
+    }
 }
 
 a:hover {
@@ -55,9 +61,36 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 480px){
+    .centerElement {
+        margin-top: 0;
+        padding: 0 18px 140px;
+        width: 100%;
+    }
+    .centerElement p{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .centerElement p.fg-yellow {
+        margin-bottom: 0;
+    }
+    .centerElement p br{
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .centerElement {
+        position: relative;
+        z-index: 1;
+        top: 80px;
+        left: 0;
+        transform: none;
+    }
+}
 .centerInlineHor {
     text-align: center;
-    border: none;
+    /*border: none;*/
 }
 .centerVer {
     display: inline-block;
@@ -258,6 +291,11 @@ a:hover {
     list-style: none;
     height: 100%;
 }
+@media (max-width: 600px) {
+    .double-column li {
+        float: none;
+    }
+}
 
 #pageGuessDate > div {
     width: 50%;
@@ -301,6 +339,12 @@ a:hover {
   margin-left: -270px;
   margin-top: -154px;
   height: 166% !important;
+}
+
+.pontianakSpecial {
+  background-position-x: -5400px;
+  display: block;
+  height: 100%;
 }
 
 #pageGuessDate li:first-child div div  {
@@ -450,12 +494,26 @@ h6 {
 #pageLanding > div > div {
     width: 600px;
     height: 307px;
-    background-image: url( ../img/landing_blood.png );
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
     position: relative;
     padding: 40px 50px 10px 50px;
+    background-image: url(../img/landing_blood.png);
+    background-size: contain;
+    background-position: top;
+    background-repeat: repeat;
+}
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div {
+        width: 100%;
+        height: 100%;
+        background-image: url( ../img/landing_blood.png );
+        background-size: 100% 100%  ;
+        background-position: top;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 50px 10px ;
+        overflow: visible;
+    }
 }
 
 #pageLanding > div > div > ul {
@@ -471,6 +529,54 @@ h6 {
 #pageLanding > div > div > ul > li > img {
     max-height: 50px;
     width: auto;
+}
+
+@media (max-width: 480px){
+    #pageLanding{
+        height: auto;
+        min-height: 100%;
+    }
+    #pageLanding > div > div {
+        width: 100%;
+        height: auto;
+        padding: 30px 15px 10px 15px;
+        background-image: url(../img/landing_blood.png);
+        background-size: contain;
+        background-position: top;
+        background-repeat: repeat;
+    }
+    #pageLanding > div > div .double-column{
+        margin-top: -10px;
+    }
+    #pageLanding > div > div .double-column:first-of-type{
+        margin-top: 0;
+    }
+    #pageLanding > div > div .double-column li{
+        width: 100%;
+    }
+    #pageLanding > div > div > ul > li {
+        margin-top: -20px;
+        margin-bottom: 0;
+        padding: 10px 50px 20px;
+        background-image: url(../img/landing_blood.png);
+        background-size: cover;
+        background-position: top;
+        background-repeat: repeat;
+        line-height: 1.2em;
+    }
+    #pageLanding > div > div > ul > li:first-child {
+        margin-top: 0;
+    }
+    #pageLanding > div > div > ul > li:last-child {
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div img {
+        max-height: auto;
+        max-width: 50px;
+    }
 }
 
 #pageFails {
@@ -630,4 +736,36 @@ h6 {
   90% {
     background-position: left top;
   }
+}
+
+.on-desktop {
+    display: block;
+}
+@media (max-width: 1024px) {
+    .on-desktop {
+        display: none;
+    }
+}
+
+.on-mobile {
+    display: none;
+}
+@media (max-width: 1024px) {
+    .on-mobile {
+        display: block;
+    }
+}
+
+#scare {
+  width: 974px;
+  height: 1119px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  display: none;
+  background-image: url('../img/scare.png');
+  background-size: cover;
+  background-position: 0 0;
 }
