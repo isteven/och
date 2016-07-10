@@ -751,3 +751,17 @@ h6 {
         display: block;
     }
 }
+
+#scare {
+  width: 974px;
+  height: 1119px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  display: none;
+  background-image: url('../img/scare.png');
+  background-size: cover;
+  background-position: 0 0;
+}
