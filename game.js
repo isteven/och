@@ -6,6 +6,7 @@ var clueIndex = 0;
 var tempHotspots = [];
 var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
 var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
+var frameInterval;
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
@@ -309,6 +310,8 @@ var showClues = function() {
 
 function animatePontianakError(triesLeft, haveWaiting) {
 
+    clearInterval(frameInterval);
+
     $('.pontianakBox div').fadeOut(800);
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
     $('.pontianak' + pontianakIdx).show();
@@ -320,16 +323,18 @@ function animatePontianakError(triesLeft, haveWaiting) {
     // sprite.play(); // start animation
     sprite.to((frameQty[pontianakIdx - 1] - 1));
     if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
-        setTimeout(function() {
-            $('.pontianak' + pontianakIdx).hide();
-            $('.pontianak' + (pontianakIdx + 1)).show();
+      setTimeout(function() {
+        $('.pontianak' + pontianakIdx).hide();
+        $('.pontianak' + (pontianakIdx + 1)).show();
+        frameInterval = setInterval(function() {
             var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
             var sprite = new Motio(element, {
                 fps: 8,
                 frames: frameQty[pontianakIdx]
             });
-            sprite.play();
-        }, 1200);
+            sprite.to((frameQty[pontianakIdx] - 1));
+        }, 8000);
+      }, 1200);
     }
 
     // $( '.pontianak' + pontianakIdx ).sprite({
