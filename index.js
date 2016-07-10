@@ -202,7 +202,7 @@
             $('#scare').show();
             var element = document.querySelector('#scare');
             var sprite = new Motio(element, {
-                fps: 8,
+                fps: 18,
                 frames: 10
             });
             sprite.to(9);
