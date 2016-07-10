@@ -4,6 +4,11 @@ html, body {
     font-weight: 500 !important;
     /*font-size: 16px !important;*/
 }
+@media (max-width: 480px){
+    html, body{
+        overflow: auto;
+    }
+}
 
 a:hover {
     cursor: pointer;
@@ -54,6 +59,23 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+@media (max-width: 480px){
+    .centerElement {
+        margin-top: 0;
+        padding: 0 18px 140px;
+        width: 100%;
+    }
+    .centerElement p{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .centerElement p.fg-yellow {
+        margin-bottom: 0;
+    }
+    .centerElement p br{
+        display: none;
+    }
 }
 .centerInlineHor {
     text-align: center;
@@ -444,12 +466,12 @@ h6 {
 #pageLanding > div > div {
     width: 600px;
     height: 307px;
-    background-image: url( ../img/landing_blood.png );
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
     position: relative;
     padding: 40px 50px 10px 50px;
+    background-image: url(../img/landing_blood.png);
+    background-size: contain;
+    background-position: top;
+    background-repeat: repeat;
 }
 
 #pageLanding > div > div > ul {
@@ -466,7 +488,46 @@ h6 {
     max-height: 50px;
     width: auto;
 }
-
+@media (max-width: 480px){
+    #pageLanding{
+        height: auto;
+        min-height: 100%;
+    }
+    #pageLanding > div > div {
+        width: 100%;
+        height: auto;
+        padding: 30px 15px 10px 15px;
+        background-image: url(../img/landing_blood.png);
+        background-size: contain;
+        background-position: top;
+        background-repeat: repeat;
+    }
+    #pageLanding > div > div .double-column{
+        margin-top: -10px;
+    }
+    #pageLanding > div > div .double-column:first-of-type{
+        margin-top: 0;
+    }
+    #pageLanding > div > div .double-column li{
+        width: 100%;
+    }
+    #pageLanding > div > div > ul > li {
+        margin-top: -20px;
+        margin-bottom: 0;
+        padding: 10px 50px 20px;
+        background-image: url(../img/landing_blood.png);
+        background-size: cover;
+        background-position: top;
+        background-repeat: repeat;
+        line-height: 1.2em;
+    }
+    #pageLanding > div > div > ul > li:first-child {
+        margin-top: 0;
+    }
+    #pageLanding > div > div > ul > li:last-child {
+        padding-bottom: 10px;
+    }
+}
 #pageFails {
     background-image: url( ../img/fail_bg.jpg );
     background-size: cover;

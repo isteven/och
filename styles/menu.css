@@ -3,12 +3,16 @@
     position: absolute;
     width: 100%;
 }
-
 .hdr__logo {
     display: block;
     max-width: 543px;
     opacity: 1;
     width: 40%;
+}
+@media (max-width: 480px){
+    .hdr__logo {
+        display: none;
+    }
 }
 a {
     text-decoration: none;

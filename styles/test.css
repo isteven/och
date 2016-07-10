@@ -317,6 +317,22 @@ body {
 .ftr__logo img {
     width: 100%
 }
+@media (max-width: 480px){
+    .ftr{
+        height: 100px;
+    }
+    .ftr__logo{
+        position: relative;
+        bottom: 80px;
+        padding-bottom: 0;
+        text-align: center;
+    }
+    .ftr__logo img {
+        margin: 0 auto;
+        display: block;
+        width: 135px;
+    }
+}
 .ftr__links {
     font-size: 11px;
     font-size: 1.1rem;
@@ -497,6 +513,11 @@ body {
     opacity: 1;
     width: 40%
 }
+@media (max-width: 480px){
+    .hdr__logo {
+        display: none;
+    }
+}
 .hdr__logo img {
     width: 100%;
     display: block
@@ -538,6 +559,23 @@ body {
     font-size: 14px;
     font-size: 1.4rem
 }
+@media (max-width: 480px){
+    .hdr__quicklinks {
+        position: fixed;
+        top: 0;
+        right: auto;
+        text-align: left;
+        background-color: #000000;
+    }
+    .hdr__quicklinks h4 {
+        top: 0;
+        vertical-align: bottom;
+        margin-right: 0;
+        padding: 7px 18px;
+        text-align: left;
+    }
+}
+
 .highlights__main {
     display: block;
     width: 100%;
@@ -894,6 +932,24 @@ body {
     padding: 10px 18px 10px 15px;
     margin: 0 3px
 }
+@media (max-width: 480px){
+    .btn--calendar{
+        display: none;
+    }
+    .btn--tickets{
+        display: inline-block;
+        position: fixed;
+        right: 70px;
+        max-width: 70px !important;
+        margin: 0;
+        padding: 14px 7px;
+        text-align: center;
+    }
+    .btn--tickets span{
+        display: none;
+    }
+}
+
 button {
     border: 0
 }
@@ -949,6 +1005,26 @@ button {
     top: 40px;
     right: 30px
 }
+@media (max-width: 480px){
+    .nav__toggle {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 17px 23px 15px 22px;
+        background-image: url(../img/texture-mobile.jpg);
+        background-color: #610501;
+    }
+    .nav__toggle:hover {
+        background-image: url(../img/transparent.png)
+    }
+    .nav__toggle .icon--menu{
+        width: 25px;
+        height: 20px;
+        background: url(../img/icon-menu-mobile.png) no-repeat;
+        background-size: contain;
+    }
+}
+
 html {
     font-size: 62.5%
 }
