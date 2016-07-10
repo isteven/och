@@ -57,6 +57,14 @@
     // Initialize viewer.
     var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+    // Register the custom control method.
+    var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
+    var controls = viewer.controls();
+    controls.registerMethod('deviceOrientation', deviceOrientationControlMethod);
+
+    // Enable custom control method
+    controls.enableMethod('deviceOrientation');
+
     // Setup autorotate.
     var autorotate = Marzipano.autorotate({
         yawSpeed: 0.1,

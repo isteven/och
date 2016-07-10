@@ -8,7 +8,8 @@ var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
 var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
-var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
+// var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
+// var touchView = viewer.controls().method('touchView').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
@@ -63,7 +64,7 @@ var region_5_range = 2.8;
 
 // Listen for the end of a drag.
   //  desktop to use inactive - else the panning will be very lag on windows FF
-dragControlMethod.addEventListener('inactive', function(e) {
+/*dragControlMethod.addEventListener('inactive', function(e) {
   //  mobile to use parameterDynamics
 // dragControlMethod.addEventListener('parameterDynamics', function(e) {
 //method: parameterDynamics(during dragging emf will get triggered)
@@ -153,7 +154,79 @@ dragControlMethod.addEventListener('inactive', function(e) {
     //     }
     //
     // }
+});*/
+
+var throttle = function(callback, limit) {
+    var wait = false;                  // Initially, we're not waiting
+    return function () {               // We return a throttled function
+        if (!wait) {                   // If we're not waiting
+            callback.call();           // Execute users function
+            wait = true;               // Prevent future invocations
+            setTimeout(function () {   // After a period of time
+                wait = false;          // And allow future invocations
+            }, limit);
+        }
+    }
+}
+
+var viewChangeThrottled = throttle(function() {
+  // Get the current viewport dimensions
+  var size = activeScene.marzipanoObject.view().size();
+
+  var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
+
+  // Transform the hotspot coordinates into screen coordinates.
+  var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
+      yaw: tempHotspots[activeSceneIdx].position().yaw,
+      pitch: tempHotspots[activeSceneIdx].position().pitch
+  });
+
+  var panningX = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
+  var hotspotX = tempHotspots[activeSceneIdx].position().yaw;
+
+  if ( is_in_range( panningX, hotspotX, region_1_range ) ) {
+    //  region 1, at the max region, 5 lights
+    $('.emf__container').attr('class', 'emf__container is-region-1');
+    canClick[activeSceneIdx] = true;
+    showPanoCenter();
+
+  } else if ( is_in_range( panningX, hotspotX, region_2_range ) ) {
+    //  region 2, 4 lights blink 1
+    $('.emf__container').attr('class', 'emf__container is-region-2');
+    canClick[activeSceneIdx] = false;
+    hidePanoCenter();
+
+  } else if ( is_in_range( panningX, hotspotX, region_3_range ) ) {
+    //  region 3, 3 lights blink 1
+    $('.emf__container').attr('class', 'emf__container is-region-3');
+    canClick[activeSceneIdx] = false;
+    hidePanoCenter();
+
+  } else if ( is_in_range( panningX, hotspotX, region_4_range )) {
+    //  region 4, 2 lights blink 1
+    $('.emf__container').attr('class', 'emf__container is-region-4');
+    canClick[activeSceneIdx] = false;
+    hidePanoCenter();
+
+  } else if ( is_in_range( panningX, hotspotX, region_5_range )) {
+    //  region 5, 1 light blink 1
+    $('.emf__container').attr('class', 'emf__container is-region-5');
+    canClick[activeSceneIdx] = false;
+    hidePanoCenter();
+
+  } else {
+    //  region 6, 1 light stagnant
+    $('.emf__container').attr('class', 'emf__container is-region-6');
+    canClick[activeSceneIdx] = false;
+    hidePanoCenter();
+  }
+}, 250);
+
+scenes.map(function(scene){
+  var view = scene.marzipanoObject.view();
+  view.addEventListener('change', viewChangeThrottled);
 });
+
 
 var showPanoCenter = function() {
   $( ".panoCenter" ).fadeIn( "slow", "swing", function() {
