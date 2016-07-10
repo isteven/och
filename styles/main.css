@@ -297,6 +297,12 @@ a:hover {
 .pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
 .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
 
+.pontianak9 {
+  margin-left: -270px;
+  margin-top: -154px;
+  height: 166% !important;
+}
+
 #pageGuessDate li:first-child div div  {
     display: inline-block;
     border-style: solid;
