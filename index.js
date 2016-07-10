@@ -206,7 +206,15 @@
                 frames: 10
             });
             sprite.to(9);
+
             shownScare = true;
+
+            sprite.on('frame', function(eventName){
+              if ( this.frame == 9 ) {
+                $('#scare').hide();
+              }
+            });
+
           }, 10000);
         } else {
           window.clearTimeout(timeoutID);
