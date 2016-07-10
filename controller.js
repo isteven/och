@@ -445,14 +445,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $scope.name1 = angular.copy(nameArr1[$scope.lang]);
         $scope.name2 = angular.copy(nameArr2[$scope.lang]);
 
-        showPage( '#pano' );
+        // showPage( '#pano' );
         hidePage('.fadePage');
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
     }
 
-    hidePage( '#pano' );
+    // hidePage( '#pano' );
     showPage('#pageLanding');
 
     // setTimeout( function() {
