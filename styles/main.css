@@ -397,7 +397,7 @@ h6 {
 }
 
 .clueImage {
-    padding: 0px 80px 80px 80px;
+    padding: 0px 60px 60px 60px;
     background-image: url( ../img/code_bg.png );
     background-position: center;
     background-size: contain;
@@ -405,8 +405,7 @@ h6 {
 }
 
 .clueImage > img {
-    min-width: 350px;
-    max-width: 70%;
+    max-width: 100%;
     height: auto;
 }
 
