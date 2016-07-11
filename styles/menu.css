@@ -318,19 +318,18 @@ body {
     width: 100%
 }
 @media (max-width: 480px){
-    .ftr{
-        height: 100px;
-    }
     .ftr__logo{
-        position: relative;
-        bottom: 80px;
-        padding-bottom: 0;
-        text-align: center;
+        display: none;
     }
-    .ftr__logo img {
-        margin: 0 auto;
-        display: block;
-        width: 135px;
+    .ftr__links{
+        width: 262px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .ftr__links .ng-isolate-scope{
+        padding-left: 5px;
     }
 }
 .ftr__links {
