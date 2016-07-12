@@ -2,15 +2,7 @@ var APP_DATA = {
     "scenes": [{
         "id": "0-scene-1",
         "name": "Scene 1",
-        "levels": [{
-            "tileSize": 256,
-            "size": 256,
-            "fallbackOnly": true
-        }, {
-            "tileSize": 512,
-            "size": 512
-        }],
-        "faceSize": 2048,
+        "faceSize": 1024,
         "initialViewParameters": {
             "yaw": -1.2,
             "pitch": 0,
