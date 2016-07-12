@@ -24,27 +24,6 @@
 
     <!-- facebook share  -->
     <script>
-        function statusChangeCallback(response) {
-            console.log('statusChangeCallback');
-            console.log(response);
-            // The response object is returned with a status field that lets the
-            // app know the current login status of the person.
-            // Full docs on the response object can be found in the documentation
-            // for FB.getLoginStatus().
-            if (response.status === 'connected') {
-                // Logged into your app and Facebook.
-                testAPI();
-            } else if (response.status === 'not_authorized') {
-                // The person is logged into Facebook, but not your app.
-                document.getElementById('status').innerHTML = 'Please log ' +
-                    'into this app.';
-            } else {
-                // The person is not logged into Facebook, so we're not sure if
-                // they are logged into this app or not.
-                document.getElementById('status').innerHTML = 'Please log ' +
-                    'into Facebook.';
-            }
-        }
         window.fbAsyncInit = function() {
             FB.init({
                 appId: '1198509583506495',
@@ -295,16 +274,12 @@
     <div id="pageLanding">
         <div class="centerElement centerInlineHor">
             <h2 class="font-trajan-pro fg-whitish">Old Changi Hospital</h2>
-            <br />
             <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
-            <br />
             <p>
                 Evil takes form in the derelict hallways of Old Changi Hospital
                 <br /> as vengeful souls rise once again in the dead of the night.
                 <br /> Will Singapore's bloodiest history repeat itself?
             </p>
-            <br />
-            <br />
             <div>
                 <p class="fg-yellow bold">
                     TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME
@@ -329,9 +304,11 @@
                 </ul>
 
             </div>
-            <br />
             <a class="btnBlood active" ng-click="startGame();">
                 START EXPLORING
+            </a>
+            <a class="ftr__logo" href="">
+                <img src="img/footer-logo.svg">
             </a>
         </div>
     </div>
@@ -362,7 +339,7 @@
                 <li>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
-                    <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
+                    <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
                     <br />
                     <br />
                     <div class="centerInlineHor">
@@ -385,7 +362,7 @@
                         <div class="guessBox">
                             <p>Enter a character to unravel the name</p>
                             <br />
-                            <input type="text" ng-model="singleLetter" ng-keyup="$event.keyCode == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
+                            <input type="text" ng-model="singleLetter" ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
                             <button ng-click="checkName()" class="btnBlood active">ENTER</button>
                             <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
                         </div>
@@ -437,75 +414,71 @@
 
     <!-- guess date -->
     <div id="pageShare">
-        <div class="centerElement">
-            <ul class="double-column">
-                <li>
-                    <div class="clueImage">
-                        <img src="img/code.png" class="centerHor" />
-                        <p class="centerInlineHor">
-                            Collect all 5 codes to unlock the final haunting
-                            <br />
-                            <a href="img/code.png" target="_blank" class="iconDownload">
-                                DOWNLOAD IMAGE
-                            </a>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+        <div class="centerElement h-clearfix">
+          <div class="clueShare">
+            <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+            <br />
+            <p class="centerInlineHor">
+                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+            </p>
+            <br />
+            <div class="leaderboardBox centerHor">
+                <div class="guessBoxHeader">
+                    <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                </div>
+                <div class="guessBox">
+                    <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span></p>
                     <br />
-                    <p class="centerInlineHor">
-                        Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
-                    </p>
-                    <br />
-                    <div class="leaderboardBox centerHor">
-                        <div class="guessBoxHeader">
-                            <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
-                        </div>
-                        <div class="guessBox">
-                            <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span></p>
-                            <br />
-                            <div class="centerInlineHor">
-                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook" ng-click="share_facebook()"></a>
-                                <!-- <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter"     ng-click="share_twitter()"></a> -->
-                                <!-- <a class="iconSocMed twitter"   href="https://twitter.com/share" data-size="small" data-url="http://www.halloweenhorrornights.com.sg/" data-text="Hello" data-count="none"></a> -->
-                                <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a>
-                                <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo" ng-click="share_weibo()"></a>
-                            </div>
-                            <div class="centerInlineHor">
-                                <a href="#" class="url-yellow">Terms & Conditions</a> apply
-                            </div>
-                            <br />
-                            <div class="topBorderRed ">
-                                <br />
-                                <p class="bold centerInlineHor">LEADERBOARD</p>
-                                <br />
-                                <ul class="double-column centerHor leaderboardScore">
-                                    <li>
-                                        <div ng-repeat="entry in entry1to5">
-                                            <span class="numbering">
-                                                {{entry.idxString}}.
-                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div ng-repeat="entry in entry2to5">
-                                            <span class="numbering">
-                                                {{entry.idxString}}.
-                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="centerInlineHor">
+                        <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook"    ng-click="share_facebook()"></a>
+                        <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter"     ng-click="share_twitter()"></a>
+                        <!-- <a class="iconSocMed twitter"   href="https://twitter.com/share" data-size="small" data-url="http://www.halloweenhorrornights.com.sg/" data-text="Hello" data-count="none"></a> -->
+                        <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
+                        <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo" ng-click="share_weibo()"></a>
                     </div>
                     <div class="centerInlineHor">
-                        <a class="replay" onclick="location.reload()">
-                            REPLAY
-                        </a>
+                        <a href="#" class="url-yellow">Terms &amp; Conditions</a> apply
                     </div>
-                </li>
-            </ul>
+                    <br />
+                    <div class="topBorderRed ">
+                        <br />
+                        <p class="bold centerInlineHor">LEADERBOARD</p>
+                        <br />
+                        <ul class="double-column centerHor leaderboardScore">
+                            <li>
+                                <div ng-repeat="entry in entry1to5">
+                                    <span class="numbering">
+                                        {{entry.idxString}}.
+                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                </div>
+                            </li>
+                            <li>
+                                <div ng-repeat="entry in entry2to5">
+                                    <span class="numbering">
+                                        {{entry.idxString}}.
+                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="centerInlineHor">
+                <a class="replay" onclick="location.reload()">
+                    REPLAY
+                </a>
+            </div>
+          </div>
+          <div class="clueImage">
+              <img src="img/code.png" class="centerHor" />
+              <p class="centerInlineHor">
+                  Collect all 5 codes to unlock the final haunting
+                  <br />
+                  <a href="img/code.png" target="_blank" class="iconDownload">
+                      DOWNLOAD IMAGE
+                  </a>
+              </p>
+          </div>
         </div>
     </div>
 
@@ -523,6 +496,7 @@
     <!-- <img class="panoCenter" src="img/icon_camera_ingame.png" /> -->
 
     <div id="scare"></div>
+    <div class="scare-overlay"></div>
 
     <ul class="emf__container is-region-2">
       <li class="emf__1"></li>

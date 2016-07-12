@@ -8,6 +8,7 @@
     var activeScene = null;
     var globalView  = null;
     var shownScare  = false;
+    var timeoutID;
 
     // Grab elements from DOM.
     var panoElement             = document.querySelector('#pano');
@@ -222,6 +223,8 @@
         if (scene.data.id == '0-scene-2' && !shownScare) {
           timeoutID = window.setTimeout(function(){
             $('#scare').show();
+            $('.scare-overlay').addClass('active');
+
             var element = document.querySelector('#scare');
             var sprite = new Motio(element, {
                 fps: 18,
@@ -234,10 +237,11 @@
             sprite.on('frame', function(eventName){
               if ( this.frame == 9 ) {
                 $('#scare').hide();
+                $('.scare-overlay').removeClass('active');
               }
             });
 
-          }, 10000);
+          }, 6000);
         } else {
           window.clearTimeout(timeoutID);
         }

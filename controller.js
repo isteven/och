@@ -6,6 +6,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     var gameEndTime = null;
     $scope.elapsedGameTime = null;
 
+    fbLoggedIn = false;
+    fbResponse = null;
+
     $scope.menu = {};
     $scope.menu.active = false;
     $scope.footer = {};
@@ -322,9 +325,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
     $scope.share_facebook = function() {
-        console.log('share_facebook()');
+        if ( fbLoggedIn ) {
+            fbPost( fbResponse.authResponse.userID, fbResponse );
+        }
+        else {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function(response) {
+                        console.log( response );
+                        fbPost( response.id, response );
+                        // console.log('Good to see you, ' + response.name + '.');
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            });
+        }
+        /*
         FB.getLoginStatus(function(response ) {
-            // statusChangeCallback(response);
             if (response.status === 'connected') {
                 console.log('FB logged in');
                 console.log(response );
@@ -345,11 +364,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 // alert('Please login into your Facebook account.');
             }
         });
+        */
     }
 
     $scope.share_twitter = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/360/twitter/?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
@@ -436,6 +456,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         gameStartTime = null;
         gameEndTime = null;
 
+        fbLoggedIn = false;
+        fbResponse = null;
+
         $scope.guessCorrect = true;
         $scope.failLetter = '';
         $scope.triesLeft = 5;
@@ -455,6 +478,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
+
+        FB.getLoginStatus(function( response ) {
+            if ( response.status === 'connected' ) {
+                fbLoggedIn = true;
+                fbResponse = response;
+            }
+        });
     }
 
     // hidePage( '#pano' );
