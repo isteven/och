@@ -217,7 +217,7 @@
               }
             });
 
-          }, 10000);
+          }, 6000);
         } else {
           window.clearTimeout(timeoutID);
         }
