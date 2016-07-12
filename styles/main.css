@@ -62,9 +62,17 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 @media (max-width: 480px){
+    .cluesCtr {
+    	width: 30%;
+    	top: 78%;
+    	left: 84%;
+    	z-index: 41;
+    }
+}
+@media (max-width: 480px){
     .centerElement {
         margin-top: 0;
-        padding: 0 18px 140px;
+        padding: 0 18px 50px;
         width: 100%;
     }
     .centerElement p{
@@ -91,6 +99,34 @@ a:hover {
 .centerInlineHor {
     text-align: center;
     /*border: none;*/
+}
+@media (max-width: 480px){
+    .centerInlineHor {
+        margin-bottom: 10px;
+    }
+    .centerInlineHor .guessBox{
+        padding: 20px 30px;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+    }
+    .centerInlineHor .guessBox > p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .centerInlineHor .guessBox > input{
+        width: 60px;
+        vertical-align: bottom;
+        margin-right: 5px;
+        font-size: 150%;
+        line-height: 1.3;
+        text-align: center;
+    }
+    .centerInlineHor .guessBox > button{
+        padding: 6px 11px;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
 }
 .centerVer {
     display: inline-block;
@@ -147,6 +183,18 @@ a:hover {
     width: 80%;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 480px){
+    #pageGuessName> div, #pageGuessDate> div {
+        position: absolute;
+        z-index: 30;
+        top: 50%;
+        left: 50%;
+        height: 60%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 
 #pageClues,
 #pageGuessDate,
@@ -239,6 +287,26 @@ a:hover {
     margin-left: 10px;
     text-align: center;
 }
+@media (max-width: 480px){
+    #pageGuessName .inputBorder{   
+        margin-left: 1px;
+        font-size: 2.7em;
+        line-height: 0.5;
+    }
+    #pageGuessName .inputBorder img{
+        width: 29px;
+    }
+    #pageGuessName h1.font-edo{
+        margin-bottom: 5px;
+        font-size: 2.2em;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.4em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.2em;
+    }
+}
 .font-edo {
     font-family: "edoregular", sans-serif;
 }
@@ -317,13 +385,37 @@ a:hover {
 #pageGuessName .double-column li:first-child {
     width: 70%;
 }
-
+@media (max-width: 480px) {
+    #pageGuessName > div{
+        top: 45%;
+    }
+    #pageGuessName .double-column li {
+        display: inline-block;
+        width: 30%;
+    }
+    #pageGuessName .double-column li:first-child {
+        display: inline-block;
+        width: 67%;
+    }
+    #pageGuessName .double-column li.pontianakBox {
+        margin-left: -12%;
+    }
+}
 .double-column li.pontianakBox div {
     height: 100%;
     width: 300px;
     display: none;
     position: absolute;
     /*background-position: center;*/
+}
+@media (max-width: 480px) {
+    .double-column li.pontianakBox div {
+        height: 100%;
+        width: 180px;
+        display: none;
+        position: absolute;
+        /*background-position: center;*/
+    }
 }
 
 .pontianak1 { background: transparent url( ../img/01_ponappear.png ) 0 0 no-repeat; }
@@ -335,6 +427,18 @@ a:hover {
 .pontianak7 { background: transparent url( ../img/07_ponturn_3.png ) 0 0 no-repeat; }
 .pontianak8 { background: transparent url( ../img/08_ponwait_3.png ) 0 0 no-repeat; }
 .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }
+
+@media (max-width: 480px) {
+    .pontianak1 { background: transparent url( ../img/01_ponappear-m.png ) 0 0 no-repeat; }
+    .pontianak2 { background: transparent url( ../img/02_ponwait-m.png ) 0 0 no-repeat; }
+    .pontianak3 { background: transparent url( ../img/03_ponturn_1-m.png ) 0 0 no-repeat; }
+    .pontianak4 { background: transparent url( ../img/04_ponwait_1-m.png ) 0 0 no-repeat; }
+    .pontianak5 { background: transparent url( ../img/05_ponturn_2-m.png ) 0 0 no-repeat; }
+    .pontianak6 { background: transparent url( ../img/06_ponwait_2-m.png ) 0 0 no-repeat; }
+    .pontianak7 { background: transparent url( ../img/07_ponturn_3-m.png ) 0 0 no-repeat; }
+    .pontianak8 { background: transparent url( ../img/08_ponwait_3-m.png ) 0 0 no-repeat; }
+    .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat; width: 600px !important ; }
+}
 
 .pontianak9 {
   margin-left: -270px;
@@ -371,6 +475,34 @@ a:hover {
     border-right: 1px solid #a80101;
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+	#pageGuessDate > div{
+		width: 100%;
+	}
+	#pageGuessDate .double-column li{
+		width: 100%;
+	}
+	#pageGuessDate .double-column li:first-child{
+		width: 100%;
+		margin-top: 50%;
+
+	}
+	#pageGuessDate .double-column li:last-child{
+		position: absolute;
+		top: 0;
+	}
+	#pageGuessDate .double-column li .pontianakSpecial{
+		display: block;
+		height: 200%;
+		background-position-x: -5425px;
+	}
+    #pageGuessDate .double-column li h3.centerInlineHor {
+    	font-family: Lato, sans-serif;
+    	font-size: 220%;
+    }
+}
+
 
 h1 {
     font-size: 250%;
@@ -564,6 +696,11 @@ h6 {
     width: auto;
 }
 
+@media (min-width: 480px){
+    #pageLanding .ftr__logo{
+        display: none;
+    }
+}
 @media (max-width: 480px){
     #pageLanding{
         height: auto;
@@ -572,7 +709,7 @@ h6 {
     #pageLanding > div > div {
         width: 100%;
         height: auto;
-        padding: 30px 15px 10px 15px;
+        padding: 40px 15px 0 15px;
         background-image: url(../img/landing_blood.png);
         background-size: contain;
         background-position: top;
@@ -601,7 +738,19 @@ h6 {
         margin-top: 0;
     }
     #pageLanding > div > div > ul > li:last-child {
-        padding-bottom: 10px;
+        margin-top: -20px;
+        padding-bottom: 60px;
+    }
+    #pageLanding .ftr__logo{
+        display: block;
+        width: 100%;
+        position: initial;
+        bottom: 0;
+        left: 0;
+        margin-top: 45px;
+    }
+    #pageLanding .ftr__logo img{
+        width: 130px;
     }
 }
 
@@ -669,7 +818,11 @@ h6 {
 
   text-align: center;
 }
-
+@media (max-width: 480px){
+	.emf__container {
+		top: 85%;
+	}
+}
 .emf__container > li {
   display: inline-block;
   width: 25px;

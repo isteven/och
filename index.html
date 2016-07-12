@@ -307,6 +307,9 @@
             <a class="btnBlood active" ng-click="startGame();">
                 START EXPLORING
             </a>
+            <a class="ftr__logo" href="">
+                <img src="img/footer-logo.svg">
+            </a>
         </div>
     </div>
 
@@ -336,7 +339,7 @@
                 <li>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
                     <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
-                    <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
+                    <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
                     <br />
                     <br />
                     <div class="centerInlineHor">
