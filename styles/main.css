@@ -882,3 +882,11 @@ h6 {
 .scare-overlay.active {
   display: block;
 }
+
+@media (max-width: 1000px) {
+  #scare {
+    width: 389px;
+    height: 447px;
+    background-image: url('../img/scare-m.png');
+  }
+}
