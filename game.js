@@ -11,6 +11,7 @@ var frameInterval;
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
 // var touchView = viewer.controls().method('touchView').instance;
+var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
@@ -121,7 +122,6 @@ var viewChangeThrottled = throttle(function() {
     canClick[activeSceneIdx] = true;
     showPanoCenter();
 
-
     $('.emf__reader > span.num').html('Max');
 
     if ( !$('.emf__reader > span.static').hasClass('hidden') ) {
@@ -190,12 +190,6 @@ var viewChangeThrottled = throttle(function() {
 scenes.map(function(scene){
   var view = scene.marzipanoObject.view();
   view.addEventListener('change', viewChangeThrottled);
-});
-
-dragControlMethod.addEventListener('inactive', function(e) {
-    setInterval(function(){
-      console.log($('.emf__reader > span.num').val());
-    }, 500);
 });
 
 
