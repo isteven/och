@@ -490,6 +490,28 @@ h6 {
     z-index: 40;
 }
 
+#pageLanding h2 {
+  margin-bottom: 24px;
+}
+
+#pageLanding > div > p {
+  margin-bottom: 16px;
+}
+
+#pageLanding > div > a {
+  margin-top: 12px;
+}
+
+@media (max-height: 600px) {
+  #pageLanding h2 {
+    margin-bottom: 12px;
+  }
+
+  #pageLanding > p {
+    margin-bottom: 16px;
+  }
+}
+
 #pageLanding > div > div {
     width: 600px;
     height: 307px;
