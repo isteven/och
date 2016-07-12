@@ -411,75 +411,71 @@
 
     <!-- guess date -->
     <div id="pageShare">
-        <div class="centerElement">
-            <ul class="double-column">
-                <li>
-                    <div class="clueImage">
-                        <img src="img/code.png" class="centerHor" />
-                        <p class="centerInlineHor">
-                            Collect all 5 codes to unlock the final haunting
-                            <br />
-                            <a href="img/code.png" target="_blank" class="iconDownload">
-                                DOWNLOAD IMAGE
-                            </a>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+        <div class="centerElement h-clearfix">
+          <div class="clueShare">
+            <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
+            <br />
+            <p class="centerInlineHor">
+                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+            </p>
+            <br />
+            <div class="leaderboardBox centerHor">
+                <div class="guessBoxHeader">
+                    <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
+                </div>
+                <div class="guessBox">
+                    <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span></p>
                     <br />
-                    <p class="centerInlineHor">
-                        Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
-                    </p>
-                    <br />
-                    <div class="leaderboardBox centerHor">
-                        <div class="guessBoxHeader">
-                            <p class="font-trajan-pro fg-yellow centerInlineHor">SHARE &amp; WIN NOW</p>
-                        </div>
-                        <div class="guessBox">
-                            <p class="bold centerInlineHor">YOUR TIME <span class="fg-yellow">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span></p>
-                            <br />
-                            <div class="centerInlineHor">
-                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook"    ng-click="share_facebook()"></a>
-                                <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter"     ng-click="share_twitter()"></a>
-                                <!-- <a class="iconSocMed twitter"   href="https://twitter.com/share" data-size="small" data-url="http://www.halloweenhorrornights.com.sg/" data-text="Hello" data-count="none"></a> -->
-                                <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
-                                <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo" ng-click="share_weibo()"></a>
-                            </div>
-                            <div class="centerInlineHor">
-                                <a href="#" class="url-yellow">Terms & Conditions</a> apply
-                            </div>
-                            <br />
-                            <div class="topBorderRed ">
-                                <br />
-                                <p class="bold centerInlineHor">LEADERBOARD</p>
-                                <br />
-                                <ul class="double-column centerHor leaderboardScore">
-                                    <li>
-                                        <div ng-repeat="entry in entry1to5">
-                                            <span class="numbering">
-                                                {{entry.idxString}}.
-                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div ng-repeat="entry in entry2to5">
-                                            <span class="numbering">
-                                                {{entry.idxString}}.
-                                            </span> {{millisToMinutesAndSeconds( entry.time )}}
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="centerInlineHor">
+                        <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook"    ng-click="share_facebook()"></a>
+                        <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter"     ng-click="share_twitter()"></a>
+                        <!-- <a class="iconSocMed twitter"   href="https://twitter.com/share" data-size="small" data-url="http://www.halloweenhorrornights.com.sg/" data-text="Hello" data-count="none"></a> -->
+                        <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
+                        <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo" ng-click="share_weibo()"></a>
                     </div>
                     <div class="centerInlineHor">
-                        <a class="replay" onclick="location.reload()">
-                            REPLAY
-                        </a>
+                        <a href="#" class="url-yellow">Terms &amp; Conditions</a> apply
                     </div>
-                </li>
-            </ul>
+                    <br />
+                    <div class="topBorderRed ">
+                        <br />
+                        <p class="bold centerInlineHor">LEADERBOARD</p>
+                        <br />
+                        <ul class="double-column centerHor leaderboardScore">
+                            <li>
+                                <div ng-repeat="entry in entry1to5">
+                                    <span class="numbering">
+                                        {{entry.idxString}}.
+                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                </div>
+                            </li>
+                            <li>
+                                <div ng-repeat="entry in entry2to5">
+                                    <span class="numbering">
+                                        {{entry.idxString}}.
+                                    </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="centerInlineHor">
+                <a class="replay" onclick="location.reload()">
+                    REPLAY
+                </a>
+            </div>
+          </div>
+          <div class="clueImage">
+              <img src="img/code.png" class="centerHor" />
+              <p class="centerInlineHor">
+                  Collect all 5 codes to unlock the final haunting
+                  <br />
+                  <a href="img/code.png" target="_blank" class="iconDownload">
+                      DOWNLOAD IMAGE
+                  </a>
+              </p>
+          </div>
         </div>
     </div>
 

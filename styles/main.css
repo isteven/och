@@ -396,6 +396,14 @@ h6 {
     font-size: 110%;
 }
 
+#pageShare > div > div {
+  float: right;
+}
+
+#pageShare .centerElement {
+  min-width: 865px;
+}
+
 .clueImage {
     padding: 0px 60px 60px 60px;
     background-image: url( ../img/code_bg.png );
@@ -405,8 +413,12 @@ h6 {
 }
 
 .clueImage > img {
-    max-width: 100%;
+    max-width: 260px;
     height: auto;
+}
+
+.clueShare {
+  width: 460px;
 }
 
 .guessBoxHeader {
@@ -418,8 +430,7 @@ h6 {
 }
 
 .leaderboardBox {
-    min-width: 400px;
-    width: 70%;
+    width: 290px;
 }
 
 .leaderboardBox > div {
