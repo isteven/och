@@ -498,39 +498,97 @@ body {
         top: 10px;
         right: 10px;
     }
-    .ftr__popup .inner{
+    .ftr__popup h3 {
+        margin-bottom: 10px;
+    }
+    .ftr__popup .ftr__icon{
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        padding: 8px;
+    }
+    .ftr__popup .ftr__icon--ig {
+        margin-right: 0;
+    }
+    .ftr__popup.is-active {
+        height: 180px;
+    }
+    .ftr__popup .inner {
         margin: 15px auto 0;
     }
-    .ftr__popup--connected .connected__follow{
+    .ftr__popup--connected .connected__follow {
         width: 26%;
         padding-right: 10px;
     }
-    .ftr__popup--connected .connected__follow h3{
+    .ftr__popup--connected .connected__follow h3 {
         margin-bottom: 5px;
     }
-    .ftr__popup--connected .connected__follow .ftr__icon{
+    .ftr__popup--connected .connected__follow .ftr__icon {
         width: 40px;
         height: 40px;
         margin: 0;
         padding: 8px;
     }
-    .ftr__popup--connected .connected__subscribe{
+    .ftr__popup--connected .connected__subscribe {
         width: 72%;
         padding-left: 15px;
     }
-    .ftr__popup--connected .connected__subscribe p{
+    .ftr__popup--connected .connected__subscribe input[type=email] {
+        width: 60%;
+        padding: 7px 10px 8px;
+    }
+    .ftr__popup--connected .connected__subscribe .btn {
+        top: 1px;
+        width: 36%;
+        height: 30px;
+        margin-left: 2%;
+        padding: 6px 10px;
+    }
+    .ftr__popup--connected .connected__subscribe p {
         max-width: 100%;
+        margin: 10px auto 5px;
         padding: 0;
     }
-    .ftr__popup--connected .connected__subscribe input[type=checkbox]{
+    .ftr__popup--connected .connected__subscribe input[type=checkbox] {
         left: 0;
-        margin: 0;
+        margin: 3px 0;
     }
-    .ftr__popup--connected .connected__subscribe label{
+    .ftr__popup--connected .connected__subscribe label {
         padding-left: 20px;
     }
-    .ftr__popup--connected .connected__subscribe label small{
-        padding-left: 20px;
+    .ftr__popup--connected .connected__subscribe label small {
+        padding-left: 0;
+        font-size: 11px;
+        line-height: 1.2em;
+    }
+    .ftr__popup--legal ul {
+        margin: 10px 0;
+    }
+    .ftr__popup--legal li {
+        display: block;
+        padding: 0;
+        border-right: 0;
+        font-size: 12px;
+        line-height: 1.6em;
+    }
+    .ftr__popup--legal .legal__rights {
+        font-size: 10px;
+        line-height: 1.2em;
+        padding: 0 30px;
+    }
+}
+@media (max-width: 320px){
+    .ftr__popup--connected .connected__follow {
+        padding-right: 8px;
+    }
+    .ftr__popup--connected .connected__subscribe {
+        padding-left: 10px;
+    }
+    .ftr__popup--legal ul {
+        margin: 5px 0;
+    }
+    .ftr__popup--legal .legal__rights {
+        padding: 0 25px;
     }
 }
 
