@@ -364,7 +364,7 @@
                         <div class="guessBox">
                             <p>Enter a character to unravel the name</p>
                             <br />
-                            <input type="text" ng-model="singleLetter" ng-keyup="$event.keyCode == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
+                            <input type="text" ng-model="singleLetter" ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
                             <button ng-click="checkName()" class="btnBlood active">ENTER</button>
                             <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
                         </div>
