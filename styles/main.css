@@ -288,7 +288,7 @@ a:hover {
     text-align: center;
 }
 @media (max-width: 480px){
-    #pageGuessName .inputBorder{   
+    #pageGuessName .inputBorder{
         margin-left: 1px;
         font-size: 2.7em;
         line-height: 0.5;
@@ -807,6 +807,8 @@ h6 {
   list-style-type: none;
 
   background-image: url('../img/emf-bg.png');
+  background-repeat: no-repeat;
+  background-position: left top;
 
   width: 150px;
   height: 27px;
@@ -817,6 +819,8 @@ h6 {
   transform: translate(-50%, -50%);
 
   text-align: center;
+
+  overflow: hidden;
 }
 @media (max-width: 480px){
 	.emf__container {
@@ -828,6 +832,7 @@ h6 {
   width: 25px;
   height: 25px;
   background-position: left top;
+  background-repeat: no-repeat;
 }
 
 .emf__container > li.emf__1 {
@@ -848,6 +853,18 @@ h6 {
 
 .emf__container > li.emf__5 {
   background-image: url('../img/emf-red.png');
+}
+
+.emf__container.is-region-2 > li.emf__5,
+.emf__container.is-region-3 > li.emf__4,
+.emf__container.is-region-4 > li.emf__3,
+.emf__container.is-region-5 > li.emf__2 {
+          animation: flicker .8s steps(1) infinite;
+  -webkit-animation: flicker .8s steps(1) infinite;
+
+  -webkit-transform: translate3D(0,0,0);
+  -webkit-backface-visibility: false;
+  -webkit-perspective: 1000;
 }
 
 .emf__container.is-region-1 > li.emf__1,
@@ -882,13 +899,6 @@ h6 {
 
 .emf__container.is-region-6 > li.emf__1 {
   background-position: left bottom;
-}
-
-.emf__container.is-region-2 > li.emf__5,
-.emf__container.is-region-3 > li.emf__4,
-.emf__container.is-region-4 > li.emf__3,
-.emf__container.is-region-5 > li.emf__2 {
-  animation: flicker .8s steps(1) infinite;
 }
 
 @keyframes flicker {
@@ -1017,6 +1027,56 @@ h6 {
   background-image: url('../img/scare.png');
   background-size: cover;
   background-position: 0 0;
+}
+
+
+/*
+  scene 1 - lighting props
+*/
+.prop-hotspot-light {
+  overflow: hidden;
+}
+
+.prop-hotspot-light.active > .prop-inner {
+  overflow: hidden;
+  width: 296px;
+  height: 251px;
+
+  -webkit-animation: prop_light_flickers 2s steps(8) infinite;
+      -moz-animation: prop_light_flickers 2s steps(8) infinite;
+          animation: prop_light_flickers 2s steps(8) infinite;
+
+}
+
+
+
+@-webkit-keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+}
+
+@keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+
 }
 
 .scare-overlay {
