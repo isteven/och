@@ -386,6 +386,22 @@
     <!-- guess date -->
     <div id="pageGuessDate">
         <div class="centerElement">
+            <div class="double-column">
+                <div class="pontianakSpecial">
+                </div>
+                <div class="centerVer centerInlineHor">
+                    <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
+                    <h3 class="centerInlineHor">How many nights will<br />Halloween Horror Nights 6 be held?</h3>
+                    <div>
+                        <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
+                            {{date.date}}
+                        </a>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <!--
             <ul class="double-column">
                 <li>
                     <div class="centerVer centerInlineHor">
@@ -409,6 +425,7 @@
                     </div>
                 </li>
             </ul>
+            -->
         </div>
     </div>
 
@@ -419,7 +436,7 @@
             <h4 class="font-trajan-pro centerInlineHor">Spread The Word Of Evil</h4>
             <br />
             <p class="centerInlineHor">
-                Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
+                Win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
             </p>
             <br />
             <div class="leaderboardBox centerHor">

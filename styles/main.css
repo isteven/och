@@ -87,14 +87,19 @@ a:hover {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .centerElement {
         position: relative;
         z-index: 1;
-        top: 80px;
+        top: 100px;
         left: 0;
         transform: none;
     }
+}
+@@media (max-width: 480px) {
+  .centerElement {
+    top: 80px;
+  }
 }
 .centerInlineHor {
     text-align: center;
@@ -126,6 +131,11 @@ a:hover {
         padding: 6px 11px;
         font-size: 0.9em;
         font-weight: 700;
+    }
+}
+@media (max-width: 320px){
+    .centerInlineHor .guessBox{
+        padding: 15px 20px;
     }
 }
 .centerVer {
@@ -170,7 +180,7 @@ a:hover {
     background-size: cover;
     display: none;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     position: absolute;
     z-index: 40;
 }
@@ -307,6 +317,21 @@ a:hover {
         font-size: 1.2em;
     }
 }
+@media (max-width: 320px){
+    #pageGuessName .inputBorder{   
+        font-size: 2.2em;
+    }
+    #pageGuessName .inputBorder img{
+        width: 25px;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.2em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.0em;
+    }
+}
+
 .font-edo {
     font-family: "edoregular", sans-serif;
 }
@@ -401,6 +426,11 @@ a:hover {
         margin-left: -12%;
     }
 }
+@media (max-width: 320px) {
+    #pageGuessName .double-column li.pontianakBox {
+        margin-left: -16%;
+    }
+} 
 .double-column li.pontianakBox div {
     height: 100%;
     width: 300px;
@@ -452,6 +482,38 @@ a:hover {
   height: 100%;
 }
 
+#pageGuessDate .double-column .centerVer div{
+    display: inline-block;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+#pageGuessDate .double-column .centerVer div a{
+    display: inline-block;
+    border-left: 1px solid #a80101;
+    border-right: 1px solid #a80101;
+    text-align: center;
+    padding: 20px;
+    font-size: 120%;
+    color: #ffab1a;
+    font-weight: bold;
+    border-right: 1px solid #a80101;
+    cursor: pointer;
+}
+#pageGuessDate .double-column .centerVer div a:hover{
+    background-color: #ffab1a;
+    color: #a80101;
+}
+@media (max-width: 480px) {
+    #pageGuessDate .double-column .centerVer div a{
+        padding: 20px;
+    }
+}
+/*
 #pageGuessDate li:first-child div div  {
     display: inline-block;
     border-style: solid;
@@ -475,11 +537,41 @@ a:hover {
     border-right: 1px solid #a80101;
     cursor: pointer;
 }
-
+*/
+#pageGuessDate .centerElement{
+    width: 100%;
+    height: 100%;
+}
+#pageGuessDate .double-column .pontianakSpecial{
+    float: right;
+    width: 50% !important;
+    background-position-x: -5300px;
+}
+#pageGuessDate .double-column .centerVer{
+    float: left;
+    width: 50% !important;
+}
 @media (max-width: 480px) {
-	#pageGuessDate > div{
+	#pageGuessDate .centerElement{
 		width: 100%;
+        padding: 0;
 	}
+    #pageGuessDate .double-column .pontianakSpecial{
+        display: inline-block;
+        float: right;
+        width: 100% !important;
+        margin-top: -30%;
+        background-position-x: -4290px;
+    }
+    #pageGuessDate .double-column .centerVer{
+        display: inline-block;
+        float: left;
+        width: 100% !important;
+        top: 0;
+        margin-top: -10%;
+        padding: 0 18px 50px;
+    }
+    /*
 	#pageGuessDate .double-column li{
 		width: 100%;
 	}
@@ -494,15 +586,19 @@ a:hover {
 	}
 	#pageGuessDate .double-column li .pontianakSpecial{
 		display: block;
-		height: 200%;
-		background-position-x: -5425px;
+		background-position-x: -4200px;
 	}
     #pageGuessDate .double-column li h3.centerInlineHor {
     	font-family: Lato, sans-serif;
     	font-size: 220%;
     }
+    */
 }
-
+@media (max-width: 320px) {
+    #pageGuessDate .double-column .pontianakSpecial{
+        background-position-x: -4315px;
+    }
+}
 
 h1 {
     font-size: 250%;
@@ -533,12 +629,8 @@ h6 {
   float: right;
 }
 
-#pageShare .centerElement {
-  min-width: 865px;
-}
-
 .clueImage {
-    padding: 0px 60px 60px 60px;
+    width: 100%;
     background-image: url( ../img/code_bg.png );
     background-position: center;
     background-size: contain;
@@ -550,8 +642,27 @@ h6 {
     height: auto;
 }
 
-.clueShare {
-  width: 460px;
+@media (min-width: 900px) {
+  #pageShare .centerElement {
+    width: 742px;
+  }
+
+  .clueShare {
+    width: 460px;
+  }
+
+  .clueImage {
+    width: auto;
+  }
+}
+
+@media (min-width: 680px, max-width: 900px) {
+  .clueShare, .clueImage {
+    width: 50%;
+  }
+  #pageShare .centerElement {
+    top: 160px;
+  }
 }
 
 .guessBoxHeader {
