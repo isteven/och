@@ -345,6 +345,7 @@ a:hover {
     border-bottom: 2px solid #a80101;
     color: #fff;
     font-size: 200%;
+    text-align: center;
 }
 
 .double-column {
@@ -528,6 +529,14 @@ h6 {
     font-size: 110%;
 }
 
+#pageShare > div > div {
+  float: right;
+}
+
+#pageShare .centerElement {
+  min-width: 865px;
+}
+
 .clueImage {
     padding: 0px 60px 60px 60px;
     background-image: url( ../img/code_bg.png );
@@ -537,8 +546,12 @@ h6 {
 }
 
 .clueImage > img {
-    max-width: 100%;
+    max-width: 260px;
     height: auto;
+}
+
+.clueShare {
+  width: 460px;
 }
 
 .guessBoxHeader {
@@ -550,8 +563,7 @@ h6 {
 }
 
 .leaderboardBox {
-    min-width: 400px;
-    width: 70%;
+    width: 290px;
 }
 
 .leaderboardBox > div {
@@ -620,6 +632,28 @@ h6 {
     height: 100%;
     position: absolute;
     z-index: 40;
+}
+
+#pageLanding h2 {
+  margin-bottom: 24px;
+}
+
+#pageLanding > div > p {
+  margin-bottom: 16px;
+}
+
+#pageLanding > div > a {
+  margin-top: 12px;
+}
+
+@media (max-height: 600px) {
+  #pageLanding h2 {
+    margin-bottom: 12px;
+  }
+
+  #pageLanding > p {
+    margin-bottom: 16px;
+  }
 }
 
 #pageLanding > div > div {
@@ -1000,4 +1034,12 @@ h6 {
 
 .scare-overlay.active {
   display: block;
+}
+
+@media (max-width: 1000px) {
+  #scare {
+    width: 389px;
+    height: 447px;
+    background-image: url('../img/scare-m.png');
+  }
 }

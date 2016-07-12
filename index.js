@@ -8,6 +8,7 @@
     var activeScene = null;
     var globalView  = null;
     var shownScare  = false;
+    var timeoutID;
 
     // Grab elements from DOM.
     var panoElement             = document.querySelector('#pano');
@@ -195,8 +196,6 @@
         updateSceneList(scene);
         activeScene = scene;
 
-        var timeoutID;
-
         if (scene.data.id == '0-scene-2' && !shownScare) {
           timeoutID = window.setTimeout(function(){
             $('#scare').show();
@@ -218,7 +217,7 @@
               }
             });
 
-          }, 10000);
+          }, 6000);
         } else {
           window.clearTimeout(timeoutID);
         }
