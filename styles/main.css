@@ -318,7 +318,7 @@ a:hover {
     }
 }
 @media (max-width: 320px){
-    #pageGuessName .inputBorder{   
+    #pageGuessName .inputBorder{
         font-size: 2.2em;
     }
     #pageGuessName .inputBorder img{
@@ -430,7 +430,7 @@ a:hover {
     #pageGuessName .double-column li.pontianakBox {
         margin-left: -16%;
     }
-} 
+}
 .double-column li.pontianakBox div {
     height: 100%;
     width: 300px;
@@ -656,7 +656,7 @@ h6 {
   }
 }
 
-@media (min-width: 680px, max-width: 900px) {
+@media (min-width: 680px) and (max-width: 900px) {
   .clueShare, .clueImage {
     width: 50%;
   }
