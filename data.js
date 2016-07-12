@@ -22,6 +22,17 @@ var APP_DATA = {
             "rotation": 0,
             "target": "0-scene-2"
         }],
+        "propHotspots": [{
+            "path": "img/scene-0-props/scene1_b_light.png",
+            "width": "296",
+            "height": "251",
+            "frames": "8",
+            "yaw": 2.69,
+            "pitch": -0.55,
+            "radius": 650
+            , "extraRotations": "rotate(-9deg)"
+
+        }]
     }, {
         "id": "0-scene-2",
         "name": "Scene 2",

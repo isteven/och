@@ -120,6 +120,23 @@
         });
         */
 
+        // Create Props hotspots.
+        if( sceneData.propHotspots !== undefined ) {
+          sceneData.propHotspots.forEach(function(hotspot) {
+            var element = createPropHotspotsElement(hotspot);
+            marzipanoScene.hotspotContainer().createHotspot(element,
+              { yaw: hotspot.yaw, pitch: hotspot.pitch },
+              {
+                perspective:
+                {
+                  radius: hotspot.radius,
+                  extraRotations: hotspot.extraRotations
+                }
+              }
+            );
+          });
+        }
+
         return {
             data: sceneData,
             marzipanoObject: marzipanoScene
@@ -195,6 +212,13 @@
         updateSceneName(scene);
         updateSceneList(scene);
         activeScene = scene;
+
+        var timeoutID;
+
+        if (scene.data.id == '0-scene-1' ) {
+          $('.prop-hotspot-light').addClass('active');
+
+        }
 
         if (scene.data.id == '0-scene-2' && !shownScare) {
           timeoutID = window.setTimeout(function(){
@@ -397,6 +421,31 @@
         stopTouchAndScrollEventPropagation(wrapper);
         console.log( wrapper );
         return wrapper;
+    }
+
+    function createPropHotspotsElement(hotspot) {
+
+      // Create wrapper element to hold icon and hotspot_link_info.
+      var wrapper = document.createElement('div');
+      wrapper.className += 'hotspot prop-hotspot-light';
+
+      var prop = document.createElement('div');
+      prop.className += 'prop-inner';
+      prop.style.backgroundImage = "url('" + hotspot.path + "')";
+      prop.style.width = hotspot.width+"px";
+      prop.style.height = hotspot.height+"px";
+
+      var dataFrames = document.createAttribute('data-frames');
+      dataFrames.value = hotspot.frames;
+      wrapper.setAttributeNode(dataFrames);
+
+      // Prevent touch and scroll events from reaching the parent element.
+      // This prevents the view control logic from interfering with the hotspot.
+      stopTouchAndScrollEventPropagation(wrapper);
+
+      wrapper.appendChild(prop);
+
+      return wrapper;
     }
 
     // Prevent touch and scroll events from reaching the parent element.
