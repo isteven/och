@@ -635,6 +635,8 @@ h6 {
   transform: translate(-50%, -50%);
 
   text-align: center;
+
+  overflow: hidden;
 }
 
 .emf__container > li {
@@ -702,7 +704,8 @@ h6 {
 .emf__container.is-region-3 > li.emf__4,
 .emf__container.is-region-4 > li.emf__3,
 .emf__container.is-region-5 > li.emf__2 {
-  animation: flicker .8s steps(1) infinite;
+          animation: flicker .8s steps(1) infinite;
+  -webkit-animation: flicker .8s steps(1) infinite;
 }
 
 @keyframes flicker {
@@ -831,4 +834,39 @@ h6 {
   background-image: url('../img/scare.png');
   background-size: cover;
   background-position: 0 0;
+}
+
+
+/*
+  scene 1 - lighting props
+*/
+.prop-hotspot-light.active > .prop-inner {
+  background-position: 0 0;
+  animation: prop_light_flickers 0.5s steps(1) infinite;
+}
+
+@keyframes prop_light_flickers {
+  0% {
+    background-position: 0 0;
+  }
+  2% {
+    background-position: -296px 0;
+  }
+  60% {
+    background-position: 0 0;
+  }
+
+}
+
+@-webkit-keyframes prop_light_flickers {
+  0% {
+    background-position: 0 0;
+  }
+  2% {
+    background-position: -296px 0;
+  }
+  60% {
+    background-position: 0 0;
+  }
+
 }

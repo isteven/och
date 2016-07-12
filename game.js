@@ -176,12 +176,6 @@ var viewChangeThrottled = throttle(function() {
 
   var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
-  // Transform the hotspot coordinates into screen coordinates.
-  var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
-      yaw: tempHotspots[activeSceneIdx].position().yaw,
-      pitch: tempHotspots[activeSceneIdx].position().pitch
-  });
-
   var panningX = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
   var hotspotX = tempHotspots[activeSceneIdx].position().yaw;
 
