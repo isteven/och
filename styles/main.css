@@ -804,6 +804,34 @@ h6 {
 }
 
 .emf__container {
+  position: absolute;
+  z-index: 1;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+@media (max-width: 480px){
+	.emf__container {
+		top: 85%;
+	}
+}
+
+.emf__reader {
+  color: #00ff30;
+  margin-top: 10px;
+}
+
+.emf__reader > .static {
+  display: inline-block;
+}
+.emf__reader > .static.hidden {
+  display: none;
+}
+
+.emf__visual {
   list-style-type: none;
 
   background-image: url('../img/emf-bg.png');
@@ -812,22 +840,13 @@ h6 {
 
   width: 150px;
   height: 27px;
-  position: absolute;
-  z-index: 1;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
   text-align: center;
 
   overflow: hidden;
 }
-@media (max-width: 480px){
-	.emf__container {
-		top: 85%;
-	}
-}
-.emf__container > li {
+
+.emf__visual > li {
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -835,30 +854,30 @@ h6 {
   background-repeat: no-repeat;
 }
 
-.emf__container > li.emf__1 {
+.emf__visual > li.emf__1 {
   background-image: url('../img/emf-green.png');
 }
 
-.emf__container > li.emf__2 {
+.emf__visual > li.emf__2 {
   background-image: url('../img/emf-green.png');
 }
 
-.emf__container > li.emf__3 {
+.emf__visual > li.emf__3 {
   background-image: url('../img/emf-yellow.png');
 }
 
-.emf__container > li.emf__4 {
+.emf__visual > li.emf__4 {
   background-image: url('../img/emf-orange.png');
 }
 
-.emf__container > li.emf__5 {
+.emf__visual > li.emf__5 {
   background-image: url('../img/emf-red.png');
 }
 
-.emf__container.is-region-2 > li.emf__5,
-.emf__container.is-region-3 > li.emf__4,
-.emf__container.is-region-4 > li.emf__3,
-.emf__container.is-region-5 > li.emf__2 {
+.emf__visual.is-region-2 > li.emf__5,
+.emf__visual.is-region-3 > li.emf__4,
+.emf__visual.is-region-4 > li.emf__3,
+.emf__visual.is-region-5 > li.emf__2 {
           animation: flicker .8s steps(1) infinite;
   -webkit-animation: flicker .8s steps(1) infinite;
 
@@ -867,37 +886,37 @@ h6 {
   -webkit-perspective: 1000;
 }
 
-.emf__container.is-region-1 > li.emf__1,
-.emf__container.is-region-1 > li.emf__2,
-.emf__container.is-region-1 > li.emf__3,
-.emf__container.is-region-1 > li.emf__4,
-.emf__container.is-region-1 > li.emf__5 {
+.emf__visual.is-region-1 > li.emf__1,
+.emf__visual.is-region-1 > li.emf__2,
+.emf__visual.is-region-1 > li.emf__3,
+.emf__visual.is-region-1 > li.emf__4,
+.emf__visual.is-region-1 > li.emf__5 {
   background-position: left bottom;
 }
 
-.emf__container.is-region-2 > li.emf__1,
-.emf__container.is-region-2 > li.emf__2,
-.emf__container.is-region-2 > li.emf__3,
-.emf__container.is-region-2 > li.emf__4 {
+.emf__visual.is-region-2 > li.emf__1,
+.emf__visual.is-region-2 > li.emf__2,
+.emf__visual.is-region-2 > li.emf__3,
+.emf__visual.is-region-2 > li.emf__4 {
   background-position: left bottom;
 }
 
-.emf__container.is-region-3 > li.emf__1,
-.emf__container.is-region-3 > li.emf__2,
-.emf__container.is-region-3 > li.emf__3 {
+.emf__visual.is-region-3 > li.emf__1,
+.emf__visual.is-region-3 > li.emf__2,
+.emf__visual.is-region-3 > li.emf__3 {
   background-position: left bottom;
 }
 
-.emf__container.is-region-4 > li.emf__1,
-.emf__container.is-region-4 > li.emf__2 {
+.emf__visual.is-region-4 > li.emf__1,
+.emf__visual.is-region-4 > li.emf__2 {
   background-position: left bottom;
 }
 
-.emf__container.is-region-5 > li.emf__1 {
+.emf__visual.is-region-5 > li.emf__1 {
   background-position: left bottom;
 }
 
-.emf__container.is-region-6 > li.emf__1 {
+.emf__visual.is-region-6 > li.emf__1 {
   background-position: left bottom;
 }
 
@@ -1029,9 +1048,35 @@ h6 {
   background-position: 0 0;
 }
 
+.scare-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000000;
+
+  display: none;
+}
+
+.scare-overlay.active {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  #scare {
+    width: 389px;
+    height: 447px;
+    background-image: url('../img/scare-m.png');
+  }
+}
+
 
 /*
-  scene 1 - lighting props
+*  Animations Section
+*  Scene 1 - lighting props
 */
 .prop-hotspot-light {
   overflow: hidden;
@@ -1048,9 +1093,21 @@ h6 {
 
 }
 
-
-
 @-webkit-keyframes prop_light_flickers {
+  0% {
+    background-position: 0;
+  }
+
+  80% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2368px;
+  }
+}
+
+@-moz-keyframes prop_light_flickers {
   0% {
     background-position: 0;
   }
@@ -1077,29 +1134,4 @@ h6 {
     background-position: -2368px;
   }
 
-}
-
-.scare-overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: #000000;
-
-  display: none;
-}
-
-.scare-overlay.active {
-  display: block;
-}
-
-@media (max-width: 1000px) {
-  #scare {
-    width: 389px;
-    height: 447px;
-    background-image: url('../img/scare-m.png');
-  }
 }
