@@ -491,6 +491,7 @@ a:hover {
     -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
     border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
     background-color: rgba(0, 0, 0, 0.60);
+    margin-top: 12px;
 }
 #pageGuessDate .double-column .centerVer div a{
     display: inline-block;
@@ -569,7 +570,7 @@ a:hover {
         width: 100% !important;
         top: 0;
         margin-top: -10%;
-        padding: 0 18px 50px;
+        padding: 0 16px 50px;
     }
     /*
 	#pageGuessDate .double-column li{

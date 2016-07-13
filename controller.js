@@ -238,6 +238,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                     // window.animatePontianakSpecial();
                     window.animatePontianakError(1);
                     window.setTimeout(function () {
+                      document.activeElement.blur();
+                      $('.cluesCtr').hide();
                       hidePage('#pageGuessName');
                       showPage('#pageGuessDate');
                     }, 800);
