@@ -70,6 +70,15 @@ a:hover {
     }
 }
 @media (max-width: 480px){
+	.cluesCtr {
+    	left: 87%;
+    }
+	.cluesCtr img {
+    	width: 85px;
+	    height: auto;
+	}
+}
+@media (max-width: 480px){
     .centerElement {
         margin-top: 0;
         padding: 0 18px 50px;
@@ -170,6 +179,14 @@ a:hover {
     height: auto;
     margin-left: 10px;
 }
+@media (max-width: 480px){
+	#pageClues > div > img {
+	    width: 40%;
+	    height: auto;
+	    margin-left: 10px;
+	    margin-bottom: 10px;
+	}
+}
 #pageGuessName,
 #pageGuessDate,
 #pageShare,
@@ -254,6 +271,11 @@ a:hover {
     height: 100%;
     width: auto;
 }
+@media (max-width: 480px){
+	.cluePlaceholder {
+    	top: 46%;
+	}
+}
 .closeButtonRed {
     display: none;
     position: absolute;
@@ -290,12 +312,40 @@ a:hover {
     /*border: none;*/
     display: inline-block;
     font-family: "edoregular", Serif;
-    font-size: 2em;
+    font-size: 2.4em;
+    line-height: 0.8;
     color: #45140e;
     background-color: transparent;
     /*float: left;*/
     margin-left: 10px;
     text-align: center;
+}
+#pageGuessName .inputBorder img{
+    width: 45px;
+}
+#pageGuessName h1.font-edo.ng-binding{
+	margin-bottom: 5px;
+    font-size: 2.2em;
+}
+#pageGuessName h1.font-edo.last.ng-binding{
+    font-size: 1.8em;
+}
+@media (min-width: 481px) and (max-width: 767px){
+	#pageGuessName .inputBorder{
+        margin-left: 2px;
+	    margin-bottom: 10px;
+	    font-size: 2.2em;
+	    line-height: 0.8em;
+    }
+	#pageGuessName .inputBorder img{
+        width: 35px;
+    }
+    #pageGuessName h1.font-edo.ng-binding{
+        font-size: 1.6em;
+    }
+    #pageGuessName h1.font-edo.last.ng-binding{
+        font-size: 1.4em;
+    }
 }
 @media (max-width: 480px){
     #pageGuessName .inputBorder{
@@ -586,7 +636,7 @@ a:hover {
         width: 100% !important;
         top: 0;
         margin-top: -10%;
-        padding: 0 14px 50px;
+        padding: 0 18px 50px;
     }
     /*
 	#pageGuessDate .double-column li{
@@ -614,6 +664,9 @@ a:hover {
 @media (max-width: 320px) {
     #pageGuessDate .double-column .pontianakSpecial{
         background-position-x: -4315px;
+    }
+    #pageGuessDate .double-column .centerVer div a{
+        padding: 15px;
     }
 }
 
@@ -647,12 +700,32 @@ h6 {
 }
 
 #pageShare .centerElement {
-  min-width: 865px;
+	min-width: 865px;
+}
+@media (min-width: 481px){
+    #pageShare .ftr__logo{
+        display: none;
+    }
 }
 @media (max-width: 480px) {
 	#pageShare{
 		z-index: 42;
 	}
+	#pageShare .centerElement {
+		min-width: 100%;
+	}
+	#pageShare .ftr__logo{
+        display: block;
+        width: 100%;
+        position: initial;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 20px;
+    	text-align: center;
+    }
+    #pageShare .ftr__logo img{
+        width: 130px;
+    }
 }
 .clueImage {
     width: 100%;
@@ -779,7 +852,8 @@ h6 {
 }
 
 #pageLanding > div > p {
-  margin-bottom: 16px;
+	margin-bottom: 5px;
+    line-height: 1.4;
 }
 
 #pageLanding > div > a {
@@ -829,6 +903,7 @@ h6 {
     padding: 10px;
     margin-bottom: 10px;
     /*font-size: 100%;*/
+    line-height: 1.2;
 }
 
 #pageLanding > div > div > ul > li > img {
@@ -836,6 +911,11 @@ h6 {
     width: auto;
 }
 
+@media (max-width: 600px){
+	#pageLanding > div > div .double-column li{
+        width: 100%;
+    }
+}
 @media (min-width: 481px){
     #pageLanding .ftr__logo{
         display: none;
@@ -892,6 +972,14 @@ h6 {
     #pageLanding .ftr__logo img{
         width: 130px;
     }
+}
+@media (max-width: 320px){
+	#pageLanding > div > div > ul > li {
+        padding: 10px 30px 20px;
+    }
+	#pageLanding > div > div > ul > li:last-child {
+		padding-bottom: 30px;
+	}
 }
 
 @media (max-width: 1024px) {
