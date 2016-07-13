@@ -8,6 +8,7 @@ var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
 var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
 var frameInterval;
 
+
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
 // var touchView = viewer.controls().method('touchView').instance;
@@ -120,7 +121,10 @@ var viewChangeThrottled = throttle(function() {
     //  region 1, at the max region, 5 lights
     $('.emf__visual').attr('class', 'emf__visual is-region-1');
     canClick[activeSceneIdx] = true;
-    showPanoCenter();
+
+    if(!cluesFound[activeSceneIdx]) {
+      showPanoCenter();
+    }
 
     $('.emf__reader > span.num').html('Max');
 
@@ -215,6 +219,8 @@ $('.panoCenter').click(function(e) {
         $('.empMeter').attr('src', 'img/emf_1.png');
         canClick[activeSceneIdx] = false;
         cluesFound[activeSceneIdx] = true;
+
+        hidePanoCenter();
     }
 });
 
