@@ -345,4 +345,8 @@
         return null;
     }
 
+    function tncToggle() {
+      $('#tnc').toggle();
+    }
+
 // })();
