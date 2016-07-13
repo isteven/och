@@ -30,7 +30,7 @@ a:hover {
   right: 0;
   background-image: url(../img/overlay.png);
   background-size: 100% 100%;
-  z-index: 99;
+  z-index: 9;
   pointer-events: none;
 }
 .panoCenter {
@@ -56,7 +56,7 @@ a:hover {
     width: 60px;
     height: 60px;
     position: absolute;
-    z-index: 1;
+    z-index: 40;
     top: 85%;
     left: 90%;
     transform: translate(-50%, -50%);
