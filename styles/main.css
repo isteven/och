@@ -573,7 +573,7 @@ a:hover {
 }
 @media (min-width: 481px) {
   #pageGuessDate .double-column .centerVer h3 {
-    margin: 30px auto;
+    margin: 12px auto;
     width: 95%;
     font-family: lato, serif;
     font-weight: 600;
