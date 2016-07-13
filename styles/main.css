@@ -691,12 +691,16 @@ h6 {
     width: 100%;
 }
 
+.leaderboardBox li div {
+  text-align: center;
+}
+
 .leaderboardScore {
     display: block;
     width: 70%;
 }
 
-.leaderboardScore .double-column li {
+.leaderboardScore li {
   float: left;
 }
 
