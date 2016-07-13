@@ -331,6 +331,9 @@ body {
     padding: 5px;
     margin: 0 5px
 }
+.ftr equalizer {
+  margin-left: 16px;
+}
 .ftr__popup {
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -512,6 +515,10 @@ body {
     }
     .ftr__links .ng-isolate-scope{
         padding-left: 5px;
+    }
+    .ftr__link:first-child {
+      width: 100%;
+      text-align: center;
     }
     .ftr__close {
         top: 10px;
