@@ -565,6 +565,9 @@ a:hover {
     float: right;
     width: 400px;
 }
+#pageGuessDate .double-column .centerVer h3:first-letter {
+  font-size: 1em;
+}
 @media (max-width: 800px) {
   #pageGuessDate .double-column .centerVer{
     width: 45%;
