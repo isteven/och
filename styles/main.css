@@ -246,6 +246,37 @@ a:hover {
     z-index: 100;
 }
 
+#pageClues .closeButtonRed {
+  position: fixed;
+}
+
+#pageClues .centerElement {
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  #pageClues .closeButtonRed {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 0;
+    right: 4px;
+  }
+  #pageClues img {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1050px) {
+  #pageClues .centerElement {
+    width: 1000px;
+  }
+}
+
+#pageClues .btnBlood {
+  margin-top: 30px;
+}
+
 /*#pageClues {
     display: none;
     position: absolute;
@@ -308,13 +339,14 @@ a:hover {
     background-repeat: none;
     border: none;
     font-weight: 800;
-    color: #e5e5cf;
+    color: #878787 !important;
 }
 .btnBlood.active {
     background-position: center;
     background-size: cover;
     background-repeat: none;
     background-image: url('../img/texture.jpg');
+    color: #FFF !important;
 }
 .btnBlood.active:hover {
     background-image: none;
