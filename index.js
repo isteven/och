@@ -60,7 +60,7 @@
         var geometry = new Marzipano.CubeGeometry([{ tileSize: 1024, size: 1024 }]);
 
         // var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-        var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);
+        var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180, 120 * Math.PI / 180);
         var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
 
         var marzipanoScene = viewer.createScene({
