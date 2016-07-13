@@ -30,7 +30,7 @@ a:hover {
   right: 0;
   background-image: url(../img/overlay.png);
   background-size: 100% 100%;
-  z-index: 99;
+  z-index: 9;
   pointer-events: none;
 }
 .panoCenter {
@@ -41,6 +41,7 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 .empMeter {
     width: 100px;
@@ -55,7 +56,7 @@ a:hover {
     width: 60px;
     height: 60px;
     position: absolute;
-    z-index: 1;
+    z-index: 40;
     top: 85%;
     left: 90%;
     transform: translate(-50%, -50%);
@@ -260,6 +261,7 @@ a:hover {
     height: 50%;
     width: auto;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.7);
 }
 #cluePlaceholder img {
     height: 100%;
@@ -560,17 +562,22 @@ a:hover {
     background-position-x: -5300px;
 }
 #pageGuessDate .double-column .centerVer{
-    float: left;
-    width: 50% !important;
+    float: right;
+    width: 400px;
+}
+#pageGuessDate .double-column .centerVer h3:first-letter {
+  font-size: 1em;
+}
+@media (max-width: 800px) {
+  #pageGuessDate .double-column .centerVer{
+    width: 45%;
+    padding-left: 5%;
+  }
 }
 @media (min-width: 481px) {
-  #pageGuessDate .double-column .centerVer{
-    padding-left: 19%;
-  }
-
   #pageGuessDate .double-column .centerVer h3 {
-    margin: 30px auto;
-    width: 75%;
+    margin: 12px auto;
+    width: 95%;
     font-family: lato, serif;
     font-weight: 600;
     font-size: 30px;

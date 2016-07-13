@@ -212,7 +212,7 @@ var hidePanoCenter = function() {
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
-        $('#cluePlaceholder').show();
+        $('#cluePlaceholder').fadeIn();
         $('#cluePlaceholder > .closeButtonRed').show();
         $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
         // $('.panoCenter').hide();
