@@ -11,6 +11,7 @@ var frameInterval;
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
 // var touchView = viewer.controls().method('touchView').instance;
+var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
@@ -57,105 +58,41 @@ function is_in_range(current_x, hotspot, region_range) {
   return false;
 }
 
+function generate_random_number(region) {
+  var max = 0;
+  var min = 0;
+
+  switch ( region ) {
+    case 6:
+      min = 0.1;
+      max = 1.5;
+      break;
+    case 5:
+      min = 1.6;
+      max = 2.5;
+      break;
+    case 4:
+      min = 2.6;
+      max = 3.5;
+      break;
+    case 3:
+      min = 3.6;
+      max = 4.5;
+      break;
+    case 2:
+      min = 4.6;
+      max = 4.9;
+      break;
+  }
+
+  return (Math.random() * (max-min)+min).toFixed(1);
+}
+
 var region_1_range = 0.4;
 var region_2_range = 1;
 var region_3_range = 1.6;
 var region_4_range = 2.2;
 var region_5_range = 2.8;
-
-// Listen for the end of a drag.
-  //  desktop to use inactive - else the panning will be very lag on windows FF
-/*dragControlMethod.addEventListener('inactive', function(e) {
-  //  mobile to use parameterDynamics
-// dragControlMethod.addEventListener('parameterDynamics', function(e) {
-//method: parameterDynamics(during dragging emf will get triggered)
-
-    // Get the current viewport dimensions
-    var size = activeScene.marzipanoObject.view().size();
-
-    var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
-
-    // Transform the hotspot coordinates into screen coordinates.
-    var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
-        yaw: tempHotspots[activeSceneIdx].position().yaw,
-        pitch: tempHotspots[activeSceneIdx].position().pitch
-    });
-
-    var panningX = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
-    var hotspotX = tempHotspots[activeSceneIdx].position().yaw;
-
-    if ( is_in_range( panningX, hotspotX, region_1_range ) ) {
-      //  region 1, at the max region, 5 lights
-      $('.emf__container').attr('class', 'emf__container is-region-1');
-      canClick[activeSceneIdx] = true;
-      showPanoCenter();
-
-    } else if ( is_in_range( panningX, hotspotX, region_2_range ) ) {
-      //  region 2, 4 lights blink 1
-      $('.emf__container').attr('class', 'emf__container is-region-2');
-      canClick[activeSceneIdx] = false;
-      hidePanoCenter();
-
-    } else if ( is_in_range( panningX, hotspotX, region_3_range ) ) {
-      //  region 3, 3 lights blink 1
-      $('.emf__container').attr('class', 'emf__container is-region-3');
-      canClick[activeSceneIdx] = false;
-      hidePanoCenter();
-
-    } else if ( is_in_range( panningX, hotspotX, region_4_range )) {
-      //  region 4, 2 lights blink 1
-      $('.emf__container').attr('class', 'emf__container is-region-4');
-      canClick[activeSceneIdx] = false;
-      hidePanoCenter();
-
-    } else if ( is_in_range( panningX, hotspotX, region_5_range )) {
-      //  region 5, 1 light blink 1
-      $('.emf__container').attr('class', 'emf__container is-region-5');
-      canClick[activeSceneIdx] = false;
-      hidePanoCenter();
-
-    } else {
-      //  region 6, 1 light stagnant
-      $('.emf__container').attr('class', 'emf__container is-region-6');
-      canClick[activeSceneIdx] = false;
-      hidePanoCenter();
-    }
-
-    // Check whether the hotspot is within regionSize pixels of the screen center.
-    // if (screen) {
-    //
-    //     var
-    //         xDistance = Math.abs(screen.x - size.width / 2),
-    //         yDistance = Math.abs(screen.y - size.height / 2);
-    //
-    //
-    //         // console.log('y distance '+ yDistance);
-    //         // console.log('x distance '+ xDistance);
-    //
-    //     if (xDistance < 50 && yDistance < 100) {
-    //         $('.empMeter').attr('src', 'img/emf_5.png');
-    //         canClick[activeSceneIdx] = true;
-    //         $('.panoCenter').show();
-    //     } else if (xDistance < 70 && yDistance < 120) {
-    //         $('.empMeter').attr('src', 'img/emf_4.png');
-    //         canClick[activeSceneIdx] = false;
-    //         $('.panoCenter').hide();
-    //     } else if (xDistance < 100 && yDistance < 150) {
-    //         $('.empMeter').attr('src', 'img/emf_3.png');
-    //         canClick[activeSceneIdx] = false;
-    //         $('.panoCenter').hide();
-    //     } else if (xDistance < 130 && yDistance < 180) {
-    //         $('.empMeter').attr('src', 'img/emf_2.png');
-    //         canClick[activeSceneIdx] = false;
-    //         $('.panoCenter').hide();
-    //     } else {
-    //         $('.empMeter').attr('src', 'img/emf_1.png');
-    //         canClick[activeSceneIdx] = false;
-    //         $('.panoCenter').hide();
-    //     }
-    //
-    // }
-});*/
 
 var throttle = function(callback, limit) {
     var wait = false;                  // Initially, we're not waiting
@@ -176,50 +113,77 @@ var viewChangeThrottled = throttle(function() {
 
   var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
-  // Transform the hotspot coordinates into screen coordinates.
-  var screen = activeScene.marzipanoObject.view().coordinatesToScreen({
-      yaw: tempHotspots[activeSceneIdx].position().yaw,
-      pitch: tempHotspots[activeSceneIdx].position().pitch
-  });
+  var panning_x = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
+  var hotspot_x = tempHotspots[activeSceneIdx].position().yaw;
 
-  var panningX = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
-  var hotspotX = tempHotspots[activeSceneIdx].position().yaw;
-
-  if ( is_in_range( panningX, hotspotX, region_1_range ) ) {
+  if ( is_in_range( panning_x, hotspot_x, region_1_range ) ) {
     //  region 1, at the max region, 5 lights
-    $('.emf__container').attr('class', 'emf__container is-region-1');
+    $('.emf__visual').attr('class', 'emf__visual is-region-1');
     canClick[activeSceneIdx] = true;
     showPanoCenter();
 
-  } else if ( is_in_range( panningX, hotspotX, region_2_range ) ) {
+    $('.emf__reader > span.num').html('Max');
+
+    if ( !$('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').addClass('hidden');
+    }
+
+  } else if ( is_in_range( panning_x, hotspot_x, region_2_range ) ) {
     //  region 2, 4 lights blink 1
-    $('.emf__container').attr('class', 'emf__container is-region-2');
+    $('.emf__visual').attr('class', 'emf__visual is-region-2');
     canClick[activeSceneIdx] = false;
     hidePanoCenter();
+    $('.emf__reader > span.num').html(generate_random_number(2));
 
-  } else if ( is_in_range( panningX, hotspotX, region_3_range ) ) {
+    if ( $('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').removeClass('hidden');
+    }
+
+  } else if ( is_in_range( panning_x, hotspot_x, region_3_range ) ) {
     //  region 3, 3 lights blink 1
-    $('.emf__container').attr('class', 'emf__container is-region-3');
+    $('.emf__visual').attr('class', 'emf__visual is-region-3');
     canClick[activeSceneIdx] = false;
     hidePanoCenter();
+    $('.emf__reader > span.num').html(generate_random_number(3));
 
-  } else if ( is_in_range( panningX, hotspotX, region_4_range )) {
+    if ( $('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').removeClass('hidden');
+    }
+
+  } else if ( is_in_range( panning_x, hotspot_x, region_4_range )) {
     //  region 4, 2 lights blink 1
-    $('.emf__container').attr('class', 'emf__container is-region-4');
+    $('.emf__visual').attr('class', 'emf__visual is-region-4');
     canClick[activeSceneIdx] = false;
     hidePanoCenter();
+    $('.emf__reader > span.num').html(generate_random_number(4));
 
-  } else if ( is_in_range( panningX, hotspotX, region_5_range )) {
+    if ( $('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').removeClass('hidden');
+    }
+
+  } else if ( is_in_range( panning_x, hotspot_x, region_5_range )) {
     //  region 5, 1 light blink 1
-    $('.emf__container').attr('class', 'emf__container is-region-5');
+    $('.emf__visual').attr('class', 'emf__visual is-region-5');
     canClick[activeSceneIdx] = false;
     hidePanoCenter();
+    $('.emf__reader > span.num').html(generate_random_number(5));
+
+    if ( $('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').removeClass('hidden');
+    }
 
   } else {
     //  region 6, 1 light stagnant
-    $('.emf__container').attr('class', 'emf__container is-region-6');
+    $('.emf__visual').attr('class', 'emf__visual is-region-6');
     canClick[activeSceneIdx] = false;
     hidePanoCenter();
+
+    $('.emf__reader > span.num').html(generate_random_number(6));
+
+    if ( $('.emf__reader > span.static').hasClass('hidden') ) {
+      $('.emf__reader > span.static').removeClass('hidden');
+    }
+
   }
 }, 250);
 

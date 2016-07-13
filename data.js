@@ -2,15 +2,7 @@ var APP_DATA = {
     "scenes": [{
         "id": "0-scene-1",
         "name": "Scene 1",
-        "levels": [{
-            "tileSize": 256,
-            "size": 256,
-            "fallbackOnly": true
-        }, {
-            "tileSize": 512,
-            "size": 512
-        }],
-        "faceSize": 2048,
+        "faceSize": 1024,
         "initialViewParameters": {
             "yaw": -1.2,
             "pitch": 0,
@@ -22,6 +14,17 @@ var APP_DATA = {
             "rotation": 0,
             "target": "0-scene-2"
         }],
+        "propHotspots": [{
+            "path": "img/scene-0-props/scene1_b_light.png",
+            "width": "296",
+            "height": "251",
+            "frames": "8",
+            "yaw": 2.69,
+            "pitch": -0.55,
+            "radius": 650
+            , "extraRotations": "rotate(-9deg)"
+
+        }]
     }, {
         "id": "0-scene-2",
         "name": "Scene 2",
