@@ -133,31 +133,32 @@
 
         }
 
-        if (scene.data.id == '0-scene-2' && !shownScare) {
-          timeoutID = window.setTimeout(function(){
-            $('#scare').show();
-            $('.scare-overlay').addClass('active');
-
-            var element = document.querySelector('#scare');
-            var sprite = new Motio(element, {
-                fps: 18,
-                frames: 10
-            });
-            sprite.to(9);
-
-            shownScare = true;
-
-            sprite.on('frame', function(eventName){
-              if ( this.frame == 9 ) {
-                $('#scare').hide();
-                $('.scare-overlay').removeClass('active');
-              }
-            });
-
-          }, 6000);
-        } else {
-          window.clearTimeout(timeoutID);
-        }
+        //  JAC: hide jump scare for time being...
+        // if (scene.data.id == '0-scene-2' && !shownScare) {
+        //   timeoutID = window.setTimeout(function(){
+        //     $('#scare').show();
+        //     $('.scare-overlay').addClass('active');
+        //
+        //     var element = document.querySelector('#scare');
+        //     var sprite = new Motio(element, {
+        //         fps: 18,
+        //         frames: 10
+        //     });
+        //     sprite.to(9);
+        //
+        //     shownScare = true;
+        //
+        //     sprite.on('frame', function(eventName){
+        //       if ( this.frame == 9 ) {
+        //         $('#scare').hide();
+        //         $('.scare-overlay').removeClass('active');
+        //       }
+        //     });
+        //
+        //   }, 6000);
+        // } else {
+        //   window.clearTimeout(timeoutID);
+        // }
         // console.log( activeScene );
     }
 
