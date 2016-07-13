@@ -552,6 +552,15 @@ a:hover {
     float: left;
     width: 50% !important;
 }
+@media (min-width: 481px) {
+  #pageGuessDate .double-column .centerVer{
+    padding-left: 19%;
+  }
+
+  #pageGuessDate .double-column .centerVer h3 {
+    margin 16px 0;
+  }
+}
 @media (max-width: 480px) {
 	#pageGuessDate .centerElement{
 		width: 100%;
