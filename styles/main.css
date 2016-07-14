@@ -1223,6 +1223,15 @@ h6 {
 
 
 /*
+*  Fake clues Section
+*
+*/
+.prop-hotspot-clue {
+  display: none;
+}
+
+
+/*
 *  Animations Section
 *  Scene 1 - lighting props
 */

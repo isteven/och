@@ -1,6 +1,6 @@
 'use strict';
 
-var canClick = [false, false, false];
+var canClick = [false, false, false, true, true];
 var cluesFound = [false, false, false];
 var clueIndex = 0;
 var tempHotspots = [];
@@ -8,11 +8,10 @@ var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
 var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
 var frameInterval;
 
-
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
 // var touchView = viewer.controls().method('touchView').instance;
-var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
+// var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
@@ -30,6 +29,18 @@ tempHotspots[1] = scenes[1].marzipanoObject.hotspotContainer().createHotspot(doc
 tempHotspots[2] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
     yaw: -2.8,
     pitch: -0.1
+});
+
+//  fake clues
+//  @ scene 1
+tempHotspots[3] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-4"), {
+    yaw: 2.2,
+    pitch: 0.0
+});
+
+tempHotspots[4] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-5"), {
+    yaw: 2.1,
+    pitch: 0.0
 });
 
 function abs_360(value, min, max) {
@@ -108,21 +119,24 @@ var throttle = function(callback, limit) {
     }
 }
 
+var fake_hotspot = 0;
+
 var viewChangeThrottled = throttle(function() {
   // Get the current viewport dimensions
-  var size = activeScene.marzipanoObject.view().size();
+  // var size = activeScene.marzipanoObject.view().size();
 
   var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
   var panning_x = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
   var hotspot_x = tempHotspots[activeSceneIdx].position().yaw;
 
+  //  EMF AND REAL CLUES
   if ( is_in_range( panning_x, hotspot_x, region_1_range ) ) {
     //  region 1, at the max region, 5 lights
     $('.emf__visual').attr('class', 'emf__visual is-region-1');
-    canClick[activeSceneIdx] = true;
 
     if(!cluesFound[activeSceneIdx]) {
+      canClick[activeSceneIdx] = true;
       showPanoCenter();
     }
 
@@ -189,6 +203,38 @@ var viewChangeThrottled = throttle(function() {
     }
 
   }
+
+
+  //  FAKE CLUES
+  if ( activeSceneIdx == 0 ) {
+    //  scene 1 fake clue
+    fake_hotspot = tempHotspots[3].position().yaw;
+
+    if ( panning_x > 1.7 && panning_x < 2.6 ) {
+      if ( canClick[3] ) {
+        showFakeClue();
+      }
+
+    } else {
+
+      hideFakeClue();
+
+    }
+  }
+
+  if ( activeSceneIdx == 2 ) {
+    //  scene 3 fake clue
+    fake_hotspot = tempHotspots[4].position().yaw;
+
+    if ( panning_x > 1.7 && panning_x < 2.6 ) {
+      if ( canClick[4] ) {
+        showFakeClue();
+      }
+    } else {
+      hideFakeClue();
+    }
+  }
+
 }, 250);
 
 scenes.map(function(scene){
@@ -196,15 +242,26 @@ scenes.map(function(scene){
   view.addEventListener('change', viewChangeThrottled);
 });
 
-
 var showPanoCenter = function() {
-  $( ".panoCenter" ).fadeIn( "slow", "swing", function() {
+  $( ".realclue .panoCenter" ).fadeIn( "slow", "swing", function() {
     // Animation complete
   });
 }
 
 var hidePanoCenter = function() {
-  $( ".panoCenter" ).fadeOut( "slow", "swing", function() {
+  $( ".realclue .panoCenter" ).fadeOut( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
+var showFakeClue = function() {
+  $( ".fakeclue .panoCenter" ).fadeIn( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
+var hideFakeClue = function() {
+  $( ".fakeclue .panoCenter" ).fadeOut( "slow", "swing", function() {
     // Animation complete
   });
 }
@@ -212,19 +269,37 @@ var hidePanoCenter = function() {
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
-        $('#cluePlaceholder').fadeIn();
-        $('#cluePlaceholder > .closeButtonRed').show();
-        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
-        // $('.panoCenter').hide();
-        $('.empMeter').attr('src', 'img/emf_1.png');
-        canClick[activeSceneIdx] = false;
-        cluesFound[activeSceneIdx] = true;
+      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder > .closeButtonRed').show();
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
 
-        hidePanoCenter();
+      canClick[activeSceneIdx] = false;
+      cluesFound[activeSceneIdx] = true;
+
+      hidePanoCenter();
+    } else {
+
+      var clueId = $(this).data('clue-id');
+      canClick[clueId-1] = false;
+      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder').addClass('fakeClue');
+      $('#cluePlaceholder > .closeButtonRed').show();
+      // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+
+      hideFakeClue();
     }
 });
 
 $('#cluePlaceholder > .closeButtonRed').click(function(e) {
+
+  if ( $('#cluePlaceholder').hasClass('fakeClue') ) {
+
+    $('#cluePlaceholder').fadeOut();
+    $('#cluePlaceholder').removeClass('fakeClue');
+
+  } else {
+
     $('#cluePlaceholder').animate({
         height: '20px',
         width: '20px',
@@ -237,7 +312,11 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
         $('#cluePlaceholder').attr('style', '');
         $('#cluePlaceholder').addClass('cluePlaceholder');
     });
+
+  }
+
 });
+
 
 var showPage = function(newPage) {
     $(newPage).fadeIn();
