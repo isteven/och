@@ -5,7 +5,8 @@ var cluesFound = [false, false, false];
 var clueIndex = 0;
 var tempHotspots = [];
 var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
-var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
+var frameQty = [12, 6, 6, 6, 6, 6, 6, 6, 6];
+
 var frameInterval;
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
@@ -269,6 +270,8 @@ var hideFakeClue = function() {
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
+
+      console.log('scene index'+activeSceneIdx);
       $('#cluePlaceholder').fadeIn();
       $('#cluePlaceholder > .closeButtonRed').show();
       $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
@@ -366,42 +369,88 @@ function initSlick() {
     infinite: false,
     arrows: false,
     mobileFirst: true,
+    centerPadding: "40px",
     responsive: [
       {
         breakpoint: 600,
         settings: "unslick"
+
       }
     ]
-  }).slick('slickGoTo', '1', true);
+  }).slick('slickGoTo', '0', true);
 }
 
+
+function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, duration ) {
+  if ( !el || el.length == 0 ) return;
+
+  var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
+  var tl = new TimelineMax({ repeat: repeatAnimate, repeatDelay: 1 });
+
+  for( var i=0, numRows=Math.ceil(totalFrame/numCols); i<numRows; i++ ) {
+
+      var numFrames = Math.min(numCols, totalFrame-(i*numCols))
+      , steppedEase = new SteppedEase(numFrames-1)
+      ;
+
+      tl.append( TweenMax.fromTo(
+          el
+          , duration
+          , { backgroundPosition:'0 -'+(frameHeight*i)+'px'}
+          , { backgroundPosition: '-'+(frameWidth*(numFrames-1))+'px -'+(frameHeight*i)+'px', ease:steppedEase, immediateRender: false}
+      ));
+  }
+
+
+};
 
 function animatePontianakError(triesLeft, haveWaiting) {
 
     clearInterval(frameInterval);
 
-    $('.pontianakBox div').fadeOut(800);
+    $('.pontianakBox div').hide();
+    // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
     $('.pontianak' + pontianakIdx).show();
-    var element = document.querySelector('.pontianak' + pontianakIdx);
-    var sprite = new Motio(element, {
-        fps: 8,
-        frames: frameQty[pontianakIdx - 1]
-    });
-    // sprite.play(); // start animation
-    sprite.to((frameQty[pontianakIdx - 1] - 1));
+    // var element = document.querySelector('.pontianak' + pontianakIdx);
+    // var sprite = new Motio(element, {
+    //     fps: 8,
+    //     frames: frameQty[pontianakIdx - 1]
+    // });
+    // // sprite.play(); // start animation
+    // sprite.to((frameQty[pontianakIdx - 1] - 1));
+    if ( pontianakIdx == 0 ) {
+      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
+    } else {
+
+      if ( pontianakIdx == 9 ) {
+        $('.guess-overlay').addClass('active');
+        $('#pageGuessName').find('.single-column').hide();
+      }
+      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+    }
+
+
     if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
+      var nextFrameIndex = pontianakIdx+1;
       setTimeout(function() {
         $('.pontianak' + pontianakIdx).hide();
-        $('.pontianak' + (pontianakIdx + 1)).show();
+        $('.pontianak' + (nextFrameIndex)).show();
+
         frameInterval = setInterval(function() {
-            var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
-            var sprite = new Motio(element, {
-                fps: 8,
-                frames: frameQty[pontianakIdx]
-            });
-            sprite.to((frameQty[pontianakIdx] - 1));
+          //  waiting pontianak shivers
+          console.log('waiting.... init');
+          console.log('what is the index now? '+pontianakIdx);
+            // var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
+            // var sprite = new Motio(element, {
+            //     fps: 8,
+            //     frames: frameQty[pontianakIdx]
+            // });
+            // sprite.to((frameQty[pontianakIdx] - 1));
+
+            AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
         }, 8000);
+
       }, 1200);
     }
 
@@ -416,12 +465,13 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
-    var element = document.querySelector('.pontianakSpecial');
-    var sprite = new Motio(element, {
-        fps: 8,
-        frames: 8
-    });
-    sprite.to(7);
+    AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+    // var element = document.querySelector('.pontianakSpecial');
+    // var sprite = new Motio(element, {
+    //     fps: 8,
+    //     frames: 8
+    // });
+    // sprite.to(7);
 }
 
 function animatePontianakWaiting(triesLeft) {
