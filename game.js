@@ -424,6 +424,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
       var query = Modernizr.mq('(max-width: 767px)');
       if (query) {
+
        // the browser window is larger than 900px
        var element = document.querySelector('.pontianak' + pontianakIdx);
       //  var sprite = new Motio(element, {

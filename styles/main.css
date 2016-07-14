@@ -617,7 +617,7 @@ a:hover {
 @media (max-width: 480px) {
 
   .pontianakBox > div {
-    width: 100%;
+    width: 600px;
     height: 648px;
   }
   /*
@@ -630,7 +630,14 @@ a:hover {
     .pontianak7 { background: transparent url( ../img/07_ponturn_3-m.png ) 0 0 no-repeat; }
     .pontianak8 { background: transparent url( ../img/08_ponwait_3-m.png ) 0 0 no-repeat; }
     */
-    .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat; }
+    .pontianak9, .pontianakSpecial {
+      background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat;
+      width: 600px;
+    }
+
+    /*.pontianakSpecial {
+      margin-left: -270px;
+    }*/
 }
 /*
 .pontianak9 {
