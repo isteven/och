@@ -25,11 +25,20 @@
 
     <!-- facebook share  -->
     <script>
+        window.fbLoggedIn = false;
+        window.fbResponse = null;
+
         window.fbAsyncInit = function() {
             FB.init({
                 appId: '1198509583506495',
                 xfbml: true,
                 version: 'v2.6'
+            });
+            FB.getLoginStatus(function( response ) {
+                if ( response.status === 'connected' ) {
+                    window.fbLoggedIn = true;
+                    window.fbResponse = response;
+                }
             });
         };
 
