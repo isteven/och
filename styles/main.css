@@ -566,10 +566,28 @@ a:hover {
     }
 }
 
+
 /* jac: vetting pontianak box stylings here */
 #pageGuessName .single-column {
   position: relative;
   z-index: 1;
+}
+@media (max-width: 480px) {
+  #pageGuessName .centerElement {
+    overflow: hidden;
+    top: 0;
+    height: 100%;
+    transform: none;
+    left: 0;
+  }
+
+  #pageGuessName .pontianakBox {
+    width: 100%;
+    left: 0;
+    margin-top: -30%;
+    right: 0;
+    margin-left: 0;
+  }
 }
 .pontianakBox {
   position: absolute;
@@ -597,6 +615,12 @@ a:hover {
 .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; }
 
 @media (max-width: 480px) {
+
+  .pontianakBox > div {
+    width: 100%;
+    height: 648px;
+  }
+  /*
     .pontianak1 { background: transparent url( ../img/01_ponappear-m.png ) 0 0 no-repeat; }
     .pontianak2 { background: transparent url( ../img/02_ponwait-m.png ) 0 0 no-repeat; }
     .pontianak3 { background: transparent url( ../img/03_ponturn_1-m.png ) 0 0 no-repeat; }
@@ -605,7 +629,8 @@ a:hover {
     .pontianak6 { background: transparent url( ../img/06_ponwait_2-m.png ) 0 0 no-repeat; }
     .pontianak7 { background: transparent url( ../img/07_ponturn_3-m.png ) 0 0 no-repeat; }
     .pontianak8 { background: transparent url( ../img/08_ponwait_3-m.png ) 0 0 no-repeat; }
-    .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat; width: 600px !important ; }
+    */
+    .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat; }
 }
 /*
 .pontianak9 {
@@ -723,7 +748,7 @@ a:hover {
         float: right;
         width: 100% !important;
         margin-top: -30%;
-        background-position-x: -4290px;
+        background-position: -4290px 0;
     }
     #pageGuessDate .double-column .centerVer{
         display: inline-block;

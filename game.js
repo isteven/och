@@ -412,13 +412,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
     // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
     $('.pontianak' + pontianakIdx).show();
-    // var element = document.querySelector('.pontianak' + pontianakIdx);
-    // var sprite = new Motio(element, {
-    //     fps: 8,
-    //     frames: frameQty[pontianakIdx - 1]
-    // });
-    // // sprite.play(); // start animation
-    // sprite.to((frameQty[pontianakIdx - 1] - 1));
+
     if ( pontianakIdx == 0 ) {
       AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
     } else {
@@ -427,8 +421,30 @@ function animatePontianakError(triesLeft, haveWaiting) {
         $('.guess-overlay').addClass('active');
         $('#pageGuessName').find('.single-column').hide();
       }
-      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+
+      var query = Modernizr.mq('(max-width: 767px)');
+      if (query) {
+       // the browser window is larger than 900px
+       var element = document.querySelector('.pontianak' + pontianakIdx);
+      //  var sprite = new Motio(element, {
+      //      fps: 8,
+      //      frames: frameQty[pontianakIdx - 1]
+      //  });
+      //  // sprite.play(); // start animation
+      //  sprite.to((frameQty[pontianakIdx - 1] - 1));
+      var sprite = new Motio(element, {
+          fps: 8,
+          frames: 8
+      });
+      // sprite.play(); // start animation
+      sprite.to((8 - 1));
+     } else {
+          AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+     }
+
     }
+
+
 
 
     if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
@@ -465,13 +481,20 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
-    AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
-    // var element = document.querySelector('.pontianakSpecial');
-    // var sprite = new Motio(element, {
-    //     fps: 8,
-    //     frames: 8
-    // });
-    // sprite.to(7);
+    // AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+
+    var query = Modernizr.mq('(max-width: 767px)');
+    if (query) {
+      // the browser window is larger than 900px
+      var element = document.querySelector('.pontianakSpecial');
+      var sprite = new Motio(element, {
+         fps: 8,
+         frames: 8
+      });
+      sprite.to(7);
+   } else {
+        AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+   }
 }
 
 function animatePontianakWaiting(triesLeft) {
