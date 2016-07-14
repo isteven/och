@@ -331,6 +331,9 @@ body {
     padding: 5px;
     margin: 0 5px
 }
+.ftr equalizer {
+  margin-left: 16px;
+}
 .ftr__popup {
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -351,6 +354,7 @@ body {
     text-align: center
 }
 .ftr__popup h3 {
+    margin-bottom: 10px;
     font-size: 16px;
     font-size: 1.6rem;
     font-family: trajan-pro-3, serif
@@ -405,7 +409,9 @@ body {
     font-size: 1.2rem;
     line-height: 1;
     padding-left: 30px;
-    text-align: left
+    text-align: left;
+    font-size: 11px;
+    line-height: 1.2em;
 }
 .ftr__popup--connected .connected__subscribe .btn {
     font-size: 13px;
@@ -414,7 +420,10 @@ body {
     margin-left: 7px;
     height: 29px;
     position: relative;
-    top: -1px
+    top: -1px;
+    top: 1px;
+    height: 30px;
+    padding: 6px 10px;
 }
 .ftr__popup--legal {
     font-size: 10px;
@@ -436,7 +445,10 @@ body {
 }
 .ftr__popup--legal .legal__rights {
     max-width: 385px;
-    margin: 0 auto
+    margin: 0 auto;
+    font-size: 10px;
+    line-height: 1.2em;
+    padding: 0 30px;
 }
 .ftr__close {
     position: absolute;
@@ -448,7 +460,11 @@ body {
     height: 28px;
     display: inline-block;
     margin: 10px;
-    vertical-align: middle
+    vertical-align: middle;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 8px;
 }
 .ftr__icon--ig {
     margin-right: 5px
@@ -474,11 +490,17 @@ body {
     outline: none;
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
-    color: #e5e5cf
+    color: #e5e5cf;
+    padding: 7px 10px 8px;
 }
 .ftr input[type=email]:focus {
     border: 1px solid #e5e5cf;
     box-shadow: 0 0 10px hsla(53, 25%, 79%, .5)
+}
+@media (max-width: 767px){
+    .ftr input[type=email] {
+        max-width: 220px;
+    }
 }
 @media (max-width: 480px){
     .ftr__logo{
@@ -493,6 +515,10 @@ body {
     }
     .ftr__links .ng-isolate-scope{
         padding-left: 5px;
+    }
+    .ftr__link:first-child {
+      width: 100%;
+      text-align: center;
     }
     .ftr__close {
         top: 10px;

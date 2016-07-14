@@ -328,32 +328,51 @@ var hidePage = function(page) {
 
 var showClues = function() {
     var allCluesFound = 0;
-    $('#pageClues > .closeButtonRed').show();
+    $('#pageClues .closeButtonRed').show();
     showPage('#pageClues');
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
-            var tempDom = $('#pageClues > div > img');
+            var tempDom = $('#pageClues .clues img');
             $(tempDom[i]).attr('src', 'img/photo_clue_' + (i + 1) + '.png');
             allCluesFound++;
         }
     }
-    $('#pageClues > .closeButtonRed').click(function(e) {
+    $('#pageClues .closeButtonRed').click(function(e) {
         $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
     if (allCluesFound == 3) {
-        $('#pageClues > div > .btnBlood').addClass('active');
-        $('#pageClues > div > .btnBlood.active').click(function(e) {
+        $('#pageClues .btnBlood').addClass('active');
+        $('#pageClues .btnBlood.active').click(function(e) {
             hidePage('#pageClues');
             showPage('#pageGuessName');
         });
     }
 
+    initSlick();
+
     // hidePage( '.fadePage' );
     // hidePage( '#pageClues' );
     // showPage( '#pageGuessName' );
     // $( '#pageGuessName' ).show();
+}
+
+function initSlick() {
+  $('#pageClues .clues').slick({
+    slidesToShow: 1,
+    swipeToSlide: true,
+    centerMode: true,
+    infinite: false,
+    arrows: false,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: "unslick"
+      }
+    ]
+  }).slick('slickGoTo', '1', true);
 }
 
 

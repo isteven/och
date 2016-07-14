@@ -277,6 +277,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
             loadLeaderboard();
             hidePage('#pageGuessDate');
             showPage('#pageShare');
+            $('#ftr__credit').hide();
         } else {
             hidePage('#pageGuessDate');
             showPage('#pageFails');
