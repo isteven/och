@@ -1,18 +1,18 @@
 'use strict';
 
-var canClick = [false, false, false];
+var canClick = [false, false, false, true, true];
 var cluesFound = [false, false, false];
 var clueIndex = 0;
 var tempHotspots = [];
 var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
-var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
-var frameInterval;
+var frameQty = [12, 6, 6, 6, 6, 6, 6, 6, 6];
 
+var frameInterval;
 
 // Get the viewer's underlying DragControlMethod instance for mouse drag.
 // var mouseViewDrag = viewer.controls().method('mouseViewDrag').instance;
 // var touchView = viewer.controls().method('touchView').instance;
-var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
+// var dragControlMethod = viewer.controls().method('mouseViewDrag').instance;
 
 // clue 1
 tempHotspots[0] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-1"), {
@@ -30,6 +30,18 @@ tempHotspots[1] = scenes[1].marzipanoObject.hotspotContainer().createHotspot(doc
 tempHotspots[2] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-3"), {
     yaw: -2.8,
     pitch: -0.1
+});
+
+//  fake clues
+//  @ scene 1
+tempHotspots[3] = scenes[0].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-4"), {
+    yaw: 2.2,
+    pitch: 0.0
+});
+
+tempHotspots[4] = scenes[2].marzipanoObject.hotspotContainer().createHotspot(document.querySelector("#clue-5"), {
+    yaw: 2.1,
+    pitch: 0.0
 });
 
 function abs_360(value, min, max) {
@@ -108,21 +120,24 @@ var throttle = function(callback, limit) {
     }
 }
 
+var fake_hotspot = 0;
+
 var viewChangeThrottled = throttle(function() {
   // Get the current viewport dimensions
-  var size = activeScene.marzipanoObject.view().size();
+  // var size = activeScene.marzipanoObject.view().size();
 
   var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
   var panning_x = (activeScene.marzipanoObject.view().yaw()).toFixed(2);
   var hotspot_x = tempHotspots[activeSceneIdx].position().yaw;
 
+  //  EMF AND REAL CLUES
   if ( is_in_range( panning_x, hotspot_x, region_1_range ) ) {
     //  region 1, at the max region, 5 lights
     $('.emf__visual').attr('class', 'emf__visual is-region-1');
-    canClick[activeSceneIdx] = true;
 
     if(!cluesFound[activeSceneIdx]) {
+      canClick[activeSceneIdx] = true;
       showPanoCenter();
     }
 
@@ -189,6 +204,38 @@ var viewChangeThrottled = throttle(function() {
     }
 
   }
+
+
+  //  FAKE CLUES
+  if ( activeSceneIdx == 0 ) {
+    //  scene 1 fake clue
+    fake_hotspot = tempHotspots[3].position().yaw;
+
+    if ( panning_x > 1.7 && panning_x < 2.6 ) {
+      if ( canClick[3] ) {
+        showFakeClue();
+      }
+
+    } else {
+
+      hideFakeClue();
+
+    }
+  }
+
+  if ( activeSceneIdx == 2 ) {
+    //  scene 3 fake clue
+    fake_hotspot = tempHotspots[4].position().yaw;
+
+    if ( panning_x > 1.7 && panning_x < 2.6 ) {
+      if ( canClick[4] ) {
+        showFakeClue();
+      }
+    } else {
+      hideFakeClue();
+    }
+  }
+
 }, 250);
 
 scenes.map(function(scene){
@@ -196,15 +243,26 @@ scenes.map(function(scene){
   view.addEventListener('change', viewChangeThrottled);
 });
 
-
 var showPanoCenter = function() {
-  $( ".panoCenter" ).fadeIn( "slow", "swing", function() {
+  $( ".realclue .panoCenter" ).fadeIn( "slow", "swing", function() {
     // Animation complete
   });
 }
 
 var hidePanoCenter = function() {
-  $( ".panoCenter" ).fadeOut( "slow", "swing", function() {
+  $( ".realclue .panoCenter" ).fadeOut( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
+var showFakeClue = function() {
+  $( ".fakeclue .panoCenter" ).fadeIn( "slow", "swing", function() {
+    // Animation complete
+  });
+}
+
+var hideFakeClue = function() {
+  $( ".fakeclue .panoCenter" ).fadeOut( "slow", "swing", function() {
     // Animation complete
   });
 }
@@ -212,19 +270,39 @@ var hidePanoCenter = function() {
 $('.panoCenter').click(function(e) {
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
-        $('#cluePlaceholder').fadeIn();
-        $('#cluePlaceholder > .closeButtonRed').show();
-        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
-        // $('.panoCenter').hide();
-        $('.empMeter').attr('src', 'img/emf_1.png');
-        canClick[activeSceneIdx] = false;
-        cluesFound[activeSceneIdx] = true;
 
-        hidePanoCenter();
+      console.log('scene index'+activeSceneIdx);
+      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder > .closeButtonRed').show();
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
+
+      canClick[activeSceneIdx] = false;
+      cluesFound[activeSceneIdx] = true;
+
+      hidePanoCenter();
+    } else {
+
+      var clueId = $(this).data('clue-id');
+      canClick[clueId-1] = false;
+      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder').addClass('fakeClue');
+      $('#cluePlaceholder > .closeButtonRed').show();
+      // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+
+      hideFakeClue();
     }
 });
 
 $('#cluePlaceholder > .closeButtonRed').click(function(e) {
+
+  if ( $('#cluePlaceholder').hasClass('fakeClue') ) {
+
+    $('#cluePlaceholder').fadeOut();
+    $('#cluePlaceholder').removeClass('fakeClue');
+
+  } else {
+
     $('#cluePlaceholder').animate({
         height: '20px',
         width: '20px',
@@ -237,7 +315,11 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
         $('#cluePlaceholder').attr('style', '');
         $('#cluePlaceholder').addClass('cluePlaceholder');
     });
+
+  }
+
 });
+
 
 var showPage = function(newPage) {
     $(newPage).fadeIn();
@@ -287,42 +369,105 @@ function initSlick() {
     infinite: false,
     arrows: false,
     mobileFirst: true,
+    centerPadding: "40px",
     responsive: [
       {
         breakpoint: 600,
         settings: "unslick"
+
       }
     ]
-  }).slick('slickGoTo', '1', true);
+  }).slick('slickGoTo', '0', true);
 }
 
+
+function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, duration ) {
+  if ( !el || el.length == 0 ) return;
+
+  var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
+  var tl = new TimelineMax({ repeat: repeatAnimate, repeatDelay: 1 });
+
+  for( var i=0, numRows=Math.ceil(totalFrame/numCols); i<numRows; i++ ) {
+
+      var numFrames = Math.min(numCols, totalFrame-(i*numCols))
+      , steppedEase = new SteppedEase(numFrames-1)
+      ;
+
+      tl.append( TweenMax.fromTo(
+          el
+          , duration
+          , { backgroundPosition:'0 -'+(frameHeight*i)+'px'}
+          , { backgroundPosition: '-'+(frameWidth*(numFrames-1))+'px -'+(frameHeight*i)+'px', ease:steppedEase, immediateRender: false}
+      ));
+  }
+
+
+};
 
 function animatePontianakError(triesLeft, haveWaiting) {
 
     clearInterval(frameInterval);
 
-    $('.pontianakBox div').fadeOut(800);
+    $('.pontianakBox div').hide();
+    // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
     $('.pontianak' + pontianakIdx).show();
-    var element = document.querySelector('.pontianak' + pontianakIdx);
-    var sprite = new Motio(element, {
-        fps: 8,
-        frames: frameQty[pontianakIdx - 1]
-    });
-    // sprite.play(); // start animation
-    sprite.to((frameQty[pontianakIdx - 1] - 1));
+
+    if ( pontianakIdx == 0 ) {
+      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
+    } else {
+
+      if ( pontianakIdx == 9 ) {
+        $('.guess-overlay').addClass('active');
+        $('#pageGuessName').find('.single-column').hide();
+      }
+
+      var query = Modernizr.mq('(max-width: 767px)');
+      if (query) {
+
+       // the browser window is larger than 900px
+       var element = document.querySelector('.pontianak' + pontianakIdx);
+      //  var sprite = new Motio(element, {
+      //      fps: 8,
+      //      frames: frameQty[pontianakIdx - 1]
+      //  });
+      //  // sprite.play(); // start animation
+      //  sprite.to((frameQty[pontianakIdx - 1] - 1));
+      var sprite = new Motio(element, {
+          fps: 8,
+          frames: 8
+      });
+      // sprite.play(); // start animation
+      sprite.to((8 - 1));
+     } else {
+          AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+     }
+
+    }
+
+
+
+
     if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
+      var nextFrameIndex = pontianakIdx+1;
       setTimeout(function() {
         $('.pontianak' + pontianakIdx).hide();
-        $('.pontianak' + (pontianakIdx + 1)).show();
+        $('.pontianak' + (nextFrameIndex)).show();
+
         frameInterval = setInterval(function() {
-            var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
-            var sprite = new Motio(element, {
-                fps: 8,
-                frames: frameQty[pontianakIdx]
-            });
-            sprite.to((frameQty[pontianakIdx] - 1));
+          //  waiting pontianak shivers
+          console.log('waiting.... init');
+          console.log('what is the index now? '+pontianakIdx);
+            // var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
+            // var sprite = new Motio(element, {
+            //     fps: 8,
+            //     frames: frameQty[pontianakIdx]
+            // });
+            // sprite.to((frameQty[pontianakIdx] - 1));
+
+            AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
         }, 8000);
+
       }, 1200);
     }
 
@@ -337,12 +482,20 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
-    var element = document.querySelector('.pontianakSpecial');
-    var sprite = new Motio(element, {
-        fps: 8,
-        frames: 8
-    });
-    sprite.to(7);
+    // AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+
+    var query = Modernizr.mq('(max-width: 767px)');
+    if (query) {
+      // the browser window is larger than 900px
+      var element = document.querySelector('.pontianakSpecial');
+      var sprite = new Motio(element, {
+         fps: 8,
+         frames: 8
+      });
+      sprite.to(7);
+   } else {
+        AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+   }
 }
 
 function animatePontianakWaiting(triesLeft) {

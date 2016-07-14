@@ -49,7 +49,7 @@ var APP_DATA = {
             "target": "0-scene-1"
         },
         {
-            "yaw": -0.9,
+            "yaw": -0.32,
             "pitch": 0.0176340532339251865,
             "rotation": 0,
             "target": "0-scene-3"

@@ -6,9 +6,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     var gameEndTime = null;
     $scope.elapsedGameTime = null;
 
-    fbLoggedIn = false;
-    fbResponse = null;
-
     $scope.menu = {};
     $scope.menu.active = false;
     $scope.footer = {};
@@ -328,8 +325,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
     $scope.share_facebook = function() {
-        if ( fbLoggedIn ) {
-            fbPost( fbResponse.authResponse.userID, fbResponse );
+        if ( window.fbLoggedIn ) {
+            fbPost( window.fbResponse.authResponse.userID, window.fbResponse );
         }
         else {
             FB.login(function(response) {
@@ -464,11 +461,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.startGame = function() {
 
-        gameStartTime = null;
-        gameEndTime = null;
-
-        fbLoggedIn = false;
-        fbResponse = null;
+        gameStartTime = performance.now();
 
         $scope.guessCorrect = true;
         $scope.failLetter = '';
@@ -489,13 +482,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
-
-        FB.getLoginStatus(function( response ) {
-            if ( response.status === 'connected' ) {
-                fbLoggedIn = true;
-                fbResponse = response;
-            }
-        });
     }
 
     // hidePage( '#pano' );
