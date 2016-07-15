@@ -267,14 +267,14 @@ var hideFakeClue = function() {
   });
 }
 
-$('.panoCenter').click(function(e) {
+$('.clue').on('click touchstart', '.panoCenter', function(e) {
+
     var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
 
-      console.log('scene index'+activeSceneIdx);
       $('#cluePlaceholder').fadeIn();
       $('#cluePlaceholder > .closeButtonRed').show();
-      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.png');
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.jpg');
 
       canClick[activeSceneIdx] = false;
       cluesFound[activeSceneIdx] = true;
@@ -336,7 +336,7 @@ var showClues = function() {
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
             var tempDom = $('#pageClues .clues img');
-            $(tempDom[i]).attr('src', 'img/photo_clue_' + (i + 1) + '.png');
+            $(tempDom[i]).attr('src', 'img/photo_clue_' + (i + 1) + '.jpg');
             allCluesFound++;
         }
     }
