@@ -206,6 +206,7 @@ a:hover {
     display: none;
     background-image: url('../img/q1_bg.png');
     background-position: center;
+    background-repeat: no-repeat;
     /*background-size: cover;*/
     background-size: 1440px; /* set the background not movable */
     display: none;
@@ -573,12 +574,17 @@ a:hover {
   z-index: 1;
 }
 @media (max-width: 480px) {
+  #pageGuessName {
+    margin-top: 54px;
+  }
+
   #pageGuessName .centerElement {
     overflow: hidden;
     top: 0;
     height: 100%;
     transform: none;
     left: 0;
+    position: static;
   }
 
   #pageGuessName .pontianakBox {
@@ -614,7 +620,7 @@ a:hover {
 /*.pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }*/
 .pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; }
 
-@media (max-width: 480px) {
+@media (max-width: 769px) {
 
   .pontianakBox > div {
     width: 600px;

@@ -353,8 +353,7 @@
             <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
             <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
             <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
-            <br />
-            <br />
+
             <div class="centerInlineHor">
                 <div class="inputBorder" ng-repeat="item in name1">
                     <span ng-if="item.display">{{item.letter}}</span>
@@ -373,7 +372,7 @@
             <br />
             <div class="centerInlineHor">
                 <div class="guessBox">
-                    <p>Enter a character to unravel the name</p>
+                    <p>Enter a letter to unravel the name</p>
                     <br />
                     <input type="text" ng-model="singleLetter" ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
                     <button ng-click="checkName()" class="btnBlood active">ENTER</button>
@@ -522,9 +521,9 @@
     <div id="pano"><div id="pano-overlay"></div></div>
 
     <!-- clues location in pano -->
-    <div id="clue-1" class="clue realclue"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-2" class="clue realclue"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-3" class="clue realclue"><img class="panoCenter" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-1" class="clue realclue"><img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-2" class="clue realclue"><img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-3" class="clue realclue"><img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
     <div id="clue-4" class="clue fakeclue"><img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" /></div>
     <div id="clue-5" class="clue fakeclue"><img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" /></div>
 

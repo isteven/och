@@ -269,20 +269,23 @@ var hideFakeClue = function() {
 
 $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
-    var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
-    if (canClick[activeSceneIdx] && !cluesFound[activeSceneIdx]) {
+    // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
+
+    var clueId = $(this).data('clue-id');
+
+    if (canClick[clueId-1] && !cluesFound[clueId-1]) {
 
       $('#cluePlaceholder').fadeIn();
       $('#cluePlaceholder > .closeButtonRed').show();
-      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + (activeSceneIdx + 1) + '.jpg');
+      $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
-      canClick[activeSceneIdx] = false;
-      cluesFound[activeSceneIdx] = true;
+      canClick[clueId-1] = false;
+      cluesFound[clueId-1] = true;
 
       hidePanoCenter();
     } else {
 
-      var clueId = $(this).data('clue-id');
+
       canClick[clueId-1] = false;
       $('#cluePlaceholder').fadeIn();
       $('#cluePlaceholder').addClass('fakeClue');
