@@ -1,0 +1,153 @@
+#pageLanding {
+    background-image: url( ../img/och_landing_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+}
+
+#pageLanding h2 {
+  margin-bottom: 24px;
+}
+
+#pageLanding > div > p {
+	margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+#pageLanding > div > a {
+  margin-top: 12px;
+}
+
+@media (max-height: 600px) {
+  #pageLanding h2 {
+    margin-bottom: 12px;
+  }
+
+  #pageLanding > p {
+    margin-bottom: 16px;
+  }
+}
+
+#pageLanding > div > div {
+    width: 600px;
+    height: 307px;
+    position: relative;
+    padding: 40px 50px 10px 50px;
+    background-image: url(../img/landing_blood.png);
+    background-size: contain;
+    background-position: top;
+    background-repeat: repeat;
+}
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div {
+        width: 100%;
+        height: 100%;
+        background-image: url( ../img/landing_blood.png );
+        background-size: 100% 100%  ;
+        background-position: top;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 50px 10px ;
+        overflow: visible;
+    }
+}
+
+#pageLanding > div > div > ul {
+    height: auto;
+}
+
+#pageLanding > div > div > ul > li {
+    padding: 10px;
+    margin-bottom: 10px;
+    /*font-size: 100%;*/
+    line-height: 1.2;
+}
+
+#pageLanding > div > div > ul > li > img {
+    max-height: 50px;
+    width: auto;
+}
+
+@media (max-width: 600px){
+	#pageLanding > div > div .double-column li{
+        width: 100%;
+    }
+}
+@media (min-width: 481px){
+    #pageLanding .ftr__logo{
+        display: none;
+    }
+}
+@media (max-width: 480px){
+    #pageLanding{
+        height: auto;
+        min-height: 100%;
+    }
+    #pageLanding > div > div {
+        width: 100%;
+        height: auto;
+        padding: 40px 15px 0 15px;
+        background-image: url(../img/landing_blood.png);
+        background-size: contain;
+        background-position: top;
+        background-repeat: repeat;
+    }
+    #pageLanding > div > div .double-column{
+        margin-top: -10px;
+    }
+    #pageLanding > div > div .double-column:first-of-type{
+        margin-top: 0;
+    }
+    #pageLanding > div > div .double-column li{
+        width: 100%;
+    }
+    #pageLanding > div > div > ul > li {
+        margin-top: -20px;
+        margin-bottom: 0;
+        padding: 10px 50px 20px;
+        background-image: url(../img/landing_blood.png);
+        background-size: cover;
+        background-position: top;
+        background-repeat: repeat;
+        line-height: 1.2em;
+    }
+    #pageLanding > div > div > ul > li:first-child {
+        margin-top: 0;
+    }
+    #pageLanding > div > div > ul > li:last-child {
+        margin-top: -20px;
+        padding-bottom: 60px;
+    }
+    #pageLanding .ftr__logo{
+        display: block;
+        width: 100%;
+        position: initial;
+        bottom: 0;
+        left: 0;
+        margin-top: 45px;
+    }
+    #pageLanding .ftr__logo img{
+        width: 130px;
+    }
+}
+@media (max-width: 320px){
+	#pageLanding > div > div > ul > li {
+        padding: 10px 30px 20px;
+    }
+	#pageLanding > div > div > ul > li:last-child {
+		padding-bottom: 30px;
+	}
+}
+
+@media (max-width: 1024px) {
+    #pageLanding > div > div img {
+        max-height: auto;
+        max-width: 50px;
+    }
+}

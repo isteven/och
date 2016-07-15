@@ -1,0 +1,169 @@
+#pageShare > div > div {
+  float: right;
+}
+
+#pageShare .centerElement {
+	min-width: 865px;
+}
+@media (min-width: 481px){
+    #pageShare .ftr__logo{
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+	#pageShare{
+		z-index: 42;
+	}
+	#pageShare .centerElement {
+		min-width: 100%;
+	}
+	#pageShare .ftr__logo{
+        display: block;
+        width: 100%;
+        position: initial;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 20px;
+    	text-align: center;
+    }
+    #pageShare .ftr__logo img{
+        width: 130px;
+    }
+}
+.clueImage {
+    width: 100%;
+    background-image: url( ../img/code_bg.png );
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.clueImage > img {
+    max-width: 260px;
+    height: auto;
+}
+
+@media (min-width: 900px) {
+  #pageShare .centerElement {
+    width: 750px;
+  }
+
+  .clueShare {
+    width: 460px;
+  }
+
+  .clueImage {
+    width: auto;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 900px) {
+  .clueShare, .clueImage {
+    width: 50%;
+  }
+  #pageShare .centerElement {
+    top: 160px;
+  }
+}
+
+.guessBoxHeader {
+    padding: 12px 7px 7px 7px;
+    background-image: url(../img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.leaderboardBox {
+    width: 290px;
+}
+
+.leaderboardBox > div {
+    width: 100%;
+}
+
+.leaderboardBox li div {
+  text-align: center;
+}
+
+.leaderboardScore {
+    display: block;
+    width: 70%;
+}
+
+.leaderboardScore li {
+  float: left;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.topBorderRed {
+    border-top: 1px solid #a80101;
+}
+
+.iconSocMed {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.iconSocMed.facebook        { background-image: url(../img/icon_fb.png); }
+.iconSocMed.facebook:hover  { background-image: url(../img/icon_fb_ro.png); }
+
+.iconSocMed.twitter         { background-image: url(../img/icon_twitter.png); }
+.iconSocMed.twitter:hover   { background-image: url(../img/icon_twitter_ro.png); }
+
+.iconSocMed.weibo           { background-image: url(../img/icon_weibo.png); }
+.iconSocMed.weibo:hover     { background-image: url(../img/icon_weibo_ro.png); }
+
+.iconDownload {
+    display: inline-block;
+    margin: 20px;
+    background-image: url( ../img/icon_download.png);
+    height: 30px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 37px;
+    line-height: 30px;
+    color: #ffab1a !important;
+}
+
+.iconDownload:hover {
+    color: #ffe14c !important;
+}
+
+.numbering {
+    display: inline;
+    text-align: right;
+}
+
+.url-yellow {
+    color: #ffab1a !important;
+}
+
+.url-yellow:hover {
+    color: #ffe14c !important;
+}
+
+.replay {
+    background-image: url( ../img/icon_replay.png );
+    background-positon: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 35px;
+    color: #ffab1a;
+}
+
+.replay:hover {
+    background-image: url( ../img/icon_replay_ro.png );
+    color: #ffe14c;
+}

@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="vendor/reset.min.css">
     <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/menu.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="styles/menu.css"> -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
@@ -124,162 +124,6 @@
             </div>
         </menu>
     </div>
-
-    <!-- footer -->
-    <footer class="ftr">
-        <img class="ftr__background" src="img/footer-mask.png">
-        <a class="ftr__logo" href="">
-            <img src="img/footer-logo.svg">
-        </a>
-        <!-- <a href="" ng-click="scrollDown()" class="nav--footer__scroll"><img src="img/text-scroll.png">
-            <br><span class="icon--arrow--down"></span></a> -->
-        <div class="ftr__links">
-            <p class="ftr__link" id="ftr__credit">PHOTO BY 360SNAPSHOTS</p>
-            <equalizer class="ng-isolate-scope">
-                <div class="bar-c">
-                    <div id="bar-1" class="bar"></div>
-                    <div id="bar-2" class="bar"></div>
-                    <div id="bar-3" class="bar"></div>
-                    <div id="bar-4" class="bar"></div>
-                    <div id="bar-5" class="bar"></div>
-                </div>
-            </equalizer>
-            <a class="ftr__link" href="" ng-click="showFooterPopup('share')">Share</a>
-            <a class="ftr__link" href="" ng-click="showFooterPopup('connected')">Stay connected</a>
-            <a class="ftr__link" href="" ng-click="showFooterPopup('legal')">Legal</a>
-        </div>
-        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
-            <button class="ftr__close icon--close btn" ng-click="footer.hidePopup()">Close</button>
-        </div>
-        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
-
-            <!-- footer share -->
-            <div class="inner ftr__popup--spread" ng-switch-when="share">
-                <h3>Spread the Evil</h3>
-                <a class="ftr__icon" href="">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: #e5e5cf;
-                                }
-                            </style>
-                        </defs>
-                        <path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path>
-                    </svg>
-                </a>
-                <a class="ftr__icon" href="">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 45">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: #e5e5cf;
-                                }
-                            </style>
-                        </defs>
-                        <path class="cls-1" d="M619.7,153.8a23.3,23.3,0,0,1-6.6,1.8,11.4,11.4,0,0,0,5.1-6.3,23.3,23.3,0,0,1-7.3,2.8,11.6,11.6,0,0,0-8.4-3.6,11.5,11.5,0,0,0-11.5,11.4,11.1,11.1,0,0,0,.3,2.6,32.9,32.9,0,0,1-23.8-11.9,11.3,11.3,0,0,0,3.6,15.2,11.7,11.7,0,0,1-5.2-1.4h0a11.4,11.4,0,0,0,9.3,11.1,11.4,11.4,0,0,1-3,.4l-2.2-.2a11.5,11.5,0,0,0,10.8,7.9,23.4,23.4,0,0,1-14.3,4.9l-2.8-.2a33,33,0,0,0,17.7,5.1c21.2,0,32.8-17.3,32.8-32.3,0-.5,0-1,0-1.5a23.1,23.1,0,0,0,5.8-5.9"
-                            transform="translate(-563.4 -148.5)"></path>
-                    </svg>
-                </a>
-                <a class="ftr__icon" href="">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 45">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: #e5e5cf;
-                                }
-                            </style>
-                        </defs>
-                        <path class="cls-1" d="M480.6,289.8l-7.8-6.8L450.5,302a4.5,4.5,0,0,0,3.1,1.2h53.9a4.5,4.5,0,0,0,3.1-1.2l-22.3-19.1Zm0,0" transform="translate(-449.1 -258.3)"></path>
-                        <path class="cls-1" d="M510.6,259.5a4.4,4.4,0,0,0-3.1-1.2H453.6a4.5,4.5,0,0,0-3.1,1.2l30.1,25.8Zm0,0" transform="translate(-449.1 -258.3)"></path>
-                        <path class="cls-1" d="M449.1,262.2v37.4l21.8-18.5Zm0,0" transform="translate(-449.1 -258.3)"></path>
-                        <path class="cls-1" d="M490.3,281.1l21.8,18.5V262.2Zm0,0" transform="translate(-449.1 -258.3)"></path>
-                    </svg>
-                </a>
-                <a class="ftr__icon ftr__icon--ig" href="">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: #e5e5cf;
-                                }
-                            </style>
-                        </defs>
-                        <path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
-                            transform="translate(-337.7 -242.8)"></path>
-                    </svg>
-                </a><a href="">#HHN6</a>
-            </div>
-
-            <!-- footer connected -->
-            <div class="inner ftr__popup--connected h-clearfix" ng-switch-when="connected">
-                <div class="connected__follow">
-                    <h3>Follow Us</h3>
-                    <a class="ftr__icon" href="">
-                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #e5e5cf;
-                                    }
-                                </style>
-                            </defs>
-                            <path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path>
-                        </svg>
-                    </a>
-                    <a class="ftr__icon ftr__icon" href="">
-                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #e5e5cf;
-                                    }
-                                </style>
-                            </defs>
-                            <path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
-                                transform="translate(-337.7 -242.8)"></path>
-                        </svg>
-                    </a>
-                    <a class="ftr__icon" href="">
-                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.4 55">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #e5e5cf;
-                                    }
-                                </style>
-                            </defs>
-                            <path class="cls-1" d="M493.2,258.2v12.3l-1,.9-.9.4a.8.8,0,0,1-.6-.3,1.2,1.2,0,0,1-.2-.8V258.2h-3.3v13.5a3.4,3.4,0,0,0,.6,2.2,2.1,2.1,0,0,0,1.7.7,4.4,4.4,0,0,0,1.9-.5,7.2,7.2,0,0,0,1.9-1.5v1.8h3.3V258.2Zm-10.1.8a4.8,4.8,0,0,0-3.4-1.2,5.5,5.5,0,0,0-3.6,1.1,3.7,3.7,0,0,0-1.3,3v8.4a4.3,4.3,0,0,0,1.3,3.3,5.7,5.7,0,0,0,7,0,4.1,4.1,0,0,0,1.3-3.2V262A3.9,3.9,0,0,0,483.1,259ZM481,270.6a1.3,1.3,0,0,1-.4,1,1.4,1.4,0,0,1-1.1.4,1.3,1.3,0,0,1-1-.4,1.4,1.4,0,0,1-.4-1v-8.8a1,1,0,0,1,.4-.8,1.4,1.4,0,0,1,1-.3,1.7,1.7,0,0,1,1.1.3,1,1,0,0,1,.4.8Zm-10.3-18.2-2.3,8.8h-.3l-2.4-8.8H462l4.4,13.2v8.7h3.7v-9.1l4.3-12.8Zm25.8,38.6a2.3,2.3,0,0,1,.3,1.3v1.5h-2.6v-1.5a2,2,0,0,1,.3-1.3,1.4,1.4,0,0,1,2,0Zm-10.2-.1a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291ZM503,279.7H457a9.2,9.2,0,0,0-9.2,9.2v9.4a9.2,9.2,0,0,0,9.2,9.2h46a9.2,9.2,0,0,0,9.2-9.2v-9.4A9.3,9.3,0,0,0,503,279.7Zm-33.6,6.5H466v17h-3.3v-17h-3.4v-2.9h10.2Zm9.7,17h-3v-1.6a5.5,5.5,0,0,1-1.7,1.4,3.4,3.4,0,0,1-1.7.5,1.9,1.9,0,0,1-1.6-.7,3.2,3.2,0,0,1-.5-2V288.5h2.9v11.3a1.2,1.2,0,0,0,.2.7.7.7,0,0,0,.6.2l.8-.3a3,3,0,0,0,.9-.8V288.5h3Zm10.6-3.1a3.7,3.7,0,0,1-.7,2.4,2.5,2.5,0,0,1-2,.8,3.3,3.3,0,0,1-1.5-.3,4,4,0,0,1-1.3-1v1.1h-3V283.3h3v6.4a4.6,4.6,0,0,1,1.3-1,3.1,3.1,0,0,1,1.4-.4,2.5,2.5,0,0,1,2.1.9,4.3,4.3,0,0,1,.7,2.7Zm10.2-3.9h-5.6V299a3.1,3.1,0,0,0,.3,1.6,1.1,1.1,0,0,0,1,.5,1.2,1.2,0,0,0,1-.4,3.1,3.1,0,0,0,.3-1.7v-.7h3.1v.7a4.6,4.6,0,0,1-1.1,3.4,4.2,4.2,0,0,1-3.3,1.1,4,4,0,0,1-3.1-1.2,4.7,4.7,0,0,1-1.1-3.3v-6.6a4.1,4.1,0,0,1,1.3-3.1,4.4,4.4,0,0,1,3.2-1.2,4.1,4.1,0,0,1,3.1,1.1,4.4,4.4,0,0,1,1.1,3.2Zm-14.4-5.6h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6a1.6,1.6,0,0,0-.3-1.1A1.1,1.1,0,0,0,485.5,290.6Zm.9.4a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Z"
-                                transform="translate(-447.8 -252.5)"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div class="connected__subscribe">
-                    <div class="inner">
-                        <h3>Be Warned Of Stirring Evils</h3>
-                        <input type="email" placeholder="Email address">
-                        <button class="btn btn--textured">Submit</button>
-                        <p>
-                            <input type="checkbox" id="agree">
-                            <label for="agree"><small>&nbsp;I consent to Resorts World Sentosa (“RWS”) to collect, use and disclose to companies within the Genting Group, my personal data for customer research and marketing purposes.</small></label>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- footer legal -->
-            <div class="inner ftr__popup--legal" ng-switch-when="legal"><img src="assets/images/footer-warning.svg">
-                <ul class="list--reset list--horizontal">
-                    <li><a href="">Legal Information</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">Terms &amp; Conditions</a></li>
-                </ul>
-                <p class="legal__rights">UNIVERSAL STUDIOS, UNIVERSAL STUDIOS SINGAPORE, Universal Globe logo, and all Universal elements and related indicia TM &amp; © Universal Studios. All Rights Reserved.</p>
-            </div>
-            <!-- end ngSwitchWhen: -->
-            <button class="ftr__close icon--close btn" ng-click="hideFooterPopup()">Close</button>
-        </div>
-    </footer>
 
     <!-- landing page -->
     <div id="pageLanding">
@@ -579,6 +423,164 @@
     </div>
 
     <div id="tnc" class="tnc__wrapper"><div class="tnc"><a href="#" class="closeButtonRed"></a><div class="tnc__content wrapper"><h3>Terms And Conditions Of The Halloween Horror Nights 6 Microsite Contest</h3><p>The following terms and conditions (the “Terms and Conditions”) shall apply to The Halloween Horror Nights 6 Microsite Contest (the “Contest”).</p><h4>Contest Period</h4><ol><li>The Contest will commence on the 27 July 2016 0000hrs and close on 1 September 2016 2359hrs, unless withdrawn earlier by Resorts World Sentosa (the “Contest Period”).</li></ol><h4>Eligibility</h4><ol><li>The Contest is open to any persons, except residents of China, who are at least 13 years of age on the date of the respective draws (“Participants”).</li><li>Employees of Resorts World at Sentosa Pte. Ltd. (“RWS”), their immediate family members, advertising agencies of RWS, and any other parties directly involved in organizing, promoting, or conducting the lucky draw are not eligible to participate in the Contest.</li><li>RWS has the sole discretion to exclude any person from participating in the Contest without any obligation to furnish any notice and/or reason.</li><li>Participants must have an active Social Media account and profile must be made “public” throughout the Contest Period.</li></ol><h4>Details of the Contest</h4><strong>Weekly Draws</strong><ol><li>There will be a total of five (5) mini games revealed weekly on Halloween Horror Nights 6 Microsite (hereinafter referred to as “Microsite”).<ol><li>Microsite:<ol><li>www.halloweenhorrornights.com.sg</li></ol></li></ol></li><li>Participants must complete the game on the Microsite and share the completed game on at least one (1) of the Social Media platforms (hereinafter referred to as “Social Media”).<ol><li>Social Media:<ol><li>Facebook</li><li>Twitter</li></ol></li></ol></li></ol><ol><li>Participants must comply with the following requirements when participating in the Weekly Draws:<ol><li>Complete the full length of the game on Microsite</li><li>Enter and submit information in the required fields listed at the end of the game</li><li>Share the completed game on one of the Social Media, tag @rwsentosa and include the following hashtag -<ol><li>Via Facebook: Tag “ #HHN6 ”</li><li>Via Twitter: Tag “ #HHN6 ”</li></ol></li><li>Hashtags require exact spelling as stipulated above.</li><li>All entries submitted must be accurate, true and complete.</li></ol></li></ol><strong>Grand Draw</strong><ol><li>To participate in the grand draw, participants must upload a ‘Selfie’ (Self- Portrait) of themselves onto the Microsite. Once uploaded, a profile photo with a ghostly overlay will be generated and participants must share it on Social Media.</li></ol><ol><li>Participants must comply with the following requirements when participating in the Grand Draw:<ol><li>Upload an appropriate Selfie on Microsite to generate a ghostly photo</li><li>Enter and submit information in the required fields listed</li><li>Share the newly generated photo on one of the Social Media and include the following hashtag<ol><li>Via Facebook: Tag “ #HHN6 ”</li><li>Via Twitter: Tag “ #HHN6 ”</li></ol></li><li>Hashtags require exact spelling as stipulated above.</li><li>All entries submitted must be accurate, true and complete.</li></ol></li></ol><h4>Conduct of Contest and Prizes</h4><ol><li><p>There will be a total of five (5) Weekly Draws and one (1) Grand Draw during the Contest Period. The draw dates and the respective prizes are set out below:</p><table cellspacing="0"><tbody><tr><th width="18%">Contest type</th><th width="13%">Draw Date</th><th width="20%">Participation Period</th><th width="31%">Prizes</th><th width="18%">Number of Winners</th></tr><tr><th colspan="5" class="subheader"><strong>Weekly Draws</strong></th></tr><tr><td>1st Game</td><td>3 Aug 2016</td><td>27 Jul – 2 Aug 2016</td><td rowspan="5">2 Pairs of Halloween Horror Nights 6 Tickets</td><td rowspan="5">10 (2 winners per draw)</td></tr><tr><td>1st Game</td><td>3 Aug 2016</td><td>27 Jul – 2 Aug 2016</td><!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> --><!-- <td>10 (2 winners per draw)</td> --></tr><tr><td>1st Game</td><td>3 Aug 2016</td><td>27 Jul – 2 Aug 2016</td><!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> --><!-- <td>10 (2 winners per draw)</td> --></tr><tr><td>1st Game</td><td>3 Aug 2016</td><td>27 Jul – 2 Aug 2016</td><!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> --><!-- <td>10 (2 winners per draw)</td> --></tr><tr><td>1st Game</td><td>3 Aug 2016</td><td>27 Jul – 2 Aug 2016</td><!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> --><!-- <td>10 (2 winners per draw)</td> --></tr><tr><th colspan="5" class="subheader"><strong>Grand Draw</strong></th></tr><tr><td>Selfie Game</td><td>2 Sep 2016</td><td>26 Aug - 1 Sep 2016</td><td>2 Exclusive Halloween Horror Nights 6 Preview Passes</td><td>1</td></tr></tbody></table></li></ol><p><strong>Weekly Draws</strong></p><ol><li>Each Participant may submit more than one (1) entry during the Contest Period.</li><li>Two (2) winners will be selected every week based on the shortest possible time taken to complete the weekly game.</li><li>In the case of a tie, the winners will be picked at random from the respective eligible entries.</li><li>Weekly game winners will not be entitled to participate in any of the remaining Weekly Draws.</li></ol><p><strong>Grand Draw</strong></p><ol><li>One (1) winner will be picked at random from the Selfie entries.</li><li>Any entries made after the Participation Period shall be considered invalid and will not be considered.</li></ol><h4>Notification of Winners and Prize Collection</h4><ol><li>The Winners will be notified via private message based on their entries via Social Media (“Notification”).</li><li>In the event that the Winner(s) is not residing in Singapore, he/she must be available to travel between 28 September 2016 to 31 October 2016. Resorts World Sentosa will not responsible for any visa applications if required by the winners. Winners will need to ensure all travel requirements such as passport validity etc. are adhered to.</li><li>Winners need to acknowledge the Notification and provide the requested information (via email at moments@RWSentosa.com) within 7 days of receiving the Notification (“Notification Period”), failing which the Prize will be forfeited without liability to Resorts World Sentosa.</li><li>After receiving the Winners’s email acknowledgement and the required information, RWS shall communicate the prize collection details to the Winners separately.</li><li>In the event that the Winner does not or is not able to claim his/her Prize by the stipulated time, the Prize will be deemed forfeited, and Resorts World Sentosa may select another winner from all of the remaining entries at its sole and absolute discretion.</li><li>Prizes are non-transferable, non-exchangeable and non-cashable. Resorts World Sentosa reserves the right to substitute the prizes for other prizes of similar value.</li></ol><h4>General Terms and Conditions</h4><ol><li>By participating in the Contest, the Participant is deemed to have accepted and agreed to be bound by these Terms and Conditions and any other instructions, terms and conditions that Resorts World Sentosa may issue from time to time.</li><li>Resorts World Sentosa shall not be liable for any misuse of the Participant’s submitted information or the Participant’s submitted photographs, in the course of taking part in the Contest.</li><li>Each Participant hereby grants his/her consent to Resorts World Sentosa to collect any personal data/information about him/her in respect of his/her participation in the Contest.</li><li>Resorts World Sentosa shall not be liable to the Participants for any injuries, losses or damages in respect of, in connection with and/or arising from the Contest.</li><li>Resorts World Sentosa reserves the right to withdraw or cancel the Contest and to amend or change these Terms and Conditions at any time for whatever reason and without giving prior notice to the participants. The decision of the Resorts World Sentosa on all matters relating to or in connection with the Contest is final, and no correspondence will be entertained.</li><li>Resorts World Sentosa reserves the right to publish any Participants’ images and details for any purpose whatsoever without having to pay any fee or compensation to the Participants.</li><li>The Participant shall fully indemnify and hold Resorts World Sentosa harmless from and against any loss, damage, cost, liability or expense (including legal fees), whether direct or indirect, which Resorts World Sentosa incurs in respect of, in connection with and/or arising from the Participant’s breach of these Terms and Conditions.</li><li>In the event of any inconsistency or discrepancy between the Terms and Conditions and the contents of any brochure, marketing and/or promotional materials relating to the Contest, these Terms and Conditions shall prevail.</li><li>The Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and enforceability thereof.</li><li>Participants who have any questions regarding the Contest should contact the administrator by email at moments@RWSentosa.com and state the Contest name in the subject field in their correspondence.</li><li>These Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and enforceability thereof.</li><li>A person who is not a party to any agreement governed by these terms and conditions shall have no right under the Contracts (Right of Third Parties) Act (Cap 53B) to enforce any of these terms and conditions.</li><!-- TODO apply links --></ol></div></div></div>
+
+
+    <!-- footer -->
+    <footer class="ftr">
+        <img class="ftr__background" src="img/footer-mask.png">
+        <a class="ftr__logo" href="">
+            <img src="img/footer-logo.svg">
+        </a>
+        <!-- <a href="" ng-click="scrollDown()" class="nav--footer__scroll"><img src="img/text-scroll.png">
+            <br><span class="icon--arrow--down"></span></a> -->
+        <div class="ftr__links">
+            <p class="ftr__link" id="ftr__credit">PHOTO BY 360SNAPSHOTS</p>
+            <equalizer class="ng-isolate-scope">
+                <div class="bar-c">
+                    <div id="bar-1" class="bar"></div>
+                    <div id="bar-2" class="bar"></div>
+                    <div id="bar-3" class="bar"></div>
+                    <div id="bar-4" class="bar"></div>
+                    <div id="bar-5" class="bar"></div>
+                </div>
+            </equalizer>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('share')">Share</a>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('connected')">Stay connected</a>
+            <a class="ftr__link" href="" ng-click="showFooterPopup('legal')">Legal</a>
+        </div>
+        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
+            <button class="ftr__close icon--close btn" ng-click="footer.hidePopup()">Close</button>
+        </div>
+        <div class="ftr__popup" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
+
+            <!-- footer share -->
+            <div class="inner ftr__popup--spread" ng-switch-when="share">
+                <h3>Spread the Evil</h3>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 45">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M619.7,153.8a23.3,23.3,0,0,1-6.6,1.8,11.4,11.4,0,0,0,5.1-6.3,23.3,23.3,0,0,1-7.3,2.8,11.6,11.6,0,0,0-8.4-3.6,11.5,11.5,0,0,0-11.5,11.4,11.1,11.1,0,0,0,.3,2.6,32.9,32.9,0,0,1-23.8-11.9,11.3,11.3,0,0,0,3.6,15.2,11.7,11.7,0,0,1-5.2-1.4h0a11.4,11.4,0,0,0,9.3,11.1,11.4,11.4,0,0,1-3,.4l-2.2-.2a11.5,11.5,0,0,0,10.8,7.9,23.4,23.4,0,0,1-14.3,4.9l-2.8-.2a33,33,0,0,0,17.7,5.1c21.2,0,32.8-17.3,32.8-32.3,0-.5,0-1,0-1.5a23.1,23.1,0,0,0,5.8-5.9"
+                            transform="translate(-563.4 -148.5)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 45">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M480.6,289.8l-7.8-6.8L450.5,302a4.5,4.5,0,0,0,3.1,1.2h53.9a4.5,4.5,0,0,0,3.1-1.2l-22.3-19.1Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M510.6,259.5a4.4,4.4,0,0,0-3.1-1.2H453.6a4.5,4.5,0,0,0-3.1,1.2l30.1,25.8Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M449.1,262.2v37.4l21.8-18.5Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                        <path class="cls-1" d="M490.3,281.1l21.8,18.5V262.2Zm0,0" transform="translate(-449.1 -258.3)"></path>
+                    </svg>
+                </a>
+                <a class="ftr__icon ftr__icon--ig" href="">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #e5e5cf;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
+                            transform="translate(-337.7 -242.8)"></path>
+                    </svg>
+                </a><a href="">#HHN6</a>
+            </div>
+
+            <!-- footer connected -->
+            <div class="inner ftr__popup--connected h-clearfix" ng-switch-when="connected">
+                <div class="connected__follow">
+                    <h3>Follow Us</h3>
+                    <a class="ftr__icon" href="">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: #e5e5cf;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"></path>
+                        </svg>
+                    </a>
+                    <a class="ftr__icon ftr__icon" href="">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: #e5e5cf;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
+                                transform="translate(-337.7 -242.8)"></path>
+                        </svg>
+                    </a>
+                    <a class="ftr__icon" href="">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.4 55">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: #e5e5cf;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1" d="M493.2,258.2v12.3l-1,.9-.9.4a.8.8,0,0,1-.6-.3,1.2,1.2,0,0,1-.2-.8V258.2h-3.3v13.5a3.4,3.4,0,0,0,.6,2.2,2.1,2.1,0,0,0,1.7.7,4.4,4.4,0,0,0,1.9-.5,7.2,7.2,0,0,0,1.9-1.5v1.8h3.3V258.2Zm-10.1.8a4.8,4.8,0,0,0-3.4-1.2,5.5,5.5,0,0,0-3.6,1.1,3.7,3.7,0,0,0-1.3,3v8.4a4.3,4.3,0,0,0,1.3,3.3,5.7,5.7,0,0,0,7,0,4.1,4.1,0,0,0,1.3-3.2V262A3.9,3.9,0,0,0,483.1,259ZM481,270.6a1.3,1.3,0,0,1-.4,1,1.4,1.4,0,0,1-1.1.4,1.3,1.3,0,0,1-1-.4,1.4,1.4,0,0,1-.4-1v-8.8a1,1,0,0,1,.4-.8,1.4,1.4,0,0,1,1-.3,1.7,1.7,0,0,1,1.1.3,1,1,0,0,1,.4.8Zm-10.3-18.2-2.3,8.8h-.3l-2.4-8.8H462l4.4,13.2v8.7h3.7v-9.1l4.3-12.8Zm25.8,38.6a2.3,2.3,0,0,1,.3,1.3v1.5h-2.6v-1.5a2,2,0,0,1,.3-1.3,1.4,1.4,0,0,1,2,0Zm-10.2-.1a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291ZM503,279.7H457a9.2,9.2,0,0,0-9.2,9.2v9.4a9.2,9.2,0,0,0,9.2,9.2h46a9.2,9.2,0,0,0,9.2-9.2v-9.4A9.3,9.3,0,0,0,503,279.7Zm-33.6,6.5H466v17h-3.3v-17h-3.4v-2.9h10.2Zm9.7,17h-3v-1.6a5.5,5.5,0,0,1-1.7,1.4,3.4,3.4,0,0,1-1.7.5,1.9,1.9,0,0,1-1.6-.7,3.2,3.2,0,0,1-.5-2V288.5h2.9v11.3a1.2,1.2,0,0,0,.2.7.7.7,0,0,0,.6.2l.8-.3a3,3,0,0,0,.9-.8V288.5h3Zm10.6-3.1a3.7,3.7,0,0,1-.7,2.4,2.5,2.5,0,0,1-2,.8,3.3,3.3,0,0,1-1.5-.3,4,4,0,0,1-1.3-1v1.1h-3V283.3h3v6.4a4.6,4.6,0,0,1,1.3-1,3.1,3.1,0,0,1,1.4-.4,2.5,2.5,0,0,1,2.1.9,4.3,4.3,0,0,1,.7,2.7Zm10.2-3.9h-5.6V299a3.1,3.1,0,0,0,.3,1.6,1.1,1.1,0,0,0,1,.5,1.2,1.2,0,0,0,1-.4,3.1,3.1,0,0,0,.3-1.7v-.7h3.1v.7a4.6,4.6,0,0,1-1.1,3.4,4.2,4.2,0,0,1-3.3,1.1,4,4,0,0,1-3.1-1.2,4.7,4.7,0,0,1-1.1-3.3v-6.6a4.1,4.1,0,0,1,1.3-3.1,4.4,4.4,0,0,1,3.2-1.2,4.1,4.1,0,0,1,3.1,1.1,4.4,4.4,0,0,1,1.1,3.2Zm-14.4-5.6h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6a1.6,1.6,0,0,0-.3-1.1A1.1,1.1,0,0,0,485.5,290.6Zm.9.4a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Z"
+                                transform="translate(-447.8 -252.5)"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="connected__subscribe">
+                    <div class="inner">
+                        <h3>Be Warned Of Stirring Evils</h3>
+                        <input type="email" placeholder="Email address">
+                        <button class="btn btn--textured">Submit</button>
+                        <p>
+                            <input type="checkbox" id="agree">
+                            <label for="agree"><small>&nbsp;I consent to Resorts World Sentosa (“RWS”) to collect, use and disclose to companies within the Genting Group, my personal data for customer research and marketing purposes.</small></label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer legal -->
+            <div class="inner ftr__popup--legal" ng-switch-when="legal"><img src="assets/images/footer-warning.svg">
+                <ul class="list--reset list--horizontal">
+                    <li><a href="">Legal Information</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Terms &amp; Conditions</a></li>
+                </ul>
+                <p class="legal__rights">UNIVERSAL STUDIOS, UNIVERSAL STUDIOS SINGAPORE, Universal Globe logo, and all Universal elements and related indicia TM &amp; © Universal Studios. All Rights Reserved.</p>
+            </div>
+            <!-- end ngSwitchWhen: -->
+            <button class="ftr__close icon--close btn" ng-click="hideFooterPopup()">Close</button>
+        </div>
+    </footer>
+
 
 
     <script src=https://use.typekit.net/gmu3kbc.js></script>
