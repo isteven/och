@@ -4153,11 +4153,14 @@ a:hover {
   height: auto; }
 
 #pageShare {
-  background: url(../img/completed_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4; }
+  .game-och #pageShare {
+    /* this is for och only */
+    background-image: none;
+    background-color: #000; }
 
 @media (max-width: 768px) {
   #pageShare {
