@@ -321,7 +321,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.millisToMinutesAndSeconds = function(millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
-        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        var paddedMinutes = pad('00', minutes, true);
+        return paddedMinutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
     $scope.share_facebook = function() {
@@ -484,8 +485,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('.pontianakBox div').hide();
     }
 
-    // hidePage( '#pano' );
-    showPage('#pageLanding');
+    hidePage( '.emf__container' );
+    hidePage( '#pano' );
+    showPage('#pageShare');
 
     // setTimeout( function() {
     //     $scope.share_facebook();
