@@ -48,7 +48,7 @@
 
 #pageGuessDate .single-column .centerVer {
     // float: right;
-    width: 550px;
+    width: 380px;
     top: auto;
     transform: none;
     margin-right: 400px;
@@ -56,16 +56,16 @@
 }
 @media (max-width: 900px) {
   #pageGuessDate .single-column .centerVer {
-    width: 400px;
+    width: 360px;
   }
 }
 @media (max-width: 769px) {
   #pageGuessDate .single-column .centerVer {
     margin-right: 0;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -200px;
     margin-top: 0;
-    width: 600px;
+    width: 400px;
   }
 }
 @media (max-width: 480px) {
@@ -76,20 +76,21 @@
   }
 }
 
+#pageGuessDate .single-column .centerVer .guess-date-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 #pageGuessDate .single-column .centerVer h3:first-letter {
   font-size: 1em;
 }
 
-
-@media (min-width: 481px) {
-  #pageGuessDate .single-column .centerVer h3 {
-    margin: 12px auto;
-    width: 95%;
-    // font-family: lato, serif;
-    // font-weight: 600;
-    font-size: 30px;
-    line-height: 1.3;
-  }
+#pageGuessDate .single-column .centerVer h3 {
+  margin: 12px auto;
+  font-family: lato, serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
 }
 
 #pageGuessDate .single-column .centerVer div{

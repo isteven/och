@@ -197,9 +197,12 @@
     <div id="pageGuessName">
         <div class="inner">
           <div class="single-column">
-            <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
-            <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
-            <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
+            <div class="guessIntro">
+              <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
+              <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
+              <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
+            </div>
+
 
             <div class="centerInlineHor">
                 <div class="inputBorder" ng-repeat="item in name1">
@@ -240,6 +243,11 @@
             <div class="pontianak9"></div>
           </div>
         </div>
+
+        <!-- clues counter -->
+        <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+            <img src="img/clue.png" />
+        </div>
     </div>
 
     <div class="guess-overlay"></div>
@@ -249,7 +257,7 @@
       <div class="inner">
         <div class="single-column">
           <div class="centerVer centerInlineHor">
-              <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
+              <h5 class="font-trajan-pro fg-red centerInlineHor guess-date-title">This Is Yet To be Over</h5>
               <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
               <div>
                   <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
@@ -369,6 +377,11 @@
         <p class="emf__reader"><span class="num"></span> <span class="static">mG</span></p>
       </div>
 
+      <!-- clues counter -->
+      <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+          <img src="img/clue.png" />
+      </div>
+
     </div>
 
     <!-- clues location in pano -->
@@ -397,9 +410,9 @@
     <div class="scare-overlay"></div>
 
     <!-- clues counter -->
-    <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+    <!-- <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
         <img src="img/clue.png" />
-    </div>
+    </div> -->
 
     <!-- single clue -->
     <div id="cluePlaceholder" class="cluePlaceholder">

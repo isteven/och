@@ -13,7 +13,7 @@
   width: 100px;
   height: 100px;
   position: absolute;
-  z-index: 40;
+  z-index: 1;
   bottom: 100px;
   right: 80px;
   display: none; }
@@ -358,6 +358,14 @@
   /* set the background not movable */
   z-index: 2; }
 
+@media (max-width: 769px) {
+  #pageGuessName {
+    background-image: url("../img/q1_bg-m.jpg");
+    background-size: 768px;
+    background-position: center -54px; } }
+@media (max-width: 480px) {
+  #pageGuessName {
+    background-position: center -150px; } }
 #pageGuessName.bg-hide {
   background-image: none; }
 
@@ -373,7 +381,8 @@
     width: 400px; } }
 @media (max-width: 480px) {
   #pageGuessName {
-    padding-top: 54px; }
+    margin-top: 54px;
+    overflow: hidden; }
 
   #pageGuessName > .inner {
     overflow: hidden;
@@ -401,27 +410,16 @@
 #pageGuessName .inputBorder img {
   width: 45px; }
 
+#pageGuessName .guessIntro {
+  height: 80px;
+  vertical-align: bottom; }
+
 #pageGuessName h1.font-edo.ng-binding {
   margin-bottom: 5px;
   font-size: 2.2em; }
 
 #pageGuessName h1.font-edo.last.ng-binding {
   font-size: 1.8em; }
-
-#pageGuessName .guess-overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  display: none;
-  width: 100%;
-  height: 100%;
-  transform: none; }
-
-#pageGuessName .guess-overlay.active {
-  display: block; }
 
 .guessBox {
   /*border-image-source: url('../img/texture.jpg');*/
@@ -599,13 +597,10 @@
     height: 100%; } }
 @media (max-width: 480px) {
   #pageGuessName .pontianakBox {
-    left: 50%;
-    right: 0;
-    top: 150px;
-    margin-left: -240px;
-    overflow: hidden;
     width: 480px;
-    height: 635px; }
+    height: 635px;
+    margin-left: -240px;
+    top: 150px; }
 
   .pontianakBox > div {
     width: 480px;
@@ -617,6 +612,27 @@
 
   .pontianakSpecial {
     background-position: -1440px -1905px; } }
+@media (max-width: 480px) {
+  #pageGuessName .cluesCtr {
+    display: block;
+    position: static;
+    margin: 0 auto; } }
+.guess-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  transform: none; }
+
+.guess-overlay.active {
+  display: block; }
+
 #pageGuessDate {
   z-index: 3;
   overflow: hidden; }
@@ -644,7 +660,7 @@
   #pageGuessDate > .inner {
     padding-top: 400px; } }
 #pageGuessDate .single-column .centerVer {
-  width: 550px;
+  width: 380px;
   top: auto;
   transform: none;
   margin-right: 400px;
@@ -652,28 +668,33 @@
 
 @media (max-width: 900px) {
   #pageGuessDate .single-column .centerVer {
-    width: 400px; } }
+    width: 360px; } }
 @media (max-width: 769px) {
   #pageGuessDate .single-column .centerVer {
     margin-right: 0;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -200px;
     margin-top: 0;
-    width: 600px; } }
+    width: 400px; } }
 @media (max-width: 480px) {
   #pageGuessDate .single-column .centerVer {
     width: 100%;
     left: 0;
     margin-left: 0; } }
+#pageGuessDate .single-column .centerVer .guess-date-title {
+  font-size: 20px;
+  font-weight: 600; }
+
 #pageGuessDate .single-column .centerVer h3:first-letter {
   font-size: 1em; }
 
-@media (min-width: 481px) {
-  #pageGuessDate .single-column .centerVer h3 {
-    margin: 12px auto;
-    width: 95%;
-    font-size: 30px;
-    line-height: 1.3; } }
+#pageGuessDate .single-column .centerVer h3 {
+  margin: 12px auto;
+  font-family: lato, serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3; }
+
 #pageGuessDate .single-column .centerVer div {
   display: inline-block;
   border-style: solid;
@@ -763,15 +784,15 @@
   position: absolute;
   z-index: 50; }
 
+#pageFails .centerElement {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 @media (min-width: 481px) {
   #pageFails .ftr__logo {
     display: none; } }
 @media (max-width: 480px) {
-  #pageFails .centerElement {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-
   #pageFails .ftr__logo {
     display: block;
     position: absolute;

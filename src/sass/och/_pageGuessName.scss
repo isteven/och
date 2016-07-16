@@ -6,6 +6,20 @@
   z-index: 2;
 }
 
+@media (max-width: 769px) {
+  #pageGuessName {
+    background-image: url('../img/q1_bg-m.jpg');
+    background-size: 768px;
+    background-position: center -54px;
+  }
+}
+
+@media (max-width: 480px) {
+  #pageGuessName {
+    background-position: center -150px;
+  }
+}
+
 #pageGuessName.bg-hide {
   background-image: none;
 }
@@ -26,7 +40,8 @@
 
 @media (max-width: 480px) {
   #pageGuessName {
-    padding-top: 54px;
+    margin-top: 54px;
+    overflow: hidden;
   }
 
   #pageGuessName > .inner {
@@ -59,6 +74,13 @@
 #pageGuessName .inputBorder img{
     width: 45px;
 }
+
+#pageGuessName .guessIntro {
+  height: 80px;
+  vertical-align: bottom;
+}
+
+
 #pageGuessName h1.font-edo.ng-binding{
 	margin-bottom: 5px;
     font-size: 2.2em;
@@ -66,23 +88,7 @@
 #pageGuessName h1.font-edo.last.ng-binding{
     font-size: 1.8em;
 }
-#pageGuessName .guess-overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  // z-index: 1;
-  display: none;
 
-  width: 100%;
-  height: 100%;
-  transform: none;
-}
-#pageGuessName .guess-overlay.active {
-  display: block;
-}
 
 // #pageGuessName> div, #pageGuessDate> div {
 //     position: absolute;
@@ -283,14 +289,11 @@
 @media (max-width: 480px) {
 
   #pageGuessName .pontianakBox {
-    left: 50%;
-    right: 0;
-    top: 150px;
-    margin-left: -240px;
-    overflow: hidden;
-
     width: 480px;
     height: 635px;
+
+    margin-left: -240px;
+    top: 150px;
   }
 
   .pontianakBox > div {
@@ -307,4 +310,30 @@
     background-position: -1440px -1905px;
   }
 
+}
+
+@media (max-width: 480px) {
+  #pageGuessName .cluesCtr {
+    display: block;
+    position: static;
+    margin: 0 auto;
+  }
+}
+
+.guess-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: 1;
+  display: none;
+
+  width: 100%;
+  height: 100%;
+  transform: none;
+}
+.guess-overlay.active {
+  display: block;
 }

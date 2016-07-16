@@ -202,13 +202,26 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 $scope.guessCorrect = false;
                 $scope.failLetter = $scope.singleLetter;
                 if ($scope.triesLeft > 1) {
+                  console.log('still have chance');
                     window.animatePontianakError($scope.triesLeft, true);
                 } else {
+
+                  console.log('used up chances');
                     window.animatePontianakError($scope.triesLeft);
-                    setTimeout(function() {
-                        // hidePage( '#pageGuessName' );
-                        showPage('#pageFails');
-                    }, 800);
+
+                    if ( Modernizr.mq('(max-width: 769px)') ) {
+                      //  Mobile and tablet has more animation frames,
+                      //  so duration needs slightly longer
+                      setTimeout(function() {
+                          // hidePage( '#pageGuessName' );
+                          showPage('#pageFails');
+                      }, 1000);
+                    } else {
+                      setTimeout(function() {
+                          // hidePage( '#pageGuessName' );
+                          showPage('#pageFails');
+                      }, 800);
+                    }
                 }
                 $scope.triesLeft--;
             }
@@ -234,12 +247,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                     // showPage('#pageGuessDate');
                     // window.animatePontianakSpecial();
                     window.animatePontianakError(1);
-                    window.setTimeout(function () {
-                      document.activeElement.blur();
-                      $('.cluesCtr').hide();
-                      hidePage('#pageGuessName');
-                      showPage('#pageGuessDate');
-                    }, 1000);
+
+                    if ( Modernizr.mq('(max-width: 769px)') ) {
+                      //  Mobile and tablet has more animation frames,
+                      //  so duration needs slightly longer
+                      window.setTimeout(function () {
+                        document.activeElement.blur();
+                        $('.cluesCtr').hide();
+                        hidePage('#pageGuessName');
+                        showPage('#pageGuessDate');
+                      }, 1000);
+                    } else {
+                      window.setTimeout(function () {
+                        document.activeElement.blur();
+                        $('.cluesCtr').hide();
+                        hidePage('#pageGuessName');
+                        showPage('#pageGuessDate');
+                      }, 500);
+                    }
+
                 }
             }
 

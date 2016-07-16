@@ -429,6 +429,8 @@ function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, durati
 
 };
 
+
+
 function animatePontianakError(triesLeft, haveWaiting) {
 
     clearInterval(frameInterval);
@@ -436,44 +438,40 @@ function animatePontianakError(triesLeft, haveWaiting) {
     $('.pontianakBox div').hide();
     // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
+
+    console.log('tries left: '+triesLeft);
+    if ( triesLeft === 1 ) {
+      $('#pageGuessName').find('cluesCtr').hide();
+    }
+
     $('.pontianak' + pontianakIdx).show();
+
+    if ( pontianakIdx == 9 ) {
+      $('#pageGuessName').addClass('bg-hide');
+      $('.guess-overlay').addClass('active');
+      $('#pageGuessName').find('.single-column').hide();
+    }
 
     if ( pontianakIdx == 0 ) {
       AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
     } else {
 
-      if ( pontianakIdx == 9 ) {
-        $('#pageGuessName').addClass('bg-hide');
-        $('.guess-overlay').addClass('active');
-        $('#pageGuessName').find('.single-column').hide();
-      }
-
       if ( Modernizr.mq('(max-width: 480px)') ) {
-
-        // the browser window is larger than 900px
-        //  var element = document.querySelector('.pontianak' + pontianakIdx);
-        //  var sprite = new Motio(element, {
-        //      fps: 8,
-        //      frames: frameQty[pontianakIdx - 1]
-        //  });
-        //  // sprite.play(); // start animation
-        //  sprite.to((frameQty[pontianakIdx - 1] - 1));
-        // var sprite = new Motio(element, {
-        //     fps: 8,
-        //     frames: 8
-        // });
-        // // sprite.play(); // start animation
-        // sprite.to((8 - 1));
-
+        console.log( ' mobile index '+pontianakIdx );
         AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
 
       } else if ( Modernizr.mq('(max-width: 769px)') ) {
-          AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
+        AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
       } else {
+
+
+
         AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
       }
 
     }
+
+
 
 
 
@@ -513,33 +511,17 @@ function animatePontianakError(triesLeft, haveWaiting) {
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
 
-    var query = Modernizr.mq('(max-width: 769px)');
-    if (query) {
-      // the browser window is larger than 900px
-      // var element = document.querySelector('.pontianakSpecial');
-      // var sprite = new Motio(element, {
-      //    fps: 8,
-      //    frames: 8
-      // });
-      // sprite.to(7);
+    if ( Modernizr.mq('(max-width: 480px)') ) {
 
-      AnimateSprite( $('.pontianakSpecial'), 768, 1020, 4, 16, 0.3);
-   } else {
-        AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
-   }
-}
+      AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
 
-function animatePontianakWaiting(triesLeft) {
-    /*
-    console.log( 'animating pontianak WAITING: ' + triesLeft );
-    var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
-    console.log( 'pontianak index:'  + pontianakIdx );
-    // $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
-    $( '.pontianakBox div' ).hide();
-    $( '.pontianak' + pontianakIdx ).show();
-    $( '.pontianak' + pontianakIdx ).sprite({
-        no_of_frames: frameQty[ pontianakIdx - 1 ],
-        fps: 4
-    });
-    */
+    } else if ( Modernizr.mq('(max-width: 769px)') ) {
+
+      AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
+
+    } else {
+
+      AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
+
+    }
 }
