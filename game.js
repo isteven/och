@@ -435,14 +435,12 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
     clearInterval(frameInterval);
 
-    $('.pontianakBox div').hide();
+    $('.pontianakBox > div').hide();
     // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
 
     console.log('tries left: '+triesLeft);
-    if ( triesLeft === 1 ) {
-      $('#pageGuessName').find('cluesCtr').hide();
-    }
+    console.log('pontianakIdx: '+pontianakIdx);
 
     $('.pontianak' + pontianakIdx).show();
 
@@ -457,15 +455,10 @@ function animatePontianakError(triesLeft, haveWaiting) {
     } else {
 
       if ( Modernizr.mq('(max-width: 480px)') ) {
-        console.log( ' mobile index '+pontianakIdx );
         AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
-
       } else if ( Modernizr.mq('(max-width: 769px)') ) {
         AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
       } else {
-
-
-
         AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
       }
 
@@ -475,28 +468,29 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 
 
+    if ( Modernizr.mq('(min-width: 768px)') ) {
+      if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
+        var nextFrameIndex = pontianakIdx+1;
+        setTimeout(function() {
+          $('.pontianak' + pontianakIdx).hide();
+          $('.pontianak' + (nextFrameIndex)).show();
 
-    if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
-      var nextFrameIndex = pontianakIdx+1;
-      setTimeout(function() {
-        $('.pontianak' + pontianakIdx).hide();
-        $('.pontianak' + (nextFrameIndex)).show();
+          frameInterval = setInterval(function() {
+            //  waiting pontianak shivers
+            console.log('waiting.... init');
+            console.log('what is the index now? '+pontianakIdx);
+              // var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
+              // var sprite = new Motio(element, {
+              //     fps: 8,
+              //     frames: frameQty[pontianakIdx]
+              // });
+              // sprite.to((frameQty[pontianakIdx] - 1));
 
-        frameInterval = setInterval(function() {
-          //  waiting pontianak shivers
-          console.log('waiting.... init');
-          console.log('what is the index now? '+pontianakIdx);
-            // var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
-            // var sprite = new Motio(element, {
-            //     fps: 8,
-            //     frames: frameQty[pontianakIdx]
-            // });
-            // sprite.to((frameQty[pontianakIdx] - 1));
+              AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
+          }, 5000);
 
-            AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
-        }, 5000);
-
-      }, 1200);
+        }, 1200);
+      }
     }
 
     // $( '.pontianak' + pontianakIdx ).sprite({
