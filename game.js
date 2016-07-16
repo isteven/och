@@ -468,7 +468,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 
 
-    if ( Modernizr.mq('(min-width: 768px)') ) {
+    // if ( Modernizr.mq('(min-width: 768px)') ) {
       if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
         var nextFrameIndex = pontianakIdx+1;
         setTimeout(function() {
@@ -491,7 +491,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
         }, 1200);
       }
-    }
+    // }
 
     // $( '.pontianak' + pontianakIdx ).sprite({
     /*

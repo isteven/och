@@ -513,14 +513,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
 // <<<<<<< HEAD
 //     // hidePage( '#pano' );
-//     showPage('#pageLanding'); //jac:: uncomment this when deploying
+    showPage('#pageLanding'); //jac:: uncomment this when deploying
 //
 //     // showPage('#pageGuessName');
 //     // showPage('#pageGuessDate');
 // =======
-    hidePage( '.emf__container' );
-    hidePage( '#pano' );
-    showPage('#pageShare');
+    // hidePage( '.emf__container' );
+    // hidePage( '#pano' );
+    // showPage('#pageShare');
 
 
     // setTimeout( function() {
