@@ -1,7 +1,7 @@
 'use strict';
 
 var canClick = [false, false, false, true, true];
-var cluesFound = [false, false, false];
+var cluesFound = [false, false, false, true, true];
 var clueIndex = 0;
 var tempHotspots = [];
 var activeSceneList = ['0-scene-1', '0-scene-2', '0-scene-3'];
@@ -275,7 +275,9 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     if (canClick[clueId-1] && !cluesFound[clueId-1]) {
 
-      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder').fadeIn(function(){
+        $(this).addClass('active-clue-placeholder');
+      });
       $('#cluePlaceholder > .closeButtonRed').show();
       $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
@@ -285,9 +287,10 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
       hidePanoCenter();
     } else {
 
-
       canClick[clueId-1] = false;
-      $('#cluePlaceholder').fadeIn();
+      $('#cluePlaceholder').fadeIn(function(){
+        $(this).addClass('active-clue-placeholder');
+      });
       $('#cluePlaceholder').addClass('fakeClue');
       $('#cluePlaceholder > .closeButtonRed').show();
       // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
@@ -297,11 +300,22 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
     }
 });
 
+
+$('#pano').on('click touchstart', function(){
+
+  if( $('#cluePlaceholder').hasClass('active-clue-placeholder') ) {
+    $('#cluePlaceholder > .closeButtonRed').click();
+  }
+
+});
+
 $('#cluePlaceholder > .closeButtonRed').click(function(e) {
 
   if ( $('#cluePlaceholder').hasClass('fakeClue') ) {
 
-    $('#cluePlaceholder').fadeOut();
+    $('#cluePlaceholder').fadeOut(function(){
+      $(this).removeClass('active-clue-placeholder');
+    });
     $('#cluePlaceholder').removeClass('fakeClue');
 
   } else {
@@ -317,6 +331,8 @@ $('#cluePlaceholder > .closeButtonRed').click(function(e) {
         $('#cluePlaceholder > img').attr('src', '');
         $('#cluePlaceholder').attr('style', '');
         $('#cluePlaceholder').addClass('cluePlaceholder');
+
+        $('#cluePlaceholder').removeClass('active-clue-placeholder');
     });
 
   }
@@ -344,6 +360,12 @@ var showClues = function() {
         }
     }
     $('#pageClues .closeButtonRed').click(function(e) {
+        $('.fadePage').fadeOut();
+        $('#pageClues').hide();
+    });
+
+    $('#pageClues').on('click touchstart', function(e) {
+        // $('#pageClues .closeButtonRed').click();
         $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
@@ -421,7 +443,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
     } else {
 
       if ( pontianakIdx == 9 ) {
-        $('.guess-overlay').addClass('active');
+        $('#pageGuessName').addClass('bg-hide');
         $('#pageGuessName').find('.single-column').hide();
       }
 

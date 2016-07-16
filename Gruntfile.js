@@ -97,6 +97,7 @@ module.exports = function(grunt) {
       main: {
         files: {
           'styles/main.css': '<%= site.src %>/sass/main.scss',
+          'styles/game-och.css': '<%= site.src %>/sass/game-och.scss',
           // '<%= site.dest %>/css/font-awesome.min.css': '<%= site.src %>/sass/font-awesome.min.scss',
           // '<%= site.dest %>/css/jquery-ui.css': '<%= site.src %>/sass/jquery-ui.scss',
           // '<%= site.dest %>/css/owl-carousel.css': '<%= site.src %>/sass/owl.carousel.scss',

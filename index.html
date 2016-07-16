@@ -16,9 +16,12 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="stylesheet" href="styles/menu.css"> -->
-    <link rel="stylesheet" href="styles/main.css">
+
     <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/game-och.css">
 </head>
 
 <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons">
@@ -192,7 +195,7 @@
 
     <!-- guess name -->
     <div id="pageGuessName">
-        <div class="centerElement">
+        <div class="inner">
           <div class="single-column">
             <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
             <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
@@ -237,7 +240,7 @@
             <div class="pontianak9"></div>
           </div>
         </div>
-        <div class="guess-overlay"></div>
+        <!-- <div class="guess-overlay"></div> -->
 
     </div>
 
@@ -365,11 +368,21 @@
     <div id="pano"><div id="pano-overlay"></div></div>
 
     <!-- clues location in pano -->
-    <div id="clue-1" class="clue realclue"><img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-2" class="clue realclue"><img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-3" class="clue realclue"><img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-4" class="clue fakeclue"><img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" /></div>
-    <div id="clue-5" class="clue fakeclue"><img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" /></div>
+    <div id="clue-1" class="clue realclue">
+      <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" />
+    </div>
+    <div id="clue-2" class="clue realclue">
+      <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" />
+    </div>
+    <div id="clue-3" class="clue realclue">
+      <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" />
+    </div>
+    <div id="clue-4" class="clue fakeclue">
+      <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" />
+    </div>
+    <div id="clue-5" class="clue fakeclue">
+      <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" />
+    </div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
@@ -379,6 +392,7 @@
     <div id="scare"></div>
     <div class="scare-overlay"></div>
 
+    <!-- EMP meter -->
     <div class="emf__container">
       <ul class="emf__visual">
         <li class="emf__1"></li>
@@ -389,10 +403,6 @@
       </ul>
       <p class="emf__reader"><span class="num"></span> <span class="static">mG</span></p>
     </div>
-
-
-    <!-- EMP meter -->
-    <!-- <img src="img/emf_1.png" class="empMeter" /> -->
 
     <!-- clues counter -->
     <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
