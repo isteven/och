@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import "bootstrap";
 
 @import "marzipano-styles";
 @import "menu";
@@ -9,6 +10,8 @@
 
 @import "components/pageLanding";
 @import "components/pageShare";
+@import "components/footer";
+@import "components/equalizer";
 
 // @import "och/props";
 // @import "och/emf";
