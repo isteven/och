@@ -239,7 +239,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                       $('.cluesCtr').hide();
                       hidePage('#pageGuessName');
                       showPage('#pageGuessDate');
-                    }, 800);
+                    }, 1000);
                 }
             }
 
@@ -485,7 +485,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
     // hidePage( '#pano' );
-    showPage('#pageLanding');
+    showPage('#pageLanding'); //jac:: uncomment this when deploying
+
+    // showPage('#pageGuessName');
+    // showPage('#pageGuessDate');
 
     // setTimeout( function() {
     //     $scope.share_facebook();

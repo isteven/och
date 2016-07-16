@@ -3,6 +3,7 @@
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 1440px; /* set the background not movable */
+  z-index: 2;
 }
 
 #pageGuessName.bg-hide {
@@ -17,9 +18,31 @@
   transform: translateX(-50%);
 }
 
-// @media (max-width: 480px){
-//   top:
-// }
+@include respond-to("tablet-p") {
+  #pageGuessName > .inner {
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  #pageGuessName {
+    padding-top: 54px;
+  }
+
+  #pageGuessName > .inner {
+    overflow: hidden;
+    top: 0;
+    height: 100%;
+    transform: none;
+    left: 0;
+    position: static;
+  }
+}
+
+#pageGuessName .single-column {
+  position: relative;
+  z-index: 1;
+}
 
 #pageGuessName .inputBorder {
     /*border: none;*/
@@ -43,44 +66,44 @@
 #pageGuessName h1.font-edo.last.ng-binding{
     font-size: 1.8em;
 }
-// #pageGuessName .guess-overlay {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: #000000;
-//   z-index: 1;
-//   display: none;
-//
-//   width: 100%;
-//   height: 100%;
-//   transform: none;
-// }
-// #pageGuessName .guess-overlay.active {
-//   display: block;
-// }
+#pageGuessName .guess-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  // z-index: 1;
+  display: none;
 
-#pageGuessName> div, #pageGuessDate> div {
-    position: absolute;
-    z-index: 30;
-    top: 50%;
-    left: 50%;
-    height: 60%;
-    width: 80%;
-    transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  transform: none;
 }
-@media (max-width: 480px){
-    #pageGuessName> div, #pageGuessDate> div {
-        position: absolute;
-        z-index: 30;
-        top: 50%;
-        left: 50%;
-        height: 60%;
-        width: 100%;
-        transform: translate(-50%, -50%);
-    }
+#pageGuessName .guess-overlay.active {
+  display: block;
 }
+
+// #pageGuessName> div, #pageGuessDate> div {
+//     position: absolute;
+//     z-index: 30;
+//     top: 50%;
+//     left: 50%;
+//     height: 60%;
+//     width: 80%;
+//     transform: translate(-50%, -50%);
+// }
+// @media (max-width: 480px){
+//     #pageGuessName> div, #pageGuessDate> div {
+//         position: absolute;
+//         z-index: 30;
+//         top: 50%;
+//         left: 50%;
+//         height: 60%;
+//         width: 100%;
+//         transform: translate(-50%, -50%);
+//     }
+// }
 
 .guessBox {
     /*border-image-source: url('../img/texture.jpg');*/
@@ -102,6 +125,7 @@
     font-size: 200%;
     text-align: center;
 }
+
 
 @media (min-width: 481px) and (max-width: 767px){
 	#pageGuessName .inputBorder{
@@ -183,33 +207,7 @@
     }
 }
 
-/* jac: vetting pontianak box stylings here */
-#pageGuessName .single-column {
-  position: relative;
-  z-index: 1;
-}
-@media (max-width: 480px) {
-  #pageGuessName {
-    margin-top: 54px;
-  }
 
-  #pageGuessName .centerElement {
-    overflow: hidden;
-    top: 0;
-    height: 100%;
-    transform: none;
-    left: 0;
-    position: static;
-  }
-
-  #pageGuessName .pontianakBox {
-    width: 100%;
-    left: 0;
-    margin-top: -30%;
-    right: 0;
-    margin-left: 0;
-  }
-}
 
 .pontianakBox {
   position: absolute;
@@ -244,16 +242,25 @@
   height: 100%;
 }
 
+
 @media (max-width: 769px) {
+  #pageGuessName .pontianakBox {
+    width: 768px;
+    height: 1020px;
+
+    margin-left: -384px;
+    // margin-left: -192px;
+    left: 50%;
+  }
 
   .pontianakBox > div {
-    width: 600px;
-    height: 648px;
+    width: 768px;
+    height: 1020px;
   }
 
   .pontianak9, .pontianakSpecial {
     background: transparent url( ../img/09_pondash-m.png ) 0 0 no-repeat;
-    width: 600px;
+    width: 768px;
   }
 
   .pontianak1 { background-image: none; }
@@ -266,9 +273,38 @@
   .pontianak8 { background-image: none; }
   .pontianakSpecial {
     /*background-position-x: -5400px;*/
-    background-position: -1280px -800px;
+    background-position: -2304px -3060px;
     display: block;
     height: 100%;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  #pageGuessName .pontianakBox {
+    left: 50%;
+    right: 0;
+    top: 150px;
+    margin-left: -240px;
+    overflow: hidden;
+
+    width: 480px;
+    height: 635px;
+  }
+
+  .pontianakBox > div {
+    width: 480px;
+    height: 635px;
+  }
+
+  .pontianak9, .pontianakSpecial {
+    background: transparent url( ../img/09_pondash_480.png ) 0 0 no-repeat;
+    width: 480px;
+  }
+
+  .pontianakSpecial {
+    background-position: -1440px -1905px;
   }
 
 }

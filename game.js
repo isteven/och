@@ -364,11 +364,11 @@ var showClues = function() {
         $('#pageClues').hide();
     });
 
-    $('#pageClues').on('click touchstart', function(e) {
-        // $('#pageClues .closeButtonRed').click();
-        $('.fadePage').fadeOut();
-        $('#pageClues').hide();
-    });
+    // $('#pageClues').on('click touchstart', function(e) {
+    //     // $('#pageClues .closeButtonRed').click();
+    //     $('.fadePage').fadeOut();
+    //     $('#pageClues').hide();
+    // });
 
     if (allCluesFound == 3) {
         $('#pageClues .btnBlood').addClass('active');
@@ -444,29 +444,34 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
       if ( pontianakIdx == 9 ) {
         $('#pageGuessName').addClass('bg-hide');
+        $('.guess-overlay').addClass('active');
         $('#pageGuessName').find('.single-column').hide();
       }
 
-      var query = Modernizr.mq('(max-width: 767px)');
-      if (query) {
+      if ( Modernizr.mq('(max-width: 480px)') ) {
 
-       // the browser window is larger than 900px
-       var element = document.querySelector('.pontianak' + pontianakIdx);
-      //  var sprite = new Motio(element, {
-      //      fps: 8,
-      //      frames: frameQty[pontianakIdx - 1]
-      //  });
-      //  // sprite.play(); // start animation
-      //  sprite.to((frameQty[pontianakIdx - 1] - 1));
-      var sprite = new Motio(element, {
-          fps: 8,
-          frames: 8
-      });
-      // sprite.play(); // start animation
-      sprite.to((8 - 1));
-     } else {
-          AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
-     }
+        // the browser window is larger than 900px
+        //  var element = document.querySelector('.pontianak' + pontianakIdx);
+        //  var sprite = new Motio(element, {
+        //      fps: 8,
+        //      frames: frameQty[pontianakIdx - 1]
+        //  });
+        //  // sprite.play(); // start animation
+        //  sprite.to((frameQty[pontianakIdx - 1] - 1));
+        // var sprite = new Motio(element, {
+        //     fps: 8,
+        //     frames: 8
+        // });
+        // // sprite.play(); // start animation
+        // sprite.to((8 - 1));
+
+        AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
+
+      } else if ( Modernizr.mq('(max-width: 769px)') ) {
+          AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
+      } else {
+        AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+      }
 
     }
 
@@ -491,7 +496,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
             // sprite.to((frameQty[pontianakIdx] - 1));
 
             AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
-        }, 8000);
+        }, 5000);
 
       }, 1200);
     }
@@ -507,17 +512,18 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
-    // AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
 
-    var query = Modernizr.mq('(max-width: 767px)');
+    var query = Modernizr.mq('(max-width: 769px)');
     if (query) {
       // the browser window is larger than 900px
-      var element = document.querySelector('.pontianakSpecial');
-      var sprite = new Motio(element, {
-         fps: 8,
-         frames: 8
-      });
-      sprite.to(7);
+      // var element = document.querySelector('.pontianakSpecial');
+      // var sprite = new Motio(element, {
+      //    fps: 8,
+      //    frames: 8
+      // });
+      // sprite.to(7);
+
+      AnimateSprite( $('.pontianakSpecial'), 768, 1020, 4, 16, 0.3);
    } else {
         AnimateSprite( $('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
    }

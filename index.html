@@ -240,55 +240,44 @@
             <div class="pontianak9"></div>
           </div>
         </div>
-        <!-- <div class="guess-overlay"></div> -->
-
     </div>
+
+    <div class="guess-overlay"></div>
 
     <!-- guess date -->
     <div id="pageGuessDate">
-        <div class="centerElement">
+      <div class="inner">
+        <div class="single-column">
+          <div class="centerVer centerInlineHor">
+              <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
+              <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
+              <div>
+                  <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
+                      {{date.date}}
+                  </a>
+              </div>
+              <br />
+              <br />
+          </div>
+        </div>
+        <div class="pontianakSpecial"></div>
+      </div>
+        <!-- <div class="centerElement">
             <div class="double-column">
               <div class="pontianakSpecial"></div>
-                <div class="centerVer centerInlineHor">
-                    <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
-                    <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
-                    <div>
-                        <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
-                            {{date.date}}
-                        </a>
-                    </div>
-                    <br />
-                    <br />
-                </div>
+              <div class="centerVer centerInlineHor">
+                  <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
+                  <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
+                  <div>
+                      <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
+                          {{date.date}}
+                      </a>
+                  </div>
+                  <br />
+                  <br />
+              </div>
             </div>
-
-
-            <!--
-            <ul class="double-column">
-                <li>
-                    <div class="centerVer centerInlineHor">
-                        <h5 class="font-trajan-pro fg-red centerInlineHor">This Is Yet To be Over</h5>
-                        <br />
-                        <br />
-                        <h3 class="centerInlineHor">How many nights will <br />Halloween Horror Nights 6 be held?</h3>
-                        <br />
-                        <br />
-                        <div>
-                            <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
-                                {{date.date}}
-                            </a>
-                        </div>
-                        <br />
-                        <br />
-                    </div>
-                </li>
-                <li class="">
-                    <div class="pontianakSpecial">
-                    </div>
-                </li>
-            </ul>
-            -->
-        </div>
+        </div> -->
     </div>
 
     <!-- guess date -->
@@ -365,7 +354,22 @@
     </div>
 
     <!-- Marzipano Pano -->
-    <div id="pano"><div id="pano-overlay"></div></div>
+    <div id="pano">
+      <div id="pano-overlay"></div>
+
+      <!-- EMP meter -->
+      <div class="emf__container">
+        <ul class="emf__visual">
+          <li class="emf__1"></li>
+          <li class="emf__2"></li>
+          <li class="emf__3"></li>
+          <li class="emf__4"></li>
+          <li class="emf__5"></li>
+        </ul>
+        <p class="emf__reader"><span class="num"></span> <span class="static">mG</span></p>
+      </div>
+
+    </div>
 
     <!-- clues location in pano -->
     <div id="clue-1" class="clue realclue">
@@ -391,18 +395,6 @@
 
     <div id="scare"></div>
     <div class="scare-overlay"></div>
-
-    <!-- EMP meter -->
-    <div class="emf__container">
-      <ul class="emf__visual">
-        <li class="emf__1"></li>
-        <li class="emf__2"></li>
-        <li class="emf__3"></li>
-        <li class="emf__4"></li>
-        <li class="emf__5"></li>
-      </ul>
-      <p class="emf__reader"><span class="num"></span> <span class="static">mG</span></p>
-    </div>
 
     <!-- clues counter -->
     <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
