@@ -439,12 +439,10 @@ function animatePontianakError(triesLeft, haveWaiting) {
     // $('.pontianak' + pontianakIdx-1).hide();
     var pontianakIdx = ((5 - triesLeft) * 2) + 1;
 
-    console.log('tries left: '+triesLeft);
-    console.log('pontianakIdx: '+pontianakIdx);
-
     $('.pontianak' + pontianakIdx).show();
 
     if ( pontianakIdx == 9 ) {
+
       $('#pageGuessName').addClass('bg-hide');
       $('.guess-overlay').addClass('active');
       $('#pageGuessName').find('.single-column').hide();
@@ -465,33 +463,30 @@ function animatePontianakError(triesLeft, haveWaiting) {
     }
 
 
+    if ( Modernizr.mq('(min-width: 769px)') ) {
 
+      if ( pontianakIdx != 9 ) {
+        if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
 
+          var nextFrameIndex = pontianakIdx+1;
 
-    // if ( Modernizr.mq('(min-width: 768px)') ) {
-      if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
-        var nextFrameIndex = pontianakIdx+1;
-        setTimeout(function() {
-          $('.pontianak' + pontianakIdx).hide();
-          $('.pontianak' + (nextFrameIndex)).show();
+          setTimeout(function() {
+            $('.pontianakBox > div').hide();
+            // $('.pontianak' + pontianakIdx).hide();
+            $('.pontianak' + (nextFrameIndex)).show();
 
-          frameInterval = setInterval(function() {
-            //  waiting pontianak shivers
-            console.log('waiting.... init');
-            console.log('what is the index now? '+pontianakIdx);
-              // var element = document.querySelector('.pontianak' + (pontianakIdx + 1));
-              // var sprite = new Motio(element, {
-              //     fps: 8,
-              //     frames: frameQty[pontianakIdx]
-              // });
-              // sprite.to((frameQty[pontianakIdx] - 1));
+            clearInterval(frameInterval);
 
+            frameInterval = setInterval(function() {
+              //  waiting pontianak shivers
               AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
-          }, 5000);
+            }, 5000);
 
-        }, 1200);
+          }, 1200);
+        }
       }
-    // }
+
+    }
 
     // $( '.pontianak' + pontianakIdx ).sprite({
     /*

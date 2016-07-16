@@ -511,12 +511,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('.pontianakBox div').hide();
     }
 
-// <<<<<<< HEAD
-//     // hidePage( '#pano' );
-    showPage('#pageLanding'); //jac:: uncomment this when deploying
+
+// hidePage( '#pano' );
+    // showPage('#pageLanding'); //jac:: uncomment this when deploying
 //
-//     // showPage('#pageGuessName');
-//     // showPage('#pageGuessDate');
+$scope.startGame();
+hidePage( '#pano' );
+showPage('#pageGuessName');
+    // showPage('#pageGuessDate');
 // =======
     // hidePage( '.emf__container' );
     // hidePage( '#pano' );
