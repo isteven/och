@@ -21,13 +21,13 @@
     /*width: 100%;*/
 }
 
-#pageLanding > div > div > div > div > div > div {
+#pageLanding > div > div > div > div:first-child > div:first-child > div {
     width: calc( 100% - 140px );
 }
 
-.start-game-col {
-    padding-top: 40px;
-}
+// .start-game-col {
+//     padding-top: 40px;
+// }
 
 .black {
     font-weight: 800;
@@ -35,4 +35,28 @@
 
 .bold {
     font-weight: 700;
+}
+
+.blood-bg {
+    width: 600px;
+    height: 330px;
+    background-image: url( ../img/landing_blood.png );
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 40px 0px 10px 0px;
+}
+@media (max-width: 768px) {
+    .blood-bg {
+        height: auto;
+        width: auto;
+        padding: 30px 10px 30px 10px;
+        margin-top: 20px;
+    }
+}
+
+.blood-bg img {
+    max-width: 50px;
+    height: auto;
 }

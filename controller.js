@@ -512,14 +512,15 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
 
+
+    showPage('#pageLanding'); //jac:: uncomment this when deploying
+
+// $scope.startGame();
 // hidePage( '#pano' );
-    // showPage('#pageLanding'); //jac:: uncomment this when deploying
-//
-$scope.startGame();
-hidePage( '#pano' );
-showPage('#pageGuessName');
-    // showPage('#pageGuessDate');
-// =======
+// showPage('#pageGuessName');
+
+// showPage('#pageGuessDate');
+
     // hidePage( '.emf__container' );
     // hidePage( '#pano' );
     // showPage('#pageShare');
