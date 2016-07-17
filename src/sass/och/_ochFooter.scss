@@ -1,0 +1,24 @@
+/*
+*  This is just specifically for OCH game only.
+*  Footer to only display sound icon on
+*  - Game
+*  - Guess name
+*  - Guess date
+*  - Guess Fails
+*/
+
+@media (max-width: 768px) {
+  #pano .ftr,
+  #pageGuessName .ftr,
+  #pageGuessDate .ftr {
+    .ftr__logo {
+      display: none;
+    }
+    .ftr__links {
+      text-align: right;
+    }
+    .ftr__link {
+      display: none;
+    }
+  }
+}

@@ -32,7 +32,7 @@
   transform: translateX(-50%);
 }
 
-@include respond-to("tablet-p") {
+@media (max-width: 769px) {
   #pageGuessName > .inner {
     width: 400px;
   }

@@ -264,6 +264,30 @@
     background-position: left bottom; }
   90% {
     background-position: left top; } }
+/*
+*  This is just specifically for OCH game only.
+*  Footer to only display sound icon on
+*  - Game
+*  - Guess name
+*  - Guess date
+*  - Guess Fails
+*/
+@media (max-width: 768px) {
+  #pano .ftr .ftr__logo,
+  #pageGuessName .ftr .ftr__logo,
+  #pageGuessDate .ftr .ftr__logo {
+    display: none; }
+  #pano .ftr .ftr__links,
+  #pageGuessName .ftr .ftr__links,
+  #pageGuessDate .ftr .ftr__links {
+    text-align: right; }
+  #pano .ftr .ftr__link,
+  #pageGuessName .ftr .ftr__link,
+  #pageGuessDate .ftr .ftr__link {
+    display: none; } }
+#pano {
+  z-index: 1; }
+
 #pageClues > div > img {
   width: 30%;
   height: auto;
@@ -376,7 +400,7 @@
   left: 50%;
   transform: translateX(-50%); }
 
-@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media (max-width: 769px) {
   #pageGuessName > .inner {
     width: 400px; } }
 @media (max-width: 480px) {
@@ -642,7 +666,7 @@
 
 @media (max-width: 480px) {
   #pageGuessDate {
-    padding-top: 54px; } }
+    margin-top: 54px; } }
 #pageGuessDate > .inner {
   position: absolute;
   z-index: 1;
