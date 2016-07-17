@@ -294,6 +294,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
         $('.emf__visual').attr('class', 'emf__visual is-region-6');
         $('.emf__reader > span.num').html(generate_random_number(6));
+        $('.emf__reader > span.static').removeClass('hidden');
 
         $('#cluePlaceholder').fadeIn(function() {
             $(this).addClass('active-clue-placeholder');
@@ -379,10 +380,10 @@ var showClues = function() {
             allCluesFound++;
         }
     }
-    // $('#pageClues .closeButtonRed').click(function(e) {
-    //     $('.fadePage').fadeOut();
-    //     $('#pageClues').hide();
-    // });
+    $('#pageClues').on('click touchstart', '.closeButtonRed', function(e) {
+        $('.fadePage').fadeOut();
+        $('#pageClues').hide();
+    });
 
     $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
         $('.fadePage').fadeOut();
