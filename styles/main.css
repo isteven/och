@@ -3971,17 +3971,6 @@ a:hover {
     display: none;
     position: absolute;
     /*background-position: center;*/ } }
-#pageGuessName,
-#pageGuessDate,
-#pageShare,
-#pageClues {
-  display: none;
-  width: 100%;
-  min-height: 100%;
-  position: absolute;
-  z-index: 1;
-  background-color: #000000; }
-
 .borderDebug {
   border: 1px solid red; }
 

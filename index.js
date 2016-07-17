@@ -120,46 +120,63 @@
         return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
     }
 
+    var hasVisitedScareZone = false;
+    var jumpScare = {
+      scare: function(status) {
+        $('#scare').show();
+        $('.scare-overlay').addClass('active');
+
+        var element = document.querySelector('#scare');
+        var sprite = new Motio(element, {
+            fps: 18,
+            frames: 10
+        });
+        sprite.to(9);
+
+        shownScare = true;
+
+        sprite.on('frame', function(eventName){
+          if ( this.frame == 9 ) {
+            $('#scare').hide();
+            $('.scare-overlay').removeClass('active');
+          }
+        });
+        this.timeoutID = undefined;
+      },
+      setup: function() {
+        this.timeoutID = window.setTimeout(function(status) {
+          this.scare(status);
+        }.bind(this), 6000);
+      },
+
+      cancel: function() {
+        window.clearTimeout(this.timeoutID);
+        this.timeoutID = undefined;
+      }
+    }
+
     function switchScene(scene) {
         // console.log( 'switching scene' );
 
         scene.marzipanoObject.switchTo();
         activeScene = scene;
 
-        var timeoutID;
+        if ( hasVisitedScareZone ) {
+          jumpScare.cancel(); //clear timeout for jumpscare
+        }
 
         if (scene.data.id == '0-scene-1' ) {
           $('.prop-hotspot-light').addClass('active');
-          window.clearTimeout(timeoutID);
         }
 
         //  JAC: hide jump scare for time being...
         if (scene.data.id == '0-scene-2' && !shownScare) {
-          timeoutID = window.setTimeout(function(){
-            $('#scare').show();
-            $('.scare-overlay').addClass('active');
-
-            var element = document.querySelector('#scare');
-            var sprite = new Motio(element, {
-                fps: 18,
-                frames: 10
-            });
-            sprite.to(9);
-
-            shownScare = true;
-
-            sprite.on('frame', function(eventName){
-              if ( this.frame == 9 ) {
-                $('#scare').hide();
-                $('.scare-overlay').removeClass('active');
-              }
-            });
-
-          }, 6000);
+          hasVisitedScareZone = true;
+          jumpScare.setup();
         }
 
         if (scene.data.id == '0-scene-3' ) {
-          window.clearTimeout(timeoutID);
+
         }
 
     }
