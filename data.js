@@ -1,7 +1,7 @@
 var APP_DATA = {
     "scenes": [{
         "id": "0-scene-1",
-        "name": "Scene 1",
+        "name": "Level 1",
         "faceSize": 1024,
         "initialViewParameters": {
             "yaw": -1.2,
@@ -27,7 +27,7 @@ var APP_DATA = {
         }]
     }, {
         "id": "0-scene-2",
-        "name": "Scene 2",
+        "name": "Level 2",
         "levels": [{
             "tileSize": 256,
             "size": 256,
@@ -57,7 +57,7 @@ var APP_DATA = {
         ],
     }, {
         "id": "0-scene-3",
-        "name": "Scene 3",
+        "name": "Level 3",
         "levels": [{
             "tileSize": 256,
             "size": 256,
