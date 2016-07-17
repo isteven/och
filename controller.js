@@ -178,7 +178,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
     */
     $scope.checkName = function() {
-        if ($scope.singleLetter != '') {
+        if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active') ) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
             var letterIsCorrect = false;
             var result1 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name1);
@@ -515,9 +515,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
     showPage('#pageLanding'); //jac:: uncomment this when deploying
 
-// $scope.startGame();
+$scope.startGame();
 // hidePage( '#pano' );
-// showPage('#pageGuessName');
+showPage('#pageGuessName');
 
 // showPage('#pageGuessDate');
 

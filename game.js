@@ -410,11 +410,11 @@ function initSlick() {
 }
 
 
-function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, duration ) {
+function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd ) {
   if ( !el || el.length == 0 ) return;
 
   var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
-  var tl = new TimelineMax({ repeat: repeatAnimate, repeatDelay: 1 });
+  var tl = new TimelineMax({ onComplete: animateEnd, repeat: repeatAnimate, repeatDelay: 1 });
 
   for( var i=0, numRows=Math.ceil(totalFrame/numCols); i<numRows; i++ ) {
 
@@ -430,73 +430,76 @@ function AnimateSprite( el, frameWidth, frameHeight, numCols, totalFrame, durati
       ));
   }
 
+  function animateEnd() {
+
+		//when animation done, enable the pontianak to shiver
+		if (typeof onAnimateEnd == 'function') {
+			onAnimateEnd( currentFrameNo );
+		}
+	}
 
 };
 
+var triggerIdlePontianak;
 
+function enableEnterButton( pontianakIdx ) {
+  $('#pageGuessName').find('.btnBlood').addClass('active');
+
+  clearTimeout(triggerIdlePontianak);
+
+  if ( pontianakIdx != 9 ) {
+  
+    var nextFrameIndex = pontianakIdx+1;
+
+    triggerIdlePontianak = setTimeout(function() {
+      $('.pontianakBox > div').hide();
+      // $('.pontianak' + pontianakIdx).hide();
+      $('.pontianak' + (nextFrameIndex)).show();
+
+      clearInterval(frameInterval);
+
+      frameInterval = setInterval(function() {
+        //  waiting pontianak shivers
+        AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15, pontianakIdx, function(){
+          clearInterval(frameInterval);
+        });
+      }, 5000);
+
+    }, 1200);
+
+  }
+
+}
 
 function animatePontianakError(triesLeft, haveWaiting) {
 
-    clearInterval(frameInterval);
+  $('.pontianakBox > div').hide();
+  // $('.pontianak' + pontianakIdx-1).hide();
+  var pontianakIdx = ((5 - triesLeft) * 2) + 1;
 
-    $('.pontianakBox > div').hide();
-    // $('.pontianak' + pontianakIdx-1).hide();
-    var pontianakIdx = ((5 - triesLeft) * 2) + 1;
+  $('.pontianak' + pontianakIdx).show();
 
-    $('.pontianak' + pontianakIdx).show();
+  if ( pontianakIdx == 0 ) {
+    AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
+  } else {
 
-    if ( pontianakIdx == 9 ) {
-      $('.guess-overlay').addClass('active');
-      $('#pageGuessName').find('.single-column').hide();
-    }
-
-    if ( pontianakIdx == 0 ) {
-      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
+    if ( Modernizr.mq('(max-width: 480px)') ) {
+      AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
+    } else if ( Modernizr.mq('(max-width: 769px)') ) {
+      AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
     } else {
+      $('#pageGuessName').find('.btnBlood').removeClass('active');
 
-      if ( Modernizr.mq('(max-width: 480px)') ) {
-        AnimateSprite( $('.pontianak' + pontianakIdx), 480, 635, 4, 16, 0.3);
-      } else if ( Modernizr.mq('(max-width: 769px)') ) {
-        AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
-      } else {
-        AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15);
+      if ( pontianakIdx == 9 ) {
+        $('.guess-overlay').addClass('active');
+        $('#pageGuessName').find('.single-column').hide();
       }
 
+      AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15, pontianakIdx, enableEnterButton);
     }
 
+  }
 
-    if ( Modernizr.mq('(min-width: 769px)') ) {
-
-      if ( pontianakIdx != 9 ) {
-        if (typeof haveWaiting != 'undefined' && haveWaiting == true) {
-
-          var nextFrameIndex = pontianakIdx+1;
-
-          setTimeout(function() {
-            $('.pontianakBox > div').hide();
-            // $('.pontianak' + pontianakIdx).hide();
-            $('.pontianak' + (nextFrameIndex)).show();
-
-            clearInterval(frameInterval);
-
-            frameInterval = setInterval(function() {
-              //  waiting pontianak shivers
-              AnimateSprite( $('.pontianak'+nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15);
-            }, 5000);
-
-          }, 1200);
-        }
-      }
-
-    }
-
-    // $( '.pontianak' + pontianakIdx ).sprite({
-    /*
-        no_of_frames: frameQty[ pontianakIdx - 1 ],
-        fps: 8,
-        play_frames: frameQty[ pontianakIdx - 1 ]
-    });
-    */
 }
 
 function animatePontianakSpecial() {
