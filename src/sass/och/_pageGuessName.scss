@@ -6,17 +6,21 @@
   z-index: 2;
 }
 
+#pageGuessName.bg-hide {
+  background-image: none;
+}
+
 @media (max-width: 769px) {
   #pageGuessName {
     background-image: url('../img/q1_bg-m.jpg');
     background-size: 768px;
-    background-position: center -54px;
+    background-position: center -100px;
   }
 }
 
 @media (max-width: 480px) {
   #pageGuessName {
-    background-position: center -150px;
+    // background-position: center -150px;
     padding-top: 54px;
     overflow: hidden;
   }
@@ -34,11 +38,13 @@
   #pageGuessName > .inner {
     width: 400px;
     margin: 0 auto;
+    top: 100px;
   }
 }
 
 @media (max-width: 480px) {
   #pageGuessName > .inner {
+    width: auto;
     overflow: hidden;
     top: 0;
     height: 100%;
@@ -57,58 +63,57 @@
     /*border: none;*/
     display: inline-block;
     font-family: "edoregular", Serif;
-    font-size: 2.4em;
+    font-size: 3.2em;
     line-height: 0.8;
     color: #45140e;
     background-color: transparent;
     /*float: left;*/
-    margin-left: 10px;
+    // margin-left: 10px;
     text-align: center;
+    margin: 0 5px;
+
+    height: 54px;
+    width: 38px;
+
+    background: url('../img/dash.png') no-repeat center bottom;
+    background-size: 38px;
+
+    vertical-align: top;
 }
-#pageGuessName .inputBorder img{
+#pageGuessName .inputBorder > span {
+  display: block;
+}
+#pageGuessName .inputBorder img {
     width: 45px;
 }
 
 #pageGuessName .guessIntro {
-  height: 80px;
+  height: 72px;
   vertical-align: bottom;
+  display: table;
+  text-align: center;
+  width: 100%;
+
+  margin-bottom: 30px;
 }
 
 #pageGuessName .guessIntro h1 {
   font-family: "edo",sans-serif;
   font-weight: normal;
+  margin-bottom: 5px;
+  font-size: 2.2em;
+
+  &:first-child {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  &.last {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
 }
-
-
-#pageGuessName h1.font-edo.ng-binding{
-	margin-bottom: 5px;
-    font-size: 2.2em;
-}
-#pageGuessName h1.font-edo.last.ng-binding{
-    font-size: 1.8em;
-}
-
-
-// #pageGuessName> div, #pageGuessDate> div {
-//     position: absolute;
-//     z-index: 30;
-//     top: 50%;
-//     left: 50%;
-//     height: 60%;
-//     width: 80%;
-//     transform: translate(-50%, -50%);
-// }
-// @media (max-width: 480px){
-//     #pageGuessName> div, #pageGuessDate> div {
-//         position: absolute;
-//         z-index: 30;
-//         top: 50%;
-//         left: 50%;
-//         height: 60%;
-//         width: 100%;
-//         transform: translate(-50%, -50%);
-//     }
-// }
 
 .guessBox {
     /*border-image-source: url('../img/texture.jpg');*/
@@ -120,7 +125,19 @@
     -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
     border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
     background-color: rgba(0, 0, 0, 0.60);
-    padding: 30px;
+    padding: 20px;
+
+    margin-top: 30px;
+
+    width: 300px;
+
+    > p {
+      font-weight: bold;
+    }
+
+    .btnBlood {
+      padding: 6px 11px;
+    }
 }
 .guessBox > input {
     background-color: transparent;
@@ -132,55 +149,56 @@
 }
 
 
-@media (min-width: 481px) and (max-width: 767px){
-	#pageGuessName .inputBorder{
-        margin-left: 2px;
-	    margin-bottom: 10px;
-	    font-size: 2.2em;
-	    line-height: 0.8em;
+// @media (min-width: 481px) and (max-width: 767px){
+// 	#pageGuessName .inputBorder{
+//         margin-left: 2px;
+// 	    margin-bottom: 10px;
+// 	    font-size: 2.2em;
+// 	    line-height: 0.8em;
+//     }
+// 	#pageGuessName .inputBorder img{
+//         width: 35px;
+//     }
+//     #pageGuessName h1.font-edo.ng-binding{
+//         font-size: 1.6em;
+//     }
+//     #pageGuessName h1.font-edo.last.ng-binding{
+//         font-size: 1.4em;
+//     }
+// }
+@media (max-width: 480px){
+    #pageGuessName .inputBorder {
+        margin-left: 1px;
+        font-size: 2.8em;
+        line-height: 0.5;
+        margin-top: 10px;
+
+        height: 38px;
     }
-	#pageGuessName .inputBorder img{
+    #pageGuessName .inputBorder img {
         width: 35px;
     }
-    #pageGuessName h1.font-edo.ng-binding{
-        font-size: 1.6em;
+
+    #pageGuessName .guessIntro {
+      height: 70px;
+      margin-bottom: 10px;
+
+      > h1 {
+        margin-bottom: 0;
+      }
     }
-    #pageGuessName h1.font-edo.last.ng-binding{
-        font-size: 1.4em;
-    }
-}
-@media (max-width: 480px){
-    #pageGuessName .inputBorder{
-        margin-left: 1px;
-        font-size: 2.7em;
-        line-height: 0.5;
-    }
-    #pageGuessName .inputBorder img{
-        width: 29px;
-    }
-    #pageGuessName h1.font-edo{
-        margin-bottom: 5px;
-        font-size: 2.2em;
-    }
-    #pageGuessName h1.font-edo.ng-binding{
-        font-size: 1.4em;
-    }
-    #pageGuessName h1.font-edo.last.ng-binding{
-        font-size: 1.2em;
+
+
+    #pageGuessName .guessBox {
+      margin-top: 20px;
     }
 }
+
 @media (max-width: 320px){
-    #pageGuessName .inputBorder{
-        font-size: 2.2em;
-    }
-    #pageGuessName .inputBorder img{
-        width: 25px;
-    }
-    #pageGuessName h1.font-edo.ng-binding{
-        font-size: 1.2em;
-    }
-    #pageGuessName h1.font-edo.last.ng-binding{
-        font-size: 1.0em;
+    #pageGuessName .guessIntro {
+      > h1 {
+        font-size: 1.5em;
+      }
     }
 }
 

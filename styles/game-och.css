@@ -401,14 +401,16 @@
   /* set the background not movable */
   z-index: 2; }
 
+#pageGuessName.bg-hide {
+  background-image: none; }
+
 @media (max-width: 769px) {
   #pageGuessName {
     background-image: url("../img/q1_bg-m.jpg");
     background-size: 768px;
-    background-position: center -54px; } }
+    background-position: center -100px; } }
 @media (max-width: 480px) {
   #pageGuessName {
-    background-position: center -150px;
     padding-top: 54px;
     overflow: hidden; } }
 #pageGuessName > .inner {
@@ -421,9 +423,11 @@
 @media (max-width: 769px) {
   #pageGuessName > .inner {
     width: 400px;
-    margin: 0 auto; } }
+    margin: 0 auto;
+    top: 100px; } }
 @media (max-width: 480px) {
   #pageGuessName > .inner {
+    width: auto;
     overflow: hidden;
     top: 0;
     height: 100%;
@@ -438,31 +442,44 @@
   /*border: none;*/
   display: inline-block;
   font-family: "edoregular", Serif;
-  font-size: 2.4em;
+  font-size: 3.2em;
   line-height: 0.8;
   color: #45140e;
   background-color: transparent;
   /*float: left;*/
-  margin-left: 10px;
-  text-align: center; }
+  text-align: center;
+  margin: 0 5px;
+  height: 54px;
+  width: 38px;
+  background: url("../img/dash.png") no-repeat center bottom;
+  background-size: 38px;
+  vertical-align: top; }
+
+#pageGuessName .inputBorder > span {
+  display: block; }
 
 #pageGuessName .inputBorder img {
   width: 45px; }
 
 #pageGuessName .guessIntro {
-  height: 80px;
-  vertical-align: bottom; }
+  height: 72px;
+  vertical-align: bottom;
+  display: table;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px; }
 
 #pageGuessName .guessIntro h1 {
   font-family: "edo",sans-serif;
-  font-weight: normal; }
-
-#pageGuessName h1.font-edo.ng-binding {
+  font-weight: normal;
   margin-bottom: 5px;
   font-size: 2.2em; }
-
-#pageGuessName h1.font-edo.last.ng-binding {
-  font-size: 1.8em; }
+  #pageGuessName .guessIntro h1:first-child {
+    display: table-cell;
+    vertical-align: bottom; }
+  #pageGuessName .guessIntro h1.last {
+    margin-top: 0;
+    margin-bottom: 0; }
 
 .guessBox {
   /*border-image-source: url('../img/texture.jpg');*/
@@ -474,7 +491,13 @@
   -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
   border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px; }
+  padding: 20px;
+  margin-top: 30px;
+  width: 300px; }
+  .guessBox > p {
+    font-weight: bold; }
+  .guessBox .btnBlood {
+    padding: 6px 11px; }
 
 .guessBox > input {
   background-color: transparent;
@@ -484,51 +507,28 @@
   font-size: 200%;
   text-align: center; }
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (max-width: 480px) {
   #pageGuessName .inputBorder {
-    margin-left: 2px;
-    margin-bottom: 10px;
-    font-size: 2.2em;
-    line-height: 0.8em; }
+    margin-left: 1px;
+    font-size: 2.8em;
+    line-height: 0.5;
+    margin-top: 10px;
+    height: 38px; }
 
   #pageGuessName .inputBorder img {
     width: 35px; }
 
-  #pageGuessName h1.font-edo.ng-binding {
-    font-size: 1.6em; }
+  #pageGuessName .guessIntro {
+    height: 70px;
+    margin-bottom: 10px; }
+    #pageGuessName .guessIntro > h1 {
+      margin-bottom: 0; }
 
-  #pageGuessName h1.font-edo.last.ng-binding {
-    font-size: 1.4em; } }
-@media (max-width: 480px) {
-  #pageGuessName .inputBorder {
-    margin-left: 1px;
-    font-size: 2.7em;
-    line-height: 0.5; }
-
-  #pageGuessName .inputBorder img {
-    width: 29px; }
-
-  #pageGuessName h1.font-edo {
-    margin-bottom: 5px;
-    font-size: 2.2em; }
-
-  #pageGuessName h1.font-edo.ng-binding {
-    font-size: 1.4em; }
-
-  #pageGuessName h1.font-edo.last.ng-binding {
-    font-size: 1.2em; } }
+  #pageGuessName .guessBox {
+    margin-top: 20px; } }
 @media (max-width: 320px) {
-  #pageGuessName .inputBorder {
-    font-size: 2.2em; }
-
-  #pageGuessName .inputBorder img {
-    width: 25px; }
-
-  #pageGuessName h1.font-edo.ng-binding {
-    font-size: 1.2em; }
-
-  #pageGuessName h1.font-edo.last.ng-binding {
-    font-size: 1.0em; } }
+  #pageGuessName .guessIntro > h1 {
+    font-size: 1.5em; } }
 @media (max-width: 480px) {
   #pageGuessName > div {
     top: 45%; }
@@ -725,8 +725,9 @@
     left: 0;
     margin-left: 0; } }
 #pageGuessDate .single-column .centerVer .guess-date-title {
-  font-size: 20px;
-  font-weight: 600; }
+  font-size: 22px;
+  font-weight: 600;
+  color: #cc0a00; }
 
 #pageGuessDate .single-column .centerVer h3:first-letter {
   font-size: 1em; }
@@ -742,10 +743,10 @@
   display: inline-block;
   border-style: solid;
   border-width: 4px 4px 4px 4px;
-  -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-  -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-  -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-  border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+  -moz-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+  -webkit-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+  -o-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+  border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
   background-color: rgba(0, 0, 0, 0.6);
   margin-top: 12px; }
 
@@ -755,16 +756,12 @@
   border-right: 1px solid #a80101;
   text-align: center;
   padding: 20px;
-  font-size: 120%;
   color: #ffab1a;
-  font-weight: bold;
   border-right: 1px solid #a80101;
   cursor: pointer;
-  font-weight: 500; }
+  font-weight: 700;
+  font-size: 20px; }
 
-@media (max-width: 480px) {
-  #pageGuessDate .single-column .centerVer div a {
-    padding: 20px; } }
 #pageGuessDate .single-column .centerVer div a:hover {
   background-color: #ffab1a;
   color: #a80101; }

@@ -1,372 +1,316 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 
-<head>
-    <title>Halloween Horror Night 6</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-    <style>
-        @-ms-viewport {
-            width: device-width;
-        }
-    </style>
-    <link rel="stylesheet" href="vendor/reset.min.css">
-    <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <link rel="stylesheet" href="styles/menu.css"> -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/game-och.css">
-    <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
-</head>
-
-<body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons game-och">
-
-    <!-- facebook share  -->
-    <script>
-        window.fbLoggedIn = false;
-        window.fbResponse = null;
-
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '1198509583506495',
-                xfbml: true,
-                version: 'v2.6'
-            });
-            FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    window.fbLoggedIn = true;
-                    window.fbResponse = response;
-                }
-            });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
+    <head>
+        <title>Halloween Horror Night 6</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"/>
+        <style>
+            @-ms-viewport {
+                width: device-width;
             }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
 
-    <!-- header
-    <div class="hdr">
-        <a class="hdr__logo" href="#/">
-            <img src="img/logo-narrow.png">
-        </a>
-        <div class="hdr__quicklinks" aria-hidden="false" style="">
-            <h4><small>Select nights</small><br>30 Sep - 31 Oct</h4>
-            <a ng-click="$parent.calendarOpen = true" href="" class="btn btn--textured btn--calendar">
-                View calendar <span class="icon--calendar"></span></a> <a href="" class="btn btn--textured btn--tickets">Buy tickets <span class="icon--tickets"></span>
+        </style>
+        <link rel="stylesheet" href="vendor/reset.min.css">
+        <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <!-- <link rel="stylesheet" href="styles/menu.css"> -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/game-och.css">
+        <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
+    </head>
+
+    <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons game-och">
+
+        <!-- facebook share  -->
+        <script>
+            window.fbLoggedIn = false;
+            window.fbResponse = null;
+
+            window.fbAsyncInit = function() {
+                FB.init({appId: '1198509583506495', xfbml: true, version: 'v2.6'});
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        window.fbLoggedIn = true;
+                        window.fbResponse = response;
+                    }
+                });
+            };
+
+            (function(d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- header -->
+        <!-- <div class="hdr" style="background-color: #000000; height: 55px;">
+            <a class="hdr__logo" href="#/">
+                <img src="img/logo-narrow.png">
             </a>
-        </div>
-        <a ng-click="menu.active = !menu.active" href="" class="nav__toggle"><span class="icon--menu"></span>
-        </a>
-        <menu>
-            <div ng-show="menu.active" class="menu fade">
-                <a ng-click="menu.active = false" class="menu__close icon--close" href=""></a>
-                <div class="menu__content">
-                    <ul class="menu__list list--reset h-clearfix">
-                        <box class="menu__item box" border="3" style="padding: 3px;">
-                            <div class="inner">
-                                <div class="menu__item__content">
-                                    <h3 class="menu__links"><a ui-sref="home" ng-click="menu.active = false" href="#/">Home</a></h3></div>
-                            </div>
-                        </box>
-                        <box class="menu__item box" border="3" style="padding: 3px;">
-                            <div class="inner">
-                                <div class="menu__item__content">
-                                    <h3 class="menu__links"><a ui-sref="tickets" ng-click="menu.active = false" href="#/tickets">Tickets</a></h3></div>
-                            </div>
-                        </box>
-                        <box class="menu__item box" border="3" style="padding: 3px;">
-                            <div class="inner">
-                                <div class="menu__item__content ">
-                                    <h3><a ui-sref="highlights.section({ section: 'main' })" ng-click="menu.active = false" class="menu__links" href="#/highlights/main">Highlights</a></h3>
-                                    <div class="menu__sub"><a ui-sref="highlights.section({ section: 'revwards' })" ng-click="menu.active = false" class="menu__links" href="#/highlights/revwards">Haunts</a>
-                                        <br><a ui-sref="highlights" ng-click="menu.active = false" class="menu__links" href="#/highlights">Scarezones &amp; Shows</a>
-                                        <br><a ui-sref="highlights" ng-click="menu.active = false" class="menu__links" href="#/highlights">Winners</a>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </box>
-                        <box class="menu__item box" border="3" style="padding: 3px;">
-                            <div class="inner">
-                                <div class="menu__item__content">
-                                    <h3><a ui-sref="event-guide" ng-click="menu.active = false" class="menu__links" href="#/event-guide">Event Guide</a></h3>
-                                    <div class="menu__sub"><a ui-sref="event-guide" ng-click="menu.active = false" class="menu__links" href="#/event-guide">Map</a>
-                                        <br><a ui-sref="event-guide.section({ section: 'roadshows'})" ng-click="menu.active = false" class="menu__links" href="#/event-guide/roadshows">Road Shows</a>
-                                        <br><a ui-sref="event-guide.section({ section: 'gallery'})" ng-click="menu.active = false" class="menu__links" href="#/event-guide/gallery">Gallery &amp; Testimonials</a>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </box>
-                        <box class="menu__item box" border="3" style="padding: 3px;">
-                            <div class="inner">
-                                <div class="menu__item__content ">
-                                    <h3>Information</h3>
-                                    <div class="menu__sub"><a ui-sref="information.section({ section: 'park-information' })" ng-click="menu.active = false" class="menu__links" href="#/information/park-information">Park information</a>
-                                        <br><a ui-sref="information.section({ section: 'how-to-get-there' })" ng-click="menu.active = false" class="menu__links" href="#/information/how-to-get-there">How to get there</a>
-                                        <br><a ui-sref="information.section({ section: 'faq' })" ng-click="menu.active = false" class="menu__links" href="#/information/faq">FAQ</a>
-                                        <br><a ui-sref="information.section({ section: 'how-to-survive' })" ng-click="menu.active = false" class="menu__links" href="#/information/how-to-survive">How to survive</a></div>
-                                </div>
-                            </div>
-                        </box>
-                    </ul>
-                </div>
-            </div>
-        </menu>
-    </div>
-    -->
+            <a style="height: 55px;" ng-click="menu.active = !menu.active" href="" class="nav__toggle">
+                <span class="icon--menu"></span>
+            </a>
+        </div> -->
 
-    <!-- landing page -->
-    <div id="pageLanding">
-        <div class="centerElement centerInlineHor">
-            <h2 class="font-trajan-pro fg-whitish">Old Changi Hospital</h2>
-            <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
-            <p>
-                Evil takes form in the derelict hallways of Old Changi Hospital
-                <br /> as vengeful souls rise once again in the dead of the night.
-                <br /> Will Singapore's bloodiest history repeat itself?
-            </p>
-            <div>
-                <p class="fg-orange bold">
-                    TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME
+        <!-- landing page -->
+        <div id="pageLanding">
+            <div class="centerElement centerInlineHor">
+                <h2 class="font-trajan-pro fg-whitish">Old Changi Hospital</h2>
+                <!-- <a class="iconSocMed twitter" href="https://twitter.com/intent/tweet?text=http://www.halloweenhorrornights.com.sg/" data-url="http://www.halloweenhorrornights.com.sg/" data-show-count="false"></a> -->
+                <p>
+                    Evil takes form in the derelict hallways of Old Changi Hospital
+                    <br/>
+                    as vengeful souls rise once again in the dead of the night.
+                    <br/>
+                    Will Singapore's bloodiest history repeat itself?
                 </p>
-                <ul class="double-column">
-                    <li>
-                        <img src="img/icon_search.png" />
-                        <br /> Look for hidden clues with the help of an EMF indicator.
-                    </li>
-                    <li>
-                        <img src="img/icon_camera.png" />
-                        <br /> Snap a photo when the EMF indicator peaks.
-                    </li>
-                    <li>
-                        <img src="img/icon_clues.png" />
-                        <br /> Collect all 3 clues to unravel the name.
-                    </li>
-                    <li>
-                        <img src="img/icon_timer.png" />
-                        <br /> Time is the key to higher chances of winning.
-                    </li>
-                </ul>
-
-            </div>
-            <a class="btnBlood active" ng-click="startGame();">
-                START EXPLORING
-            </a>
-        </div>
-
-        <footer class="ftr"></footer>
-    </div>
-
-    <!-- fail -->
-    <div id="pageFails">
-        <div class="centerElement centerInlineHor">
-            <h3 class="font-trajan-pro fg-whitish">
-                The Past Has<br />Caught To You
-            </h3>
-            <br />
-            <p>
-                However, history tends to repeat itself.
-                <br /> You've been given another chance to unravel
-                <br /> the true name of evil.
-            </p>
-            <br />
-            <a class="btnBlood active" onclick="location.reload()">
-                TRY AGAIN
-            </a>
-        </div>
-    </div>
-
-    <!-- guess name -->
-    <div id="pageGuessName">
-        <div class="inner">
-          <div class="single-column">
-            <div class="guessIntro">
-              <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
-              <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
-              <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE {{triesLeft}} TRIES LEFT</h1>
-            </div>
-
-
-            <div class="centerInlineHor">
-                <div class="inputBorder" ng-repeat="item in name1">
-                    <span ng-if="item.display">{{item.letter}}</span>
-                    <br />
-                    <img src="img/dash.png" />
+                <div>
+                    <p class="fg-orange bold">
+                        TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME
+                    </p>
+                    <ul class="double-column">
+                        <li>
+                            <img src="img/icon_search.png"/>
+                            <br/>
+                            Look for hidden clues with the help of an EMF indicator.
+                        </li>
+                        <li>
+                            <img src="img/icon_camera.png"/>
+                            <br/>
+                            Snap a photo when the EMF indicator peaks.
+                        </li>
+                        <li>
+                            <img src="img/icon_clues.png"/>
+                            <br/>
+                            Collect all 3 clues to unravel the name.
+                        </li>
+                        <li>
+                            <img src="img/icon_timer.png"/>
+                            <br/>
+                            Time is the key to higher chances of winning.
+                        </li>
+                    </ul>
 
                 </div>
-                <div class="centerInlineHor">
-                    <div class="inputBorder" ng-repeat="item in name2">
-                        <span ng-if="item.display">{{item.letter}}</span>
-                        <br />
-                        <img src="img/dash.png" />
+                <a class="btnBlood active" ng-click="startGame();">
+                    START EXPLORING
+                </a>
+            </div>
+
+            <footer class="ftr"></footer>
+        </div>
+
+        <!-- fail -->
+        <div id="pageFails">
+            <div class="centerElement centerInlineHor">
+                <h3 class="font-trajan-pro fg-whitish">
+                    The Past Has<br/>Caught To You
+                </h3>
+                <br/>
+                <p>
+                    However, history tends to repeat itself.
+                    <br/>
+                    You've been given another chance to unravel
+                    <br/>
+                    the true name of evil.
+                </p>
+                <br/>
+                <a class="btnBlood active" onclick="location.reload()">
+                    TRY AGAIN
+                </a>
+            </div>
+        </div>
+
+        <!-- guess name -->
+        <div id="pageGuessName">
+            <div class="inner">
+                <div class="single-column">
+
+                    <div class="guessIntro">
+                        <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">Who Am I?</h1>
+                        <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">THERE'S NO '{{failLetter}}' IN MY NAME</h1>
+                        <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">YOU HAVE
+                            {{triesLeft}}
+                            TRIES LEFT</h1>
+                    </div>
+
+                    <div class="centerInlineHor">
+                        <div class="inputBorder" ng-repeat="item in name1">
+                            <span ng-if="item.display">{{item.letter}}</span>
+                            <!-- <img src="img/dash.png" /> -->
+                        </div>
+                    </div>
+                    <div class="centerInlineHor">
+                        <div class="inputBorder" ng-repeat="item in name2">
+                            <span ng-if="item.display">{{item.letter}}</span>
+                            <!-- <img src="img/dash.png" /> -->
+                        </div>
+                    </div>
+                    <div class="centerInlineHor">
+                        <div class="guessBox">
+                            <p>Enter a letter to unravel the name</p>
+                            <input type="text" ng-model="singleLetter" ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5" class="edoFont"/>
+                            <button ng-click="checkName()" class="btnBlood active">ENTER</button>
+                            <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pontianakBox">
+                    <div class="pontianak1"></div>
+                    <div class="pontianak2"></div>
+                    <div class="pontianak3"></div>
+                    <div class="pontianak4"></div>
+                    <div class="pontianak5"></div>
+                    <div class="pontianak6"></div>
+                    <div class="pontianak7"></div>
+                    <div class="pontianak8"></div>
+                    <div class="pontianak9"></div>
+                </div>
+            </div>
+
+            <!-- clues counter -->
+            <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+                <img src="img/clue.png"/>
+            </div>
+
+            <footer class="ftr"></footer>
+        </div>
+
+        <div class="guess-overlay"></div>
+
+        <!-- guess date -->
+        <div id="pageGuessDate">
+            <div class="inner">
+                <div class="single-column">
+                    <div class="centerVer centerInlineHor">
+                        <h5 class="font-trajan-pro centerInlineHor guess-date-title">This Is Yet To be Over</h5>
+                        <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
+                        <div>
+                            <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
+                                {{date.date}}
+                            </a>
+                        </div>
+                        <br/>
+                        <br/>
                     </div>
                 </div>
-                <br />
-                <br />
-                <div class="centerInlineHor">
-                    <div class="guessBox">
-                        <p>Enter a letter to unravel the name</p>
-                        <br />
-                        <input type="text" ng-model="singleLetter" ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5" class="edoFont" />
-                        <button ng-click="checkName()" class="btnBlood active">ENTER</button>
-                        <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
-                    </div>
-                </div>
-
+                <div class="pontianakSpecial"></div>
             </div>
-          </div>
-          <div class="pontianakBox">
-              <div class="pontianak1"></div>
-              <div class="pontianak2"></div>
-              <div class="pontianak3"></div>
-              <div class="pontianak4"></div>
-              <div class="pontianak5"></div>
-              <div class="pontianak6"></div>
-              <div class="pontianak7"></div>
-              <div class="pontianak8"></div>
-              <div class="pontianak9"></div>
-          </div>
+            <footer class="ftr"></footer>
         </div>
 
-        <!-- clues counter -->
-        <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-            <img src="img/clue.png" />
-        </div>
-
-        <footer class="ftr"></footer>
-    </div>
-
-    <div class="guess-overlay"></div>
-
-    <!-- guess date -->
-    <div id="pageGuessDate">
-      <div class="inner">
-        <div class="single-column">
-          <div class="centerVer centerInlineHor">
-              <h5 class="font-trajan-pro fg-red centerInlineHor guess-date-title">This Is Yet To be Over</h5>
-              <h3 class="centerInlineHor">How many nights will Halloween Horror Nights 6 be held?</h3>
-              <div>
-                  <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
-                      {{date.date}}
-                  </a>
-              </div>
-              <br />
-              <br />
-          </div>
-        </div>
-        <div class="pontianakSpecial"></div>
-      </div>
-      <footer class="ftr"></footer>
-    </div>
-
-    <!-- share -->
-    <div id="pageShare" class="page">
-        <div class="container center-ver-parent">
-            <div class="row center-block">
-                <div class="col-sm-12 text-center">
-                    <div class="row">
-                        <div class="col-sm-6 codeImage  visible-md visible-lg">
-                            <div>
-                                <div class="clueImage">
-                                    <img src="img/code.png" class="centerHor" />
-                                    <p class="centerInlineHor">
-                                        Collect all 5 codes to unlock the final haunting
-                                        <br />
-                                        <a href="img/code.png" target="_blank" class="iconDownload black fg-orange">
-                                            DOWNLOAD IMAGE
-                                        </a>
-                                    </p>
+        <!-- share -->
+        <div id="pageShare" class="page">
+            <div class="container center-ver-parent">
+                <div class="row center-block">
+                    <div class="col-sm-12 text-center">
+                        <div class="row">
+                            <div class="col-sm-6 codeImage  visible-md visible-lg">
+                                <div>
+                                    <div class="clueImage">
+                                        <img src="img/code.png" class="centerHor"/>
+                                        <p class="centerInlineHor">
+                                            Collect all 5 codes to unlock the final haunting
+                                            <br/>
+                                            <a href="img/code.png" target="_blank" class="iconDownload black fg-orange">
+                                                DOWNLOAD IMAGE
+                                            </a>
+                                        </p>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="col-sm-6 text-center">
-                            <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
-                            <h4 class="margin-bottom-30">
+                            <div class="col-sm-6 text-center">
+                                <h1 class="font-trajan-pro fg-whitish margin-bottom-30">Spread The Word Of Evil</h1>
+                                <h4 class="margin-bottom-30">
                                     Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends.
                                 </h4>
-                            <div class="share-win center-block">
-                                <div>
-                                    <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
-                                </div>
-                                <div class="center-hor-block-children">
+                                <div class="share-win center-block">
                                     <div>
-                                        <p class="black">
-                                            YOUR TIME <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
-                                        </p>
-                                        <div>
-                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
-                                            <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
-                                            <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
-                                        </div>
-                                        <div class="centerInlineHor">
-                                            <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a> apply
-                                        </div>
+                                        <h4 class="font-trajan-pro bold fg-orange">SHARE &amp; WIN NOW</h4>
                                     </div>
-                                    <div class="leaderboard topBorderRed">
-                                        <h5 class="black">
+                                    <div class="center-hor-block-children">
+                                        <div>
+                                            <p class="black">
+                                                YOUR TIME
+                                                <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                            </p>
+                                            <div>
+                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
+                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
+                                                <a href="#" ng-if="lang == 'cn'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
+                                            </div>
+                                            <div class="centerInlineHor">
+                                                <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a>
+                                                apply
+                                            </div>
+                                        </div>
+                                        <div class="leaderboard topBorderRed">
+                                            <h5 class="black">
                                                 LEADERBOARD
                                             </h5>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div ng-repeat="entry in entry1to5">
-                                                    <span class="numbering">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div ng-repeat="entry in entry1to5">
+                                                        <span class="numbering">
                                                             {{entry.idxString}}.
-                                                        </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                                        </span>
+                                                        {{millisToMinutesAndSeconds( entry.time )}}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div ng-repeat="entry in entry2to5">
-                                                    <span class="numbering">
+                                                <div class="col-sm-6">
+                                                    <div ng-repeat="entry in entry2to5">
+                                                        <span class="numbering">
                                                             {{entry.idxString}}.
-                                                        </span> {{millisToMinutesAndSeconds( entry.time )}}
+                                                        </span>
+                                                        {{millisToMinutesAndSeconds( entry.time )}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <a class="iconReplay black fg-orange" onclick="location.reload()">
+                                <div class="text-center">
+                                    <a class="iconReplay black fg-orange" onclick="location.reload()">
                                         REPLAY?
                                     </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 visible-xs visible-sm">
-                            <div class="codeImage center-block">
-                            </div>
-                            <br />
-                            <span>
+                            <div class="col-sm-6 visible-xs visible-sm">
+                                <div class="codeImage center-block"></div>
+                                <br/>
+                                <span>
                                     Collect all 5 codes to unlock the final haunting
                                 </span>
-                            <p class="centerInlineHor">
-                                <a href="#" class="iconDownload fg-orange">
+                                <p class="centerInlineHor">
+                                    <a href="#" class="iconDownload fg-orange">
                                         DOWNLOAD IMAGE
                                     </a>
-                            </p>
-                        </div>
+                                </p>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
+            <footer class="ftr"></footer>
         </div>
-        <footer class="ftr"></footer>
-    </div>
 
-    <!-- old sharing
+        <!-- old sharing
     <div id="pageShare">
         <div class="centerElement h-clearfix">
           <div class="clueShare">
@@ -438,278 +382,286 @@
     </div>
     -->
 
-    <!-- Marzipano Pano -->
-    <div id="pano">
+        <!-- Marzipano Pano -->
+        <div id="pano">
 
-      <div id="pano-overlay"></div>
+            <div id="pano-overlay"></div>
 
-      <!-- EMP meter -->
-      <div class="emf__container">
-        <ul class="emf__visual">
-          <li class="emf__1"></li>
-          <li class="emf__2"></li>
-          <li class="emf__3"></li>
-          <li class="emf__4"></li>
-          <li class="emf__5"></li>
-        </ul>
-        <p class="emf__reader"><span class="num"></span> <span class="static">mG</span></p>
-      </div>
+            <!-- EMP meter -->
+            <div class="emf__container">
+                <ul class="emf__visual">
+                    <li class="emf__1"></li>
+                    <li class="emf__2"></li>
+                    <li class="emf__3"></li>
+                    <li class="emf__4"></li>
+                    <li class="emf__5"></li>
+                </ul>
+                <p class="emf__reader">
+                    <span class="num"></span>
+                    <span class="static">mG</span>
+                </p>
+            </div>
 
-      <!-- clues counter -->
-      <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-          <img src="img/clue.png" />
-      </div>
+            <!-- clues counter -->
+            <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+                <img src="img/clue.png"/>
+            </div>
 
-      <footer class="ftr"></footer>
-    </div>
+            <footer class="ftr"></footer>
+        </div>
 
-    <!-- clues location in pano -->
-    <div id="clue-1" class="clue realclue">
-        <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" />
-    </div>
-    <div id="clue-2" class="clue realclue">
-        <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" />
-    </div>
-    <div id="clue-3" class="clue realclue">
-        <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" />
-    </div>
-    <div id="clue-4" class="clue fakeclue">
-        <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" />
-    </div>
-    <div id="clue-5" class="clue fakeclue">
-        <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" />
-    </div>
+        <!-- clues location in pano -->
+        <div id="clue-1" class="clue realclue">
+            <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png"/>
+        </div>
+        <div id="clue-2" class="clue realclue">
+            <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png"/>
+        </div>
+        <div id="clue-3" class="clue realclue">
+            <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png"/>
+        </div>
+        <div id="clue-4" class="clue fakeclue">
+            <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png"/>
+        </div>
+        <div id="clue-5" class="clue fakeclue">
+            <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png"/>
+        </div>
 
-    <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
+        <!-- <img src="img/arrow_up.png" id="switch-1" /> -->
 
-    <!-- camera icon -->
-    <!-- <img class="panoCenter" src="img/icon_camera_ingame.png" /> -->
+        <!-- camera icon -->
+        <!-- <img class="panoCenter" src="img/icon_camera_ingame.png" /> -->
 
-    <div id="scare"></div>
-    <div class="scare-overlay"></div>
+        <div id="scare"></div>
+        <div class="scare-overlay"></div>
 
-    <!-- clues counter -->
-    <!-- <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+        <!-- clues counter -->
+        <!-- <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
         <img src="img/clue.png" />
     </div> -->
 
-    <!-- single clue -->
-    <div id="cluePlaceholder" class="cluePlaceholder">
-        <a href="#" class="closeButtonRed">
-        </a>
-        <img/>
-    </div>
+        <!-- single clue -->
+        <div id="cluePlaceholder" class="cluePlaceholder">
+            <a href="#" class="closeButtonRed"></a>
+            <img/>
+        </div>
 
-    <!-- clues gallery -->
-    <!-- <div class="fadePage">
+        <!-- clues gallery -->
+        <!-- <div class="fadePage">
     </div> -->
 
-    <div id="pageClues">
-        <div class="centerElement centerInlineHor">
-            <a href="#" class="closeButtonRed"></a>
-            <div class="clues">
-                <img src="img/photo_clue_blank.png" />
-                <img src="img/photo_clue_blank.png" />
-                <img src="img/photo_clue_blank.png" />
+        <div id="pageClues">
+            <div class="centerElement centerInlineHor">
+                <a href="#" class="closeButtonRed"></a>
+                <div class="clues">
+                    <img src="img/photo_clue_blank.png"/>
+                    <img src="img/photo_clue_blank.png"/>
+                    <img src="img/photo_clue_blank.png"/>
+                </div>
+                <a href="#" class="btnBlood">GUESS THE NAME</a>
             </div>
-            <a href="#" class="btnBlood">GUESS THE NAME</a>
+            <div class="clue-overlay"></div>
         </div>
-        <div class="clue-overlay"></div>
-    </div>
 
-    <div id="tnc" class="tnc__wrapper">
-        <div class="tnc">
-            <a href="#" class="closeButtonRed"></a>
-            <div class="tnc__content wrapper">
-                <h3>Terms And Conditions Of The Halloween Horror Nights 6 Microsite Contest</h3>
-                <p>The following terms and conditions (the “Terms and Conditions”) shall apply to The Halloween Horror Nights 6 Microsite Contest (the “Contest”).</p>
-                <h4>Contest Period</h4>
-                <ol>
-                    <li>The Contest will commence on the 27 July 2016 0000hrs and close on 1 September 2016 2359hrs, unless withdrawn earlier by Resorts World Sentosa (the “Contest Period”).</li>
-                </ol>
-                <h4>Eligibility</h4>
-                <ol>
-                    <li>The Contest is open to any persons, except residents of China, who are at least 13 years of age on the date of the respective draws (“Participants”).</li>
-                    <li>Employees of Resorts World at Sentosa Pte. Ltd. (“RWS”), their immediate family members, advertising agencies of RWS, and any other parties directly involved in organizing, promoting, or conducting the lucky draw are not eligible to
-                        participate in the Contest.</li>
-                    <li>RWS has the sole discretion to exclude any person from participating in the Contest without any obligation to furnish any notice and/or reason.</li>
-                    <li>Participants must have an active Social Media account and profile must be made “public” throughout the Contest Period.</li>
-                </ol>
-                <h4>Details of the Contest</h4><strong>Weekly Draws</strong>
-                <ol>
-                    <li>There will be a total of five (5) mini games revealed weekly on Halloween Horror Nights 6 Microsite (hereinafter referred to as “Microsite”).
-                        <ol>
-                            <li>Microsite:
-                                <ol>
-                                    <li>www.halloweenhorrornights.com.sg</li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </li>
-                    <li>Participants must complete the game on the Microsite and share the completed game on at least one (1) of the Social Media platforms (hereinafter referred to as “Social Media”).
-                        <ol>
-                            <li>Social Media:
-                                <ol>
-                                    <li>Facebook</li>
-                                    <li>Twitter</li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
-                <ol>
-                    <li>Participants must comply with the following requirements when participating in the Weekly Draws:
-                        <ol>
-                            <li>Complete the full length of the game on Microsite</li>
-                            <li>Enter and submit information in the required fields listed at the end of the game</li>
-                            <li>Share the completed game on one of the Social Media, tag @rwsentosa and include the following hashtag -
-                                <ol>
-                                    <li>Via Facebook: Tag “ #HHN6 ”</li>
-                                    <li>Via Twitter: Tag “ #HHN6 ”</li>
-                                </ol>
-                            </li>
-                            <li>Hashtags require exact spelling as stipulated above.</li>
-                            <li>All entries submitted must be accurate, true and complete.</li>
-                        </ol>
-                    </li>
-                </ol><strong>Grand Draw</strong>
-                <ol>
-                    <li>To participate in the grand draw, participants must upload a ‘Selfie’ (Self- Portrait) of themselves onto the Microsite. Once uploaded, a profile photo with a ghostly overlay will be generated and participants must share it on Social
-                        Media.</li>
-                </ol>
-                <ol>
-                    <li>Participants must comply with the following requirements when participating in the Grand Draw:
-                        <ol>
-                            <li>Upload an appropriate Selfie on Microsite to generate a ghostly photo</li>
-                            <li>Enter and submit information in the required fields listed</li>
-                            <li>Share the newly generated photo on one of the Social Media and include the following hashtag
-                                <ol>
-                                    <li>Via Facebook: Tag “ #HHN6 ”</li>
-                                    <li>Via Twitter: Tag “ #HHN6 ”</li>
-                                </ol>
-                            </li>
-                            <li>Hashtags require exact spelling as stipulated above.</li>
-                            <li>All entries submitted must be accurate, true and complete.</li>
-                        </ol>
-                    </li>
-                </ol>
-                <h4>Conduct of Contest and Prizes</h4>
-                <ol>
-                    <li>
-                        <p>There will be a total of five (5) Weekly Draws and one (1) Grand Draw during the Contest Period. The draw dates and the respective prizes are set out below:</p>
-                        <table cellspacing="0">
-                            <tbody>
-                                <tr>
-                                    <th width="18%">Contest type</th>
-                                    <th width="13%">Draw Date</th>
-                                    <th width="20%">Participation Period</th>
-                                    <th width="31%">Prizes</th>
-                                    <th width="18%">Number of Winners</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="5" class="subheader"><strong>Weekly Draws</strong></th>
-                                </tr>
-                                <tr>
-                                    <td>1st Game</td>
-                                    <td>3 Aug 2016</td>
-                                    <td>27 Jul – 2 Aug 2016</td>
-                                    <td rowspan="5">2 Pairs of Halloween Horror Nights 6 Tickets</td>
-                                    <td rowspan="5">10 (2 winners per draw)</td>
-                                </tr>
-                                <tr>
-                                    <td>1st Game</td>
-                                    <td>3 Aug 2016</td>
-                                    <td>27 Jul – 2 Aug 2016</td>
-                                    <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                    <!-- <td>10 (2 winners per draw)</td> -->
-                                </tr>
-                                <tr>
-                                    <td>1st Game</td>
-                                    <td>3 Aug 2016</td>
-                                    <td>27 Jul – 2 Aug 2016</td>
-                                    <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                    <!-- <td>10 (2 winners per draw)</td> -->
-                                </tr>
-                                <tr>
-                                    <td>1st Game</td>
-                                    <td>3 Aug 2016</td>
-                                    <td>27 Jul – 2 Aug 2016</td>
-                                    <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                    <!-- <td>10 (2 winners per draw)</td> -->
-                                </tr>
-                                <tr>
-                                    <td>1st Game</td>
-                                    <td>3 Aug 2016</td>
-                                    <td>27 Jul – 2 Aug 2016</td>
-                                    <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                    <!-- <td>10 (2 winners per draw)</td> -->
-                                </tr>
-                                <tr>
-                                    <th colspan="5" class="subheader"><strong>Grand Draw</strong></th>
-                                </tr>
-                                <tr>
-                                    <td>Selfie Game</td>
-                                    <td>2 Sep 2016</td>
-                                    <td>26 Aug - 1 Sep 2016</td>
-                                    <td>2 Exclusive Halloween Horror Nights 6 Preview Passes</td>
-                                    <td>1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                </ol>
-                <p><strong>Weekly Draws</strong></p>
-                <ol>
-                    <li>Each Participant may submit more than one (1) entry during the Contest Period.</li>
-                    <li>Two (2) winners will be selected every week based on the shortest possible time taken to complete the weekly game.</li>
-                    <li>In the case of a tie, the winners will be picked at random from the respective eligible entries.</li>
-                    <li>Weekly game winners will not be entitled to participate in any of the remaining Weekly Draws.</li>
-                </ol>
-                <p><strong>Grand Draw</strong></p>
-                <ol>
-                    <li>One (1) winner will be picked at random from the Selfie entries.</li>
-                    <li>Any entries made after the Participation Period shall be considered invalid and will not be considered.</li>
-                </ol>
-                <h4>Notification of Winners and Prize Collection</h4>
-                <ol>
-                    <li>The Winners will be notified via private message based on their entries via Social Media (“Notification”).</li>
-                    <li>In the event that the Winner(s) is not residing in Singapore, he/she must be available to travel between 28 September 2016 to 31 October 2016. Resorts World Sentosa will not responsible for any visa applications if required by the
-                        winners. Winners will need to ensure all travel requirements such as passport validity etc. are adhered to.</li>
-                    <li>Winners need to acknowledge the Notification and provide the requested information (via email at moments@RWSentosa.com) within 7 days of receiving the Notification (“Notification Period”), failing which the Prize will be forfeited
-                        without liability to Resorts World Sentosa.</li>
-                    <li>After receiving the Winners’s email acknowledgement and the required information, RWS shall communicate the prize collection details to the Winners separately.</li>
-                    <li>In the event that the Winner does not or is not able to claim his/her Prize by the stipulated time, the Prize will be deemed forfeited, and Resorts World Sentosa may select another winner from all of the remaining entries at its sole
-                        and absolute discretion.</li>
-                    <li>Prizes are non-transferable, non-exchangeable and non-cashable. Resorts World Sentosa reserves the right to substitute the prizes for other prizes of similar value.</li>
-                </ol>
-                <h4>General Terms and Conditions</h4>
-                <ol>
-                    <li>By participating in the Contest, the Participant is deemed to have accepted and agreed to be bound by these Terms and Conditions and any other instructions, terms and conditions that Resorts World Sentosa may issue from time to time.</li>
-                    <li>Resorts World Sentosa shall not be liable for any misuse of the Participant’s submitted information or the Participant’s submitted photographs, in the course of taking part in the Contest.</li>
-                    <li>Each Participant hereby grants his/her consent to Resorts World Sentosa to collect any personal data/information about him/her in respect of his/her participation in the Contest.</li>
-                    <li>Resorts World Sentosa shall not be liable to the Participants for any injuries, losses or damages in respect of, in connection with and/or arising from the Contest.</li>
-                    <li>Resorts World Sentosa reserves the right to withdraw or cancel the Contest and to amend or change these Terms and Conditions at any time for whatever reason and without giving prior notice to the participants. The decision of the Resorts
-                        World Sentosa on all matters relating to or in connection with the Contest is final, and no correspondence will be entertained.</li>
-                    <li>Resorts World Sentosa reserves the right to publish any Participants’ images and details for any purpose whatsoever without having to pay any fee or compensation to the Participants.</li>
-                    <li>The Participant shall fully indemnify and hold Resorts World Sentosa harmless from and against any loss, damage, cost, liability or expense (including legal fees), whether direct or indirect, which Resorts World Sentosa incurs in respect
-                        of, in connection with and/or arising from the Participant’s breach of these Terms and Conditions.</li>
-                    <li>In the event of any inconsistency or discrepancy between the Terms and Conditions and the contents of any brochure, marketing and/or promotional materials relating to the Contest, these Terms and Conditions shall prevail.</li>
-                    <li>The Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity
-                        and enforceability thereof.</li>
-                    <li>Participants who have any questions regarding the Contest should contact the administrator by email at moments@RWSentosa.com and state the Contest name in the subject field in their correspondence.</li>
-                    <li>These Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity
-                        and enforceability thereof.</li>
-                    <li>A person who is not a party to any agreement governed by these terms and conditions shall have no right under the Contracts (Right of Third Parties) Act (Cap 53B) to enforce any of these terms and conditions.</li>
-                    <!-- TODO apply links -->
-                </ol>
+        <div id="tnc" class="tnc__wrapper">
+            <div class="tnc">
+                <a href="#" class="closeButtonRed"></a>
+                <div class="tnc__content wrapper">
+                    <h3>Terms And Conditions Of The Halloween Horror Nights 6 Microsite Contest</h3>
+                    <p>The following terms and conditions (the “Terms and Conditions”) shall apply to The Halloween Horror Nights 6 Microsite Contest (the “Contest”).</p>
+                    <h4>Contest Period</h4>
+                    <ol>
+                        <li>The Contest will commence on the 27 July 2016 0000hrs and close on 1 September 2016 2359hrs, unless withdrawn earlier by Resorts World Sentosa (the “Contest Period”).</li>
+                    </ol>
+                    <h4>Eligibility</h4>
+                    <ol>
+                        <li>The Contest is open to any persons, except residents of China, who are at least 13 years of age on the date of the respective draws (“Participants”).</li>
+                        <li>Employees of Resorts World at Sentosa Pte. Ltd. (“RWS”), their immediate family members, advertising agencies of RWS, and any other parties directly involved in organizing, promoting, or conducting the lucky draw are not eligible to participate
+                            in the Contest.</li>
+                        <li>RWS has the sole discretion to exclude any person from participating in the Contest without any obligation to furnish any notice and/or reason.</li>
+                        <li>Participants must have an active Social Media account and profile must be made “public” throughout the Contest Period.</li>
+                    </ol>
+                    <h4>Details of the Contest</h4>
+                    <strong>Weekly Draws</strong>
+                    <ol>
+                        <li>There will be a total of five (5) mini games revealed weekly on Halloween Horror Nights 6 Microsite (hereinafter referred to as “Microsite”).
+                            <ol>
+                                <li>Microsite:
+                                    <ol>
+                                        <li>www.halloweenhorrornights.com.sg</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Participants must complete the game on the Microsite and share the completed game on at least one (1) of the Social Media platforms (hereinafter referred to as “Social Media”).
+                            <ol>
+                                <li>Social Media:
+                                    <ol>
+                                        <li>Facebook</li>
+                                        <li>Twitter</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <ol>
+                        <li>Participants must comply with the following requirements when participating in the Weekly Draws:
+                            <ol>
+                                <li>Complete the full length of the game on Microsite</li>
+                                <li>Enter and submit information in the required fields listed at the end of the game</li>
+                                <li>Share the completed game on one of the Social Media, tag @rwsentosa and include the following hashtag -
+                                    <ol>
+                                        <li>Via Facebook: Tag “ #HHN6 ”</li>
+                                        <li>Via Twitter: Tag “ #HHN6 ”</li>
+                                    </ol>
+                                </li>
+                                <li>Hashtags require exact spelling as stipulated above.</li>
+                                <li>All entries submitted must be accurate, true and complete.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <strong>Grand Draw</strong>
+                    <ol>
+                        <li>To participate in the grand draw, participants must upload a ‘Selfie’ (Self- Portrait) of themselves onto the Microsite. Once uploaded, a profile photo with a ghostly overlay will be generated and participants must share it on Social Media.</li>
+                    </ol>
+                    <ol>
+                        <li>Participants must comply with the following requirements when participating in the Grand Draw:
+                            <ol>
+                                <li>Upload an appropriate Selfie on Microsite to generate a ghostly photo</li>
+                                <li>Enter and submit information in the required fields listed</li>
+                                <li>Share the newly generated photo on one of the Social Media and include the following hashtag
+                                    <ol>
+                                        <li>Via Facebook: Tag “ #HHN6 ”</li>
+                                        <li>Via Twitter: Tag “ #HHN6 ”</li>
+                                    </ol>
+                                </li>
+                                <li>Hashtags require exact spelling as stipulated above.</li>
+                                <li>All entries submitted must be accurate, true and complete.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <h4>Conduct of Contest and Prizes</h4>
+                    <ol>
+                        <li>
+                            <p>There will be a total of five (5) Weekly Draws and one (1) Grand Draw during the Contest Period. The draw dates and the respective prizes are set out below:</p>
+                            <table cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <th width="18%">Contest type</th>
+                                        <th width="13%">Draw Date</th>
+                                        <th width="20%">Participation Period</th>
+                                        <th width="31%">Prizes</th>
+                                        <th width="18%">Number of Winners</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="5" class="subheader">
+                                            <strong>Weekly Draws</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Game</td>
+                                        <td>3 Aug 2016</td>
+                                        <td>27 Jul – 2 Aug 2016</td>
+                                        <td rowspan="5">2 Pairs of Halloween Horror Nights 6 Tickets</td>
+                                        <td rowspan="5">10 (2 winners per draw)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Game</td>
+                                        <td>3 Aug 2016</td>
+                                        <td>27 Jul – 2 Aug 2016</td>
+                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
+                                        <!-- <td>10 (2 winners per draw)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <td>1st Game</td>
+                                        <td>3 Aug 2016</td>
+                                        <td>27 Jul – 2 Aug 2016</td>
+                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
+                                        <!-- <td>10 (2 winners per draw)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <td>1st Game</td>
+                                        <td>3 Aug 2016</td>
+                                        <td>27 Jul – 2 Aug 2016</td>
+                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
+                                        <!-- <td>10 (2 winners per draw)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <td>1st Game</td>
+                                        <td>3 Aug 2016</td>
+                                        <td>27 Jul – 2 Aug 2016</td>
+                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
+                                        <!-- <td>10 (2 winners per draw)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <th colspan="5" class="subheader">
+                                            <strong>Grand Draw</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Selfie Game</td>
+                                        <td>2 Sep 2016</td>
+                                        <td>26 Aug - 1 Sep 2016</td>
+                                        <td>2 Exclusive Halloween Horror Nights 6 Preview Passes</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ol>
+                    <p>
+                        <strong>Weekly Draws</strong>
+                    </p>
+                    <ol>
+                        <li>Each Participant may submit more than one (1) entry during the Contest Period.</li>
+                        <li>Two (2) winners will be selected every week based on the shortest possible time taken to complete the weekly game.</li>
+                        <li>In the case of a tie, the winners will be picked at random from the respective eligible entries.</li>
+                        <li>Weekly game winners will not be entitled to participate in any of the remaining Weekly Draws.</li>
+                    </ol>
+                    <p>
+                        <strong>Grand Draw</strong>
+                    </p>
+                    <ol>
+                        <li>One (1) winner will be picked at random from the Selfie entries.</li>
+                        <li>Any entries made after the Participation Period shall be considered invalid and will not be considered.</li>
+                    </ol>
+                    <h4>Notification of Winners and Prize Collection</h4>
+                    <ol>
+                        <li>The Winners will be notified via private message based on their entries via Social Media (“Notification”).</li>
+                        <li>In the event that the Winner(s) is not residing in Singapore, he/she must be available to travel between 28 September 2016 to 31 October 2016. Resorts World Sentosa will not responsible for any visa applications if required by the winners.
+                            Winners will need to ensure all travel requirements such as passport validity etc. are adhered to.</li>
+                        <li>Winners need to acknowledge the Notification and provide the requested information (via email at moments@RWSentosa.com) within 7 days of receiving the Notification (“Notification Period”), failing which the Prize will be forfeited without
+                            liability to Resorts World Sentosa.</li>
+                        <li>After receiving the Winners’s email acknowledgement and the required information, RWS shall communicate the prize collection details to the Winners separately.</li>
+                        <li>In the event that the Winner does not or is not able to claim his/her Prize by the stipulated time, the Prize will be deemed forfeited, and Resorts World Sentosa may select another winner from all of the remaining entries at its sole and absolute
+                            discretion.</li>
+                        <li>Prizes are non-transferable, non-exchangeable and non-cashable. Resorts World Sentosa reserves the right to substitute the prizes for other prizes of similar value.</li>
+                    </ol>
+                    <h4>General Terms and Conditions</h4>
+                    <ol>
+                        <li>By participating in the Contest, the Participant is deemed to have accepted and agreed to be bound by these Terms and Conditions and any other instructions, terms and conditions that Resorts World Sentosa may issue from time to time.</li>
+                        <li>Resorts World Sentosa shall not be liable for any misuse of the Participant’s submitted information or the Participant’s submitted photographs, in the course of taking part in the Contest.</li>
+                        <li>Each Participant hereby grants his/her consent to Resorts World Sentosa to collect any personal data/information about him/her in respect of his/her participation in the Contest.</li>
+                        <li>Resorts World Sentosa shall not be liable to the Participants for any injuries, losses or damages in respect of, in connection with and/or arising from the Contest.</li>
+                        <li>Resorts World Sentosa reserves the right to withdraw or cancel the Contest and to amend or change these Terms and Conditions at any time for whatever reason and without giving prior notice to the participants. The decision of the Resorts World
+                            Sentosa on all matters relating to or in connection with the Contest is final, and no correspondence will be entertained.</li>
+                        <li>Resorts World Sentosa reserves the right to publish any Participants’ images and details for any purpose whatsoever without having to pay any fee or compensation to the Participants.</li>
+                        <li>The Participant shall fully indemnify and hold Resorts World Sentosa harmless from and against any loss, damage, cost, liability or expense (including legal fees), whether direct or indirect, which Resorts World Sentosa incurs in respect of, in
+                            connection with and/or arising from the Participant’s breach of these Terms and Conditions.</li>
+                        <li>In the event of any inconsistency or discrepancy between the Terms and Conditions and the contents of any brochure, marketing and/or promotional materials relating to the Contest, these Terms and Conditions shall prevail.</li>
+                        <li>The Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and
+                            enforceability thereof.</li>
+                        <li>Participants who have any questions regarding the Contest should contact the administrator by email at moments@RWSentosa.com and state the Contest name in the subject field in their correspondence.</li>
+                        <li>These Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and
+                            enforceability thereof.</li>
+                        <li>A person who is not a party to any agreement governed by these terms and conditions shall have no right under the Contracts (Right of Third Parties) Act (Cap 53B) to enforce any of these terms and conditions.</li>
+                        <!-- TODO apply links -->
+                    </ol>
+                </div>
             </div>
         </div>
-    </div>
 
-
-
-
-    <!-- footer
+        <!-- footer
     <footer class="ftr">
         <img class="ftr__background" src="img/footer-mask.png">
         <a class="ftr__logo" href="">
@@ -863,43 +815,39 @@
     </footer>
 -->
 
+        <script src=https://use.typekit.net/gmu3kbc.js></script>
+        <script>
+            try {
+                Typekit.load({async: true});
+            } catch (e) {}
+        </script>
+        <script src="config.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="vendor/es5-shim.js"></script>
+        <script src="vendor/eventShim.js"></script>
+        <script src="vendor/classList.js"></script>
+        <script src="vendor/requestAnimationFrame.js"></script>
+        <script src="vendor/screenfull.min.js"></script>
+        <script src="vendor/bowser.min.js"></script>
+        <script src="vendor/marzipano.js"></script>
+        <script src="vendor/DeviceOrientationControlMethod.js"></script>
+        <script src="vendor/motio.min.js"></script>
+        <script src="vendor/jquery.motio.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <!-- <script src="vendor/codebird.js"></script> -->
 
-    <script src=https://use.typekit.net/gmu3kbc.js></script>
-    <script>
-        try {
-            Typekit.load({
-                async: true
-            });
-        } catch (e) {}
-    </script>
-    <script src="config.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="vendor/es5-shim.js"></script>
-    <script src="vendor/eventShim.js"></script>
-    <script src="vendor/classList.js"></script>
-    <script src="vendor/requestAnimationFrame.js"></script>
-    <script src="vendor/screenfull.min.js"></script>
-    <script src="vendor/bowser.min.js"></script>
-    <script src="vendor/marzipano.js"></script>
-    <script src="vendor/DeviceOrientationControlMethod.js"></script>
-    <script src="vendor/motio.min.js"></script>
-    <script src="vendor/jquery.motio.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <!-- <script src="vendor/codebird.js"></script> -->
+        <script src="https://platform.twitter.com/widgets.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
-    <script src="https://platform.twitter.com/widgets.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="controller.js"></script>
+        <script src="data.js"></script>
+        <script src="index.js"></script>
+        <script src="game.js"></script>
+        <script src="footer/footer.directive.js"></script>
+        <script src="equalizer/equalizer.directive.js"></script>
 
-    <script src="controller.js"></script>
-    <script src="data.js"></script>
-    <script src="index.js"></script>
-    <script src="game.js"></script>
-    <script src="footer/footer.directive.js"></script>
-    <script src="equalizer/equalizer.directive.js"></script>
-
-
-</body>
+    </body>
 
 </html>

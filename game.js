@@ -448,7 +448,7 @@ function enableEnterButton( pontianakIdx ) {
   clearTimeout(triggerIdlePontianak);
 
   if ( pontianakIdx != 9 ) {
-  
+
     var nextFrameIndex = pontianakIdx+1;
 
     triggerIdlePontianak = setTimeout(function() {
@@ -479,6 +479,14 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
   $('.pontianak' + pontianakIdx).show();
 
+
+  if ( pontianakIdx == 9 ) {
+    $('.guess-overlay').addClass('active');
+    $('#pageGuessName').find('.single-column').hide();
+    $('#pageGuessName').addClass('bg-hide');
+    $('#pageGuessName .cluesCtr').hide();
+  }
+
   if ( pontianakIdx == 0 ) {
     AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.2);
   } else {
@@ -489,11 +497,6 @@ function animatePontianakError(triesLeft, haveWaiting) {
       AnimateSprite( $('.pontianak' + pontianakIdx), 768, 1020, 4, 16, 0.3);
     } else {
       $('#pageGuessName').find('.btnBlood').removeClass('active');
-
-      if ( pontianakIdx == 9 ) {
-        $('.guess-overlay').addClass('active');
-        $('#pageGuessName').find('.single-column').hide();
-      }
 
       AnimateSprite( $('.pontianak' + pontianakIdx), 640, 800, 3, frameQty[pontianakIdx - 1], 0.15, pontianakIdx, enableEnterButton);
     }
