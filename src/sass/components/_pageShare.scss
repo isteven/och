@@ -4,12 +4,13 @@
     background-size:cover;
     background-position: center;
     z-index: 4;
-    
+
 
   .game-och & {
     /* this is for och only */
     background-image: none;
     background-color: #000;
+    z-index: 10;
   }
 }
 

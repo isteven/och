@@ -4149,7 +4149,8 @@ a:hover {
   .game-och #pageShare {
     /* this is for och only */
     background-image: none;
-    background-color: #000; }
+    background-color: #000;
+    z-index: 10; }
 
 @media (max-width: 768px) {
   #pageShare {

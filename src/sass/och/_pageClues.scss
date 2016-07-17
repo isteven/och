@@ -16,6 +16,15 @@
     z-index: 100;
 }
 
+#pageClues .clue-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000000;
+}
+
 #pageClues .slick-slider .slick-slide {
   padding: 0 5px;
 }

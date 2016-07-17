@@ -121,6 +121,7 @@
     }
 
     var hasVisitedScareZone = false;
+
     var jumpScare = {
       scare: function(status) {
         $('#scare').show();
@@ -156,7 +157,6 @@
     }
 
     function switchScene(scene) {
-        // console.log( 'switching scene' );
 
         scene.marzipanoObject.switchTo();
         activeScene = scene;
@@ -172,7 +172,7 @@
         //  JAC: hide jump scare for time being...
         if (scene.data.id == '0-scene-2' && !shownScare) {
           hasVisitedScareZone = true;
-          jumpScare.setup();
+          //jumpScare.setup();
         }
 
         if (scene.data.id == '0-scene-3' ) {

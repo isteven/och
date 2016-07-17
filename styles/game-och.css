@@ -21,7 +21,7 @@
 .cluesCtr img {
   width: 100%; }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .cluesCtr {
     bottom: 70px;
     right: 20px; } }
@@ -280,7 +280,7 @@
   #pano .ftr .ftr__links,
   #pageGuessName .ftr .ftr__links,
   #pageGuessDate .ftr .ftr__links {
-    text-align: right; }
+    text-align: center; }
   #pano .ftr .ftr__link,
   #pageGuessName .ftr .ftr__link,
   #pageGuessDate .ftr .ftr__link {
@@ -312,6 +312,14 @@
     margin-bottom: 10px; } }
 #pageClues {
   z-index: 100; }
+
+#pageClues .clue-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000000; }
 
 #pageClues .slick-slider .slick-slide {
   padding: 0 5px; }
@@ -400,10 +408,9 @@
     background-position: center -54px; } }
 @media (max-width: 480px) {
   #pageGuessName {
-    background-position: center -150px; } }
-#pageGuessName.bg-hide {
-  background-image: none; }
-
+    background-position: center -150px;
+    padding-top: 54px;
+    overflow: hidden; } }
 #pageGuessName > .inner {
   position: absolute;
   z-index: 1;
@@ -413,12 +420,9 @@
 
 @media (max-width: 769px) {
   #pageGuessName > .inner {
-    width: 400px; } }
+    width: 400px;
+    margin: 0 auto; } }
 @media (max-width: 480px) {
-  #pageGuessName {
-    margin-top: 54px;
-    overflow: hidden; }
-
   #pageGuessName > .inner {
     overflow: hidden;
     top: 0;
@@ -450,7 +454,8 @@
   vertical-align: bottom; }
 
 #pageGuessName .guessIntro h1 {
-  font-family: "edo",sans-serif; }
+  font-family: "edo",sans-serif;
+  font-weight: normal; }
 
 #pageGuessName h1.font-edo.ng-binding {
   margin-bottom: 5px;
@@ -677,7 +682,7 @@
 
 @media (max-width: 480px) {
   #pageGuessDate {
-    margin-top: 54px; } }
+    padding-top: 54px; } }
 #pageGuessDate > .inner {
   position: absolute;
   z-index: 1;
@@ -754,7 +759,8 @@
   color: #ffab1a;
   font-weight: bold;
   border-right: 1px solid #a80101;
-  cursor: pointer; }
+  cursor: pointer;
+  font-weight: 500; }
 
 @media (max-width: 480px) {
   #pageGuessDate .single-column .centerVer div a {

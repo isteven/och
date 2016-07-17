@@ -27,12 +27,19 @@
   width: 100%;
 }
 
-@media (max-width: 480px){
+@media (max-width: 600px){
   .cluesCtr {
     bottom: 70px;
     right: 20px;
   }
 }
+
+// @media (max-width: 480px){
+//   .cluesCtr {
+//     bottom: 70px;
+//     right: 20px;
+//   }
+// }
 
 
 .cluePlaceholder {

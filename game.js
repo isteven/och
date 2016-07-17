@@ -359,20 +359,24 @@ var showClues = function() {
             allCluesFound++;
         }
     }
-    $('#pageClues .closeButtonRed').click(function(e) {
-        $('.fadePage').fadeOut();
-        $('#pageClues').hide();
-    });
-
-    // $('#pageClues').on('click touchstart', function(e) {
-    //     // $('#pageClues .closeButtonRed').click();
+    // $('#pageClues .closeButtonRed').click(function(e) {
     //     $('.fadePage').fadeOut();
     //     $('#pageClues').hide();
     // });
 
+    $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
+        $('.fadePage').fadeOut();
+        $('#pageClues').hide();
+    });
+
     if (allCluesFound == 3) {
         $('#pageClues .btnBlood').addClass('active');
-        $('#pageClues .btnBlood.active').click(function(e) {
+        // $('#pageClues .btnBlood.active').click(function(e) {
+        //     hidePage('#pageClues');
+        //     showPage('#pageGuessName');
+        // });
+
+        $('#pageClues').on('click touchstart', '.btnBlood.active', function(e) {
             hidePage('#pageClues');
             showPage('#pageGuessName');
         });
@@ -442,8 +446,6 @@ function animatePontianakError(triesLeft, haveWaiting) {
     $('.pontianak' + pontianakIdx).show();
 
     if ( pontianakIdx == 9 ) {
-
-      $('#pageGuessName').addClass('bg-hide');
       $('.guess-overlay').addClass('active');
       $('#pageGuessName').find('.single-column').hide();
     }
