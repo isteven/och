@@ -136,78 +136,91 @@ var viewChangeThrottled = throttle(function() {
     var hotspot_x = tempHotspots[activeSceneIdx].position().yaw;
 
     //  EMF AND REAL CLUES
-    if (is_in_range(panning_x, hotspot_x, region_1_range)) {
-        //  region 1, at the max region, 5 lights
-        $('.emf__visual').attr('class', 'emf__visual is-region-1');
+    if (!cluesFound[activeSceneIdx]) {
+        if (is_in_range(panning_x, hotspot_x, region_1_range)) {
+            //  region 1, at the max region, 5 lights
+            $('.emf__visual').attr('class', 'emf__visual is-region-1');
 
-        if (!cluesFound[activeSceneIdx]) {
-            canClick[activeSceneIdx] = true;
-            showPanoCenter();
+            if (!cluesFound[activeSceneIdx]) {
+                canClick[activeSceneIdx] = true;
+                showPanoCenter();
+            }
+
+            $('.emf__reader > span.num').html('Max');
+
+            if (!$('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').addClass('hidden');
+            }
+
+        } else if (is_in_range(panning_x, hotspot_x, region_2_range)) {
+            //  region 2, 4 lights blink 1
+            $('.emf__visual').attr('class', 'emf__visual is-region-2');
+            canClick[activeSceneIdx] = false;
+            hidePanoCenter();
+            $('.emf__reader > span.num').html(generate_random_number(2));
+
+            if ($('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').removeClass('hidden');
+            }
+
+        } else if (is_in_range(panning_x, hotspot_x, region_3_range)) {
+            //  region 3, 3 lights blink 1
+            $('.emf__visual').attr('class', 'emf__visual is-region-3');
+            canClick[activeSceneIdx] = false;
+            hidePanoCenter();
+            $('.emf__reader > span.num').html(generate_random_number(3));
+
+            if ($('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').removeClass('hidden');
+            }
+
+        } else if (is_in_range(panning_x, hotspot_x, region_4_range)) {
+            //  region 4, 2 lights blink 1
+            $('.emf__visual').attr('class', 'emf__visual is-region-4');
+            canClick[activeSceneIdx] = false;
+            hidePanoCenter();
+            $('.emf__reader > span.num').html(generate_random_number(4));
+
+            if ($('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').removeClass('hidden');
+            }
+
+        } else if (is_in_range(panning_x, hotspot_x, region_5_range)) {
+            //  region 5, 1 light blink 1
+            $('.emf__visual').attr('class', 'emf__visual is-region-5');
+            canClick[activeSceneIdx] = false;
+            hidePanoCenter();
+            $('.emf__reader > span.num').html(generate_random_number(5));
+
+            if ($('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').removeClass('hidden');
+            }
+
+        } else {
+            //  region 6, 1 light stagnant
+            $('.emf__visual').attr('class', 'emf__visual is-region-6');
+            canClick[activeSceneIdx] = false;
+            hidePanoCenter();
+
+            $('.emf__reader > span.num').html(generate_random_number(6));
+
+            if ($('.emf__reader > span.static').hasClass('hidden')) {
+                $('.emf__reader > span.static').removeClass('hidden');
+            }
+
         }
-
-        $('.emf__reader > span.num').html('Max');
-
-        if (!$('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').addClass('hidden');
-        }
-
-    } else if (is_in_range(panning_x, hotspot_x, region_2_range)) {
-        //  region 2, 4 lights blink 1
-        $('.emf__visual').attr('class', 'emf__visual is-region-2');
-        canClick[activeSceneIdx] = false;
-        hidePanoCenter();
-        $('.emf__reader > span.num').html(generate_random_number(2));
-
-        if ($('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').removeClass('hidden');
-        }
-
-    } else if (is_in_range(panning_x, hotspot_x, region_3_range)) {
-        //  region 3, 3 lights blink 1
-        $('.emf__visual').attr('class', 'emf__visual is-region-3');
-        canClick[activeSceneIdx] = false;
-        hidePanoCenter();
-        $('.emf__reader > span.num').html(generate_random_number(3));
-
-        if ($('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').removeClass('hidden');
-        }
-
-    } else if (is_in_range(panning_x, hotspot_x, region_4_range)) {
-        //  region 4, 2 lights blink 1
-        $('.emf__visual').attr('class', 'emf__visual is-region-4');
-        canClick[activeSceneIdx] = false;
-        hidePanoCenter();
-        $('.emf__reader > span.num').html(generate_random_number(4));
-
-        if ($('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').removeClass('hidden');
-        }
-
-    } else if (is_in_range(panning_x, hotspot_x, region_5_range)) {
-        //  region 5, 1 light blink 1
-        $('.emf__visual').attr('class', 'emf__visual is-region-5');
-        canClick[activeSceneIdx] = false;
-        hidePanoCenter();
-        $('.emf__reader > span.num').html(generate_random_number(5));
-
-        if ($('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').removeClass('hidden');
-        }
-
     } else {
-        //  region 6, 1 light stagnant
-        $('.emf__visual').attr('class', 'emf__visual is-region-6');
-        canClick[activeSceneIdx] = false;
-        hidePanoCenter();
+      //  CLUE HAS BEEN FOUND FOR THIS SCENE
+      $('.emf__visual').attr('class', 'emf__visual is-region-6');
 
-        $('.emf__reader > span.num').html(generate_random_number(6));
+      $('.emf__reader > span.num').html(generate_random_number(6));
 
-        if ($('.emf__reader > span.static').hasClass('hidden')) {
-            $('.emf__reader > span.static').removeClass('hidden');
-        }
+      if ($('.emf__reader > span.static').hasClass('hidden')) {
+          $('.emf__reader > span.static').removeClass('hidden');
+      }
 
     }
+
 
 
     //  FAKE CLUES
@@ -279,6 +292,9 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     if (canClick[clueId - 1] && !cluesFound[clueId - 1]) {
 
+        $('.emf__visual').attr('class', 'emf__visual is-region-6');
+        $('.emf__reader > span.num').html(generate_random_number(6));
+
         $('#cluePlaceholder').fadeIn(function() {
             $(this).addClass('active-clue-placeholder');
         });
@@ -313,9 +329,9 @@ $('#pano').on('click touchstart', function() {
 
 });
 
-$('#cluePlaceholder > .closeButtonRed').click(function(e) {
+$('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
-    if ($('#cluePlaceholder').hasClass('fakeClue')) {
+    if ( $('#cluePlaceholder').hasClass('fakeClue') ) {
 
         $('#cluePlaceholder').fadeOut(function() {
             $(this).removeClass('active-clue-placeholder');
