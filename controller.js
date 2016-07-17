@@ -515,10 +515,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
     showPage('#pageLanding'); //jac:: uncomment this when deploying
 
-$scope.startGame();
+// $scope.startGame();
 // hidePage( '#pano' );
-showPage('#pageGuessName');
-
+// showPage('#pageGuessName');
+// showPage('#pageShare');
 // showPage('#pageGuessDate');
 
     // hidePage( '.emf__container' );

@@ -4497,12 +4497,19 @@ button {
   overflow: visible; }
 
 #pageLanding > div > div {
-  width: 682px;
+  width: 712px;
   /*width: 100%;*/ }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
-  width: calc( 100% - 140px ); }
+  width: calc( 100% - 170px ); }
+  .game-och #pageLanding > div > div > div > div:first-child > div:first-child > div {
+    width: calc( 100% - 300px ); }
 
+@media (max-width: 768px) {
+  #pageLanding > div > div > div > div:first-child > div:first-child > div {
+    width: calc( 100% - 40px ); }
+    .game-och #pageLanding > div > div > div > div:first-child > div:first-child > div {
+      width: calc( 100% - 40px ); } }
 .black {
   font-weight: 800; }
 
@@ -4510,30 +4517,56 @@ button {
   font-weight: 700; }
 
 .blood-bg {
-  width: 600px;
-  height: 330px;
+  width: 682px;
+  height: 220px;
   background-image: url(../img/landing_blood.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding: 40px 0px 10px 0px; }
+  padding: 40px 40px 10px 40px; }
+  .game-och .blood-bg {
+    height: 330px;
+    padding: 40px 80px 10px 80px;
+    width: 600px; }
 
 @media (max-width: 768px) {
   .blood-bg {
     height: auto;
     width: auto;
-    padding: 30px 10px 30px 10px;
-    margin-top: 20px; } }
+    position: relative;
+    top: -10px; }
+    .game-och .blood-bg {
+      padding: 50px;
+      height: 100%;
+      width: 100%; } }
 .blood-bg img {
   max-width: 50px;
-  height: auto; }
+  height: auto;
+  margin-bottom: 10px; }
 
+@media (max-width: 768px) {
+  .blood-bg img {
+    max-width: 60px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 0px; }
+
+  .blood-bg > div:nth-child(2) > div:first-child > img {
+    max-width: 60px;
+    height: auto;
+    margin-top: 10px; } }
+.game-och #pageLanding .col-sm-6 {
+  margin-bottom: 20px; }
+
+@media (max-width: 768px) {
+  .game-och #pageLanding .col-sm-6 {
+    margin-bottom: 10px; } }
 #pageShare {
+  background: url(../img/completed_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  z-index: 4; }
+  background-position: center; }
   .game-och #pageShare {
     /* this is for och only */
     background-image: none;
@@ -4551,17 +4584,10 @@ button {
   width: 472px;
   margin-left: 70px; }
 
-.clueImage {
-  padding: 0px 80px 80px 80px;
-  background-image: url(../img/code_bg.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat; }
-
-.clueImage > img {
-  width: 395px;
-  height: auto; }
-
+@media (max-width: 1170px) {
+  #pageShare > div > div > div > div > div:nth-child(2) {
+    width: calc( 50% - 30px );
+    margin-left: 10px; } }
 .share-win {
   width: 288px;
   background-image: url(../img/texture.jpg);
@@ -4571,6 +4597,7 @@ button {
 
 @media (max-width: 768px) {
   .share-win {
+    max-width: 768px;
     width: 100%; } }
 .share-win > div:first-child {
   padding: 10px 0px; }
@@ -4644,7 +4671,8 @@ button {
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 30px;
-  line-height: 32px; }
+  line-height: 32px;
+  margin-top: 5px; }
 
 .iconDownload:hover {
   background-image: url(../img/icon_download_ro.png);
@@ -4659,13 +4687,38 @@ button {
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 30px;
-  line-height: 32px; }
+  line-height: 32px;
+  margin-top: 5px; }
 
 .iconReplay:hover {
   background-image: url(../img/icon_replay_ro.png);
-  color: #ffe14c !important; }
+  color: #ffe14c  !important; }
 
-.terms-conditions {
-  text-decoration: underline; }
+.codeImage {
+  /*background-image: url( ../img/code_bg.png );*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /*width: 250px;*/
+  height: 500px; }
+
+.codeImage div {
+  text-align: left;
+  width: 180px;
+  position: absolute;
+  bottom: 30px;
+  right: 35px; }
+
+.codeImage.is-static-image div {
+  position: static;
+  width: 100%; }
+
+.codeImage.is-static-image div.clueImage > img {
+  width: 100%; }
+
+@media (max-width: 768px) {
+  .codeMobile {
+    width: 100%;
+    height: auto; } }
 
 /*# sourceMappingURL=main.css.map */

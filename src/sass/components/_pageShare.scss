@@ -1,19 +1,16 @@
 #pageShare {
-    // background: url( ../img/completed_bg.jpg );
+    background: url( ../img/completed_bg.jpg );
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    z-index: 4;
 
-
-  .game-och & {
-    /* this is for och only */
-    background-image: none;
-    background-color: #000;
-    z-index: 10;
-  }
+    .game-och & {
+      /* this is for och only */
+      background-image: none;
+      background-color: #000;
+      z-index: 10;
+    }
 }
-
 @media (max-width: 768px) {
     #pageShare {
         background-image: none;
@@ -31,18 +28,11 @@
     margin-left: 70px;
 }
 
-.clueImage {
-    padding: 0px 80px 80px 80px;
-    background-image: url( ../img/code_bg.png );
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.clueImage > img {
-    width: 395px;
-    // max-width: 70%;
-    height: auto;
+@media (max-width: 1170px) {
+    #pageShare > div > div > div > div > div:nth-child(2) {
+        width: calc( 50% - 30px );
+        margin-left: 10px;
+    }
 }
 
 .share-win {
@@ -54,6 +44,7 @@
 }
 @media (max-width: 768px) {
     .share-win {
+        max-width: 768px;
         width: 100%;
     }
 }
@@ -131,6 +122,7 @@
     background-size: contain;
     padding-left: 30px;
     line-height: 32px;
+    margin-top: 5px;
 }
 .iconDownload:hover {
     background-image: url( ../img/icon_download_ro.png);
@@ -147,12 +139,46 @@
     background-size: contain;
     padding-left: 30px;
     line-height: 32px;
+    margin-top: 5px;
 }
 .iconReplay:hover {
     background-image: url( ../img/icon_replay_ro.png);
-    color: #ffe14c !important;
+    color: #ffe14c  !important;
 }
 
-.terms-conditions {
-    text-decoration: underline;
+ #pageShare > div {
+    // width: 1170px;
+ }
+
+.codeImage {
+    /*background-image: url( ../img/code_bg.png );*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*width: 250px;*/
+    height: 500px;
+}
+
+.codeImage div {
+    text-align: left;
+    width: 180px;
+    position: absolute;
+    bottom: 30px;
+    right: 35px;
+}
+
+.codeImage.is-static-image div {
+  position: static;
+  width: 100%;
+}
+
+.codeImage.is-static-image div.clueImage > img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+    .codeMobile{
+        width: 100%;
+        height: auto;
+    }
 }

@@ -17,17 +17,27 @@
 }
 
 #pageLanding > div > div {
-    width: 682px;
+    width: 712px;
     /*width: 100%;*/
 }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
-    width: calc( 100% - 140px );
-}
+    width: calc( 100% - 170px );
 
-// .start-game-col {
-//     padding-top: 40px;
-// }
+    .game-och & {
+      width: calc( 100% - 300px );
+    }
+}
+@media (max-width: 768px) {
+    #pageLanding > div > div > div > div:first-child > div:first-child > div {
+        width: calc( 100% - 40px );
+
+        .game-och & {
+          width: calc( 100% - 40px );
+        }
+    }
+
+}
 
 .black {
     font-weight: 800;
@@ -38,25 +48,65 @@
 }
 
 .blood-bg {
-    width: 600px;
-    height: 330px;
+    width: 682px;
+    height: 220px;
     background-image: url( ../img/landing_blood.png );
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    padding: 40px 0px 10px 0px;
+    padding: 40px 40px 10px 40px;
+
+    .game-och & {
+      height: 330px;
+      padding: 40px 80px 10px 80px;
+      width: 600px;
+    }
 }
 @media (max-width: 768px) {
     .blood-bg {
         height: auto;
         width: auto;
-        padding: 30px 10px 30px 10px;
-        margin-top: 20px;
+
+        position: relative;
+        top: -10px;
+        // margin-top: 20px;
+
+        .game-och & {
+            padding: 50px;
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 
 .blood-bg img {
     max-width: 50px;
     height: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .blood-bg img {
+        max-width: 60px;
+        height: auto;
+        margin-top: 15px;
+        margin-bottom: 0px;
+    }
+    .blood-bg > div:nth-child(2) > div:first-child > img {
+        max-width: 60px;
+        height: auto;
+        margin-top: 10px;
+        // border: 1px solid blue;
+    }
+}
+
+.game-och #pageLanding .col-sm-6 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .game-och #pageLanding .col-sm-6 {
+    margin-bottom: 10px;
+  }
 }
