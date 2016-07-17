@@ -17,8 +17,18 @@
 }
 
 #pageLanding > div > div {
-    width: 712px;
+    // width: 712px;
     /*width: 100%;*/
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: 768px) {
+      position: static;
+      transform: none;
+    }
 }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {

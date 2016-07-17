@@ -272,7 +272,14 @@
 *  - Guess date
 *  - Guess Fails
 */
-@media (max-width: 768px) {
+#pageLanding .ftr {
+  left: 0;
+  right: 0; }
+
+@media (max-width: 767px) {
+  #pageLanding .ftr {
+    position: relative; }
+
   #pano .ftr .ftr__logo,
   #pageGuessName .ftr .ftr__logo,
   #pageGuessDate .ftr .ftr__logo {

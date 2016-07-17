@@ -7,7 +7,20 @@
 *  - Guess Fails
 */
 
-@media (max-width: 768px) {
+#pageLanding {
+  .ftr {
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #pageLanding {
+    .ftr {
+      position: relative;
+    }
+  }
+
   #pano .ftr,
   #pageGuessName .ftr,
   #pageGuessDate .ftr {

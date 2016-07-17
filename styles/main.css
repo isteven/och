@@ -4497,8 +4497,15 @@ button {
   overflow: visible; }
 
 #pageLanding > div > div {
-  width: 712px;
-  /*width: 100%;*/ }
+  /*width: 100%;*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+  @media (max-width: 768px) {
+    #pageLanding > div > div {
+      position: static;
+      transform: none; } }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
   width: calc( 100% - 170px ); }
