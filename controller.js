@@ -31,7 +31,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     var nameArr1 = [];
     var nameArr2 = [];
-    nameArr1['cn'] = [{
+    nameArr1['zh'] = [{
         letter: '玫',
         display: false
     }, {
@@ -51,7 +51,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         letter: 'e',
         display: false
     }];
-    nameArr2['cn'] = [];
+    nameArr2['zh'] = [];
     nameArr2['en'] = [{
         letter: 's',
         display: false
@@ -80,7 +80,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     $scope.entry1to5 = [];
     $scope.entry2to5 = [];
 
-    var lang = 'en';
     var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
     var masterPontianakIdx = 1;
 
@@ -482,11 +481,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.triesLeft = 5;
         $scope.singleLetter = '';
         $scope.menu.active = false;
-
-        var tempLang = getUrlVar('lang');
-        if (tempLang) {
-            $scope.lang = tempLang;
-        }
 
         $scope.name1 = angular.copy(nameArr1[$scope.lang]);
         $scope.name2 = angular.copy(nameArr2[$scope.lang]);
