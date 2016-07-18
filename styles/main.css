@@ -3759,8 +3759,7 @@ h1 {
   font-size: 30px;
   font-weight: 600;
   text-transform: capitalize;
-  opacity: 1 !important;
-  line-height: 23px; }
+  opacity: 1 !important; }
 
 h2 {
   font-size: 20px;
@@ -4554,6 +4553,7 @@ button {
     top: -10px; }
     .game-och .blood-bg {
       padding: 50px;
+      padding-top: 65px;
       height: 100%;
       width: 100%; } }
 .blood-bg img {
