@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
+myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,$sce) {
 
     var gameStartTime = null;
     var gameEndTime = null;
@@ -15,88 +15,65 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.failLetter = '';
     $scope.triesLeft = 5;
     $scope.singleLetter = '';
-    $scope.dates = [
-        {
-            date: 10
-        },
-        {
-            date: 12
-        },
-        {
-            date: 14
-        },
-        {
-            date: 16
-        },
-        {
-            date: 18
-        },
-];
+    $scope.dates = [{
+        date: 10
+    }, {
+        date: 12
+    }, {
+        date: 14
+    }, {
+        date: 16
+    }, {
+        date: 18
+    }, ];
 
     $scope.lang = 'en';
 
     var nameArr1 = [];
     var nameArr2 = [];
-    nameArr1['cn'] = [
-        {
-            letter: '玫',
-            display: false
-},
-        {
-            letter: '瑰',
-            display: false
-},
-];
-    nameArr1['en'] = [
-        {
-            letter: 'r',
-            display: false
-},
-        {
-            letter: 'o',
-            display: false
-},
-        {
-            letter: 's',
-            display: false
-},
-        {
-            letter: 'e',
-            display: false
-}
-];
-    nameArr2['cn'] = [
-];
-    nameArr2['en'] = [
-        {
-            letter: 's',
-            display: false
-},
-        {
-            letter: 'o',
-            display: false
-},
-        {
-            letter: 'r',
-            display: false
-},
-        {
-            letter: 'f',
-            display: false
-},
-        {
-            letter: 'i',
-            display: false
-},
-        {
-            letter: 'n',
-            display: false
-},
-        {
-            letter: 'a',
-            display: false
-}
-];
+    nameArr1['cn'] = [{
+        letter: '玫',
+        display: false
+    }, {
+        letter: '瑰',
+        display: false
+    }, ];
+    nameArr1['en'] = [{
+        letter: 'r',
+        display: false
+    }, {
+        letter: 'o',
+        display: false
+    }, {
+        letter: 's',
+        display: false
+    }, {
+        letter: 'e',
+        display: false
+    }];
+    nameArr2['cn'] = [];
+    nameArr2['en'] = [{
+        letter: 's',
+        display: false
+    }, {
+        letter: 'o',
+        display: false
+    }, {
+        letter: 'r',
+        display: false
+    }, {
+        letter: 'f',
+        display: false
+    }, {
+        letter: 'i',
+        display: false
+    }, {
+        letter: 'n',
+        display: false
+    }, {
+        letter: 'a',
+        display: false
+    }];
 
     // $scope.entry1to5 = [ { idxString: '00', time: 9090}, { idxString: '00', time: 90}, { idxString: '00', time: 9090}, { idxString: '00', time: 90},   { idxString: '00', time: 90},  ];
     // $scope.entry2to5 = [ { idxString: '00', time: 9090}, { idxString: '00', time: 90}, { idxString: '00', time: 90909}, { idxString: '00', time: 90},   { idxString: '00', time: 9},  ];
@@ -115,6 +92,17 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.hideFooterPopup = function(type) {
         $scope.footer.popupActive = false;
     }
+
+    $scope.getContent = function( index, html ) {
+        // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
+        if ( html ) {
+            return $sce.trustAsHtml( window.languageSet[ $scope.lang ][ index ] );
+        }
+        else {
+            return window.languageSet[ $scope.lang ][ index ];
+        }
+    }
+
 
     function getUrlVar(variable) {
         var query = window.location.search.substring(1);
@@ -178,7 +166,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
     */
     $scope.checkName = function() {
-        if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active') ) {
+        if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active')) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
             var letterIsCorrect = false;
             var result1 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name1);
@@ -202,25 +190,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                 $scope.guessCorrect = false;
                 $scope.failLetter = $scope.singleLetter;
                 if ($scope.triesLeft > 1) {
-                  console.log('still have chance');
+                    console.log('still have chance');
                     window.animatePontianakError($scope.triesLeft, true);
                 } else {
 
-                  console.log('used up chances');
+                    console.log('used up chances');
                     window.animatePontianakError($scope.triesLeft);
 
-                    if ( Modernizr.mq('(max-width: 769px)') ) {
-                      //  Mobile and tablet has more animation frames,
-                      //  so duration needs slightly longer
-                      setTimeout(function() {
-                          // hidePage( '#pageGuessName' );
-                          showPage('#pageFails');
-                      }, 1000);
+                    if (Modernizr.mq('(max-width: 769px)')) {
+                        //  Mobile and tablet has more animation frames,
+                        //  so duration needs slightly longer
+                        setTimeout(function() {
+                            // hidePage( '#pageGuessName' );
+                            showPage('#pageFails');
+                        }, 1000);
                     } else {
-                      setTimeout(function() {
-                          // hidePage( '#pageGuessName' );
-                          showPage('#pageFails');
-                      }, 800);
+                        setTimeout(function() {
+                            // hidePage( '#pageGuessName' );
+                            showPage('#pageFails');
+                        }, 800);
                     }
                 }
                 $scope.triesLeft--;
@@ -248,22 +236,22 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
                     // window.animatePontianakSpecial();
                     window.animatePontianakError(1);
 
-                    if ( Modernizr.mq('(max-width: 769px)') ) {
-                      //  Mobile and tablet has more animation frames,
-                      //  so duration needs slightly longer
-                      window.setTimeout(function () {
-                        document.activeElement.blur();
-                        $('.cluesCtr').hide();
-                        hidePage('#pageGuessName');
-                        showPage('#pageGuessDate');
-                      }, 1000);
+                    if (Modernizr.mq('(max-width: 769px)')) {
+                        //  Mobile and tablet has more animation frames,
+                        //  so duration needs slightly longer
+                        window.setTimeout(function() {
+                            document.activeElement.blur();
+                            $('.cluesCtr').hide();
+                            hidePage('#pageGuessName');
+                            showPage('#pageGuessDate');
+                        }, 1000);
                     } else {
-                      window.setTimeout(function () {
-                        document.activeElement.blur();
-                        $('.cluesCtr').hide();
-                        hidePage('#pageGuessName');
-                        showPage('#pageGuessDate');
-                      }, 500);
+                        window.setTimeout(function() {
+                            document.activeElement.blur();
+                            $('.cluesCtr').hide();
+                            hidePage('#pageGuessName');
+                            showPage('#pageGuessDate');
+                        }, 500);
                     }
 
                 }
@@ -352,16 +340,15 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
     }
 
     $scope.share_facebook = function() {
-        if ( window.fbLoggedIn ) {
-            fbPost( window.fbResponse.authResponse.userID, window.fbResponse );
-        }
-        else {
+        if (window.fbLoggedIn) {
+            fbPost(window.fbResponse.authResponse.userID, window.fbResponse);
+        } else {
             FB.login(function(response) {
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function(response) {
-                        console.log( response );
-                        fbPost( response.id, response );
+                        console.log(response);
+                        fbPost(response.id, response);
                         // console.log('Good to see you, ' + response.name + '.');
                     });
                 } else {
@@ -396,21 +383,21 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.share_twitter = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
     }
 
     $scope.share_weibo = function() {
-      window.open(
-                'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/weibo?gameId=' + configGet( 'gameId' ) + '&gameTime=' + $scope.elapsedGameTime,
-                'weibowindow',
-                'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
-      )
+        window.open(
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/weibo?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            'weibowindow',
+            'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
+        )
     }
 
-    var fbPost = function( fbId, response1 ) {
+    var fbPost = function(fbId, response1) {
         FB.api(
             "/" + fbId,
             function(response2) {
@@ -511,20 +498,24 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('.pontianakBox div').hide();
     }
 
-    $scope.tncToggle = function() {
-      console.log('tnc toggle');
-      $scope.$broadcast('tnc.toggle');
+
+    var tempLang = getUrlVar( 'lang' );
+    if ( tempLang ) {
+        $scope.lang = tempLang;
     }
 
-
+    $scope.tncToggle = function() {
+        console.log('tnc toggle');
+        $scope.$broadcast('tnc.toggle');
+    }
 
     showPage('#pageLanding'); //jac:: uncomment this when deploying
 
-// $scope.startGame();
-// hidePage( '#pano' );
-// showPage('#pageGuessName');
-// showPage('#pageShare');
-// showPage('#pageGuessDate');
+    // $scope.startGame();
+    // hidePage( '#pano' );
+    // showPage('#pageGuessName');
+    // showPage('#pageShare');
+    // showPage('#pageGuessDate');
 
     // hidePage( '.emf__container' );
     // hidePage( '#pano' );
