@@ -37,7 +37,7 @@ window.languageSet['zh']['start-button'] = 'zh-start-now';
 window.languageSet['en']['title-fail'] = 'The Past Has<br/>Caught To You';
 window.languageSet['zh']['title-fail'] = 'zh-title-fail';
 
-window.languageSet['en']['intro-fail'] = 'history tends to repeat itself.<br/>You\'ve been given another chance to unravel<br/>the true name of evil.';
+window.languageSet['en']['intro-fail'] = 'However, history tends to repeat itself.<br/>You\'ve been given another chance to unravel<br/>the true name of evil.';
 window.languageSet['zh']['intro-fail'] = 'zh-intro-fail';
 
 window.languageSet['en']['retry-button'] = 'TRY AGAIN';
