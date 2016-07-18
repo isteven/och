@@ -560,7 +560,7 @@ function playSfx(param) {
             src1.type = "audio/mpeg";
             src1.src = "audio/Bgm.mp3";
             snd1.appendChild(src1);
-            // snd1.play();
+            snd1.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
             break;
         case 'take-photo':
