@@ -4711,7 +4711,7 @@ button {
   color: #ffe14c  !important; }
 
 .codeImage {
-  /*background-image: url( ../img/code_bg.png );*/
+  background-image: url(../img/code_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -4727,7 +4727,8 @@ button {
 
 .codeImage.is-static-image div {
   position: static;
-  width: 100%; }
+  width: 90%;
+  margin: 0 auto; }
 
 .codeImage.is-static-image div.clueImage > img {
   width: 100%; }
