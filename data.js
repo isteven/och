@@ -10,7 +10,7 @@ var APP_DATA = {
         },
         "linkHotspots": [{
             "yaw": 0.54,
-            "pitch": -0.1176340532339251865,
+            "pitch": -0.25,
             "rotation": 0,
             "target": "0-scene-2"
         }],
@@ -21,8 +21,8 @@ var APP_DATA = {
             "frames": "8",
             "yaw": 2.69,
             "pitch": -0.55,
-            "radius": 650
-            , "extraRotations": "rotate(-9deg)"
+            "radius": 650,
+            "extraRotations": "rotate(-9deg)"
 
         }]
     }, {
@@ -47,17 +47,15 @@ var APP_DATA = {
             "pitch": 0.0176340532339251865,
             "rotation": 0,
             "target": "0-scene-1"
-        },
-        {
+        }, {
             "yaw": -0.32,
             "pitch": 0.0176340532339251865,
             "rotation": 0,
             "target": "0-scene-3"
-        }
-        ],
+        }],
     }, {
         "id": "0-scene-3",
-        "name": "Level 3",
+        "name": "Ward",
         "levels": [{
             "tileSize": 256,
             "size": 256,

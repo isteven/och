@@ -3,7 +3,7 @@
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 1440px; /* set the background not movable */
-  z-index: 2;
+  z-index: 3;
 }
 
 #pageGuessName.bg-hide {
@@ -332,7 +332,10 @@
 @media (max-width: 480px) {
   #pageGuessName .cluesCtr {
     display: block;
-    position: static;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
     margin: 0 auto;
   }
 }
@@ -344,7 +347,7 @@
   right: 0;
   bottom: 0;
   background-color: #000000;
-  z-index: 1;
+  z-index: 2;
   display: none;
 
   width: 100%;

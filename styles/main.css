@@ -4491,6 +4491,8 @@ button {
   position: absolute;
   z-index: 40; }
 
+@media (max-width: 768px) {
+  background-image: url(../img/landing_bg-m.jpg); }
 #pageLanding > div,
 #pageShare > div {
   position: absolute;
