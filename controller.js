@@ -529,7 +529,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     // showPage('#pageGuessName');
     // showPage('#pageShare');
     // showPage('#pageGuessDate');
-
+    // showPage( '#pageFails');
 
     // hidePage( '#pano' );
     // showPage('#pageShare');
