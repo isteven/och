@@ -336,7 +336,8 @@
                                                 <a href="#" ng-if="lang == 'zh'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
                                             </div>
                                             <div class="centerInlineHor">
-                                                <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">
+                                                <!-- <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange"> -->
+                                                <a ng-click="tncToggle()" class="terms-conditions fg-orange">
                                                     {{getContent( 'terms-and-conditions' )}}
                                                 </a>
                                                 {{getContent( 'terms-and-conditions-apply' )}}
@@ -406,8 +407,10 @@
                                                 <a href="#" ng-if="lang == 'zh'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
                                             </div>
                                             <div class="centerInlineHor">
-                                                <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange">Terms & Conditions</a>
-                                                apply
+                                                <a ng-click="tncToggle()" class="terms-conditions fg-orange">
+                                                    {{getContent( 'terms-and-conditions' )}}
+                                                </a>
+                                                {{getContent( 'terms-and-conditions-apply' )}}
                                             </div>
                                         </div>
                                         <div class="leaderboard topBorderRed">
