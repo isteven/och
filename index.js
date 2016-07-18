@@ -126,7 +126,7 @@
       scare: function(status) {
         $('#scare').show();
         $('.scare-overlay').addClass('active');
-
+        playSfx( 'jump-scare' );
         var element = document.querySelector('#scare');
         var sprite = new Motio(element, {
             fps: 18,
