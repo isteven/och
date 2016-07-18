@@ -4673,10 +4673,10 @@ button {
   background-image: url(../img/icon_twitter_ro.png); }
 
 .iconSocMed.weibo {
-  background-image: url(../img/icon_fb.png); }
+  background-image: url(../img/icon_weibo.png); }
 
 .iconSocMed.weibo:hover {
-  background-image: url(../img/icon_fb_ro.png); }
+  background-image: url(../img/icon_weibo_ro.png); }
 
 .iconDownload {
   display: inline-block;

@@ -210,14 +210,15 @@ var viewChangeThrottled = throttle(function() {
 
         }
     } else {
-      //  CLUE HAS BEEN FOUND FOR THIS SCENE
-      $('.emf__visual').attr('class', 'emf__visual is-region-5');
 
-      $('.emf__reader > span.num').html(generate_random_number(5));
+        //  CLUE HAS BEEN FOUND FOR THIS SCENE
+        $('.emf__visual').attr('class', 'emf__visual is-region-5');
 
-      if ($('.emf__reader > span.static').hasClass('hidden')) {
-          $('.emf__reader > span.static').removeClass('hidden');
-      }
+        $('.emf__reader > span.num').html(generate_random_number(5));
+
+        if ($('.emf__reader > span.static').hasClass('hidden')) {
+            $('.emf__reader > span.static').removeClass('hidden');
+        }
 
     }
 
@@ -330,7 +331,7 @@ $('#pano').on('click touchstart', function() {
 
 $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
-    if ( $('#cluePlaceholder').hasClass('fakeClue') ) {
+    if ($('#cluePlaceholder').hasClass('fakeClue')) {
 
         $('#cluePlaceholder').fadeOut(function() {
             $(this).removeClass('active-clue-placeholder');
@@ -382,12 +383,12 @@ var showClues = function() {
         }
     }
     $('#pageClues').on('click touchstart', '.closeButtonRed', function(e) {
-        $('.fadePage').fadeOut();
+        // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
     $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
-        $('.fadePage').fadeOut();
+        // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
@@ -547,4 +548,70 @@ function animatePontianakSpecial() {
         AnimateSprite($('.pontianakSpecial'), 640, 800, 3, 6, 0.15);
 
     }
+}
+
+function playSfx(param) {
+
+
+
+
+    switch (param) {
+        case 'enter-game':
+            var snd1 = new Audio();
+            var src1 = document.createElement("source");
+            src1.type = "audio/mpeg";
+            src1.src = "audio/bgm.mp3";
+            snd1.appendChild(src1);
+            snd1.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+        case 'take-photo':
+            var snd2 = new Audio();
+            var src2 = document.createElement("source");
+            src2.type = "audio/mpeg";
+            src2.src = "audio/takephoto.mp3";
+            snd2.appendChild(src2);
+            snd2.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/takephoto.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+        case 'jump-scare':
+            var snd3 = new Audio();
+            var src3 = document.createElement("source");
+            src3.type = "audio/mpeg";
+            src3.src = "audio/jumpscare.mp3";
+            snd3.appendChild(src3);
+            snd3.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/jumpscare.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+        case 'pon-appear':
+            var snd4 = new Audio();
+            var src4 = document.createElement("source");
+            src4.type = "audio/mpeg";
+            src4.src = "audio/pon_appear.mp3";
+            snd4.appendChild(src4);
+            snd4.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/pon_appear.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+        case 'pon-dash':
+            var snd5 = new Audio();
+            var src5 = document.createElement("source");
+            src5.type = "audio/mpeg";
+            src5.src = "audio/pon_dash.mp3";
+            snd5.appendChild(src5);
+            snd5.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/pon_dash.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+        case 'user-fails':
+            var snd6 = new Audio();
+            var src6 = document.createElement("source");
+            src6.type = "audio/mpeg";
+            src6.src = "audio/0016_piano_horror_alerted_d.mp3";
+            snd6.appendChild(src6);
+            snd6.play();
+            // document.getElementById("audio").innerHTML = "<embed src='audio/0016_piano_horror_alerted_d.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
+            break;
+
+        default:
+    }
+    return true;
 }

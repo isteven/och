@@ -175,6 +175,7 @@
     height: 447px;
     background-image: url("../img/scare-m.png"); } }
 .emf__container {
+  display: none;
   position: absolute;
   z-index: 1;
   top: 90%;
