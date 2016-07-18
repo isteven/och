@@ -552,15 +552,19 @@ function animatePontianakSpecial() {
 
 function playSfx(param) {
 
-
-
+    var folder = 'desktop';
+    var extension = '.mp3';
+    if (Modernizr.mq('(max-width: 769px)')) {
+        folder = 'mobile';
+        extension = '.ogg';
+    }
 
     switch (param) {
         case 'enter-game':
             var snd1 = new Audio();
             var src1 = document.createElement("source");
             src1.type = "audio/mpeg";
-            src1.src = "audio/bgm.mp3";
+            src1.src = "audio/" + folder + "/bgm" + extension;
             snd1.appendChild(src1);
             snd1.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
@@ -569,7 +573,7 @@ function playSfx(param) {
             var snd2 = new Audio();
             var src2 = document.createElement("source");
             src2.type = "audio/mpeg";
-            src2.src = "audio/takephoto.mp3";
+            src2.src = "audio/" + folder + "/takephoto" + extension;
             snd2.appendChild(src2);
             snd2.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/takephoto.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
@@ -578,7 +582,7 @@ function playSfx(param) {
             var snd3 = new Audio();
             var src3 = document.createElement("source");
             src3.type = "audio/mpeg";
-            src3.src = "audio/jumpscare.mp3";
+            src3.src = "audio/" + folder + "/jumpscare" + extension;
             snd3.appendChild(src3);
             snd3.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/jumpscare.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
@@ -587,7 +591,7 @@ function playSfx(param) {
             var snd4 = new Audio();
             var src4 = document.createElement("source");
             src4.type = "audio/mpeg";
-            src4.src = "audio/pon_appear.mp3";
+            src4.src = "audio/" + folder + "/pon_appear" + extension;
             snd4.appendChild(src4);
             snd4.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/pon_appear.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
@@ -596,7 +600,7 @@ function playSfx(param) {
             var snd5 = new Audio();
             var src5 = document.createElement("source");
             src5.type = "audio/mpeg";
-            src5.src = "audio/pon_dash.mp3";
+            src5.src = "audio/" + folder + "/pon_dash" + extension;
             snd5.appendChild(src5);
             snd5.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/pon_dash.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
@@ -605,7 +609,7 @@ function playSfx(param) {
             var snd6 = new Audio();
             var src6 = document.createElement("source");
             src6.type = "audio/mpeg";
-            src6.src = "audio/0016_piano_horror_alerted_d.mp3";
+            src6.src = "audio/" + folder + "/0016_piano_horror_alerted_d" + extension;
             snd6.appendChild(src6);
             snd6.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/0016_piano_horror_alerted_d.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
