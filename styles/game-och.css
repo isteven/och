@@ -337,6 +337,9 @@
 @media (max-width: 767px) {
   #pageLanding .ftr {
     position: relative; }
+  #pageLanding .ftr__link:first-child {
+    width: auto;
+    display: block; }
 
   #pano .ftr .ftr__logo,
   #pageGuessName .ftr .ftr__logo,
@@ -350,6 +353,9 @@
   #pageGuessName .ftr .ftr__link,
   #pageGuessDate .ftr .ftr__link {
     display: none; } }
+@media (max-width: 700px) {
+  #pageLanding .ftr {
+    height: 140px; } }
 #pageGuessName,
 #pageGuessDate,
 #pageShare,

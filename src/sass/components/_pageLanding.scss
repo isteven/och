@@ -8,16 +8,26 @@
     height: 100%;
     position: absolute;
     z-index: 40;
+
+    @media (max-width: 768px) {
+      background-image: url( ../img/landing_bg-m.png );
+    }
 }
 
-@media (max-width: 768px) {
-  background-image: url( ../img/landing_bg-m.jpg );
+.row-landing-content {
+  margin-bottom: 30px;
 }
 
 #pageLanding > div,
 #pageShare > div {
     position: absolute;
     overflow: visible;
+}
+
+@media (max-width: 768px) {
+  #pageLanding > div {
+    overflow: auto;
+  }
 }
 
 #pageLanding > div > div {
@@ -32,6 +42,8 @@
     @media (max-width: 768px) {
       position: static;
       transform: none;
+      overflow: auto;
+
     }
 }
 

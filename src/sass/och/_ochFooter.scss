@@ -19,6 +19,12 @@
     .ftr {
       position: relative;
     }
+
+    .ftr__link:first-child {
+      //  snapshots should appear as one liner
+      width: auto;
+      display: block;
+    }
   }
 
   #pano .ftr,
@@ -33,5 +39,11 @@
     .ftr__link {
       display: none;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  #pageLanding .ftr {
+    height: 140px;
   }
 }

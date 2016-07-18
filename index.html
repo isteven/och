@@ -63,9 +63,12 @@
             </a>
         </div> -->
 
+        <tnc ng-show="tnc.active"></tnc>
+        <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
+
         <div id="pageLanding" class="page">
             <div class="container">
-                <div class="row">
+                <div class="row row-landing-content">
                     <div class="col-sm-12 text-center">
                         <div class="row">
                             <div class="col-sm-12">
@@ -122,6 +125,7 @@
                     </div>
                 </div>
                 <footer class="ftr"></footer>
+
             </div>
 
         </div>
@@ -493,6 +497,7 @@
             </div>
 
             <footer class="ftr"></footer>
+
         </div>
 
         <!-- clues location in pano -->
@@ -548,203 +553,7 @@
             <div class="clue-overlay"></div>
         </div>
 
-        <div id="tnc" class="tnc__wrapper">
-            <div class="tnc">
-                <a href="#" class="closeButtonRed"></a>
-                <div class="tnc__content wrapper">
-                    <h3>Terms And Conditions Of The Halloween Horror Nights 6 Microsite Contest</h3>
-                    <p>The following terms and conditions (the “Terms and Conditions”) shall apply to The Halloween Horror Nights 6 Microsite Contest (the “Contest”).</p>
-                    <h4>Contest Period</h4>
-                    <ol>
-                        <li>The Contest will commence on the 27 July 2016 0000hrs and close on 1 September 2016 2359hrs, unless withdrawn earlier by Resorts World Sentosa (the “Contest Period”).</li>
-                    </ol>
-                    <h4>Eligibility</h4>
-                    <ol>
-                        <li>The Contest is open to any persons, except residents of China, who are at least 13 years of age on the date of the respective draws (“Participants”).</li>
-                        <li>Employees of Resorts World at Sentosa Pte. Ltd. (“RWS”), their immediate family members, advertising agencies of RWS, and any other parties directly involved in organizing, promoting, or conducting the lucky draw are not eligible to participate
-                            in the Contest.</li>
-                        <li>RWS has the sole discretion to exclude any person from participating in the Contest without any obligation to furnish any notice and/or reason.</li>
-                        <li>Participants must have an active Social Media account and profile must be made “public” throughout the Contest Period.</li>
-                    </ol>
-                    <h4>Details of the Contest</h4>
-                    <strong>Weekly Draws</strong>
-                    <ol>
-                        <li>There will be a total of five (5) mini games revealed weekly on Halloween Horror Nights 6 Microsite (hereinafter referred to as “Microsite”).
-                            <ol>
-                                <li>Microsite:
-                                    <ol>
-                                        <li>www.halloweenhorrornights.com.sg</li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>Participants must complete the game on the Microsite and share the completed game on at least one (1) of the Social Media platforms (hereinafter referred to as “Social Media”).
-                            <ol>
-                                <li>Social Media:
-                                    <ol>
-                                        <li>Facebook</li>
-                                        <li>Twitter</li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </li>
-                    </ol>
-                    <ol>
-                        <li>Participants must comply with the following requirements when participating in the Weekly Draws:
-                            <ol>
-                                <li>Complete the full length of the game on Microsite</li>
-                                <li>Enter and submit information in the required fields listed at the end of the game</li>
-                                <li>Share the completed game on one of the Social Media, tag @rwsentosa and include the following hashtag -
-                                    <ol>
-                                        <li>Via Facebook: Tag “ #HHN6 ”</li>
-                                        <li>Via Twitter: Tag “ #HHN6 ”</li>
-                                    </ol>
-                                </li>
-                                <li>Hashtags require exact spelling as stipulated above.</li>
-                                <li>All entries submitted must be accurate, true and complete.</li>
-                            </ol>
-                        </li>
-                    </ol>
-                    <strong>Grand Draw</strong>
-                    <ol>
-                        <li>To participate in the grand draw, participants must upload a ‘Selfie’ (Self- Portrait) of themselves onto the Microsite. Once uploaded, a profile photo with a ghostly overlay will be generated and participants must share it on Social Media.</li>
-                    </ol>
-                    <ol>
-                        <li>Participants must comply with the following requirements when participating in the Grand Draw:
-                            <ol>
-                                <li>Upload an appropriate Selfie on Microsite to generate a ghostly photo</li>
-                                <li>Enter and submit information in the required fields listed</li>
-                                <li>Share the newly generated photo on one of the Social Media and include the following hashtag
-                                    <ol>
-                                        <li>Via Facebook: Tag “ #HHN6 ”</li>
-                                        <li>Via Twitter: Tag “ #HHN6 ”</li>
-                                    </ol>
-                                </li>
-                                <li>Hashtags require exact spelling as stipulated above.</li>
-                                <li>All entries submitted must be accurate, true and complete.</li>
-                            </ol>
-                        </li>
-                    </ol>
-                    <h4>Conduct of Contest and Prizes</h4>
-                    <ol>
-                        <li>
-                            <p>There will be a total of five (5) Weekly Draws and one (1) Grand Draw during the Contest Period. The draw dates and the respective prizes are set out below:</p>
-                            <table cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <th width="18%">Contest type</th>
-                                        <th width="13%">Draw Date</th>
-                                        <th width="20%">Participation Period</th>
-                                        <th width="31%">Prizes</th>
-                                        <th width="18%">Number of Winners</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="subheader">
-                                            <strong>Weekly Draws</strong>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>1st Game</td>
-                                        <td>3 Aug 2016</td>
-                                        <td>27 Jul – 2 Aug 2016</td>
-                                        <td rowspan="5">2 Pairs of Halloween Horror Nights 6 Tickets</td>
-                                        <td rowspan="5">10 (2 winners per draw)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1st Game</td>
-                                        <td>3 Aug 2016</td>
-                                        <td>27 Jul – 2 Aug 2016</td>
-                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                        <!-- <td>10 (2 winners per draw)</td> -->
-                                    </tr>
-                                    <tr>
-                                        <td>1st Game</td>
-                                        <td>3 Aug 2016</td>
-                                        <td>27 Jul – 2 Aug 2016</td>
-                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                        <!-- <td>10 (2 winners per draw)</td> -->
-                                    </tr>
-                                    <tr>
-                                        <td>1st Game</td>
-                                        <td>3 Aug 2016</td>
-                                        <td>27 Jul – 2 Aug 2016</td>
-                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                        <!-- <td>10 (2 winners per draw)</td> -->
-                                    </tr>
-                                    <tr>
-                                        <td>1st Game</td>
-                                        <td>3 Aug 2016</td>
-                                        <td>27 Jul – 2 Aug 2016</td>
-                                        <!-- <td>2 Pairs of Halloween Horror Nights 6 Tickets</td> -->
-                                        <!-- <td>10 (2 winners per draw)</td> -->
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="subheader">
-                                            <strong>Grand Draw</strong>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>Selfie Game</td>
-                                        <td>2 Sep 2016</td>
-                                        <td>26 Aug - 1 Sep 2016</td>
-                                        <td>2 Exclusive Halloween Horror Nights 6 Preview Passes</td>
-                                        <td>1</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </li>
-                    </ol>
-                    <p>
-                        <strong>Weekly Draws</strong>
-                    </p>
-                    <ol>
-                        <li>Each Participant may submit more than one (1) entry during the Contest Period.</li>
-                        <li>Two (2) winners will be selected every week based on the shortest possible time taken to complete the weekly game.</li>
-                        <li>In the case of a tie, the winners will be picked at random from the respective eligible entries.</li>
-                        <li>Weekly game winners will not be entitled to participate in any of the remaining Weekly Draws.</li>
-                    </ol>
-                    <p>
-                        <strong>Grand Draw</strong>
-                    </p>
-                    <ol>
-                        <li>One (1) winner will be picked at random from the Selfie entries.</li>
-                        <li>Any entries made after the Participation Period shall be considered invalid and will not be considered.</li>
-                    </ol>
-                    <h4>Notification of Winners and Prize Collection</h4>
-                    <ol>
-                        <li>The Winners will be notified via private message based on their entries via Social Media (“Notification”).</li>
-                        <li>In the event that the Winner(s) is not residing in Singapore, he/she must be available to travel between 28 September 2016 to 31 October 2016. Resorts World Sentosa will not responsible for any visa applications if required by the winners.
-                            Winners will need to ensure all travel requirements such as passport validity etc. are adhered to.</li>
-                        <li>Winners need to acknowledge the Notification and provide the requested information (via email at moments@RWSentosa.com) within 7 days of receiving the Notification (“Notification Period”), failing which the Prize will be forfeited without
-                            liability to Resorts World Sentosa.</li>
-                        <li>After receiving the Winners’s email acknowledgement and the required information, RWS shall communicate the prize collection details to the Winners separately.</li>
-                        <li>In the event that the Winner does not or is not able to claim his/her Prize by the stipulated time, the Prize will be deemed forfeited, and Resorts World Sentosa may select another winner from all of the remaining entries at its sole and absolute
-                            discretion.</li>
-                        <li>Prizes are non-transferable, non-exchangeable and non-cashable. Resorts World Sentosa reserves the right to substitute the prizes for other prizes of similar value.</li>
-                    </ol>
-                    <h4>General Terms and Conditions</h4>
-                    <ol>
-                        <li>By participating in the Contest, the Participant is deemed to have accepted and agreed to be bound by these Terms and Conditions and any other instructions, terms and conditions that Resorts World Sentosa may issue from time to time.</li>
-                        <li>Resorts World Sentosa shall not be liable for any misuse of the Participant’s submitted information or the Participant’s submitted photographs, in the course of taking part in the Contest.</li>
-                        <li>Each Participant hereby grants his/her consent to Resorts World Sentosa to collect any personal data/information about him/her in respect of his/her participation in the Contest.</li>
-                        <li>Resorts World Sentosa shall not be liable to the Participants for any injuries, losses or damages in respect of, in connection with and/or arising from the Contest.</li>
-                        <li>Resorts World Sentosa reserves the right to withdraw or cancel the Contest and to amend or change these Terms and Conditions at any time for whatever reason and without giving prior notice to the participants. The decision of the Resorts World
-                            Sentosa on all matters relating to or in connection with the Contest is final, and no correspondence will be entertained.</li>
-                        <li>Resorts World Sentosa reserves the right to publish any Participants’ images and details for any purpose whatsoever without having to pay any fee or compensation to the Participants.</li>
-                        <li>The Participant shall fully indemnify and hold Resorts World Sentosa harmless from and against any loss, damage, cost, liability or expense (including legal fees), whether direct or indirect, which Resorts World Sentosa incurs in respect of, in
-                            connection with and/or arising from the Participant’s breach of these Terms and Conditions.</li>
-                        <li>In the event of any inconsistency or discrepancy between the Terms and Conditions and the contents of any brochure, marketing and/or promotional materials relating to the Contest, these Terms and Conditions shall prevail.</li>
-                        <li>The Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and
-                            enforceability thereof.</li>
-                        <li>Participants who have any questions regarding the Contest should contact the administrator by email at moments@RWSentosa.com and state the Contest name in the subject field in their correspondence.</li>
-                        <li>These Terms and Conditions shall be governed by and interpreted in accordance with Singapore law. The Courts of Singapore shall have exclusive jurisdiction over any disputes arising from these Terms and Conditions, including the validity and
-                            enforceability thereof.</li>
-                        <li>A person who is not a party to any agreement governed by these terms and conditions shall have no right under the Contracts (Right of Third Parties) Act (Cap 53B) to enforce any of these terms and conditions.</li>
-                        <!-- TODO apply links -->
-                    </ol>
-                </div>
-            </div>
-        </div>
+
 
         <!-- footer
     <footer class="ftr">
@@ -900,6 +709,8 @@
     </footer>
 -->
 
+
+
         <script src=https://use.typekit.net/gmu3kbc.js></script>
         <script>
             try {
@@ -932,6 +743,7 @@
         <script src="game.js"></script>
         <script src="footer/footer.directive.js"></script>
         <script src="equalizer/equalizer.directive.js"></script>
+        <script src="tnc/tnc.directive.js"></script>
 
     </body>
 
