@@ -490,6 +490,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
+        showPage( '.emf__container' );
+
     }
 
 
@@ -505,7 +507,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
-
+    hidePage( '.emf__container' );
     showPage('#pageLanding'); //jac:: uncomment this when deploying
 
     // $scope.startGame();
@@ -514,7 +516,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     // showPage('#pageShare');
     // showPage('#pageGuessDate');
 
-    // hidePage( '.emf__container' );
+
     // hidePage( '#pano' );
     // showPage('#pageShare');
 
