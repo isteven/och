@@ -559,6 +559,8 @@ function playSfx(param) {
         extension = '.ogg';
     }
 
+    console.log( folder, extension );
+
     switch (param) {
         case 'enter-game':
             var snd1 = new Audio();

@@ -108,7 +108,11 @@
     font-weight: 700;
     font-size: 20px;
 }
-
+@media (max-width: 769px) {
+    #pageGuessDate .single-column .centerVer div a {
+        padding: 12px;
+    }
+}
 #pageGuessDate .single-column .centerVer div a:hover {
     background-color: #ffab1a;
     color: #a80101;
