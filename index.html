@@ -54,8 +54,11 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+
     </script>
 
+    <div id="audio"></div>
     <!-- header -->
     <!-- <div class="hdr" style="background-color: #000000; height: 55px;">
             <a class="hdr__logo" href="#/">
@@ -69,6 +72,7 @@
     <tnc ng-show="tnc.active"></tnc>
     <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
 
+    <!-- page landing -->
     <div id="pageLanding" class="page">
         <div class="container">
             <div class="row">
@@ -126,7 +130,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 start-game-col">
-                            <a class="btnBlood active" ng-click="startGame();">
+                            <a class="btnBlood active" ng-click="startGame();playSfx( 'enter-game' );">
                                     {{getContent('start-button')}}
                                     <!-- START NOW -->
                                 </a>
@@ -145,14 +149,14 @@
     <!-- fail -->
     <div id="pageFails">
         <div class="centerElement centerInlineHor">
-            <h3 class="font-trajan-pro fg-whitish">
-                    {{ getContent( 'title-fail' ) }}
+            <h3 class="font-trajan-pro fg-whitish" ng-bind-html="getContent( 'title-fail', true )">
+
                     <!-- The Past Has<br/>Caught To You -->
                 </h3>
             <br/>
-            <p>
+            <p ng-bind-html="getContent( 'intro-fail', true )">
 
-                {{ getContent( 'intro-fail' ) }}
+                {{  }}
                 <!-- However, history tends to repeat itself.
                     <br/>
                     You've been given another chance to unravel
@@ -261,8 +265,8 @@
                         </h3>
                     <div>
                         <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
-                                {{date.date}}
-                            </a>
+                            {{date.date}}
+                        </a>
                     </div>
                     <br/>
                     <br/>
@@ -563,19 +567,19 @@
 
     <!-- clues location in pano -->
     <div id="clue-1" class="clue realclue">
-        <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" />
+        <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
     </div>
     <div id="clue-2" class="clue realclue">
-        <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" />
+        <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');" />
     </div>
     <div id="clue-3" class="clue realclue">
-        <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" />
+        <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');" />
     </div>
     <div id="clue-4" class="clue fakeclue">
-        <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" />
+        <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');" />
     </div>
     <div id="clue-5" class="clue fakeclue">
-        <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" />
+        <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');" />
     </div>
 
     <!-- <img src="img/arrow_up.png" id="switch-1" /> -->

@@ -134,6 +134,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             return (str + pad).substring(0, pad.length);
         }
     }
+
+    $scope.playSfx = function( param ) {
+        window.playSfx( param );
+    }
     /*
     $scope.animatePontianakError( triesLeft ) {
 
@@ -186,6 +190,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             }
             // if wrong answer
             if (!letterIsCorrect) {
+                if ( $scope.triesLeft == 5 ) {
+                    $scope.playSfx( 'pon-appear' );
+                }
                 $scope.guessCorrect = false;
                 $scope.failLetter = $scope.singleLetter;
                 if ($scope.triesLeft > 1) {
@@ -194,6 +201,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                 } else {
 
                     console.log('used up chances');
+                    $scope.playSfx( 'pon-dash' );
                     window.animatePontianakError($scope.triesLeft);
 
                     if (Modernizr.mq('(max-width: 769px)')) {
@@ -202,11 +210,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                         setTimeout(function() {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
+                            $scope.playSfx( 'user-fails' );
                         }, 1000);
                     } else {
                         setTimeout(function() {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
+                            $scope.playSfx( 'user-fails' );
                         }, 800);
                     }
                 }
@@ -233,6 +243,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     // hidePage('#pageGuessName');
                     // showPage('#pageGuessDate');
                     // window.animatePontianakSpecial();
+                    $scope.playSfx( 'pon-dash' );
                     window.animatePontianakError(1);
 
                     if (Modernizr.mq('(max-width: 769px)')) {
@@ -243,6 +254,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
                             showPage('#pageGuessDate');
+
                         }, 1000);
                     } else {
                         window.setTimeout(function() {
@@ -252,6 +264,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                             showPage('#pageGuessDate');
                         }, 500);
                     }
+
 
                 }
             }
@@ -289,6 +302,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             showPage('#pageShare');
             $('#ftr__credit').hide();
         } else {
+            $scope.playSfx( 'user-fails' );
             hidePage('#pageGuessDate');
             showPage('#pageFails');
         }
