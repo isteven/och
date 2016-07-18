@@ -511,6 +511,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', function($scope, $http) {
         $('.pontianakBox div').hide();
     }
 
+    $scope.tncToggle = function() {
+      console.log('tnc toggle');
+      $scope.$broadcast('tnc.toggle');
+    }
+
 
 
     showPage('#pageLanding'); //jac:: uncomment this when deploying
