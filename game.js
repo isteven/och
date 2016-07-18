@@ -558,7 +558,7 @@ function playSfx(param) {
             var snd1 = new Audio();
             var src1 = document.createElement("source");
             src1.type = "audio/mpeg";
-            src1.src = "audio/Bgm.mp3";
+            src1.src = "audio/bgm.mp3";
             snd1.appendChild(src1);
             snd1.play();
             // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
