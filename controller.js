@@ -522,7 +522,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.$broadcast('tnc.toggle');
     }
     hidePage( '.emf__container' );
-    showPage('#pageLanding'); //jac:: uncomment this when deploying
+    showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );
@@ -530,9 +530,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     // showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');
-
-    // hidePage( '#pano' );
-    // showPage('#pageShare');
 
 
     // setTimeout( function() {

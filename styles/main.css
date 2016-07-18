@@ -4489,12 +4489,21 @@ button {
   height: 100%;
   position: absolute;
   z-index: 40; }
+  @media (max-width: 768px) {
+    #pageLanding {
+      background-image: url(../img/landing_bg-m.png); } }
+
+.row-landing-content {
+  margin-bottom: 30px; }
 
 #pageLanding > div,
 #pageShare > div {
   position: absolute;
   overflow: visible; }
 
+@media (max-width: 768px) {
+  #pageLanding > div {
+    overflow: auto; } }
 #pageLanding > div > div {
   /*width: 100%;*/
   position: absolute;
@@ -4504,7 +4513,8 @@ button {
   @media (max-width: 768px) {
     #pageLanding > div > div {
       position: static;
-      transform: none; } }
+      transform: none;
+      overflow: auto; } }
 
 #pageLanding > div > div > div > div:first-child > div:first-child > div {
   width: calc( 100% - 170px ); }
@@ -4717,7 +4727,8 @@ button {
 
 .codeImage.is-static-image div {
   position: static;
-  width: 100%; }
+  width: 90%;
+  margin: 0 auto; }
 
 .codeImage.is-static-image div.clueImage > img {
   width: 100%; }

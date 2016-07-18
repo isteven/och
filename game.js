@@ -137,7 +137,7 @@ var viewChangeThrottled = throttle(function() {
 
     //  EMF AND REAL CLUES
     if (!cluesFound[activeSceneIdx]) {
-        if (is_in_range(panning_x, hotspot_x, region_1_range)) {
+        if ( is_in_range(panning_x, hotspot_x, region_1_range) ) {
             //  region 1, at the max region, 5 lights
             $('.emf__visual').attr('class', 'emf__visual is-region-1');
 
@@ -152,7 +152,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').addClass('hidden');
             }
 
-        } else if (is_in_range(panning_x, hotspot_x, region_2_range)) {
+        } else if ( is_in_range(panning_x, hotspot_x, region_2_range) ) {
             //  region 2, 4 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-2');
             canClick[activeSceneIdx] = false;
@@ -163,7 +163,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').removeClass('hidden');
             }
 
-        } else if (is_in_range(panning_x, hotspot_x, region_3_range)) {
+        } else if ( is_in_range(panning_x, hotspot_x, region_3_range) ) {
             //  region 3, 3 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-3');
             canClick[activeSceneIdx] = false;
@@ -210,10 +210,11 @@ var viewChangeThrottled = throttle(function() {
 
         }
     } else {
-        //  CLUE HAS BEEN FOUND FOR THIS SCENE
-        $('.emf__visual').attr('class', 'emf__visual is-region-6');
 
-        $('.emf__reader > span.num').html(generate_random_number(6));
+        //  CLUE HAS BEEN FOUND FOR THIS SCENE
+        $('.emf__visual').attr('class', 'emf__visual is-region-5');
+
+        $('.emf__reader > span.num').html(generate_random_number(5));
 
         if ($('.emf__reader > span.static').hasClass('hidden')) {
             $('.emf__reader > span.static').removeClass('hidden');
@@ -233,10 +234,6 @@ var viewChangeThrottled = throttle(function() {
                 showFakeClue();
             }
 
-        } else {
-
-            hideFakeClue();
-
         }
     }
 
@@ -248,8 +245,6 @@ var viewChangeThrottled = throttle(function() {
             if (canClick[4]) {
                 showFakeClue();
             }
-        } else {
-            hideFakeClue();
         }
     }
 
@@ -290,35 +285,39 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     var clueId = $(this).data('clue-id');
 
-    if (canClick[clueId - 1] && !cluesFound[clueId - 1]) {
+    if ( canClick[clueId - 1] ) {
+      if ( !cluesFound[clueId - 1]) {
+          //  FOUND REAL CLUES AND STILL AVAILABLE
+          $('.emf__visual').attr('class', 'emf__visual is-region-5');
+          $('.emf__reader > span.num').html(generate_random_number(5));
+          $('.emf__reader > span.static').removeClass('hidden');
 
-        $('.emf__visual').attr('class', 'emf__visual is-region-6');
-        $('.emf__reader > span.num').html(generate_random_number(6));
-        $('.emf__reader > span.static').removeClass('hidden');
+          $('#cluePlaceholder').fadeIn(function() {
+              $(this).addClass('active-clue-placeholder');
+          });
+          $('#cluePlaceholder > .closeButtonRed').show();
+          $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
-        $('#cluePlaceholder').fadeIn(function() {
-            $(this).addClass('active-clue-placeholder');
-        });
-        $('#cluePlaceholder > .closeButtonRed').show();
-        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+          canClick[clueId - 1] = false;
+          cluesFound[clueId - 1] = true;
 
-        canClick[clueId - 1] = false;
-        cluesFound[clueId - 1] = true;
+          hidePanoCenter();
+      } else {
+        //  FOUND FAKE CLUES
+          canClick[clueId - 1] = false;
+          $('#cluePlaceholder').fadeIn(function() {
+              $(this).addClass('active-clue-placeholder');
+          });
+          $('#cluePlaceholder').addClass('fakeClue');
+          $('#cluePlaceholder > .closeButtonRed').show();
+          // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
+          $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
-        hidePanoCenter();
-    } else {
-
-        canClick[clueId - 1] = false;
-        $('#cluePlaceholder').fadeIn(function() {
-            $(this).addClass('active-clue-placeholder');
-        });
-        $('#cluePlaceholder').addClass('fakeClue');
-        $('#cluePlaceholder > .closeButtonRed').show();
-        // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
-        $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
-
-        hideFakeClue();
+          hideFakeClue();
+      }
     }
+
+
 });
 
 
@@ -336,8 +335,8 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
         $('#cluePlaceholder').fadeOut(function() {
             $(this).removeClass('active-clue-placeholder');
+            $('#cluePlaceholder').removeClass('fakeClue');
         });
-        $('#cluePlaceholder').removeClass('fakeClue');
 
     } else {
 
@@ -352,10 +351,13 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
             $('#cluePlaceholder > img').attr('src', '');
             $('#cluePlaceholder').attr('style', '');
             $('#cluePlaceholder').addClass('cluePlaceholder');
-
             $('#cluePlaceholder').removeClass('active-clue-placeholder');
         });
 
+    }
+
+    if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
+      $('.cluesCtr').addClass('is-max');
     }
 
 });
@@ -381,12 +383,12 @@ var showClues = function() {
         }
     }
     $('#pageClues').on('click touchstart', '.closeButtonRed', function(e) {
-        $('.fadePage').fadeOut();
+        // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
     $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
-        $('.fadePage').fadeOut();
+        // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 

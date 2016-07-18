@@ -169,11 +169,12 @@
 
 .codeImage.is-static-image div {
   position: static;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .codeImage.is-static-image div.clueImage > img {
-  width: 100%; 
+  width: 100%;
 }
 
 @media (max-width: 768px) {

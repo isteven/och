@@ -18,6 +18,18 @@
   #pageLanding {
     .ftr {
       position: relative;
+      height: 140px;
+    }
+
+    .ftr__link:first-child {
+      //  snapshots should appear as one liner
+      width: auto;
+      display: block;
+    }
+
+    .ftr__popup {
+        position: absolute;
+        padding: 10px 20px;
     }
   }
 
