@@ -307,9 +307,27 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           canClick[clueId - 1] = false;
           $('#cluePlaceholder').fadeIn(function() {
               $(this).addClass('active-clue-placeholder');
+
+              setTimeout(function(){
+                $('#cluePlaceholder').animate({
+                  opacity: 0,
+                  width: $('#cluePlaceholder').width()/2,
+                  height: $('#cluePlaceholder').height()/2,
+                },
+                400,
+                function() {
+                  $(this).hide();
+                  $('#cluePlaceholder > img').attr('src', '');
+                  $('#cluePlaceholder').attr('style', '');
+                  $(this).removeClass('active-clue-placeholder');
+                  $('#cluePlaceholder').removeClass('fakeClue');
+                }
+                );
+              }, 1500);
           });
+
           $('#cluePlaceholder').addClass('fakeClue');
-          $('#cluePlaceholder > .closeButtonRed').show();
+          //$('#cluePlaceholder > .closeButtonRed').show();
           // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
           $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
@@ -331,14 +349,7 @@ $('#pano').on('click touchstart', function() {
 
 $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
-    if ($('#cluePlaceholder').hasClass('fakeClue')) {
-
-        $('#cluePlaceholder').fadeOut(function() {
-            $(this).removeClass('active-clue-placeholder');
-            $('#cluePlaceholder').removeClass('fakeClue');
-        });
-
-    } else {
+    if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
         $('#cluePlaceholder').animate({
             height: '20px',
@@ -563,12 +574,14 @@ function playSfx(param) {
 
     switch (param) {
         case 'enter-game':
-            var snd1 = new Audio();
-            var src1 = document.createElement("source");
-            src1.type = "audio/mpeg";
-            src1.src = "audio/" + folder + "/bgm" + extension;
-            snd1.appendChild(src1);
-            snd1.play();
+            //TODO:: disable sound for now
+            // var snd1 = new Audio();
+            // var src1 = document.createElement("source");
+            // src1.type = "audio/mpeg";
+            // src1.src = "audio/" + folder + "/bgm" + extension;
+            // snd1.appendChild(src1);
+            // snd1.play();
+
             // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
             break;
         case 'take-photo':

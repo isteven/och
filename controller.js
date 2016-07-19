@@ -311,7 +311,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     loadLeaderboard = function() {
         $http({
             method: 'GET',
-            url: configGet('apiUrl') + '_laravel/game/board/1',
+            url: configGet('apiUrl') + 'game/board/1',
         }).then(
             function(success) {
                 var idx = 0;
