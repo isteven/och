@@ -9,6 +9,11 @@
     position: absolute;
     z-index: 50;
 }
+@media (max-width: 768px) {
+    #pageFails {
+        background-image: url( ../img/m_fail_bg.jpg );
+    }
+}
 
 #pageFails .centerElement {
     top: 50%;
