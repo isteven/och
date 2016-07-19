@@ -6,6 +6,9 @@ var environmentConfigs = {
 
     local: {
         apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        // TODO:: UPDATE DURING DEPLOYMENT
+        //  apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        //  THIS IS JUST FOR TIME BEING
         gameId  : 1 // Old Changi Hospital
     },
     uat: {
