@@ -549,9 +549,30 @@ function animatePontianakSpecial() {
 
     }
 }
+var sfx = [];
+sfx[ 'enter-game' ] = new Howl({
+    src: ['audio/mp3/bgm.mp3', 'audio/ogg/bgm_02_01.ogg'];
+});
+sfx[ 'take-photo' ] = new Howl({
+    src: ['audio/mp3/takephoto.mp3', 'audio/ogg/takephoto_01.ogg'];
+});
+sfx[ 'jump-scare' ] = new Howl({
+    src: ['audio/mp3/jumpscare.mp3', 'audio/ogg/jumpscare_01.ogg'];
+});
+sfx[ 'pon-appear' ] = new Howl({
+    src: ['audio/mp3/pon_appear.mp3', 'audio/ogg/pon_appear_01.ogg'];
+});
+sfx[ 'pon-dash' ] = new Howl({
+    src: ['audio/mp3/pon_dash.mp3', 'audio/ogg/pon_dash_01.ogg'];
+});
+sfx[ 'user-fails' ] = new Howl({
+    src: ['audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3', '0100_ambient_background_loop_creepy_drone_wind_1_01_01.ogg'];
+});
 
 function playSfx(param) {
-
+    sfx[ param ].play();
+}
+/*
     var folder = 'desktop';
     var extension = '.mp3';
     if (Modernizr.mq('(max-width: 769px)')) {
@@ -621,3 +642,4 @@ function playSfx(param) {
     }
     return true;
 }
+*/
