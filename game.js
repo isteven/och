@@ -575,12 +575,12 @@ function playSfx(param) {
     switch (param) {
         case 'enter-game':
             //TODO:: disable sound for now
-            // var snd1 = new Audio();
-            // var src1 = document.createElement("source");
-            // src1.type = "audio/mpeg";
-            // src1.src = "audio/" + folder + "/bgm" + extension;
-            // snd1.appendChild(src1);
-            // snd1.play();
+            var snd1 = new Audio();
+            var src1 = document.createElement("source");
+            src1.type = "audio/mpeg";
+            src1.src = "audio/" + folder + "/bgm" + extension;
+            snd1.appendChild(src1);
+            snd1.play();
 
             // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
             break;
