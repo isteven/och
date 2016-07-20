@@ -594,8 +594,7 @@ function playSfx(param) {
         folder = 'mobile';
         extension = '.ogg';
     }
-    //HIDE SOUND FOR TIME BEING
-/*
+
     console.log( folder, extension );
 
     switch (param) {
@@ -658,7 +657,7 @@ function playSfx(param) {
 
         default:
     }
-    */
+
     return true;
 }
 */
