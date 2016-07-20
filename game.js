@@ -560,7 +560,7 @@ function animatePontianakSpecial() {
 
     }
 }
-var sfx = [];
+var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
     src: [ 'audio/mp3/bgm.mp3', 'audio/ogg/bgm_02_01.ogg']
 });
