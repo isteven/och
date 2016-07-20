@@ -1,0 +1,96 @@
+#pageLanding {
+    background-image: url( ../img/landing_bg.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 40;
+
+    @media (max-width: 768px) {
+      background-image: url( ../img/landing_bg-m.png );
+    }
+
+    > div.container {
+      position: absolute;
+      overflow: visible;
+
+      @media (max-width: 768px) {
+        overflow: auto;
+      }
+    }
+
+    .row-landing-content {
+      margin-bottom: 30px;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: 768px) {
+        position: static;
+        transform: none;
+        overflow: auto;
+
+      }
+    }
+}
+
+// #pageLanding > div.container,
+// #pageShare > div {
+//   position: absolute;
+//   overflow: visible;
+// }
+//
+// @media (max-width: 768px) {
+//   #pageLanding > div,
+//   #pageShare > div {
+//     overflow: auto;
+//   }
+// }
+
+#pageLanding .content-title-block {
+    width: 450px;
+    margin: 0 auto;
+
+    > h1 {
+      margin-bottom: 20px;
+      line-height: 1.1em;
+    }
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
+}
+
+
+#pageLanding .col-sm-6 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  #pageLanding .col-sm-6 {
+    margin-bottom: 10px;
+  }
+}
+
+
+#pageLanding .blood-bg {
+    height: 330px;
+    padding: 40px 80px 10px 80px;
+    width: 600px;
+
+    @media (max-width: 768px) {
+        padding: 50px;
+        padding-top: 65px;
+        height: 100%;
+        width: 100%;
+    }
+}

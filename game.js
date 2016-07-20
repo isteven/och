@@ -283,6 +283,8 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
 
+    playSfx( 'take-photo' );
+
     var clueId = $(this).data('clue-id');
 
     if ( canClick[clueId - 1] ) {
@@ -302,6 +304,11 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           cluesFound[clueId - 1] = true;
 
           hidePanoCenter();
+
+          if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
+            $('#cluePlaceholder').find('.finale-copy').addClass('active');
+          }
+
       } else {
         //  FOUND FAKE CLUES
           canClick[clueId - 1] = false;
@@ -327,12 +334,14 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           });
 
           $('#cluePlaceholder').addClass('fakeClue');
+          $('#cluePlaceholder > .closeButtonRed').hide();
           //$('#cluePlaceholder > .closeButtonRed').show();
           // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
           $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
           hideFakeClue();
       }
+
     }
 
 
@@ -351,13 +360,15 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
+
+
         $('#cluePlaceholder').animate({
             height: '20px',
             width: '20px',
             top: '85%',
             left: '90%',
         }, 400, function() {
-            $('.cluesCtr').show();
+            // $('.cluesCtr').show();
             $(this).hide();
             $('#cluePlaceholder > img').attr('src', '');
             $('#cluePlaceholder').attr('style', '');
@@ -367,16 +378,17 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     }
 
-    if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
-      $('.cluesCtr').addClass('is-max');
-    }
 
+
+});
+
+$('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
+    hidePage('#cluePlaceholder');
+    showPage('#pageGuessName');
 });
 
 
 var showPage = function(newPage) {
-  console.log(newPage);
-
     $(newPage).fadeIn();
 }
 
@@ -564,7 +576,8 @@ function animatePontianakSpecial() {
 }
 var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/bgm.mp3', 'audio/ogg/bgm_02_01.ogg']
+    src: [ 'audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3'],
+    loop: true
 });
 
 sfx[ 'take-photo' ] = new Howl({

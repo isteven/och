@@ -104,5 +104,8 @@ window.languageSet['zh']['not-yet-over'] = 'zh-not-yet-over';
 window.languageSet['en']['how-many-nights'] = 'How many nights will Halloween Horror Nights 6 be held?';
 window.languageSet['zh']['how-many-nights'] = 'zh-how-many-nights';
 
-window.languageSet['en']['guess-name-button'] = 'GUESS THE NAME';
+window.languageSet['en']['collected-all-clue-copy'] = 'You have collected all the clues.';
+window.languageSet['zh']['collected-all-clue-copy'] = 'zh-collected-all-clue-copy';
+
+window.languageSet['en']['guess-name-button'] = 'GUESS THE NAME NOW';
 window.languageSet['zh']['guess-name-button'] = 'zh-guess-name-button';

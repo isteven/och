@@ -72,7 +72,7 @@
             <div class="container">
                 <div class="row-landing-content text-center">
                     <div class="center-block content-title-block">
-                        <h1 class="font-trajan-pro fg-whitish margin-bottom-30">
+                        <h1 class="font-trajan-pro fg-whitish">
                             {{getContent('title-landing')}}
                             <!-- Old Changi Hospital -->
                         </h1>
@@ -229,7 +229,6 @@
 
             <!-- clues counter -->
             <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-                <div class="clue-glow"></div>
                 <img src="img/clue.png"/>
             </div>
 
@@ -474,25 +473,25 @@
 
             <!-- clues location in pano -->
             <div id="clue-1" class="clue realclue">
-                <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
+                <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" />
             </div>
             <div id="clue-2" class="clue realclue">
-                <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
+                <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" />
             </div>
             <div id="clue-3" class="clue realclue">
-                <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
+                <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" />
             </div>
             <div id="clue-4" class="clue fakeclue">
-                <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
+                <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" />
             </div>
             <div id="clue-5" class="clue fakeclue">
-                <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" ng-click="playSfx('take-photo');"/>
+                <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" />
             </div>
 
 
             <!-- clues counter -->
             <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-                <div class="clue-glow"></div>
+                <!-- <div class="clue-glow"></div> -->
                 <img src="img/clue.png"/>
             </div>
 
@@ -506,6 +505,13 @@
         <div id="cluePlaceholder" class="cluePlaceholder">
             <a href="#" class="closeButtonRed"></a>
             <img/>
+            <div class="finale-copy">
+              <p>{{getContent('collected-all-clue-copy')}}</p>
+              <a href="#" class="btnBlood active">
+                  {{getContent('guess-name-button')}}
+                  <!-- GUESS THE NAME -->
+              </a>
+            </div>
         </div>
 
         <div id="pageClues">

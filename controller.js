@@ -286,7 +286,6 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     $scope.showPage = function(domString) {
-        console.log(domString);
         window.showPage(domString);
     }
 
@@ -505,6 +504,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
         showPage('.emf__container');
+        $('.cluesCtr').addClass('active');
 
     }
 
@@ -521,7 +521,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
-    // hidePage('.emf__container');
+
     showPage('#pageLanding');
 
     // $scope.startGame();
