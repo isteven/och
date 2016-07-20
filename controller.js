@@ -522,12 +522,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.$broadcast('tnc.toggle');
     }
     hidePage('.emf__container');
-    // showPage('#pageLanding');
+    showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );
     // showPage('#pageGuessName');
-    showPage('#pageShare');
+    // showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');
 

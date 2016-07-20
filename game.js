@@ -564,7 +564,8 @@ function animatePontianakSpecial() {
 }
 var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/bgm.mp3', 'audio/ogg/bgm_02_01.ogg']
+    src: [ 'audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3'],
+    loop: true
 });
 
 sfx[ 'take-photo' ] = new Howl({
