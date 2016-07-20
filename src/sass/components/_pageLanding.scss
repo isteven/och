@@ -25,7 +25,7 @@
 }
 
 @media (max-width: 768px) {
-  #pageLanding > div {
+  #pageLanding > div, #pageShare > div {
     overflow: auto;
   }
 }

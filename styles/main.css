@@ -4501,7 +4501,7 @@ button {
   overflow: visible; }
 
 @media (max-width: 768px) {
-  #pageLanding > div {
+  #pageLanding > div, #pageShare > div {
     overflow: auto; } }
 #pageLanding > div > div {
   /*width: 100%;*/
@@ -4593,8 +4593,14 @@ button {
   #pageShare {
     background-image: none;
     background-color: #000; } }
+@media (max-width: 768px) {
+  #pageShare > div {
+    display: block; } }
 #pageShare > div > div {
   width: 1090px; }
+  @media (max-width: 768px) {
+    #pageShare > div > div {
+      width: 100%; } }
 
 #pageShare > div > div > div > div > div:nth-child(2) {
   width: 472px;

@@ -24,7 +24,7 @@
 @media (max-width: 600px) {
   .cluesCtr {
     bottom: 70px;
-    right: 20px; } }
+    right: 10px; } }
 .cluesCtr.is-max .clue-glow {
   width: 50%;
   height: 50%;
@@ -331,20 +331,22 @@
 *  - Guess date
 *  - Guess Fails
 */
-#pageLanding .ftr {
+#pageLanding .ftr, #pageShare .ftr {
   left: 0;
   right: 0; }
 
 @media (max-width: 767px) {
-  #pageLanding .ftr {
+  #pageLanding .ftr, #pageShare .ftr {
     position: relative;
-    height: 140px; }
-  #pageLanding .ftr__link:first-child {
+    height: 240px;
+    overflow: hidden; }
+  #pageLanding .ftr__link:first-child, #pageShare .ftr__link:first-child {
     width: auto;
     display: block; }
-  #pageLanding .ftr__popup {
-    position: absolute;
-    padding: 10px 20px; }
+  #pageLanding .ftr__popup, #pageShare .ftr__popup {
+    position: absolute; }
+  #pageLanding .ftr__wrapper--legal.is-active, #pageShare .ftr__wrapper--legal.is-active {
+    height: 260px; }
 
   #pano .ftr .ftr__logo,
   #pageGuessName .ftr .ftr__logo,
@@ -358,6 +360,9 @@
   #pageGuessName .ftr .ftr__link,
   #pageGuessDate .ftr .ftr__link {
     display: none; } }
+@media (max-width: 700px) {
+  .ftr__logo {
+    margin-top: 100px; } }
 #pageGuessName,
 #pageGuessDate,
 #pageShare,
@@ -789,7 +794,7 @@
     padding-top: 600px; } }
 @media (max-width: 480px) {
   #pageGuessDate > .inner {
-    padding-top: 400px; } }
+    padding-top: 300px; } }
 #pageGuessDate .single-column .centerVer {
   width: 380px;
   top: auto;

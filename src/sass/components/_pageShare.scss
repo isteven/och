@@ -16,11 +16,20 @@
         background-image: none;
         background-color: #000;
     }
+}
 
+@media (max-width: 768px) {
+    #pageShare > div {
+        display: block;
+    }
 }
 
 #pageShare > div > div {
     width: 1090px;
+
+    @media (max-width: 768px) {
+      width: 100%
+    }
 }
 
 #pageShare > div > div > div > div > div:nth-child(2) {

@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,$sce) {
+myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
     var gameStartTime = null;
     var gameEndTime = null;
@@ -92,13 +92,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.footer.popupActive = false;
     }
 
-    $scope.getContent = function( index, html ) {
+    $scope.getContent = function(index, html) {
         // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
-        if ( html ) {
-            return $sce.trustAsHtml( window.languageSet[ $scope.lang ][ index ] );
-        }
-        else {
-            return window.languageSet[ $scope.lang ][ index ];
+        if (html) {
+            return $sce.trustAsHtml(window.languageSet[$scope.lang][index]);
+        } else {
+            return window.languageSet[$scope.lang][index];
         }
     }
 
@@ -135,39 +134,39 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    $scope.playSfx = function( param ) {
-        window.playSfx( param );
-    }
-    /*
-    $scope.animatePontianakError( triesLeft ) {
+    $scope.playSfx = function(param) {
+            window.playSfx(param);
+        }
+        /*
+        $scope.animatePontianakError( triesLeft ) {
 
-        console.log( 'animating pontianak ERROR: ' + triesLeft );
-        $( '.pontianakBox div' ).fadeOut( 800 );
-        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
+            console.log( 'animating pontianak ERROR: ' + triesLeft );
+            $( '.pontianakBox div' ).fadeOut( 800 );
+            var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
+            masterPontianakIdx = pontianakIdx;
+            console.log( 'pontianak index ERROR:'  + pontianakIdx );
+            $( '.pontianak' + pontianakIdx ).show();
+            $( '.pontianak' + pontianakIdx ).sprite({
+                no_of_frames: frameQty[ pontianakIdx - 1 ],
+                fps: 8,
+                play_frames: frameQty[ pontianakIdx - 1 ]
+            });
+        }
+
+        $scope.animatePontianakWaiting( triesLeft ) {
+        console.log( 'animating pontianak WAITING: ' + triesLeft );
+        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
         masterPontianakIdx = pontianakIdx;
-        console.log( 'pontianak index ERROR:'  + pontianakIdx );
+        console.log( 'pontianak index WAITING:'  + pontianakIdx );
+        // $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
+        $( '.pontianakBox div' ).fadeOut( 800 );
         $( '.pontianak' + pontianakIdx ).show();
         $( '.pontianak' + pontianakIdx ).sprite({
             no_of_frames: frameQty[ pontianakIdx - 1 ],
-            fps: 8,
-            play_frames: frameQty[ pontianakIdx - 1 ]
+            fps: 4
         });
-    }
-
-    $scope.animatePontianakWaiting( triesLeft ) {
-    console.log( 'animating pontianak WAITING: ' + triesLeft );
-    var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
-    masterPontianakIdx = pontianakIdx;
-    console.log( 'pontianak index WAITING:'  + pontianakIdx );
-    // $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
-    $( '.pontianakBox div' ).fadeOut( 800 );
-    $( '.pontianak' + pontianakIdx ).show();
-    $( '.pontianak' + pontianakIdx ).sprite({
-        no_of_frames: frameQty[ pontianakIdx - 1 ],
-        fps: 4
-    });
-    }
-    */
+        }
+        */
     $scope.checkName = function() {
         if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active')) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
@@ -190,8 +189,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             }
             // if wrong answer
             if (!letterIsCorrect) {
-                if ( $scope.triesLeft == 5 ) {
-                    $scope.playSfx( 'pon-appear' );
+                if ($scope.triesLeft == 5) {
+                    $scope.playSfx('pon-appear');
                 }
                 $scope.guessCorrect = false;
                 $scope.failLetter = $scope.singleLetter;
@@ -201,7 +200,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                 } else {
 
                     console.log('used up chances');
-                    $scope.playSfx( 'pon-dash' );
+                    $scope.playSfx('pon-dash');
                     window.animatePontianakError($scope.triesLeft);
 
                     if (Modernizr.mq('(max-width: 769px)')) {
@@ -210,13 +209,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                         setTimeout(function() {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
-                            $scope.playSfx( 'user-fails' );
+                            $scope.playSfx('user-fails');
                         }, 1000);
                     } else {
                         setTimeout(function() {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
-                            $scope.playSfx( 'user-fails' );
+                            $scope.playSfx('user-fails');
                         }, 800);
                     }
                 }
@@ -243,7 +242,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     // hidePage('#pageGuessName');
                     // showPage('#pageGuessDate');
                     // window.animatePontianakSpecial();
-                    $scope.playSfx( 'pon-dash' );
+                    $scope.playSfx('pon-dash');
                     window.animatePontianakError(1);
 
                     if (Modernizr.mq('(max-width: 769px)')) {
@@ -287,6 +286,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     $scope.showPage = function(domString) {
+        console.log(domString);
         window.showPage(domString);
     }
 
@@ -302,7 +302,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             showPage('#pageShare');
             $('#ftr__credit').hide();
         } else {
-            $scope.playSfx( 'user-fails' );
+            $scope.playSfx('user-fails');
             hidePage('#pageGuessDate');
             showPage('#pageFails');
         }
@@ -396,7 +396,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     $scope.share_twitter = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/twitter?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/twitter?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
@@ -404,7 +404,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     $scope.share_weibo = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/_laravel/game/weibo?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/weibo?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             'weibowindow',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         )
@@ -472,7 +472,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         console.log('postToDb()');
         $http({
             method: 'POST',
-            url: configGet('apiUrl') + '_laravel/game/submit',
+            url: configGet('apiUrl') + 'game/submit',
             data: param
         }).then(
             function(success) {
@@ -504,15 +504,15 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();
-        showPage( '.emf__container' );
+        showPage('.emf__container');
 
     }
 
 
-    var tempLang = getUrlVar( 'lang' );
-    if ( tempLang ) {
+    var tempLang = getUrlVar('lang');
+    if (tempLang) {
         $scope.lang = tempLang.toLowerCase();
-        if ( $scope.lang != 'en' && $scope.lang != 'zh' ) {
+        if ($scope.lang != 'en' && $scope.lang != 'zh') {
             $scope.lang = 'en';
         }
     }
@@ -521,13 +521,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
-    hidePage( '.emf__container' );
-    showPage('#pageLanding');
+    hidePage('.emf__container');
+    // showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );
     // showPage('#pageGuessName');
-    // showPage('#pageShare');
+    showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');
 

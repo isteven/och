@@ -375,6 +375,8 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
 
 var showPage = function(newPage) {
+  console.log(newPage);
+
     $(newPage).fadeIn();
 }
 
@@ -569,7 +571,8 @@ function playSfx(param) {
         folder = 'mobile';
         extension = '.ogg';
     }
-
+    //HIDE SOUND FOR TIME BEING
+/*
     console.log( folder, extension );
 
     switch (param) {
@@ -632,5 +635,6 @@ function playSfx(param) {
 
         default:
     }
+    */
     return true;
 }
