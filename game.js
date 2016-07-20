@@ -333,6 +333,8 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
           hideFakeClue();
       }
+      playSfx( 'take-photo' );
+
     }
 
 
@@ -368,7 +370,7 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
     }
 
     if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
-      $('.cluesCtr').addClass('is-max');
+      $('#pano .cluesCtr').addClass('is-max');
     }
 
 });
@@ -563,10 +565,10 @@ function animatePontianakSpecial() {
     }
 }
 var sfx = {};
-sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3'],
-    loop: true
-});
+// sfx[ 'enter-game' ] = new Howl({
+//     src: [ 'audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3'],
+//     loop: true
+// });
 
 sfx[ 'take-photo' ] = new Howl({
     src: ['audio/mp3/takephoto.mp3', 'audio/ogg/takephoto_01.ogg']
