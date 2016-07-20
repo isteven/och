@@ -549,8 +549,11 @@
   background-image: url("../img/texture_inactive.jpg");
   background-repeat: no-repeat;
   border: none;
-  font-weight: 800;
-  color: #878787 !important; }
+  font-weight: 900;
+  color: #878787 !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  transition: all .5s ease-out; }
 
 .btnBlood.active {
   background-position: center;
