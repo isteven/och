@@ -35,6 +35,9 @@
   .cluesCtr {
     bottom: 70px;
     right: 10px;
+
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -143,9 +146,20 @@
     text-align: center;
 
 }
+@media (max-width: 767px){
+	.cluePlaceholder {
+    	width: 100%;
+      top: 45%;
+	}
+}
 @media (max-width: 480px){
 	.cluePlaceholder {
-    	top: 46%;
+    	top: 40%;
+	}
+}
+@media (max-width: 320px){
+	.cluePlaceholder {
+    	top: 36%;
 	}
 }
 
@@ -157,10 +171,14 @@
 }
 @media (max-width: 767px){
 	.cluePlaceholder img {
-    	width: 100%;
+    	width: 60%;
 	}
 }
-
+@media (max-width: 767px){
+  #cluePlaceholder .closeButtonRed {
+    right: 24%;
+  }
+}
 
 #cluePlaceholder .finale-copy {
   display: none;

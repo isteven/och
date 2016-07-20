@@ -18,9 +18,15 @@
     }
 }
 
+#pageShare > div {
+  position: absolute;
+  overflow: visible;
+}
+
 @media (max-width: 768px) {
     #pageShare > div {
         display: block;
+        overflow: auto;
     }
 }
 

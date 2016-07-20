@@ -499,7 +499,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.name2 = angular.copy(nameArr2[$scope.lang]);
 
         // showPage( '#pano' );
-        hidePage('.fadePage');
+        // hidePage('.fadePage');
         $('#pageLanding').fadeOut(400);
         hidePage('#pageFails');
         $('.pontianakBox div').hide();

@@ -4527,9 +4527,14 @@ button {
   #pageShare {
     background-image: none;
     background-color: #000; } }
+#pageShare > div {
+  position: absolute;
+  overflow: visible; }
+
 @media (max-width: 768px) {
   #pageShare > div {
-    display: block; } }
+    display: block;
+    overflow: auto; } }
 #pageShare > div > div {
   width: 1090px; }
   @media (max-width: 768px) {

@@ -282,7 +282,7 @@ var hideFakeClue = function() {
 $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
-
+    e.preventDefault();
     playSfx( 'take-photo' );
 
     var clueId = $(this).data('clue-id');
@@ -383,6 +383,7 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 });
 
 $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
+    e.preventDefault();
     hidePage('#cluePlaceholder');
     showPage('#pageGuessName');
 });
@@ -424,7 +425,7 @@ var showClues = function() {
         //     showPage('#pageGuessName');
         // });
 
-        $('#pageClues').on('click touchstart', '.btnBlood.active', function(e) {
+        $('#pageClues').on('click', '.btnBlood.active', function(e) {
             hidePage('#pageClues');
             showPage('#pageGuessName');
         });
@@ -576,28 +577,28 @@ function animatePontianakSpecial() {
 }
 var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3'],
+    src: [ 'audio/mp3/bgm.mp3'],
     loop: true
 });
 
 sfx[ 'take-photo' ] = new Howl({
-    src: ['audio/mp3/takephoto.mp3', 'audio/ogg/takephoto_01.ogg']
+    src: ['audio/mp3/takephoto.mp3']
 });
 sfx[ 'jump-scare' ] = new Howl({
-    src: ['audio/mp3/jumpscare.mp3', 'audio/ogg/jumpscare_01.ogg']
+    src: ['audio/mp3/jumpscare.mp3']
 });
 sfx[ 'pon-appear' ] = new Howl({
-    src: ['audio/mp3/pon_appear.mp3', 'audio/ogg/pon_appear_01.ogg']
+    src: ['audio/mp3/pon_appear.mp3']
 });
 sfx[ 'pon-dash' ] = new Howl({
-    src: ['audio/mp3/pon_dash.mp3', 'audio/ogg/pon_dash_01.ogg']
+    src: ['audio/mp3/pon_dash.mp3']
 });
 sfx[ 'user-fails' ] = new Howl({
-    src: ['audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3', '0100_ambient_background_loop_creepy_drone_wind_1_01_01.ogg']
+    src: ['audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3']
 });
 
 function playSfx(param) {
-    console.log( param );
+    // console.log( param );
     sfx[ param ].play();
 }
 /*
