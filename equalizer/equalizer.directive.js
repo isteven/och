@@ -26,7 +26,20 @@
     }
 
     function equalizerLink(scope, element, attrs, controller, transcludeFn) {
-
+        var muted = false;
+        angular.element( element[ 0 ] ).click( function() {
+            muted = !muted;
+            angular.forEach( window.sfx, function( value, key ) {
+                window.sfx[ key ].mute(muted);
+            });
+            console.log( angular.element( '.bar-c'));
+            if ( muted ) {
+                angular.element( '.bar-c > div' ).addClass( 'noAnim' );
+            }
+            else {
+                angular.element( '.bar-c > div' ).removeClass( 'noAnim' );
+            }
+        });
     }
   }
 
