@@ -102,20 +102,22 @@
     background-position: center;
     background-size: cover;
     background-image: url('../img/texture_inactive.jpg');
-    background-repeat: none;
+    background-repeat: no-repeat;
     border: none;
-    font-weight: 800;
+    font-weight: 900;
     color: #878787 !important;
+
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 .btnBlood.active {
-    background-position: center;
-    background-size: cover;
-    background-repeat: none;
     background-image: url('../img/texture.jpg');
     color: #FFF !important;
+    background-color: #a80101;
 }
 .btnBlood.active:hover {
-    background-image: none;
-    background-color: #CC0A00;
+    background-image: url( '../img/transparent.png' );
+    // background-color: #a80101;
 
 }
