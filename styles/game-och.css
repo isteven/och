@@ -87,13 +87,16 @@
   transform: translate(-50%, -50%);
   text-align: center; }
 
+@media (max-width: 480px) {
+  .cluePlaceholder {
+    top: 46%; } }
 #cluePlaceholder img {
   max-width: 300px;
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.7); }
 
-@media (max-width: 480px) {
-  .cluePlaceholder {
-    top: 46%; } }
+@media (max-width: 767px) {
+  .cluePlaceholder img {
+    width: 100%; } }
 #cluePlaceholder .finale-copy {
   display: none;
   margin-top: 20px; }
