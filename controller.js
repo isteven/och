@@ -521,13 +521,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
-    hidePage('.emf__container');
-    // showPage('#pageLanding');
+    // hidePage('.emf__container');
+    showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );
     // showPage('#pageGuessName');
-    showPage('#pageShare');
+    // showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');
 

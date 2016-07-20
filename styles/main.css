@@ -3772,8 +3772,7 @@ h3 {
   text-transform: capitalize; }
 
 h4 {
-  font-size: 16px;
-  line-height: 16px; }
+  font-size: 16px; }
 
 h5 {
   font-size: 14px; }
@@ -3858,8 +3857,7 @@ a:hover {
     width: 100%; }
 
   .centerElement p {
-    font-size: 16px;
-    line-height: 20px; }
+    font-size: 16px; }
 
   .centerElement p.fg-yellow {
     margin-bottom: 0; }
@@ -3887,19 +3885,16 @@ a:hover {
   .centerInlineHor .guessBox {
     padding: 20px 30px;
     font-size: 14px;
-    line-height: 18px;
     font-weight: 600; }
 
   .centerInlineHor .guessBox > p {
-    font-size: 14px;
-    line-height: 18px; }
+    font-size: 14px; }
 
   .centerInlineHor .guessBox > input {
     width: 60px;
     vertical-align: bottom;
     margin-right: 5px;
     font-size: 150%;
-    line-height: 1.3;
     text-align: center; }
 
   .centerInlineHor .guessBox > button {
@@ -4478,53 +4473,6 @@ button {
       text-align: left;
       padding-left: 20px; }
 
-#pageLanding {
-  background-image: url(../img/landing_bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 40; }
-  @media (max-width: 768px) {
-    #pageLanding {
-      background-image: url(../img/landing_bg-m.png); } }
-
-.row-landing-content {
-  margin-bottom: 30px; }
-
-#pageLanding > div,
-#pageShare > div {
-  position: absolute;
-  overflow: visible; }
-
-@media (max-width: 768px) {
-  #pageLanding > div, #pageShare > div {
-    overflow: auto; } }
-#pageLanding > div > div {
-  /*width: 100%;*/
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); }
-  @media (max-width: 768px) {
-    #pageLanding > div > div {
-      position: static;
-      transform: none;
-      overflow: auto; } }
-
-#pageLanding > div > div > div > div:first-child > div:first-child > div {
-  width: calc( 100% - 170px ); }
-  .game-och #pageLanding > div > div > div > div:first-child > div:first-child > div {
-    width: calc( 100% - 300px ); }
-
-@media (max-width: 768px) {
-  #pageLanding > div > div > div > div:first-child > div:first-child > div {
-    width: calc( 100% - 40px ); }
-    .game-och #pageLanding > div > div > div > div:first-child > div:first-child > div {
-      width: calc( 100% - 40px ); } }
 .black {
   font-weight: 800; }
 
@@ -4540,22 +4488,13 @@ button {
   background-repeat: no-repeat;
   position: relative;
   padding: 40px 40px 10px 40px; }
-  .game-och .blood-bg {
-    height: 330px;
-    padding: 40px 80px 10px 80px;
-    width: 600px; }
 
 @media (max-width: 768px) {
   .blood-bg {
     height: auto;
     width: auto;
     position: relative;
-    top: -10px; }
-    .game-och .blood-bg {
-      padding: 50px;
-      padding-top: 65px;
-      height: 100%;
-      width: 100%; } }
+    top: -10px; } }
 .blood-bg img {
   max-width: 50px;
   height: auto;
@@ -4572,12 +4511,6 @@ button {
     max-width: 60px;
     height: auto;
     margin-top: 10px; } }
-.game-och #pageLanding .col-sm-6 {
-  margin-bottom: 20px; }
-
-@media (max-width: 768px) {
-  .game-och #pageLanding .col-sm-6 {
-    margin-bottom: 10px; } }
 #pageShare {
   background: url(../img/completed_bg.jpg);
   background-repeat: no-repeat;

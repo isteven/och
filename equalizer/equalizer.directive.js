@@ -25,6 +25,7 @@
       var vm = this;
     }
 
+    // BELOW FUNCTION IS FOR MUTE
     function equalizerLink(scope, element, attrs, controller, transcludeFn) {
         var muted = false;
         angular.element( element[ 0 ] ).click( function() {
