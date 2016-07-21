@@ -11,7 +11,7 @@ window.languageSet['zh']['clue'] = [];
 window.languageSet['en']['title-landing'] = 'Old Changi Hospital ';
 window.languageSet['zh']['title-landing'] = 'zh-title-landing';
 
-window.languageSet['en']['intro'] = 'Evil takes form in the derelict hallways of <span style="white-space: nowrap;" >Old Changi Hospital </span> as vengeful souls rise once again in the dead of the night. <br / >Will Singapore\'s bloodiest history repeat itself?';
+window.languageSet['en']['intro'] = 'Evil takes form in the derelict hallways of <span style="white-space: nowrap;" >Old Changi Hospital </span> as vengeful souls rise once again in the dead of the night. Will Singapore\'s bloodiest history repeat itself?';
 window.languageSet['zh']['intro'] = 'zh-intro';
 
 window.languageSet['en']['instruction'] = 'TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME ';
