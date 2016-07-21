@@ -1,3 +1,11 @@
+//Typography
+$lato-semibold: 600;
+$lato-bold: 700;
+$lato-black: 900;
+
+//Media Queries
+$tablet-and-below: "(max-width: 768px)";
+
 $desktop-large-min: 1440px;
 $desktop-medium-max: $desktop-large-min - 1;
 $desktop-medium-min: 1280px;
@@ -53,4 +61,9 @@ $mobile-max: 736px;
       @content;
     }
   }
+}
+
+@mixin font-size($sizeValue: 12) {
+  font-size:  $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
 }

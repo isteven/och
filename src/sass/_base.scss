@@ -1,13 +1,14 @@
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: 500 !important;
+    font-weight: 600;
     /*font-size: 16px !important;*/
-    overflow:hidden;
-
+    overflow: hidden;
+    // font-size: 16px;
+    @include font-size(14);
     line-height: 1.2em;
 }
-@media (max-width: 480px){
+@media (max-width: 768px){
     html, body{
         overflow: auto;
     }
@@ -17,35 +18,41 @@ p {
     /*line-height: 16px;*/
 }
 h1 {
-    font-size: 30px;
-    font-weight: 600;
+    // font-size: 30px;
+    @include font-size(30);
+    // font-weight: 600;
     text-transform: capitalize;
     opacity: 1 !important;
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: 600;
+    // font-size: 20px;
+    @include font-size(20);
+    // font-weight: 600;
     text-transform: capitalize;
 }
 
 h3 {
-    font-size: 16px;
-    font-weight: 600;
+    // font-size: 16px;
+    @include font-size(16);
+    // font-weight: 600;
     text-transform: capitalize;
 }
 
 h4 {
-    font-size: 16px;
+    @include font-size(16);
+    // font-size: 16px;
     // line-height: 16px;
 }
 
 h5 {
-    font-size: 14px;
+    // font-size: 14px;
+    @include font-size(14);
 }
 
 h6 {
-    font-size: 12px;
+    // font-size: 12px;
+    @include font-size(12);
 }
 
 .margin-bottom-30 {
@@ -64,10 +71,10 @@ h6 {
     color: #e5e5cf;
 }
 .fg-orange {
-    color: #ffab1a !important;
+    color: #ffab1a;
 }
 .fg-black {
-    color: #000;
+    color: #000000;
 }
 .fg-red {
     color: #a80101;
@@ -141,7 +148,8 @@ a:hover {
         width: 100%;
     }
     .centerElement p{
-        font-size: 16px;
+        // font-size: 16px;
+        @include font-size(16);
         // line-height: 20px;
     }
     .centerElement p.fg-yellow {
@@ -177,12 +185,14 @@ a:hover {
     }
     .centerInlineHor .guessBox{
         padding: 20px 30px;
-        font-size: 14px;
+        // font-size: 14px;
+        @include font-size(14);
         // line-height: 18px;
         font-weight: 600;
     }
     .centerInlineHor .guessBox > p {
-        font-size: 14px;
+        // font-size: 14px;
+        @include font-size(14);
         // line-height: 18px;
     }
     .centerInlineHor .guessBox > input{

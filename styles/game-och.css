@@ -440,6 +440,185 @@
       height: 100%;
       width: 100%; } }
 
+#pageShare {
+  z-index: 10; }
+  #pageShare > .container {
+    width: 1170px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    @media (max-width: 1200px) and (min-width: 992px) {
+      #pageShare > .container {
+        width: 970px; } }
+    @media (max-width: 991px) and (min-width: 769px) {
+      #pageShare > .container {
+        width: 750px; } }
+    @media (max-width: 768px) {
+      #pageShare > .container {
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none; } }
+    #pageShare > .container.has-background-code {
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 728px; }
+      @media (max-width: 991px) and (min-width: 769px) {
+        #pageShare > .container.has-background-code {
+          background-size: 500px; } }
+      @media (max-width: 768px) {
+        #pageShare > .container.has-background-code {
+          background-image: none !important; } }
+      #pageShare > .container.has-background-code .code {
+        display: none; }
+        @media (max-width: 768px) {
+          #pageShare > .container.has-background-code .code {
+            display: block; } }
+      #pageShare > .container.has-background-code .col__code > .inner {
+        width: 100%;
+        height: 100%; }
+        #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+          text-align: left;
+          left: auto;
+          right: 80px;
+          bottom: 70px; }
+          @media (max-width: 1200px) and (min-width: 992px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px; } }
+          @media (max-width: 991px) and (min-width: 769px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px;
+              bottom: 100px; } }
+          @media (max-width: 768px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              left: 0;
+              right: 0;
+              bottom: 0;
+              text-align: center; } }
+  #pageShare .page__share__row {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%); }
+    @media (max-width: 768px) {
+      #pageShare .page__share__row {
+        position: relative;
+        top: auto;
+        transform: none; } }
+    #pageShare .page__share__row > div {
+      width: 50%;
+      padding: 0 15px;
+      text-align: center; }
+      @media (max-width: 768px) {
+        #pageShare .page__share__row > div {
+          width: 100%; } }
+  #pageShare .col__leaderboard {
+    position: relative;
+    margin-left: 50%; }
+    @media (max-width: 768px) {
+      #pageShare .col__leaderboard {
+        float: none;
+        margin-left: 0; } }
+  #pageShare .col__leaderboard__inner > h1 {
+    margin-top: 0;
+    margin-bottom: 20px; }
+  #pageShare .col__leaderboard__inner > h4 {
+    margin-bottom: 20px; }
+  #pageShare .col__code {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+    text-align: center;
+    font: 0/0 a; }
+    @media (max-width: 768px) {
+      #pageShare .col__code {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto; } }
+    #pageShare .col__code > .middle-spacer {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }
+    #pageShare .col__code > .inner {
+      position: relative;
+      vertical-align: middle;
+      display: inline-block;
+      max-height: 100%;
+      max-width: 100%; }
+    #pageShare .col__code > .inner img {
+      width: 80%;
+      margin: 0 auto; }
+      @media (max-width: 991px) and (min-width: 769px) {
+        #pageShare .col__code > .inner img {
+          width: 100%; } }
+      @media (max-width: 700px) {
+        #pageShare .col__code > .inner img {
+          width: 100%; } }
+    #pageShare .col__code > .inner > .col__code__text {
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-family: lato, sans-serif;
+      line-height: 1.2em;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      #pageShare .col__code > .inner > .col__code__text .link__download {
+        line-height: 20px;
+        display: inline-block;
+        color: #ffab1a;
+        font-weight: 900; }
+        #pageShare .col__code > .inner > .col__code__text .link__download > span {
+          vertical-align: top;
+          margin-right: 5px; }
+        #pageShare .col__code > .inner > .col__code__text .link__download:hover {
+          color: #e5e5cf; }
+          #pageShare .col__code > .inner > .col__code__text .link__download:hover > span {
+            background-position: -17px -0px; }
+  #pageShare .content__share__win {
+    width: 288px;
+    background-image: url("../img/texture.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 15px; }
+    @media (max-width: 700px) {
+      #pageShare .content__share__win {
+        max-width: 768px;
+        width: 100%; } }
+    #pageShare .content__share__win .content__share__win__title {
+      display: inline-block; }
+    #pageShare .content__share__win .content__share__win__inner {
+      width: calc( 100% - 10px );
+      background-color: #000000;
+      display: inline-block;
+      margin: 0 auto 5px;
+      padding: 20px 10px; }
+    #pageShare .content__share__win .content__share__win__timing {
+      font-size: 16px;
+      font-size: 1.6rem;
+      font-weight: 900; }
+    #pageShare .content__share__win .content__share__win__leaderboard {
+      border-top: 1px solid #a80101;
+      margin-top: 20px;
+      padding-top: 20px; }
+      #pageShare .content__share__win .content__share__win__leaderboard > p {
+        font-weight: 900;
+        margin-bottom: 20px; }
+      #pageShare .content__share__win .content__share__win__leaderboard > .row {
+        margin-top: 5px; }
+        #pageShare .content__share__win .content__share__win__leaderboard > .row:first-child {
+          margin-top: 0; }
+    #pageShare .content__share__win .link__terms-conditions {
+      text-decoration: underline; }
+      #pageShare .content__share__win .link__terms-conditions:hover {
+        text-decoration: none; }
+
 #pageGuessName,
 #pageGuessDate,
 #pageShare,
@@ -597,7 +776,8 @@
   #pageGuessName {
     background-image: url("../img/q1_bg-m.jpg");
     background-size: 768px;
-    background-position: center -100px; } }
+    background-position: center -100px;
+    overflow: hidden; } }
 @media (max-width: 480px) {
   #pageGuessName {
     padding-top: 54px;
@@ -631,7 +811,9 @@
   /*border: none;*/
   display: inline-block;
   font-family: "edoregular", Serif;
-  font-size: 3.2em;
+  font-weight: normal;
+  font-size: 50px;
+  font-size: 5rem;
   line-height: 0.8;
   color: #45140e;
   background-color: transparent;
@@ -651,7 +833,7 @@
   width: 45px; }
 
 #pageGuessName .guessIntro {
-  height: 72px;
+  height: 91px;
   vertical-align: bottom;
   display: table;
   text-align: center;
@@ -662,7 +844,8 @@
   font-family: "edo",sans-serif;
   font-weight: normal;
   margin-bottom: 5px;
-  font-size: 2.2em; }
+  font-size: 30px;
+  font-size: 3rem; }
   #pageGuessName .guessIntro h1:first-child {
     display: table-cell;
     vertical-align: bottom; }
@@ -683,8 +866,6 @@
   padding: 20px;
   margin-top: 30px;
   width: 300px; }
-  .guessBox > p {
-    font-weight: bold; }
   .guessBox .btnBlood {
     padding: 6px 11px; }
 
@@ -693,15 +874,17 @@
   border: none;
   border-bottom: 2px solid #a80101;
   color: #fff;
-  font-size: 200%;
   text-align: center;
   border-radius: none;
-  margin-right: 10px; }
+  margin-right: 10px;
+  font-size: 32px;
+  font-size: 3.2rem; }
 
 @media (max-width: 480px) {
   #pageGuessName .inputBorder {
     margin-left: 1px;
-    font-size: 2.8em;
+    font-size: 44px;
+    font-size: 4.4rem;
     line-height: 0.5;
     margin-top: 10px;
     height: 38px; }
@@ -710,7 +893,7 @@
     width: 35px; }
 
   #pageGuessName .guessIntro {
-    height: 70px;
+    height: 86px;
     margin-bottom: 10px; }
     #pageGuessName .guessIntro > h1 {
       margin-bottom: 0; }
@@ -719,24 +902,9 @@
     margin-top: 20px; } }
 @media (max-width: 320px) {
   #pageGuessName .guessIntro > h1 {
-    font-size: 1.5em; } }
-@media (max-width: 480px) {
-  #pageGuessName > div {
-    top: 45%; }
-
-  #pageGuessName .double-column li {
-    display: inline-block;
-    width: 30%; }
-
-  #pageGuessName .double-column li:first-child {
-    display: inline-block;
-    width: 67%; }
-
-  #pageGuessName .double-column li.pontianakBox {
-    margin-left: -12%; } }
-@media (max-width: 320px) {
-  #pageGuessName .double-column li.pontianakBox {
-    margin-left: -16%; } }
+    font-size: 24px;
+    font-size: 2.4rem; } }
+/* PONTIANAK STYLINGS */
 .pontianakBox {
   position: absolute;
   top: 0;
@@ -834,7 +1002,7 @@
     width: 480px;
     height: 635px;
     margin-left: -240px;
-    top: 150px; }
+    top: 100px; }
 
   .pontianakBox > div {
     width: 480px;
@@ -892,10 +1060,10 @@
     transform: none;
     left: 0;
     position: static;
-    padding-top: 600px; } }
+    padding-top: 500px; } }
 @media (max-width: 480px) {
   #pageGuessDate > .inner {
-    padding-top: 300px; } }
+    padding-top: 220px; } }
 #pageGuessDate .single-column .centerVer {
   width: 380px;
   top: auto;
@@ -919,9 +1087,10 @@
     left: 0;
     margin-left: 0; } }
 #pageGuessDate .single-column .centerVer .guess-date-title {
-  font-size: 22px;
   font-weight: 600;
-  color: #cc0a00; }
+  color: #cc0a00;
+  font-size: 22px;
+  font-size: 2.2rem; }
 
 #pageGuessDate .single-column .centerVer h3:first-letter {
   font-size: 1em; }
@@ -929,9 +1098,8 @@
 #pageGuessDate .single-column .centerVer h3 {
   margin: 12px auto;
   font-family: lato, serif;
-  font-weight: 700;
   font-size: 30px;
-  line-height: 1.3; }
+  font-size: 3rem; }
 
 #pageGuessDate .single-column .centerVer div {
   display: inline-block;
@@ -955,6 +1123,7 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 20px;
+  font-size: 2rem;
   line-height: 1em; }
 
 @media (max-width: 769px) {
@@ -1006,7 +1175,7 @@
     height: 1020px;
     margin-left: -384px;
     left: 50%;
-    top: 150px; } }
+    top: 100px; } }
 @media (max-width: 480px) {
   #pageGuessDate .pontianakSpecial {
     width: 480px;

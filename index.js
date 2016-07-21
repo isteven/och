@@ -172,7 +172,7 @@
         //  JAC: hide jump scare for time being...
         if (scene.data.id == '0-scene-2' && !shownScare) {
           hasVisitedScareZone = true;
-          jumpScare.setup();
+          // jumpScare.setup();
         }
 
         if (scene.data.id == '0-scene-3' ) {

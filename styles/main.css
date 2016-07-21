@@ -3745,12 +3745,14 @@ label {
 html, body {
   font-family: lato, sans-serif;
   color: #e5e5cf;
-  font-weight: 500 !important;
+  font-weight: 600;
   /*font-size: 16px !important;*/
   overflow: hidden;
+  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1.2em; }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   html, body {
     overflow: auto; } }
 p {
@@ -3758,28 +3760,31 @@ p {
 
 h1 {
   font-size: 30px;
-  font-weight: 600;
+  font-size: 3rem;
   text-transform: capitalize;
   opacity: 1 !important; }
 
 h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-size: 2rem;
   text-transform: capitalize; }
 
 h3 {
   font-size: 16px;
-  font-weight: 600;
+  font-size: 1.6rem;
   text-transform: capitalize; }
 
 h4 {
-  font-size: 16px; }
+  font-size: 16px;
+  font-size: 1.6rem; }
 
 h5 {
-  font-size: 14px; }
+  font-size: 14px;
+  font-size: 1.4rem; }
 
 h6 {
-  font-size: 12px; }
+  font-size: 12px;
+  font-size: 1.2rem; }
 
 .margin-bottom-30 {
   margin-bottom: 30px; }
@@ -3794,10 +3799,10 @@ h6 {
   color: #e5e5cf; }
 
 .fg-orange {
-  color: #ffab1a !important; }
+  color: #ffab1a; }
 
 .fg-black {
-  color: #000; }
+  color: #000000; }
 
 .fg-red {
   color: #a80101; }
@@ -3858,7 +3863,8 @@ a:hover {
     width: 100%; }
 
   .centerElement p {
-    font-size: 16px; }
+    font-size: 16px;
+    font-size: 1.6rem; }
 
   .centerElement p.fg-yellow {
     margin-bottom: 0; }
@@ -3886,10 +3892,12 @@ a:hover {
   .centerInlineHor .guessBox {
     padding: 20px 30px;
     font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 600; }
 
   .centerInlineHor .guessBox > p {
-    font-size: 14px; }
+    font-size: 14px;
+    font-size: 1.4rem; }
 
   .centerInlineHor .guessBox > input {
     width: 60px;
@@ -4005,6 +4013,38 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.65);
   overflow: visible; }
 
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:61108e07e3ac1c7a6633eccb799c9824:0de3a58b570708a425fa3f17ab50d29b:1a4beba4193919b01a56dc2c2a237cfe$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+.sprite {
+  background-image: url(../img/sprites/test.png);
+  background-repeat: no-repeat;
+  background-size: 194px;
+  display: inline-block; }
+
+.icon_download {
+  width: 17px;
+  height: 20px;
+  background-position: -0px -0px; }
+
+.icon_fb {
+  width: 80px;
+  height: 44px;
+  background-position: -34px -0px; }
+  .icon_fb:hover {
+    background-position: -114px -0px; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
+  .sprite {
+    background-image: url(../img/sprites/test-2x.png); } }
 html {
   font-size: 62.5%; }
 
@@ -4512,175 +4552,5 @@ button {
     max-width: 60px;
     height: auto;
     margin-top: 10px; } }
-#pageShare {
-  background: url(../img/completed_bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; }
-  .game-och #pageShare {
-    /* this is for och only */
-    background-image: none;
-    background-color: #000;
-    z-index: 10; }
-
-@media (max-width: 768px) {
-  #pageShare {
-    background-image: none;
-    background-color: #000; } }
-#pageShare > div {
-  position: absolute;
-  overflow: visible; }
-
-@media (max-width: 768px) {
-  #pageShare > div {
-    display: block;
-    overflow: auto; } }
-#pageShare > div > div {
-  width: 1090px; }
-  @media (max-width: 768px) {
-    #pageShare > div > div {
-      width: 100%; } }
-
-#pageShare > div > div > div > div > div:nth-child(2) {
-  width: 472px;
-  margin-left: 70px; }
-
-@media (max-width: 1170px) {
-  #pageShare > div > div > div > div > div:nth-child(2) {
-    width: calc( 50% - 30px );
-    margin-left: 10px; } }
-.share-win {
-  width: 288px;
-  background-image: url(../img/texture.jpg);
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 15px; }
-
-@media (max-width: 768px) {
-  .share-win {
-    max-width: 768px;
-    width: 100%; } }
-.share-win > div:first-child {
-  padding: 10px 0px; }
-
-.share-win > div:nth-child(2) {
-  width: calc( 100% - 10px );
-  margin-bottom: 5px;
-  background-color: #000; }
-
-.share-win > div:nth-child(2) > div {
-  margin: 20px; }
-
-.share-win > div:nth-child(2) > div > div > h5 {
-  /*border: 1px solid blue;*/ }
-
-.share-win h4 {
-  margin: 0px; }
-
-.leaderboard h5 {
-  margin: 0px;
-  padding: 20px 0px; }
-
-.leaderboard > div > div:first-child {
-  padding-left: 22px; }
-
-.leaderboard > div > div:nth-child(2) {
-  padding-right: 22px; }
-
-.bloodBoxHeader {
-  padding: 12px 7px 7px 7px;
-  background-image: url(../img/texture.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; }
-
-.topBorderRed {
-  border-top: 1px solid #a80101; }
-
-.iconSocMed {
-  display: inline-block;
-  width: 73px;
-  height: 44px;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center; }
-
-.iconSocMed.facebook {
-  background-image: url(../img/icon_fb.png); }
-
-.iconSocMed.facebook:hover {
-  background-image: url(../img/icon_fb_ro.png); }
-
-.iconSocMed.twitter {
-  background-image: url(../img/icon_twitter.png); }
-
-.iconSocMed.twitter:hover {
-  background-image: url(../img/icon_twitter_ro.png); }
-
-.iconSocMed.weibo {
-  background-image: url(../img/icon_weibo.png); }
-
-.iconSocMed.weibo:hover {
-  background-image: url(../img/icon_weibo_ro.png); }
-
-.iconDownload {
-  display: inline-block;
-  /*margin: 20px;*/
-  background-image: url(../img/icon_download.png);
-  height: 28px;
-  vertical-align: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding-left: 30px;
-  line-height: 32px;
-  margin-top: 5px; }
-
-.iconDownload:hover {
-  background-image: url(../img/icon_download_ro.png);
-  color: #ffe14c  !important; }
-
-.iconReplay {
-  display: inline-block;
-  /*margin: 20px;*/
-  background-image: url(../img/icon_replay.png);
-  height: 28px;
-  vertical-align: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding-left: 30px;
-  line-height: 32px;
-  margin-top: 5px; }
-
-.iconReplay:hover {
-  background-image: url(../img/icon_replay_ro.png);
-  color: #ffe14c  !important; }
-
-.codeImage {
-  background-image: url(../img/code_bg.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  /*width: 250px;*/
-  height: 500px; }
-
-.codeImage div {
-  text-align: left;
-  width: 180px;
-  position: absolute;
-  bottom: 30px;
-  right: 35px; }
-
-.codeImage.is-static-image div {
-  position: static;
-  width: 90%;
-  margin: 0 auto; }
-
-.codeImage.is-static-image div.clueImage > img {
-  width: 100%; }
-
-@media (max-width: 768px) {
-  .codeMobile {
-    width: 100%;
-    height: auto; } }
 
 /*# sourceMappingURL=main.css.map */
