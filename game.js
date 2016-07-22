@@ -316,15 +316,17 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
               $(this).addClass('active-clue-placeholder');
 
               setTimeout(function(){
-                $('#cluePlaceholder').animate({
+
+                $('#cluePlaceholder > img').stop(true, false).animate({
                   opacity: 0,
-                  width: $('#cluePlaceholder').width()/2,
-                  height: $('#cluePlaceholder').height()/2,
+                  width: $('#cluePlaceholder > img').width()/2+'px',
+                  height: $('#cluePlaceholder > img').height()/2+'px'
                 },
                 400,
                 function() {
                   $(this).hide();
                   $('#cluePlaceholder > img').attr('src', '');
+                  $('#cluePlaceholder > img').attr('style', '');
                   $('#cluePlaceholder').attr('style', '');
                   $(this).removeClass('active-clue-placeholder');
                   $('#cluePlaceholder').removeClass('fakeClue');
@@ -360,19 +362,29 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
-        $('#cluePlaceholder').animate({
-            height: '20px',
-            width: '20px',
-            top: '85%',
-            left: '90%',
-        }, 400, function() {
-            // $('.cluesCtr').show();
-            $(this).hide();
-            $('#cluePlaceholder > img').attr('src', '');
-            $('#cluePlaceholder').attr('style', '');
-            $('#cluePlaceholder').addClass('cluePlaceholder');
-            $('#cluePlaceholder').removeClass('active-clue-placeholder');
-        });
+      $('#cluePlaceholder > img').stop(true, false).animate({
+        opacity: 0,
+        width: $('#cluePlaceholder > img').width()/4+'px',
+        height: $('#cluePlaceholder > img').height()/4+'px'
+      },400, function() {
+          // $('.cluesCtr').show();
+          $(this).hide();
+          $('#cluePlaceholder > img').attr('src', '');
+          $('#cluePlaceholder > img').attr('style', '');
+          $('#cluePlaceholder').attr('style', '');
+          $('#cluePlaceholder').addClass('cluePlaceholder');
+          $('#cluePlaceholder').removeClass('active-clue-placeholder');
+      });
+
+      $('#cluePlaceholder').stop(true, false).animate({
+          // height: '20px',
+          // width: '20px',
+          // transform:'scale(0.5)',
+          top: '85%',
+          left: '90%'
+      }, 400, function() {
+          $('#cluePlaceholder').attr('style', '');
+      });
 
     }
 
