@@ -130,6 +130,27 @@
         }
 
       }
+
+      .link__replay {
+        line-height: 20px;
+        display: inline-block;
+        color: #ffab1a;
+        font-weight: $lato-black;
+
+        > span {
+          vertical-align: top;
+          margin-right: 5px;
+        }
+
+        &:hover {
+          color: #e5e5cf;
+          > span {
+            background-position: -210px -0px;
+          }
+        }
+
+
+      }
     }
     .col__code {
         position: absolute;

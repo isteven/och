@@ -376,14 +376,14 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     }
 
-
-
 });
 
 $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
     e.preventDefault();
     hidePage('#cluePlaceholder');
     showPage('#pageGuessName');
+
+    jumpScare.cancel(); //cancel off the jumpscare
 });
 
 
@@ -454,42 +454,6 @@ function initSlick() {
     }).slick('slickGoTo', '0', true);
 }
 
-
-function AnimateSprite(el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
-    if (!el || el.length == 0) return;
-
-    var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
-    var tl = new TimelineMax({
-        onComplete: animateEnd,
-        repeat: repeatAnimate,
-        repeatDelay: 1
-    });
-
-    for (var i = 0, numRows = Math.ceil(totalFrame / numCols); i < numRows; i++) {
-
-        var numFrames = Math.min(numCols, totalFrame - (i * numCols)),
-            steppedEase = new SteppedEase(numFrames - 1);
-
-        tl.append(TweenMax.fromTo(
-            el, duration, {
-                backgroundPosition: '0 -' + (frameHeight * i) + 'px'
-            }, {
-                backgroundPosition: '-' + (frameWidth * (numFrames - 1)) + 'px -' + (frameHeight * i) + 'px',
-                ease: steppedEase,
-                immediateRender: false
-            }
-        ));
-    }
-
-    function animateEnd() {
-
-        //when animation done, enable the pontianak to shiver
-        if (typeof onAnimateEnd == 'function') {
-            onAnimateEnd(currentFrameNo);
-        }
-    }
-
-};
 
 var triggerIdlePontianak;
 

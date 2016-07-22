@@ -575,11 +575,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.$broadcast('tnc.toggle');
     }
 
-    // showPage('#pageLanding');
+    showPage('#pageLanding');
 
-    $scope.startGame();
+    // $scope.startGame();
     // hidePage( '#pano' );
-    showPage('#pageGuessName');
+    // showPage('#pageGuessName');
     // showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');

@@ -12,18 +12,16 @@
             }
 
         </style>
-        <link rel="stylesheet" href="vendor/reset.min.css">
-        <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <!-- <link rel="stylesheet" href="styles/menu.css"> -->
+        <!-- <link rel="stylesheet" href="vendor/reset.min.css"> -->
+
+        <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/> -->
+
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/game-och.css">
-        <!-- <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css> -->
+
     </head>
 
-    <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons game-och">
+    <body ng-controller="bodyCtrl" class="multiple-scenes game-och">
 
         <!-- facebook share  -->
         <script>
@@ -54,15 +52,6 @@
         </script>
 
         <div id="audio"></div>
-        <!-- header -->
-        <!-- <div class="hdr" style="background-color: #000000; height: 55px;">
-            <a class="hdr__logo" href="#/">
-                <img src="img/logo-narrow.png">
-            </a>
-            <a style="height: 55px;" ng-click="menu.active = !menu.active" href="" class="nav__toggle">
-                <span class="icon--menu"></span>
-            </a>
-        </div> -->
 
         <tnc ng-show="tnc.active"></tnc>
         <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
@@ -292,8 +281,8 @@
                                     </p>
                                     <div class="content__share__win__socials">
                                         <a href="#" ng-if="lang == 'en'" class="sprite icon_fb " ng-click="share_facebook()"></a>
-                                        <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
-                                        <a href="#" ng-if="lang == 'zh'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
+                                        <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter " ng-click="share_twitter()"></a>
+                                        <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo " ng-click="share_weibo()"></a>
                                     </div>
                                     <p>
                                         <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
@@ -334,6 +323,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <p><a class="link__replay" onclick="location.reload()"><span class="sprite icon_replay"></span>
+                                {{getContent( 'replay' )}}
+                            </a></p>
                         </div>
                     </div>
 
@@ -404,8 +396,10 @@
             <footer class="ftr"></footer>
         </div>
 
-        <div id="scare"></div>
-        <div class="scare-overlay"></div>
+        <div class="scare-container">
+            <div id="scare"></div>
+            <div class="scare-overlay"></div>
+        </div>
 
         <!-- single clue -->
         <div id="cluePlaceholder" class="cluePlaceholder">
@@ -444,11 +438,7 @@
         </script>
         <script src="config.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="vendor/es5-shim.js"></script>
-        <script src="vendor/eventShim.js"></script>
-        <script src="vendor/classList.js"></script>
-        <script src="vendor/requestAnimationFrame.js"></script>
-        <!-- <script src="vendor/screenfull.min.js"></script> -->
+
         <script src="vendor/bowser.min.js"></script>
         <script src="vendor/marzipano.js"></script>
         <script src="vendor/DeviceOrientationControlMethod.js"></script>
@@ -463,6 +453,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.29/howler.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+
         <script src="language.js"></script>
         <script src="controller.js"></script>
         <script src="data.js"></script>
