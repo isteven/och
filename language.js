@@ -11,7 +11,7 @@ window.languageSet['zh']['clue'] = [];
 window.languageSet['en']['title-landing'] = 'Old Changi Hospital ';
 window.languageSet['zh']['title-landing'] = '旧樟宜阴魂';
 
-window.languageSet['en']['intro'] = 'As Singapore’s bloodiest past comes back alive, can you escape the evil that lurks within Old Changi Hospital?';
+window.languageSet['en']['intro'] = 'Evil takes form in the derelict hallways of <span style="white-space: nowrap;" >Old Changi Hospital </span> as vengeful souls rise once again in the dead of the night. Will Singapore\'s bloodiest history repeat itself?';
 window.languageSet['zh']['intro'] = '夜深人静之时，复仇之魂再次燃起。在旧樟宜医院废旧的走廊之上，邪灵缓缓现身。新加坡最具血腥的历史将会重演吗？';
 
 window.languageSet['en']['instruction'] = 'TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME ';
