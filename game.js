@@ -360,8 +360,6 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
-
-
         $('#cluePlaceholder').animate({
             height: '20px',
             width: '20px',
@@ -378,14 +376,14 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     }
 
-
-
 });
 
 $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
     e.preventDefault();
     hidePage('#cluePlaceholder');
     showPage('#pageGuessName');
+
+    jumpScare.cancel(); //cancel off the jumpscare
 });
 
 
@@ -456,42 +454,6 @@ function initSlick() {
     }).slick('slickGoTo', '0', true);
 }
 
-
-function AnimateSprite(el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
-    if (!el || el.length == 0) return;
-
-    var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
-    var tl = new TimelineMax({
-        onComplete: animateEnd,
-        repeat: repeatAnimate,
-        repeatDelay: 1
-    });
-
-    for (var i = 0, numRows = Math.ceil(totalFrame / numCols); i < numRows; i++) {
-
-        var numFrames = Math.min(numCols, totalFrame - (i * numCols)),
-            steppedEase = new SteppedEase(numFrames - 1);
-
-        tl.append(TweenMax.fromTo(
-            el, duration, {
-                backgroundPosition: '0 -' + (frameHeight * i) + 'px'
-            }, {
-                backgroundPosition: '-' + (frameWidth * (numFrames - 1)) + 'px -' + (frameHeight * i) + 'px',
-                ease: steppedEase,
-                immediateRender: false
-            }
-        ));
-    }
-
-    function animateEnd() {
-
-        //when animation done, enable the pontianak to shiver
-        if (typeof onAnimateEnd == 'function') {
-            onAnimateEnd(currentFrameNo);
-        }
-    }
-
-};
 
 var triggerIdlePontianak;
 
@@ -600,77 +562,3 @@ sfx[ 'user-fails' ] = new Howl({
 function playSfx(param) {
     sfx[ param ].play();
 }
-/*
-    var folder = 'desktop';
-    var extension = '.mp3';
-    if (Modernizr.mq('(max-width: 769px)')) {
-        folder = 'mobile';
-        extension = '.ogg';
-    }
-
-    console.log( folder, extension );
-
-    switch (param) {
-        case 'enter-game':
-            //TODO:: disable sound for now
-            var snd1 = new Audio();
-            var src1 = document.createElement("source");
-            src1.type = "audio/mpeg";
-            src1.src = "audio/" + folder + "/bgm" + extension;
-            snd1.appendChild(src1);
-            snd1.play();
-
-            // document.getElementById("audio").innerHTML = "<embed src='audio/Bgm.mp3' autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-        case 'take-photo':
-            var snd2 = new Audio();
-            var src2 = document.createElement("source");
-            src2.type = "audio/mpeg";
-            src2.src = "audio/" + folder + "/takephoto" + extension;
-            snd2.appendChild(src2);
-            snd2.play();
-            // document.getElementById("audio").innerHTML = "<embed src='audio/takephoto.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-        case 'jump-scare':
-            var snd3 = new Audio();
-            var src3 = document.createElement("source");
-            src3.type = "audio/mpeg";
-            src3.src = "audio/" + folder + "/jumpscare" + extension;
-            snd3.appendChild(src3);
-            snd3.play();
-            // document.getElementById("audio").innerHTML = "<embed src='audio/jumpscare.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-        case 'pon-appear':
-            var snd4 = new Audio();
-            var src4 = document.createElement("source");
-            src4.type = "audio/mpeg";
-            src4.src = "audio/" + folder + "/pon_appear" + extension;
-            snd4.appendChild(src4);
-            snd4.play();
-            // document.getElementById("audio").innerHTML = "<embed src='audio/pon_appear.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-        case 'pon-dash':
-            var snd5 = new Audio();
-            var src5 = document.createElement("source");
-            src5.type = "audio/mpeg";
-            src5.src = "audio/" + folder + "/pon_dash" + extension;
-            snd5.appendChild(src5);
-            snd5.play();
-            // document.getElementById("audio").innerHTML = "<embed src='audio/pon_dash.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-        case 'user-fails':
-            var snd6 = new Audio();
-            var src6 = document.createElement("source");
-            src6.type = "audio/mpeg";
-            src6.src = "audio/" + folder + "/0016_piano_horror_alerted_d" + extension;
-            snd6.appendChild(src6);
-            snd6.play();
-            // document.getElementById("audio").innerHTML = "<embed src='audio/0016_piano_horror_alerted_d.mp3'  autostart='true' loop='false' volume='100' hidden='true'>";
-            break;
-
-        default:
-    }
-
-    return true;
-}
-*/

@@ -1,17 +1,19 @@
 @charset "UTF-8";
 
 @import "bootstrap";
+@import "mixins";
 
 @import "marzipano-styles";
 @import "menu";
 @import "base";
+@import "components/icons";
 
 @import "components/footer";
 @import "components/equalizer";
 @import "components/tnc";
 
 @import "components/pageLanding";
-@import "components/pageShare";
+// @import "components/pageShare";
 
 
 // @import "och/props";

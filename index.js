@@ -19,6 +19,85 @@
     // var autorotateToggleElement = document.querySelector('#autorotateToggle');
     // var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
+    var AnimateSprite = function (el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
+        if (!el || el.length == 0) return;
+
+        var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
+        var tl = new TimelineMax({
+            onComplete: animateEnd,
+            repeat: repeatAnimate,
+            repeatDelay: 1
+        });
+
+        for (var i = 0, numRows = Math.ceil(totalFrame / numCols); i < numRows; i++) {
+
+            var numFrames = Math.min(numCols, totalFrame - (i * numCols)),
+                steppedEase = new SteppedEase(numFrames - 1);
+
+            tl.append(TweenMax.fromTo(
+                el, duration, {
+                    backgroundPosition: '0 -' + (frameHeight * i) + 'px'
+                }, {
+                    backgroundPosition: '-' + (frameWidth * (numFrames - 1)) + 'px -' + (frameHeight * i) + 'px',
+                    ease: steppedEase,
+                    immediateRender: false
+                }
+            ));
+        }
+
+        function animateEnd() {
+
+            //when animation done, enable the pontianak to shiver
+            if (typeof onAnimateEnd == 'function') {
+                onAnimateEnd(currentFrameNo);
+            }
+        }
+
+    };
+
+    var jumpScare = {
+      scare: function(status) {
+        $('#scare').show();
+        $('.scare-overlay').addClass('active');
+        playSfx( 'jump-scare' );
+
+        if (Modernizr.mq('(max-width: 700px)')) {
+            var element = document.querySelector('#scare');
+            var sprite = new Motio(element, {
+                fps: 18,
+                frames: 10
+            });
+            sprite.to(9);
+
+            shownScare = true;
+
+            sprite.on('frame', function(eventName){
+              if ( this.frame == 9 ) {
+                $('#scare').hide();
+                $('.scare-overlay').removeClass('active');
+              }
+            });
+        } else {
+            AnimateSprite($('#scare'), 974, 1119, 5, 10, 0.5, 0, function(){
+              $('#scare').hide();
+              $('.scare-overlay').removeClass('active');
+            });
+        }
+
+
+        this.timeoutID = undefined;
+      },
+      setup: function() {
+        this.timeoutID = window.setTimeout(function(status) {
+          this.scare(status);
+        }.bind(this), 6000);
+      },
+
+      cancel: function() {
+        window.clearTimeout(this.timeoutID);
+        this.timeoutID = undefined;
+      }
+    };
 
     // Detect whether we are on a touch device.
     document.body.classList.add('no-touch');
@@ -121,40 +200,6 @@
     }
 
     var hasVisitedScareZone = false;
-
-    var jumpScare = {
-      scare: function(status) {
-        $('#scare').show();
-        $('.scare-overlay').addClass('active');
-        playSfx( 'jump-scare' );
-        var element = document.querySelector('#scare');
-        var sprite = new Motio(element, {
-            fps: 18,
-            frames: 10
-        });
-        sprite.to(9);
-
-        shownScare = true;
-
-        sprite.on('frame', function(eventName){
-          if ( this.frame == 9 ) {
-            $('#scare').hide();
-            $('.scare-overlay').removeClass('active');
-          }
-        });
-        this.timeoutID = undefined;
-      },
-      setup: function() {
-        this.timeoutID = window.setTimeout(function(status) {
-          this.scare(status);
-        }.bind(this), 6000);
-      },
-
-      cancel: function() {
-        window.clearTimeout(this.timeoutID);
-        this.timeoutID = undefined;
-      }
-    }
 
     function switchScene(scene) {
 

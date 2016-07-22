@@ -12,18 +12,16 @@
             }
 
         </style>
-        <link rel="stylesheet" href="vendor/reset.min.css">
-        <!-- <link rel="stylesheet" href="vendor/normalize.css"> -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <!-- <link rel="stylesheet" href="styles/menu.css"> -->
+        <!-- <link rel="stylesheet" href="vendor/reset.min.css"> -->
+
+        <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/> -->
+
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/game-och.css">
-        <link rel="stylesheet" href="fonts/edo_regular_macroman/stylesheet.css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900" rel=stylesheet type=text/css>
+
     </head>
 
-    <body ng-controller="bodyCtrl" class="multiple-scenes view-control-buttons game-och">
+    <body ng-controller="bodyCtrl" class="multiple-scenes game-och">
 
         <!-- facebook share  -->
         <script>
@@ -54,15 +52,6 @@
         </script>
 
         <div id="audio"></div>
-        <!-- header -->
-        <!-- <div class="hdr" style="background-color: #000000; height: 55px;">
-            <a class="hdr__logo" href="#/">
-                <img src="img/logo-narrow.png">
-            </a>
-            <a style="height: 55px;" ng-click="menu.active = !menu.active" href="" class="nav__toggle">
-                <span class="icon--menu"></span>
-            </a>
-        </div> -->
 
         <tnc ng-show="tnc.active"></tnc>
         <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
@@ -267,187 +256,96 @@
         </div>
 
         <!-- share -->
-        <div id="pageShare" class="page">
-            <div class="container center-ver-parent">
-                <div class="row center-block">
-                    <div class="col-sm-12 text-center">
-                        <!-- desktop -->
-                        <div class="row visible-sm visible-md visible-lg">
-                            <div class="col-sm-6 codeImage is-static-image">
-                                <div>
-                                    <div class="clueImage">
-                                        <img src="img/code.png" class="centerHor"/>
-                                        <p class="centerInlineHor">
-                                            <span ng-bind-html="getContent( 'code-instruction', true )">
-                                                <!-- Collect all 5 codes to<br/> unlock the final haunting. -->
-                                            </span>
-                                            <!-- Collect all 5 codes to unlock the final haunting -->
-                                            <br/>
-                                            <a href="img/code.png" target="_blank" class="iconDownload black fg-orange">
-                                                {{getContent( 'code-download' )}}
-                                                <!-- DOWNLOAD IMAGE -->
-                                            </a>
+        <div id="pageShare">
+          <!-- for game shares that has background code -->
+            <!-- <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')"> -->
+            <div class="container">
+                <div class="row center-block page__share__row">
+
+                    <div class="col__leaderboard">
+                        <div class="col__leaderboard__inner">
+                            <h1 class="font-trajan-pro fg-whitish">
+                                {{getContent( 'title-share' )}}
+                            </h1>
+                            <h4 class="">
+                                {{getContent( 'intro-share' )}}
+                            </h4>
+                            <div class="content__share__win center-block">
+                                <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
+                                    {{getContent( 'share-and-win' )}}
+                                </h4>
+                                <div class="content__share__win__inner center-hor-block-children">
+                                    <p class="content__share__win__timing">
+                                        {{getContent( 'your-time' )}}
+                                        <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                    </p>
+                                    <div class="content__share__win__socials">
+                                        <a href="#" ng-if="lang == 'en'" class="sprite icon_fb " ng-click="share_facebook()"></a>
+                                        <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter " ng-click="share_twitter()"></a>
+                                        <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo " ng-click="share_weibo()"></a>
+                                    </div>
+                                    <p>
+                                        <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
+                                            {{getContent( 'terms-and-conditions' )}}
+                                        </a>
+                                        {{getContent( 'terms-and-conditions-apply' )}}
+                                    </p>
+                                    <div class="content__share__win__leaderboard">
+                                        <p>
+                                            {{getContent( 'leaderboard' )}}
                                         </p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-sm-6 text-center">
-                                <h1 class="font-trajan-pro fg-whitish margin-bottom-30">
-                                    <!-- Spread The Word Of Evil -->
-                                    {{getContent( 'title-share' )}}
-                                </h1>
-                                <h4 class="margin-bottom-30">
-                                    {{getContent( 'intro-share' )}}
-                                    <!-- Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends. -->
-                                </h4>
-                                <div class="share-win center-block">
-                                    <div>
-                                        <h4 class="font-trajan-pro bold fg-orange">
-                                            {{getContent( 'share-and-win' )}}
-                                            <!-- SHARE &amp; WIN NOW -->
-                                        </h4>
-                                    </div>
-                                    <div class="center-hor-block-children">
-                                        <div>
-                                            <p class="black">
-                                                <!-- YOUR TIME  -->
-                                                {{getContent( 'your-time' )}}
-                                                <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
-                                            </p>
-                                            <div>
-                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
-                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
-                                                <a href="#" ng-if="lang == 'zh'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
-                                            </div>
-                                            <div class="centerInlineHor">
-                                                <!-- <a href="http://stg.craftandcode.com.sg/clients/rws/hhn6/en/#/information/how-to-survive" target="_blank" class="terms-conditions fg-orange"> -->
-                                                <a ng-click="tncToggle()" class="terms-conditions fg-orange">
-                                                    {{getContent( 'terms-and-conditions' )}}
-                                                </a>
-                                                {{getContent( 'terms-and-conditions-apply' )}}
-                                            </div>
-                                        </div>
-                                        <div class="leaderboard topBorderRed">
-                                            <h5 class="black">
-                                                {{getContent( 'leaderboard' )}}
-                                            </h5>
-                                            <div class="row">
-                                                <div class="col-sm-6 bold">
-                                                    <div ng-repeat="entry in entry1to5">
-                                                        <span class="numbering ">
-                                                            {{entry.idxString}}.
-                                                        </span>
-                                                        {{millisToMinutesAndSeconds( entry.time )}}
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 bold">
-                                                    <div ng-repeat="entry in entry2to5">
-                                                        <span class="numbering ">
-                                                            {{entry.idxString}}.
-                                                        </span>
-                                                        {{millisToMinutesAndSeconds( entry.time )}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <a class="iconReplay black fg-orange" onclick="location.reload()">
-                                        {{getContent( 'replay' )}}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                        <div class="row">
 
-                        <!-- mobile -->
-                        <div class="row visible-xs">
-                            <div class="col-sm-12 text-center" style="padding-left:40px; padding-right: 40px;">
-                                <h1 class="font-trajan-pro fg-whitish margin-bottom-30">
-                                    {{getContent( 'title-share' )}}
-                                    <!-- Spread The Word Of Evil -->
-                                </h1>
-                                <h4 class="margin-bottom-30">
-                                    {{getContent( 'intro-share' )}}
-                                    <!-- Stand a chance to win 2 pairs of ticket to Halloween Horror Nights 6 by sharing your survival with friends. -->
-                                </h4>
-                                <div class="share-win center-block">
-                                    <div>
-                                        <h4 class="font-trajan-pro bold fg-orange">
-                                            {{getContent( 'share-and-win' )}}
+                                          <div class="col-xs-6 bold" >
+                                              <div ng-repeat="entry in entryResult">
+                                                <div ng-if="$index < 5" ng-class="{'gray-out': entry.time === 0}">
+                                                  <span class="numbering ">
+                                                      {{entry.idxString}}.
+                                                  </span>
+                                                  {{ millisToMinutesAndSeconds(entry.time) }}
+                                                </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-xs-6 bold" >
+                                              <div ng-repeat="entry in entryResult">
+                                                <div ng-if="$index >= 5" ng-class="{'gray-out': entry.time === 0}">
+                                                  <span class="numbering ">
+                                                      {{entry.idxString}}.
+                                                  </span>
+                                                  {{ millisToMinutesAndSeconds(entry.time) }}
+                                                </div>
+                                              </div>
+                                          </div>
 
-                                            <!-- SHARE &amp; WIN NOW -->
-                                        </h4>
-                                    </div>
-                                    <div class="center-hor-block-children">
-                                        <div>
-                                            <p class="black">
-                                                {{getContent( 'your-time' )}}
-                                                <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
-                                            </p>
-                                            <div>
-                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed facebook " ng-click="share_facebook()"></a>
-                                                <a href="#" ng-if="lang == 'en'" class="iconSocMed twitter " ng-click="share_twitter()"></a>
-                                                <a href="#" ng-if="lang == 'zh'" class="iconSocMed weibo " ng-click="share_weibo()"></a>
-                                            </div>
-                                            <div class="centerInlineHor">
-                                                <a ng-click="tncToggle()" class="terms-conditions fg-orange">
-                                                    {{getContent( 'terms-and-conditions' )}}
-                                                </a>
-                                                {{getContent( 'terms-and-conditions-apply' )}}
-                                            </div>
                                         </div>
-                                        <div class="leaderboard topBorderRed">
-                                            <h5 class="black">
-                                                {{getContent( 'leaderboard' )}}
-                                            </h5>
-                                            <div class="row">
-                                                <div class="col-xs-6 bold">
-                                                    <div ng-repeat="entry in entry1to5">
-                                                        <span class="numbering ">
-                                                            {{entry.idxString}}.
-                                                        </span>
-                                                        {{millisToMinutesAndSeconds( entry.time )}}
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 bold">
-                                                    <div ng-repeat="entry in entry2to5">
-                                                        <span class="numbering ">
-                                                            {{entry.idxString}}.
-                                                        </span>
-                                                        {{millisToMinutesAndSeconds( entry.time )}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row visible-xs">
-                            <div class="col-sm-12 text-center">
-                                <a class="iconReplay black fg-orange" onclick="location.reload()">
-                                    {{getContent( 'replay' )}}
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row visible-xs">
-                            <div class="col-sm-12 text-center">
-                                <img src="img/code.png" class="codeMobile"/>
-                                <div ng-bind-html="getContent( 'code-instruction', true )">
-                                    <!-- Collect all 5 codes to<br/> unlock the final haunting. -->
-                                </div>
-                                <a href="img/code.png" target="_blank" class="iconDownload black fg-orange">
-                                    <!-- DOWNLOAD IMAGE -->
-                                    {{getContent( 'code-download' )}}
-                                </a>
-                            </div>
+                            <p><a class="link__replay" onclick="location.reload()"><span class="sprite icon_replay"></span>
+                                {{getContent( 'replay' )}}
+                            </a></p>
                         </div>
                     </div>
+
+                    <div class="col__code" >
+                        <div class="middle-spacer"></div>
+                        <div class="inner">
+                          <img class="code" src="img/och-code.jpg" />
+                          <div class="col__code__text">
+                            <p ng-bind-html="getContent( 'code-instruction', true )"></p>
+                            <a download="img/code.jpg" href="img/code.jpg" target="_blank" class="link__download">
+                                <span class="sprite icon_download "></span>
+                                {{getContent( 'code-download' )}}
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+
                 </div>
-                <footer class="ftr"></footer>
             </div>
+            <footer class="ftr"></footer>
         </div>
 
         <!-- Marzipano Pano -->
@@ -498,8 +396,10 @@
             <footer class="ftr"></footer>
         </div>
 
-        <div id="scare"></div>
-        <div class="scare-overlay"></div>
+        <div class="scare-container">
+            <div id="scare"></div>
+            <div class="scare-overlay"></div>
+        </div>
 
         <!-- single clue -->
         <div id="cluePlaceholder" class="cluePlaceholder">
@@ -538,11 +438,7 @@
         </script>
         <script src="config.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="vendor/es5-shim.js"></script>
-        <script src="vendor/eventShim.js"></script>
-        <script src="vendor/classList.js"></script>
-        <script src="vendor/requestAnimationFrame.js"></script>
-        <!-- <script src="vendor/screenfull.min.js"></script> -->
+
         <script src="vendor/bowser.min.js"></script>
         <script src="vendor/marzipano.js"></script>
         <script src="vendor/DeviceOrientationControlMethod.js"></script>
@@ -557,6 +453,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.29/howler.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+
         <script src="language.js"></script>
         <script src="controller.js"></script>
         <script src="data.js"></script>

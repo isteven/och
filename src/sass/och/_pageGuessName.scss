@@ -15,6 +15,7 @@
     background-image: url('../img/q1_bg-m.jpg');
     background-size: 768px;
     background-position: center -100px;
+    overflow: hidden;
   }
 }
 
@@ -62,8 +63,11 @@
 #pageGuessName .inputBorder {
     /*border: none;*/
     display: inline-block;
-    font-family: "edoregular", Serif;
-    font-size: 3.2em;
+    // font-family: "edoregular", Serif;
+    font-family: "edo";
+    font-weight: normal;
+    // font-size: 3.2em;
+    @include font-size(50);
     line-height: 0.8;
     color: #45140e;
     background-color: transparent;
@@ -88,7 +92,7 @@
 }
 
 #pageGuessName .guessIntro {
-  height: 72px;
+  height: 91px;
   vertical-align: bottom;
   display: table;
   text-align: center;
@@ -101,7 +105,8 @@
   font-family: "edo",sans-serif;
   font-weight: normal;
   margin-bottom: 5px;
-  font-size: 2.2em;
+  // font-size: 2.2em;
+  @include font-size(30);
 
   &:first-child {
     display: table-cell;
@@ -132,9 +137,9 @@
     width: 300px;
 
 
-    > p {
-      font-weight: bold;
-    }
+    // > p {
+    //   font-weight: bold;
+    // }
 
     .btnBlood {
       padding: 6px 11px;
@@ -145,35 +150,19 @@
     border: none;
     border-bottom: 2px solid #a80101;
     color: #fff;
-    font-size: 200%;
+    // font-size: 200%;
     text-align: center;
 
     border-radius: none;
     margin-right: 10px;
+    @include font-size(32);
 }
 
-
-// @media (min-width: 481px) and (max-width: 767px){
-// 	#pageGuessName .inputBorder{
-//         margin-left: 2px;
-// 	    margin-bottom: 10px;
-// 	    font-size: 2.2em;
-// 	    line-height: 0.8em;
-//     }
-// 	#pageGuessName .inputBorder img{
-//         width: 35px;
-//     }
-//     #pageGuessName h1.font-edo.ng-binding{
-//         font-size: 1.6em;
-//     }
-//     #pageGuessName h1.font-edo.last.ng-binding{
-//         font-size: 1.4em;
-//     }
-// }
 @media (max-width: 480px){
     #pageGuessName .inputBorder {
         margin-left: 1px;
-        font-size: 2.8em;
+        // font-size: 2.8em;
+        @include font-size(44);
         line-height: 0.5;
         margin-top: 10px;
 
@@ -184,7 +173,7 @@
     }
 
     #pageGuessName .guessIntro {
-      height: 70px;
+      height: 86px;
       margin-bottom: 10px;
 
       > h1 {
@@ -201,7 +190,8 @@
 @media (max-width: 320px){
     #pageGuessName .guessIntro {
       > h1 {
-        font-size: 1.5em;
+        // font-size: 1.5em;
+        @include font-size(24);
       }
     }
 }
@@ -212,30 +202,30 @@
 // #pageGuessName .double-column li:first-child {
 //     width: 70%;
 // }
-@media (max-width: 480px) {
-    #pageGuessName > div{
-        top: 45%;
-    }
-    #pageGuessName .double-column li {
-        display: inline-block;
-        width: 30%;
-    }
-    #pageGuessName .double-column li:first-child {
-        display: inline-block;
-        width: 67%;
-    }
-    #pageGuessName .double-column li.pontianakBox {
-        margin-left: -12%;
-    }
-}
-@media (max-width: 320px) {
-    #pageGuessName .double-column li.pontianakBox {
-        margin-left: -16%;
-    }
-}
+// @media (max-width: 480px) {
+//     #pageGuessName > div{
+//         top: 45%;
+//     }
+//     #pageGuessName .double-column li {
+//         display: inline-block;
+//         width: 30%;
+//     }
+//     #pageGuessName .double-column li:first-child {
+//         display: inline-block;
+//         width: 67%;
+//     }
+//     #pageGuessName .double-column li.pontianakBox {
+//         margin-left: -12%;
+//     }
+// }
+// @media (max-width: 320px) {
+//     #pageGuessName .double-column li.pontianakBox {
+//         margin-left: -16%;
+//     }
+// }
 
 
-
+/* PONTIANAK STYLINGS */
 .pontianakBox {
   position: absolute;
   top: 0;
@@ -314,7 +304,7 @@
     height: 635px;
 
     margin-left: -240px;
-    top: 150px;
+    top: 100px;
   }
 
   .pontianakBox > div {
