@@ -572,6 +572,5 @@ sfx[ 'user-fails' ] = new Howl({
 });
 
 function playSfx(param) {
-    // console.log( param );
     sfx[ param ].play();
 }
