@@ -185,7 +185,7 @@
 .scare-overlay.active {
   display: block; }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   #scare {
     width: 389px;
     height: 447px;
@@ -440,185 +440,6 @@
       height: 100%;
       width: 100%; } }
 
-#pageShare {
-  z-index: 10; }
-  #pageShare > .container {
-    width: 1170px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-    @media (max-width: 1200px) and (min-width: 992px) {
-      #pageShare > .container {
-        width: 970px; } }
-    @media (max-width: 991px) and (min-width: 769px) {
-      #pageShare > .container {
-        width: 750px; } }
-    @media (max-width: 768px) {
-      #pageShare > .container {
-        width: 100%;
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none; } }
-    #pageShare > .container.has-background-code {
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 728px; }
-      @media (max-width: 991px) and (min-width: 769px) {
-        #pageShare > .container.has-background-code {
-          background-size: 500px; } }
-      @media (max-width: 768px) {
-        #pageShare > .container.has-background-code {
-          background-image: none !important; } }
-      #pageShare > .container.has-background-code .code {
-        display: none; }
-        @media (max-width: 768px) {
-          #pageShare > .container.has-background-code .code {
-            display: block; } }
-      #pageShare > .container.has-background-code .col__code > .inner {
-        width: 100%;
-        height: 100%; }
-        #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
-          text-align: left;
-          left: auto;
-          right: 80px;
-          bottom: 70px; }
-          @media (max-width: 1200px) and (min-width: 992px) {
-            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
-              right: 0px; } }
-          @media (max-width: 991px) and (min-width: 769px) {
-            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
-              right: 0px;
-              bottom: 100px; } }
-          @media (max-width: 768px) {
-            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
-              left: 0;
-              right: 0;
-              bottom: 0;
-              text-align: center; } }
-  #pageShare .page__share__row {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translate(0%, -50%); }
-    @media (max-width: 768px) {
-      #pageShare .page__share__row {
-        position: relative;
-        top: auto;
-        transform: none; } }
-    #pageShare .page__share__row > div {
-      width: 50%;
-      padding: 0 15px;
-      text-align: center; }
-      @media (max-width: 768px) {
-        #pageShare .page__share__row > div {
-          width: 100%; } }
-  #pageShare .col__leaderboard {
-    position: relative;
-    margin-left: 50%; }
-    @media (max-width: 768px) {
-      #pageShare .col__leaderboard {
-        float: none;
-        margin-left: 0; } }
-  #pageShare .col__leaderboard__inner > h1 {
-    margin-top: 0;
-    margin-bottom: 20px; }
-  #pageShare .col__leaderboard__inner > h4 {
-    margin-bottom: 20px; }
-  #pageShare .col__code {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 50%;
-    text-align: center;
-    font: 0/0 a; }
-    @media (max-width: 768px) {
-      #pageShare .col__code {
-        position: relative;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto; } }
-    #pageShare .col__code > .middle-spacer {
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%; }
-    #pageShare .col__code > .inner {
-      position: relative;
-      vertical-align: middle;
-      display: inline-block;
-      max-height: 100%;
-      max-width: 100%; }
-    #pageShare .col__code > .inner img {
-      width: 80%;
-      margin: 0 auto; }
-      @media (max-width: 991px) and (min-width: 769px) {
-        #pageShare .col__code > .inner img {
-          width: 100%; } }
-      @media (max-width: 700px) {
-        #pageShare .col__code > .inner img {
-          width: 100%; } }
-    #pageShare .col__code > .inner > .col__code__text {
-      font-size: 14px;
-      font-size: 1.4rem;
-      font-family: lato, sans-serif;
-      line-height: 1.2em;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0; }
-      #pageShare .col__code > .inner > .col__code__text .link__download {
-        line-height: 20px;
-        display: inline-block;
-        color: #ffab1a;
-        font-weight: 900; }
-        #pageShare .col__code > .inner > .col__code__text .link__download > span {
-          vertical-align: top;
-          margin-right: 5px; }
-        #pageShare .col__code > .inner > .col__code__text .link__download:hover {
-          color: #e5e5cf; }
-          #pageShare .col__code > .inner > .col__code__text .link__download:hover > span {
-            background-position: -17px -0px; }
-  #pageShare .content__share__win {
-    width: 288px;
-    background-image: url("../img/texture.jpg");
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 15px; }
-    @media (max-width: 700px) {
-      #pageShare .content__share__win {
-        max-width: 768px;
-        width: 100%; } }
-    #pageShare .content__share__win .content__share__win__title {
-      display: inline-block; }
-    #pageShare .content__share__win .content__share__win__inner {
-      width: calc( 100% - 10px );
-      background-color: #000000;
-      display: inline-block;
-      margin: 0 auto 5px;
-      padding: 20px 10px; }
-    #pageShare .content__share__win .content__share__win__timing {
-      font-size: 16px;
-      font-size: 1.6rem;
-      font-weight: 900; }
-    #pageShare .content__share__win .content__share__win__leaderboard {
-      border-top: 1px solid #a80101;
-      margin-top: 20px;
-      padding-top: 20px; }
-      #pageShare .content__share__win .content__share__win__leaderboard > p {
-        font-weight: 900;
-        margin-bottom: 20px; }
-      #pageShare .content__share__win .content__share__win__leaderboard > .row {
-        margin-top: 5px; }
-        #pageShare .content__share__win .content__share__win__leaderboard > .row:first-child {
-          margin-top: 0; }
-    #pageShare .content__share__win .link__terms-conditions {
-      text-decoration: underline; }
-      #pageShare .content__share__win .link__terms-conditions:hover {
-        text-decoration: none; }
-
 #pageGuessName,
 #pageGuessDate,
 #pageShare,
@@ -810,7 +631,7 @@
 #pageGuessName .inputBorder {
   /*border: none;*/
   display: inline-block;
-  font-family: "edoregular", Serif;
+  font-family: "edo";
   font-weight: normal;
   font-size: 50px;
   font-size: 5rem;
@@ -1214,5 +1035,195 @@
 
   #pageFails .ftr__logo img {
     width: 130px; } }
+#pageShare {
+  z-index: 10; }
+  #pageShare > .container {
+    width: 1170px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    @media (max-width: 1200px) and (min-width: 992px) {
+      #pageShare > .container {
+        width: 970px; } }
+    @media (max-width: 991px) and (min-width: 769px) {
+      #pageShare > .container {
+        width: 750px; } }
+    @media (max-width: 768px) {
+      #pageShare > .container {
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none; } }
+    #pageShare > .container.has-background-code {
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 728px; }
+      @media (max-width: 991px) and (min-width: 769px) {
+        #pageShare > .container.has-background-code {
+          background-size: 500px; } }
+      @media (max-width: 768px) {
+        #pageShare > .container.has-background-code {
+          background-image: none !important; } }
+      #pageShare > .container.has-background-code .code {
+        display: none; }
+        @media (max-width: 768px) {
+          #pageShare > .container.has-background-code .code {
+            display: block; } }
+      #pageShare > .container.has-background-code .col__code > .inner {
+        width: 100%;
+        height: 100%; }
+        #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+          text-align: left;
+          left: auto;
+          right: 80px;
+          bottom: 70px; }
+          @media (max-width: 1200px) and (min-width: 992px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px; } }
+          @media (max-width: 991px) and (min-width: 769px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px;
+              bottom: 100px; } }
+          @media (max-width: 768px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              left: 0;
+              right: 0;
+              bottom: 0;
+              text-align: center; } }
+  #pageShare .page__share__row {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%); }
+    @media (max-width: 768px) {
+      #pageShare .page__share__row {
+        position: relative;
+        top: auto;
+        transform: none; } }
+    #pageShare .page__share__row > div {
+      width: 50%;
+      padding: 0 15px;
+      text-align: center; }
+      @media (max-width: 768px) {
+        #pageShare .page__share__row > div {
+          width: 100%; } }
+  #pageShare .col__leaderboard {
+    position: relative;
+    margin-left: 50%; }
+    @media (max-width: 768px) {
+      #pageShare .col__leaderboard {
+        float: none;
+        margin-left: 0; } }
+  #pageShare .col__leaderboard__inner > h1 {
+    margin-top: 0;
+    margin-bottom: 20px; }
+  #pageShare .col__leaderboard__inner > h4 {
+    width: 450px;
+    margin: 0 auto 20px; }
+    @media (max-width: 991px) and (min-width: 769px) {
+      #pageShare .col__leaderboard__inner > h4 {
+        width: 100%; } }
+    @media only screen and (max-width: 700px) {
+      #pageShare .col__leaderboard__inner > h4 {
+        width: 100%; } }
+  #pageShare .col__code {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+    text-align: center;
+    font: 0/0 a; }
+    @media (max-width: 768px) {
+      #pageShare .col__code {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto; } }
+    #pageShare .col__code > .middle-spacer {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }
+    #pageShare .col__code > .inner {
+      position: relative;
+      vertical-align: middle;
+      display: inline-block;
+      max-height: 100%;
+      max-width: 100%; }
+    #pageShare .col__code > .inner img {
+      width: 80%;
+      margin: 0 auto; }
+      @media (max-width: 991px) and (min-width: 769px) {
+        #pageShare .col__code > .inner img {
+          width: 100%; } }
+      @media (max-width: 700px) {
+        #pageShare .col__code > .inner img {
+          width: 100%; } }
+    #pageShare .col__code > .inner > .col__code__text {
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-family: lato, sans-serif;
+      line-height: 1.2em;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      #pageShare .col__code > .inner > .col__code__text .link__download {
+        line-height: 20px;
+        display: inline-block;
+        color: #ffab1a;
+        font-weight: 900; }
+        #pageShare .col__code > .inner > .col__code__text .link__download > span {
+          vertical-align: top;
+          margin-right: 5px; }
+        #pageShare .col__code > .inner > .col__code__text .link__download:hover {
+          color: #e5e5cf; }
+          #pageShare .col__code > .inner > .col__code__text .link__download:hover > span {
+            background-position: -17px -0px; }
+  #pageShare .content__share__win {
+    width: 288px;
+    background-image: url("../img/texture.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 15px; }
+    @media (max-width: 700px) {
+      #pageShare .content__share__win {
+        max-width: 768px;
+        width: 100%; } }
+    #pageShare .content__share__win .content__share__win__title {
+      display: inline-block; }
+    #pageShare .content__share__win .content__share__win__inner {
+      width: calc( 100% - 10px );
+      background-color: #000000;
+      display: inline-block;
+      margin: 0 auto 5px;
+      padding: 20px 10px; }
+    #pageShare .content__share__win .content__share__win__timing {
+      font-size: 16px;
+      font-size: 1.6rem;
+      font-weight: 900; }
+    #pageShare .content__share__win .content__share__win__socials {
+      margin: 10px auto; }
+    #pageShare .content__share__win .content__share__win__leaderboard {
+      border-top: 1px solid #a80101;
+      margin-top: 20px;
+      padding-top: 20px;
+      min-height: 157px; }
+      #pageShare .content__share__win .content__share__win__leaderboard > p {
+        font-weight: 900;
+        margin-bottom: 20px; }
+      #pageShare .content__share__win .content__share__win__leaderboard > .row {
+        margin-top: 5px; }
+        #pageShare .content__share__win .content__share__win__leaderboard > .row:first-child {
+          margin-top: 0; }
+      #pageShare .content__share__win .content__share__win__leaderboard .gray-out {
+        opacity: 0.4; }
+    #pageShare .content__share__win .link__terms-conditions {
+      text-decoration: underline; }
+      #pageShare .content__share__win .link__terms-conditions:hover {
+        text-decoration: none; }
 
 /*# sourceMappingURL=game-och.css.map */

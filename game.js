@@ -360,8 +360,6 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
-
-
         $('#cluePlaceholder').animate({
             height: '20px',
             width: '20px',

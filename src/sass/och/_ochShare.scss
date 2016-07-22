@@ -117,7 +117,18 @@
         margin-bottom: 20px;
       }
       > h4 {
-        margin-bottom: 20px;
+        width: 450px;
+        margin: 0 auto 20px;
+        // margin-bottom: 20px;
+
+        @media (max-width: 991px) and (min-width: 769px) {
+          width: 100%;
+        }
+
+        @include respond-to(700) {
+          width: 100%;
+        }
+
       }
     }
     .col__code {
@@ -234,10 +245,14 @@
             @include font-size(16);
             font-weight: $lato-black;
         }
+        .content__share__win__socials {
+          margin: 10px auto;
+        }
         .content__share__win__leaderboard {
             border-top: 1px solid #a80101;
             margin-top: 20px;
             padding-top: 20px;
+            min-height: 157px;
             > p {
               font-weight: $lato-black;
               margin-bottom: 20px;
@@ -247,6 +262,9 @@
                 &:first-child {
                     margin-top: 0;
                 }
+            }
+            .gray-out {
+              opacity: 0.4;
             }
         }
 

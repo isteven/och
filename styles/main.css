@@ -3745,7 +3745,7 @@ label {
 html, body {
   font-family: lato, sans-serif;
   color: #e5e5cf;
-  font-weight: 600;
+  font-weight: 500;
   /*font-size: 16px !important;*/
   overflow: hidden;
   font-size: 14px;
@@ -4535,7 +4535,8 @@ button {
     height: auto;
     width: auto;
     position: relative;
-    top: -10px; } }
+    top: -10px;
+    background-image: url(../img/landing_blood-m.png); } }
 .blood-bg img {
   max-width: 50px;
   height: auto;

@@ -75,10 +75,33 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         display: false
     }];
 
-    // $scope.entry1to5 = [ { idxString: '00', time: 9090}, { idxString: '00', time: 90}, { idxString: '00', time: 9090}, { idxString: '00', time: 90},   { idxString: '00', time: 90},  ];
-    // $scope.entry2to5 = [ { idxString: '00', time: 9090}, { idxString: '00', time: 90}, { idxString: '00', time: 90909}, { idxString: '00', time: 90},   { idxString: '00', time: 9},  ];
-    $scope.entry1to5 = [];
-    $scope.entry2to5 = [];
+    // $scope.entry1to5 = [
+    //   { idxString: '01', time: 0},
+    //   { idxString: '02', time: 0},
+    //   { idxString: '03', time: 0},
+    //   { idxString: '04', time: 0},
+    //   { idxString: '05', time: 0}  ];
+    // $scope.entry2to5 = [
+    //   { idxString: '06', time: 0},
+    //   { idxString: '07', time: 0},
+    //   { idxString: '08', time: 0},
+    //   { idxString: '09', time: 0},
+    //   { idxString: '10', time: 0}  ];
+
+      $scope.entryResult = [
+        { idxString: '01', time: 0},
+        { idxString: '02', time: 0},
+        { idxString: '03', time: 0},
+        { idxString: '04', time: 0},
+        { idxString: '05', time: 0},
+        { idxString: '06', time: 0},
+        { idxString: '07', time: 0},
+        { idxString: '08', time: 0},
+        { idxString: '09', time: 0},
+        { idxString: '10', time: 0}  ];
+
+    // $scope.entry1to5 = [];
+    // $scope.entry2to5 = [];
 
     var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
     var masterPontianakIdx = 1;
@@ -260,7 +283,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                             document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
-                            showPage('#pageGuessDate');
+                            $('#pageGuessDate').show();
+
+                            showPage('#pageGuessDate .single-column');
+                            // showPage('#pageGuessDate');
                         }, 500);
                     }
 
@@ -308,28 +334,53 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     loadLeaderboard = function() {
+      // console.log('loadleaderboard');
+
+      // var result = [{"id":48,"time":22644},{"id":46,"time":22692},{"id":45,"time":24211},{"id":47,"time":28202},{"id":44,"time":30356},{"id":41,"time":36683},{"id":42,"time":36879},{"id":43,"time":36879}];
+      //
+      // for( var i = 1; i <= 10; i++ ) {
+      //
+      //   if ( result[i] !== undefined ) {
+      //
+      //     $scope.entryResult[i-1].time = result[i].time;
+      //
+      //   }
+      //
+      // }
+
         $http({
             method: 'GET',
             url: configGet('apiUrl') + 'game/board/1',
         }).then(
             function(success) {
-                var idx = 0;
-                angular.forEach(success.data, function(value, key) {
-                    //console.log( value );
-                    var paddedIdx = pad('00', (idx + 1), true);
-                    if (idx < 5) {
-                        $scope.entry1to5.push({
-                            idxString: paddedIdx,
-                            time: value.time
-                        });
-                    } else if (idx < 10) {
-                        $scope.entry2to5.push({
-                            idxString: paddedIdx,
-                            time: value.time
-                        });
-                    }
-                    idx++;
-                });
+                // var idx = 0;
+                // angular.forEach(success.data, function(value, key) {
+                //     //console.log( value );
+                //     var paddedIdx = pad('00', (idx + 1), true);
+                //     if (idx < 5) {
+                //         $scope.entry1to5.push({
+                //             idxString: paddedIdx,
+                //             time: value.time
+                //         });
+                //     } else if (idx < 10) {
+                //         $scope.entry2to5.push({
+                //             idxString: paddedIdx,
+                //             time: value.time
+                //         });
+                //     }
+                //     idx++;
+                // });
+
+                for( var i = 1; i <= 10; i++ ) {
+
+                  if ( success.data[i] !== undefined ) {
+
+                    $scope.entryResult[i-1].time = $scope.millisToMinutesAndSeconds(success.data[i].time);
+
+                  }
+
+                }
+
             },
             function(error) {
                 console.log(error);
@@ -506,6 +557,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         showPage('.emf__container');
         $('.cluesCtr').addClass('active');
 
+        hidePage('#pageGuessDate .single-column');
+
     }
 
 
@@ -524,10 +577,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     // showPage('#pageLanding');
 
-    // $scope.startGame();
-    hidePage( '#pano' );
-    // showPage('#pageGuessName');
-    showPage('#pageShare');
+    $scope.startGame();
+    // hidePage( '#pano' );
+    showPage('#pageGuessName');
+    // showPage('#pageShare');
     // showPage('#pageGuessDate');
     // showPage( '#pageFails');
 
