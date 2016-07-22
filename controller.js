@@ -375,7 +375,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
                   if ( success.data[i] !== undefined ) {
 
-                    $scope.entryResult[i-1].time = $scope.millisToMinutesAndSeconds(success.data[i].time);
+                    $scope.entryResult[i-1].time = success.data[i].time;
 
                   }
 

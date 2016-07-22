@@ -77,8 +77,8 @@ window.languageSet['zh']['code-download'] = '下载图片';
 
 // GAME
 
-window.languageSet['en']['who-am-i'] = '我是谁？';
-window.languageSet['zh']['who-am-i'] = 'zh-who-am-i';
+window.languageSet['en']['who-am-i'] = 'Who Am I';
+window.languageSet['zh']['who-am-i'] = '我是谁？';
 
 window.languageSet['en']['not-in-my-name-1'] = 'THERE\'S NO';
 window.languageSet['zh']['not-in-my-name-1'] = '我的名字里没有';
