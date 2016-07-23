@@ -4747,13 +4747,25 @@ button {
 @media (max-width: 768px) {
   #pageLanding .col-sm-6 {
     margin-bottom: 10px; } }
-#pageLanding .blood-bg {
+#pageLanding .blood-bg.has-4-blocks {
   height: 330px;
   padding: 40px 80px 10px 80px;
   width: 600px; }
   @media (max-width: 768px) {
-    #pageLanding .blood-bg {
+    #pageLanding .blood-bg.has-4-blocks {
       padding: 50px;
+      padding-top: 65px;
+      height: 100%;
+      width: 100%; } }
+#pageLanding .blood-bg.has-3-blocks {
+  height: 250px;
+  padding: 40px 60px 10px 60px;
+  width: 680px; }
+  @media (max-width: 768px) {
+    #pageLanding .blood-bg.has-3-blocks {
+      padding-left: 10%;
+      padding-right: 10%;
+      padding-bottom: 50px;
       padding-top: 65px;
       height: 100%;
       width: 100%; } }
@@ -4774,8 +4786,10 @@ button {
   #pageLanding .col-sm-6 {
     margin-bottom: 10px; }
 
-  #pageLanding .blood-bg {
-    height: 280px; } }
+  #pageLanding .blood-bg.has-4-blocks {
+    height: 280px; }
+  #pageLanding .blood-bg.has-3-blocks {
+    height: 200px; } }
 #pageShare {
   width: 100%;
   min-height: 100%;
