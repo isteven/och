@@ -101,6 +101,12 @@
   margin-bottom: 30px;
 }
 
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
+  #pageGuessName .guessIntro {
+    margin-bottom: 10px;
+  }
+}
+
 #pageGuessName .guessIntro h1 {
   font-family: "edo",sans-serif;
   font-weight: normal;
@@ -331,6 +337,13 @@
     left: 0;
     right: 0;
     margin: 0 auto;
+  }
+}
+
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
+  #pageGuessName .cluesCtr {
+    bottom: 70px;
+    right: 40px;
   }
 }
 

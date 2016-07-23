@@ -88,7 +88,6 @@
                 }
               }
             }
-
           }
 
 
@@ -99,6 +98,12 @@
         position: absolute;
         top: 50%;
         transform: translate(0%, -50%);
+
+        @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+          top: 110px;
+          transform: translate(0);
+        }
+
         @media #{$tablet-and-below} {
             position: relative;
             top: auto;
@@ -133,6 +138,9 @@
         margin: 0 auto 20px;
         line-height: 1.2em;
         // margin-bottom: 20px;
+        @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+          @include font-size(16*0.8);
+        }
 
         @include respond-to(desktop-small) {
           width: 100%;
@@ -212,6 +220,10 @@
             right: 0;
             bottom: 0;
 
+            @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+              @include font-size(14*0.8);
+            }
+
             .link__download {
               line-height: 20px;
               display: inline-block;
@@ -260,21 +272,38 @@
         .content__share__win__timing {
             @include font-size(16);
             font-weight: $lato-bold;
+
+            @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+              @include font-size(16*0.8);
+            }
         }
         .content__share__win__socials {
           margin: 10px auto;
         }
         .terms-conditions {
           @include font-size(12);
+
+          @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+            @include font-size(12*0.8);
+          }
         }
         .content__share__win__leaderboard {
             border-top: 1px solid #a80101;
             margin-top: 20px;
             padding-top: 20px;
             min-height: 157px;
+
+            @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+              min-height: auto;
+              margin-top: 10px;
+              padding-top: 10px;
+            }
             > p {
               font-weight: $lato-bold;
               margin-bottom: 20px;
+              @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+                margin-bottom: 10px;
+              }
             }
             > .row {
                 margin-top: 5px;
@@ -283,7 +312,10 @@
                 }
             }
             .timings {
-              margin-bottom: 5px;
+              margin-top: 5px;
+              &:first-child {
+                margin-top: 0;
+              }
             }
             .gray-out {
               opacity: 0.4;

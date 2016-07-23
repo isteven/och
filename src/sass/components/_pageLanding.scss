@@ -27,6 +27,19 @@
     }
 }
 
+// @media #{$fallback-tablet-height-screens} {
+//     .blood-bg {
+//         height: auto;
+//         width: auto;
+//
+//         position: relative;
+//         top: -10px;
+//         // margin-top: 20px;
+//
+//         background-image: url( ../img/landing_blood-m.png );
+//     }
+// }
+
 .blood-bg img {
     max-width: 50px;
     height: auto;
@@ -139,7 +152,7 @@
 }
 
 
-@media #{$short-height-screens} {
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
     #pageLanding {
         .row-landing-content {
             position: relative;
@@ -149,13 +162,9 @@
     }
 
     #pageLanding .content-title-block {
-      // > h1 {
-      //     margin: 0;
-      //     margin-bottom: 10px;
-      // }
-
       .landing__intro {
-          margin-bottom: 20px;
+          margin-bottom: 0px;
+          @include font-size(16*0.8);
       }
     }
 
@@ -164,7 +173,7 @@
     }
 
     #pageLanding .blood-bg {
-      height: 300px;
+      height: 280px;
     }
 
 }

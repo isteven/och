@@ -16,10 +16,14 @@ html, body {
     // font-size: 16px;
     @include font-size(14);
     line-height: 1.2em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+      @include font-size(14*0.8);
+    }
 }
 @media (max-width: 768px){
     html, body{
-        overflow: auto;
+        overflow-y: auto;
     }
 }
 
@@ -30,6 +34,10 @@ h1 {
     text-transform: capitalize;
     opacity: 1 !important;
     line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(30*0.8);
+    }
 }
 
 h2 {
@@ -38,6 +46,10 @@ h2 {
     // font-weight: 600;
     text-transform: capitalize;
     line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(20*0.8);
+    }
 }
 
 h3 {
@@ -46,6 +58,10 @@ h3 {
     // font-weight: 600;
     text-transform: capitalize;
     line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h4 {
@@ -53,17 +69,29 @@ h4 {
     line-height: 1.1em;
     // font-size: 16px;
     // line-height: 16px;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h5 {
     // font-size: 14px;
     @include font-size(14);
     line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(14*0.8);
+    }
 }
 
 h6 {
     @include font-size(12);
     line-height: normal;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(12*0.8);
+    }
 }
 
 .font-italic {

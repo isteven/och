@@ -33,6 +33,10 @@
     right: 10px;
     width: 80px;
     height: 80px; } }
+@media (min-width: 769px) and (max-height: 700px) {
+  .cluesCtr {
+    bottom: 70px;
+    right: 40px; } }
 .cluesCtr.is-max .clue-glow {
   width: 50%;
   height: 50%;
@@ -792,6 +796,9 @@
   width: 100%;
   margin-bottom: 30px; }
 
+@media (min-width: 769px) and (max-height: 700px) {
+  #pageGuessName .guessIntro {
+    margin-bottom: 10px; } }
 #pageGuessName .guessIntro h1 {
   font-family: "edo",sans-serif;
   font-weight: normal;
@@ -974,6 +981,10 @@
     left: 0;
     right: 0;
     margin: 0 auto; } }
+@media (min-width: 769px) and (max-height: 700px) {
+  #pageGuessName .cluesCtr {
+    bottom: 70px;
+    right: 40px; } }
 .guess-overlay {
   position: absolute;
   left: 0;

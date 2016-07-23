@@ -40,6 +40,12 @@
     height: 80px;
   }
 }
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
+  .cluesCtr {
+    bottom: 70px;
+    right: 40px;
+  }
+}
 
 .cluesCtr.is-max .clue-glow {
   // background-color: #cc0a00;
