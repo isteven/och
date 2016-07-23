@@ -1,3 +1,7 @@
+/**dropping*/
+/**dropping*/
+/**dropping*/
+/**dropping*/
 /*
 *  Fake clues Section
 *
@@ -1327,27 +1331,30 @@
   #pageShare .col__leaderboard__inner > h1 {
     margin-top: 0;
     margin-bottom: 20px; }
-  #pageShare .col__leaderboard__inner > h4 {
+  #pageShare .col__leaderboard__inner > .col__leaderboard__intro {
+    font-size: 16px;
+    font-size: 1.6rem;
     width: 450px;
-    margin: 0 auto 20px; }
+    margin: 0 auto 20px;
+    line-height: 1.2em; }
     @media (max-width: 991px) and (min-width: 769px) {
-      #pageShare .col__leaderboard__inner > h4 {
+      #pageShare .col__leaderboard__inner > .col__leaderboard__intro {
         width: 100%; } }
     @media only screen and (max-width: 700px) {
-      #pageShare .col__leaderboard__inner > h4 {
+      #pageShare .col__leaderboard__inner > .col__leaderboard__intro {
         width: 100%; } }
   #pageShare .col__leaderboard__inner .link__replay {
     line-height: 20px;
     display: inline-block;
     color: #ffab1a;
-    font-weight: 900; }
+    font-weight: 700; }
     #pageShare .col__leaderboard__inner .link__replay > span {
       vertical-align: top;
       margin-right: 5px; }
     #pageShare .col__leaderboard__inner .link__replay:hover {
       color: #e5e5cf; }
       #pageShare .col__leaderboard__inner .link__replay:hover > span {
-        background-position: -210px -0px; }
+        background-position: -211px -0px; }
   #pageShare .col__code {
     position: absolute;
     top: 0;
@@ -1386,6 +1393,7 @@
       font-size: 14px;
       font-size: 1.4rem;
       font-family: lato, sans-serif;
+      font-weight: 300;
       line-height: 1.2em;
       position: absolute;
       left: 0;
@@ -1395,7 +1403,7 @@
         line-height: 20px;
         display: inline-block;
         color: #ffab1a;
-        font-weight: 900; }
+        font-weight: 700; }
         #pageShare .col__code > .inner > .col__code__text .link__download > span {
           vertical-align: top;
           margin-right: 5px; }
@@ -1416,7 +1424,7 @@
     #pageShare .content__share__win .content__share__win__title {
       display: inline-block; }
     #pageShare .content__share__win .content__share__win__inner {
-      width: calc( 100% - 10px );
+      width: calc( 100% - 8px );
       background-color: #000000;
       display: inline-block;
       margin: 0 auto 5px;
@@ -1424,21 +1432,26 @@
     #pageShare .content__share__win .content__share__win__timing {
       font-size: 16px;
       font-size: 1.6rem;
-      font-weight: 900; }
+      font-weight: 700; }
     #pageShare .content__share__win .content__share__win__socials {
       margin: 10px auto; }
+    #pageShare .content__share__win .terms-conditions {
+      font-size: 12px;
+      font-size: 1.2rem; }
     #pageShare .content__share__win .content__share__win__leaderboard {
       border-top: 1px solid #a80101;
       margin-top: 20px;
       padding-top: 20px;
       min-height: 157px; }
       #pageShare .content__share__win .content__share__win__leaderboard > p {
-        font-weight: 900;
+        font-weight: 700;
         margin-bottom: 20px; }
       #pageShare .content__share__win .content__share__win__leaderboard > .row {
         margin-top: 5px; }
         #pageShare .content__share__win .content__share__win__leaderboard > .row:first-child {
           margin-top: 0; }
+      #pageShare .content__share__win .content__share__win__leaderboard .timings {
+        margin-bottom: 5px; }
       #pageShare .content__share__win .content__share__win__leaderboard .gray-out {
         opacity: 0.4; }
     #pageShare .content__share__win .link__terms-conditions {

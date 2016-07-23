@@ -1,7 +1,16 @@
+//Typography
+$lato-light: 300;
+//$lato-regular: 400;  /**dropping*/
+//$lato-medium: 500;  /**dropping*/
+//$lato-semibold: 600;  /**dropping*/
+$lato-bold: 700;
+//$lato-black: 900;  /**dropping*/
+
+
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: $lato-regular;
+    font-weight: $lato-light;
     /*font-size: 16px !important;*/
     overflow: hidden;
     // font-size: 16px;
@@ -20,6 +29,7 @@ h1 {
     // font-weight: 600;
     text-transform: capitalize;
     opacity: 1 !important;
+    line-height: 1.1em;
 }
 
 h2 {
@@ -27,6 +37,7 @@ h2 {
     @include font-size(20);
     // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
 }
 
 h3 {
@@ -34,10 +45,12 @@ h3 {
     @include font-size(16);
     // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
 }
 
 h4 {
     @include font-size(16);
+    line-height: 1.1em;
     // font-size: 16px;
     // line-height: 16px;
 }
@@ -45,11 +58,13 @@ h4 {
 h5 {
     // font-size: 14px;
     @include font-size(14);
+    line-height: 1.1em;
 }
 
 h6 {
     // font-size: 12px;
     @include font-size(12);
+    line-height: 1.1em;
 }
 
 .margin-bottom-30 {
@@ -185,7 +200,7 @@ a:hover {
         // font-size: 14px;
         @include font-size(14);
         // line-height: 18px;
-        font-weight: $lato-semibold;
+        font-weight: $lato-light;
     }
     .centerInlineHor .guessBox > p {
         // font-size: 14px;

@@ -3106,8 +3106,7 @@ body {
   font-size: 14px;
   font-size: 1.4rem;
   font-family: Lato, sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased; }
+  font-weight: 400; }
 
 a, body {
   color: #e5e5cf; }
@@ -3745,7 +3744,7 @@ label {
 html, body {
   font-family: lato, sans-serif;
   color: #e5e5cf;
-  font-weight: 400;
+  font-weight: 300;
   /*font-size: 16px !important;*/
   overflow: hidden;
   font-size: 14px;
@@ -3759,29 +3758,35 @@ h1 {
   font-size: 30px;
   font-size: 3rem;
   text-transform: capitalize;
-  opacity: 1 !important; }
+  opacity: 1 !important;
+  line-height: 1.1em; }
 
 h2 {
   font-size: 20px;
   font-size: 2rem;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  line-height: 1.1em; }
 
 h3 {
   font-size: 16px;
   font-size: 1.6rem;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  line-height: 1.1em; }
 
 h4 {
   font-size: 16px;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  line-height: 1.1em; }
 
 h5 {
   font-size: 14px;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  line-height: 1.1em; }
 
 h6 {
   font-size: 12px;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  line-height: 1.1em; }
 
 .margin-bottom-30 {
   margin-bottom: 30px; }
@@ -3890,7 +3895,7 @@ a:hover {
     padding: 20px 30px;
     font-size: 14px;
     font-size: 1.4rem;
-    font-weight: 600; }
+    font-weight: 300; }
 
   .centerInlineHor .guessBox > p {
     font-size: 14px;
@@ -4024,7 +4029,7 @@ a:hover {
 .sprite {
   background-image: url(../img/sprites/icons.png);
   background-repeat: no-repeat;
-  background-size: 547px;
+  background-size: 548px;
   display: inline-block; }
 
 .icon_download {
@@ -4033,7 +4038,7 @@ a:hover {
   background-position: -0px -0px; }
 
 .icon_replay {
-  width: 16px;
+  width: 17px;
   height: 20px;
   background-position: -194px -0px; }
 
@@ -4047,16 +4052,16 @@ a:hover {
 .icon_twitter {
   width: 80px;
   height: 44px;
-  background-position: -227px -0px; }
+  background-position: -228px -0px; }
   .icon_twitter:hover {
-    background-position: -307px -0px; }
+    background-position: -308px -0px; }
 
 .icon_weibo {
   width: 80px;
   height: 44px;
-  background-position: -387px -0px; }
+  background-position: -388px -0px; }
   .icon_weibo:hover {
-    background-position: -467px -0px; }
+    background-position: -468px -0px; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
   .sprite {

@@ -267,9 +267,9 @@
                             <h1 class="font-trajan-pro fg-whitish">
                                 {{getContent( 'title-share' )}}
                             </h1>
-                            <h4 class="">
+                            <p class="col__leaderboard__intro">
                                 {{getContent( 'intro-share' )}}
-                            </h4>
+                            </p>
                             <div class="content__share__win center-block">
                                 <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
                                     {{getContent( 'share-and-win' )}}
@@ -284,7 +284,7 @@
                                         <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter " ng-click="share_twitter()"></a>
                                         <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo " ng-click="share_weibo()"></a>
                                     </div>
-                                    <p>
+                                    <p class="terms-conditions">
                                         <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
                                             {{getContent( 'terms-and-conditions' )}}
                                         </a>
@@ -298,7 +298,7 @@
                                         <div class="row">
 
                                           <div class="col-xs-6 bold" >
-                                              <div ng-repeat="entry in entryResult">
+                                              <div class="timings" ng-repeat="entry in entryResult">
                                                 <div ng-if="$index < 5" ng-class="{'gray-out': entry.time === 0}">
                                                   <span class="numbering ">
                                                       {{entry.idxString}}.
@@ -308,7 +308,7 @@
                                               </div>
                                           </div>
                                           <div class="col-xs-6 bold" >
-                                              <div ng-repeat="entry in entryResult">
+                                              <div class="timings" ng-repeat="entry in entryResult">
                                                 <div ng-if="$index >= 5" ng-class="{'gray-out': entry.time === 0}">
                                                   <span class="numbering ">
                                                       {{entry.idxString}}.

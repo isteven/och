@@ -116,9 +116,11 @@
         margin-top: 0;
         margin-bottom: 20px;
       }
-      > h4 {
+      > .col__leaderboard__intro {
+        @include font-size(16);
         width: 450px;
         margin: 0 auto 20px;
+        line-height: 1.2em;
         // margin-bottom: 20px;
 
         @media (max-width: 991px) and (min-width: 769px) {
@@ -128,14 +130,12 @@
         @include respond-to(700) {
           width: 100%;
         }
-
       }
-
       .link__replay {
         line-height: 20px;
         display: inline-block;
         color: #ffab1a;
-        font-weight: $lato-black;
+        font-weight: $lato-bold;
 
         > span {
           vertical-align: top;
@@ -145,7 +145,7 @@
         &:hover {
           color: #e5e5cf;
           > span {
-            background-position: -210px -0px;
+            background-position: -211px -0px;
           }
         }
 
@@ -194,6 +194,7 @@
         > .inner > .col__code__text {
             @include font-size(14);
             font-family: lato, sans-serif;
+            font-weight: $lato-light;
             line-height: 1.2em;
             position: absolute;
             left: 0;
@@ -204,7 +205,7 @@
               line-height: 20px;
               display: inline-block;
               color: #ffab1a;
-              font-weight: $lato-black;
+              font-weight: $lato-bold;
 
               > span {
                 vertical-align: top;
@@ -255,7 +256,7 @@
             display: inline-block;
         }
         .content__share__win__inner {
-            width: calc( 100% - 10px );
+            width: calc( 100% - 8px );
             // width: 70%;
             background-color: #000000;
             display: inline-block;
@@ -264,10 +265,13 @@
         }
         .content__share__win__timing {
             @include font-size(16);
-            font-weight: $lato-black;
+            font-weight: $lato-bold;
         }
         .content__share__win__socials {
           margin: 10px auto;
+        }
+        .terms-conditions {
+          @include font-size(12);
         }
         .content__share__win__leaderboard {
             border-top: 1px solid #a80101;
@@ -275,7 +279,7 @@
             padding-top: 20px;
             min-height: 157px;
             > p {
-              font-weight: $lato-black;
+              font-weight: $lato-bold;
               margin-bottom: 20px;
             }
             > .row {
@@ -283,6 +287,9 @@
                 &:first-child {
                     margin-top: 0;
                 }
+            }
+            .timings {
+              margin-bottom: 5px;
             }
             .gray-out {
               opacity: 0.4;

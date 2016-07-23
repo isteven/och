@@ -1,10 +1,3 @@
-//Typography
-$lato-regular: 400;
-$lato-medium: 500;
-$lato-semibold: 600;
-$lato-bold: 700;
-$lato-black: 900;
-
 @mixin font-size($sizeValue: 12) {
   font-size:  $sizeValue + px;
   font-size: ($sizeValue / 10) + rem;
@@ -19,8 +12,8 @@ $desktop-medium-max: $desktop-large-min - 1;
 $desktop-medium-min: 1280px;
 $tablet-max: 1024px;
 $tablet-min: 737px;
-$tablet-portrait-min: 414px;
-$tablet-portrait-max: 736px;
+// $tablet-portrait-min: 414px;
+// $tablet-portrait-max: 736px;
 $mobile-max: 736px;
 
 @mixin respond-to($media) {
