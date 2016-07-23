@@ -4146,7 +4146,14 @@ a:hover {
   background-image: url("../img/transparent.png"); }
 
 .preloader {
-  z-index: 10; }
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  overflow: visible; }
   .preloader__wrapper {
     position: relative;
     width: 100%;

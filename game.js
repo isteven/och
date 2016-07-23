@@ -562,7 +562,6 @@ sfx[ 'enter-game' ] = new Howl({
     src: [ 'audio/mp3/bgm.mp3'],
     loop: true
 });
-
 sfx[ 'take-photo' ] = new Howl({
     src: ['audio/mp3/takephoto.mp3']
 });

@@ -224,21 +224,6 @@
           jumpScare.setup();
         }
     }
-    //
-    // function updateSceneName(scene) {
-    //     sceneNameElement.innerHTML = sanitize(scene.data.name);
-    // }
-    //
-    // function updateSceneList(scene) {
-    //     for (var i = 0; i < sceneElements.length; i++) {
-    //         var el = sceneElements[i];
-    //         if (el.getAttribute('data-id') === scene.data.id) {
-    //             el.classList.add('current');
-    //         } else {
-    //             el.classList.remove('current');
-    //         }
-    //     }
-    // }
 
     function createLinkHotspotElement(hotspot) {
 

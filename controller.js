@@ -655,7 +655,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //  on first load, show preloader first and load the assets
     showPage('.preloader');
     loadManifest();
-    // showPage('#pageLanding');
+    showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );

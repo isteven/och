@@ -56,8 +56,8 @@
         <tnc ng-show="tnc.active"></tnc>
         <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
 
-        <!-- <div class="header" style="background-color: white; height: 100px; width: 100%; position: absolute; top: 0; z-index: 1000;"></div> -->
-        <div class="preloader" class="page">
+        <!-- Preloader:: can to be replicated, JS source in controller.js -->
+        <div class="preloader">
           <div class="centerElement text-center">
             <div class="preloader__wrapper">
               <div class="preloader__circle"></div>
@@ -81,6 +81,11 @@
                         </p>
                     </div>
 
+                    <!--
+                      Game intro has 2 varies:
+                    -  has-3-blocks
+                    -  has-4-blocks
+                    -->
                     <div class="blood-bg center-block has-4-blocks">
                         <div class="row">
                             <div class="col-sm-12">
@@ -133,7 +138,7 @@
         </div>
 
         <!-- fail -->
-        <div id="pageFails">
+        <div id="pageFails" class="page">
             <div class="centerElement centerInlineHor">
                 <h1 class="font-trajan-pro fg-whitish" ng-bind-html="getContent( 'title-fail', true )">
 
