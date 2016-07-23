@@ -1,0 +1,78 @@
+{
+    "images": [
+      "sprites/emf.png",
+      "sprites/icons.png",
+      "sprites/icons-2x.png",
+      "sprites/scare.jpg",
+      "sprites/scare-m.png",
+      "transparent.png",
+      "texture.jpg",
+      "texture_inactive.jpg",
+
+      "landing_bg.jpg",
+      "landing_bg-m.png",
+      "landing_blood-m.png",
+      "landing_blood.png",
+      "icon_camera.png",
+      "icon_clues.png",
+      "icon_search.png",
+      "icon_timer.png",
+      "icon-close-light.png",
+      "icon-close.png",
+
+      "och/0-scene-1/f.jpg",
+      "och/0-scene-1/u.jpg",
+      "och/0-scene-1/d.jpg",
+      "och/0-scene-1/l.jpg",
+      "och/0-scene-1/r.jpg",
+      "och/0-scene-1/b.jpg",
+      "och/0-scene-2/f.jpg",
+      "och/0-scene-2/u.jpg",
+      "och/0-scene-2/d.jpg",
+      "och/0-scene-2/l.jpg",
+      "och/0-scene-2/r.jpg",
+      "och/0-scene-2/b.jpg",
+      "och/0-scene-3/f.jpg",
+      "och/0-scene-3/u.jpg",
+      "och/0-scene-3/d.jpg",
+      "och/0-scene-3/l.jpg",
+      "och/0-scene-3/r.jpg",
+      "och/0-scene-3/b.jpg",
+      "emf-bg.png",
+      "clue.png",
+      "link.png",
+      "overlay.png",
+      "icon_camera_ingame.png",
+      "photo_clue_blank.png",
+      "photo_clue_1.jpg",
+      "photo_clue_2.jpg",
+      "photo_clue_3.jpg",
+      "photo_clue_4.jpg",
+      "photo_clue_5.jpg",
+
+      "scene-0-props/scene1_b_light.png",
+
+      "q1_bg-m.jpg",
+      "q1_bg.png",
+      "dash.png",
+
+      "01_ponappear.png",
+      "02_ponwait.png",
+      "03_ponturn_1.png",
+      "04_ponwait_1.png",
+      "05_ponturn_2.png",
+      "06_ponwait_2.png",
+      "07_ponturn_3.png",
+      "08_ponwait_3.png",
+      "09_pondash_480.png",
+      "09_pondash-m.png",
+      "09_pondash.png",
+
+      "och-code.jpg",
+
+      "m_fail_bg.jpg",
+      "fail_bg.jpg"
+
+    ]
+
+}

@@ -576,7 +576,86 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $scope.$broadcast('tnc.toggle');
     }
 
-    showPage('#pageLanding');
+
+    var loadManifest = function($data, callback) {
+
+      $http({
+          method: 'GET',
+          url: 'manifest/manifest-och.json',
+      }).then(
+          function(success) {
+              loadImages(success.data);
+              // console.log(success.data);
+          },
+          function(error) {
+              console.log(error);
+          }
+      );
+
+    };
+
+    var loadImages = function($data) {
+
+      var count = 0;
+
+      angular.forEach( $data.images, function( value, key ){
+
+        var img = new Image();
+
+        img.onload = function(){
+          count++;
+          if ( count === $data.images.length ) {
+            //after loading images, proceed to load audios
+            loadAudios();
+          }
+        };
+
+        img.src = 'img/'+value;
+
+      });
+
+    };
+
+    var audioFiles = [
+        "audio/mp3/bgm.mp3",
+        "audio/mp3/takephoto.mp3",
+        "audio/mp3/jumpscare.mp3",
+        "audio/mp3/pon_appear.mp3",
+        "audio/mp3/pon_dash.mp3",
+        "audio/mp3/fail.mp3"
+    ];
+
+    function preloadAudio(url) {
+        var audio = new Audio();
+        // once this file loads, it will call loadedAudio()
+        // the file will be kept by the browser as cache
+        audio.addEventListener('canplaythrough', loadedAudio, false);
+        audio.src = url;
+    }
+
+    var loaded = 0;
+    function loadedAudio() {
+        // this will be called every time an audio file is loaded
+        // we keep track of the loaded files vs the requested files
+        loaded++;
+        if (loaded == audioFiles.length){
+        	// all have loaded
+          hidePage('.preloader');
+          showPage('#pageLanding');
+        }
+    }
+
+    var loadAudios = function() {
+
+      for (var i in audioFiles) {
+          preloadAudio(audioFiles[i]);
+      }
+    };
+
+    //  on first load, show preloader first and load the assets
+    showPage('.preloader');
+    loadManifest();
+    // showPage('#pageLanding');
 
     // $scope.startGame();
     // hidePage( '#pano' );

@@ -56,7 +56,17 @@
         <tnc ng-show="tnc.active"></tnc>
         <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
 
-        <div class="header" style="background-color: white; height: 100px; width: 100%; position: absolute; top: 0; z-index: 1000;"></div>
+        <!-- <div class="header" style="background-color: white; height: 100px; width: 100%; position: absolute; top: 0; z-index: 1000;"></div> -->
+        <div class="preloader" class="page">
+          <div class="centerElement text-center">
+            <div class="preloader__wrapper">
+              <div class="preloader__circle"></div>
+              <span class="preloader__icon"></span>
+            </div>
+            <p>Please plug in headphones and turn up volume for the best experience.</p>
+          </div>
+        </div>
+
         <!-- page landing -->
         <div id="pageLanding">
             <div class="container">

@@ -133,7 +133,7 @@
     var scenes = APP_DATA.scenes.map(function(sceneData) {
 
         var source = Marzipano.ImageUrlSource.fromString(
-            "tiles/" + sceneData.id + "/{f}.jpg" );
+            "img/och/" + sceneData.id + "/{f}.jpg" );
 
         // var geometry = new Marzipano.CubeGeometry(sceneData.levels);
         var geometry = new Marzipano.CubeGeometry([{ tileSize: 1024, size: 1024 }]);
