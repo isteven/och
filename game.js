@@ -568,7 +568,7 @@ sfx[ 'pon-dash' ] = new Howl({
     src: ['audio/mp3/pon_dash.mp3']
 });
 sfx[ 'user-fails' ] = new Howl({
-    src: ['audio/mp3/0100_ambient_background_loop_creepy_drone_wind_1_01.mp3']
+    src: ['audio/mp3/fail.mp3']
 });
 
 function playSfx(param) {

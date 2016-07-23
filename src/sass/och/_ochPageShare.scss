@@ -1,0 +1,7 @@
+.game-och {
+  #pageShare {
+    @media #{$tablet-and-below} {
+      padding-bottom: 0px;
+    }
+  }
+}

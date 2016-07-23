@@ -14,7 +14,7 @@
 
 }
 
-@media (max-width: 768px) {
+@media #{$tablet-and-below} {
     .blood-bg {
         height: auto;
         width: auto;
@@ -33,7 +33,7 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+@media #{$tablet-and-below} {
     .blood-bg img {
         max-width: 60px;
         height: auto;
@@ -60,7 +60,7 @@
     position: absolute;
     z-index: 40;
 
-    @media (max-width: 768px) {
+    @media #{$tablet-and-below} {
       background-image: url( ../img/landing_bg-m.png );
     }
 
@@ -68,7 +68,7 @@
       position: absolute;
       overflow: visible;
 
-      @media (max-width: 768px) {
+      @media #{$tablet-and-below} {
         overflow: auto;
       }
     }
@@ -81,7 +81,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
 
-      @media (max-width: 768px) {
+      @media #{$tablet-and-below} {
         position: static;
         transform: none;
         overflow: auto;
@@ -104,11 +104,11 @@
       line-height: 1.2em;
     }
 
-    @media (max-width: 768px) {
+    @media #{$tablet-and-below} {
         width: 80%;
     }
 
-    @media (max-width: 480px) {
+    @media #{$small-mobile} {
         width: 100%;
     }
 }
@@ -118,7 +118,7 @@
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
+@media #{$tablet-and-below} {
   #pageLanding .col-sm-6 {
     margin-bottom: 10px;
   }
@@ -130,10 +130,41 @@
     padding: 40px 80px 10px 80px;
     width: 600px;
 
-    @media (max-width: 768px) {
+    @media #{$tablet-and-below} {
         padding: 50px;
         padding-top: 65px;
         height: 100%;
         width: 100%;
     }
+}
+
+
+@media #{$short-height-screens} {
+    #pageLanding {
+        .row-landing-content {
+            position: relative;
+            top: 100px;
+            transform: translate(-50%, 0%);
+        }
+    }
+
+    #pageLanding .content-title-block {
+      // > h1 {
+      //     margin: 0;
+      //     margin-bottom: 10px;
+      // }
+
+      .landing__intro {
+          margin-bottom: 20px;
+      }
+    }
+
+    #pageLanding .col-sm-6 {
+      margin-bottom: 10px;
+    }
+
+    #pageLanding .blood-bg {
+      height: 300px;
+    }
+
 }

@@ -606,19 +606,22 @@
     #pano .link-hotspot-tooltip:hover {
       transform: none; }
 
+#pageClues {
+  z-index: 100; }
+  @media (max-width: 767px) {
+    #pageClues {
+      overflow: hidden; } }
+
 #pageClues > div > img {
   width: 30%;
   height: auto;
   margin-left: 10px; }
-
-@media (max-width: 480px) {
-  #pageClues > div > img {
-    width: 40%;
-    height: auto;
-    margin-left: 10px;
-    margin-bottom: 10px; } }
-#pageClues {
-  z-index: 100; }
+  @media (max-width: 480px) {
+    #pageClues > div > img {
+      width: 40%;
+      height: auto;
+      margin-left: 10px;
+      margin-bottom: 10px; } }
 
 #pageClues .clue-overlay {
   position: absolute;
@@ -633,39 +636,52 @@
 
 #pageClues .centerElement {
   padding: 0; }
+  @media only screen and (min-width: 1201px) {
+    #pageClues .centerElement {
+      width: 1000px; } }
+  @media only screen and (max-width: desktop-largepx) {
+    #pageClues .centerElement {
+      width: 1000px; } }
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    #pageClues .centerElement {
+      width: 900px; } }
+  @media only screen and (max-width: desktop-mediumpx) {
+    #pageClues .centerElement {
+      width: 900px; } }
+  @media only screen and (min-width: 769px) and (max-width: 991px) {
+    #pageClues .centerElement {
+      position: absolute;
+      top: 50%;
+      left: auto;
+      transform: translate(0, -50%); } }
+  @media only screen and (max-width: desktop-smallpx) {
+    #pageClues .centerElement {
+      position: absolute;
+      top: 50%;
+      left: auto;
+      transform: translate(0, -50%); } }
+  @media (max-width: 768px) {
+    #pageClues .centerElement {
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute; } }
+  @media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+    #pageClues .centerElement {
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute; } }
+  @media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #pageClues .centerElement {
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute; } }
 
-@media (min-width: 1050px) {
-  #pageClues .centerElement {
-    width: 1000px; } }
-@media (max-width: 1000px) {
-  #pageClues .centerElement {
-    left: auto;
-    transform: translate(0, -50%); } }
-@media (max-width: 900px) {
-  #pageClues .centerElement {
-    position: absolute;
-    top: 50%; } }
-@media (max-width: 768px) {
-  #pageClues .centerElement {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute; } }
-@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
-  #pageClues .centerElement {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute; } }
-@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #pageClues .centerElement {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute; } }
 .closeButtonRed {
   display: none;
   position: absolute;
@@ -678,21 +694,22 @@
 
 #pageClues .closeButtonRed {
   position: fixed; }
+  @media (min-width: 600px) {
+    #pageClues .closeButtonRed {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: 0;
+      right: 4px; } }
+  @media (max-width: 768px) {
+    #pageClues .closeButtonRed {
+      top: -40px; } }
 
 @media (min-width: 600px) {
-  #pageClues .closeButtonRed {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 0;
-    right: 4px; }
-
   #pageClues img {
     width: 30%;
     padding: 0 5px; } }
-@media (max-width: 768px) {
-  #pageClues .closeButtonRed {
-    top: -40px; } }
+
 #pageClues .btnBlood {
   margin-top: 30px; }
 
@@ -1126,10 +1143,10 @@
   height: 100%;
   position: absolute;
   z-index: 50; }
+  @media (max-width: 768px) {
+    #pageFails {
+      background-image: url(../img/m_fail_bg.jpg); } }
 
-@media (max-width: 768px) {
-  #pageFails {
-    background-image: url(../img/m_fail_bg.jpg); } }
 #pageFails .centerElement {
   top: 50%;
   left: 50%;
@@ -1149,5 +1166,8 @@
 
   #pageFails .ftr__logo img {
     width: 130px; } }
+@media (max-width: 768px) {
+  .game-och #pageShare {
+    padding-bottom: 0px; } }
 
 /*# sourceMappingURL=game-och.css.map */

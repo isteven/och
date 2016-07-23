@@ -4683,22 +4683,45 @@ button {
       height: 100%;
       width: 100%; } }
 
+@media (max-height: 700px) {
+  #pageLanding .row-landing-content {
+    position: relative;
+    top: 100px;
+    transform: translate(-50%, 0%); }
+
+  #pageLanding .content-title-block .landing__intro {
+    margin-bottom: 20px; }
+
+  #pageLanding .col-sm-6 {
+    margin-bottom: 10px; }
+
+  #pageLanding .blood-bg {
+    height: 300px; } }
 #pageShare {
   width: 100%;
   min-height: 100%;
   position: absolute;
   background-color: #000000;
   z-index: 10; }
+  @media (max-width: 768px) {
+    #pageShare {
+      height: auto; } }
   #pageShare > .container {
     width: 1170px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
-    @media (max-width: 1200px) and (min-width: 992px) {
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
       #pageShare > .container {
         width: 970px; } }
-    @media (max-width: 991px) and (min-width: 769px) {
+    @media only screen and (max-width: desktop-mediumpx) {
+      #pageShare > .container {
+        width: 970px; } }
+    @media only screen and (min-width: 769px) and (max-width: 991px) {
+      #pageShare > .container {
+        width: 750px; } }
+    @media only screen and (max-width: desktop-smallpx) {
       #pageShare > .container {
         width: 750px; } }
     @media (max-width: 768px) {
@@ -4712,7 +4735,10 @@ button {
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 728px; }
-      @media (max-width: 991px) and (min-width: 769px) {
+      @media only screen and (min-width: 769px) and (max-width: 991px) {
+        #pageShare > .container.has-background-code {
+          background-size: 500px; } }
+      @media only screen and (max-width: desktop-smallpx) {
         #pageShare > .container.has-background-code {
           background-size: 500px; } }
       @media (max-width: 768px) {
@@ -4731,10 +4757,17 @@ button {
           left: auto;
           right: 80px;
           bottom: 70px; }
-          @media (max-width: 1200px) and (min-width: 992px) {
+          @media only screen and (min-width: 992px) and (max-width: 1200px) {
             #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
               right: 0px; } }
-          @media (max-width: 991px) and (min-width: 769px) {
+          @media only screen and (max-width: desktop-mediumpx) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px; } }
+          @media only screen and (min-width: 769px) and (max-width: 991px) {
+            #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
+              right: 0px;
+              bottom: 100px; } }
+          @media only screen and (max-width: desktop-smallpx) {
             #pageShare > .container.has-background-code .col__code > .inner .col__code__text {
               right: 0px;
               bottom: 100px; } }
@@ -4777,7 +4810,10 @@ button {
     width: 450px;
     margin: 0 auto 20px;
     line-height: 1.2em; }
-    @media (max-width: 991px) and (min-width: 769px) {
+    @media only screen and (min-width: 769px) and (max-width: 991px) {
+      #pageShare .col__leaderboard__inner > .col__leaderboard__intro {
+        width: 100%; } }
+    @media only screen and (max-width: desktop-smallpx) {
       #pageShare .col__leaderboard__inner > .col__leaderboard__intro {
         width: 100%; } }
     @media only screen and (max-width: 700px) {
@@ -4823,10 +4859,13 @@ button {
     #pageShare .col__code > .inner img {
       width: 80%;
       margin: 0 auto; }
-      @media (max-width: 991px) and (min-width: 769px) {
+      @media only screen and (min-width: 769px) and (max-width: 991px) {
         #pageShare .col__code > .inner img {
           width: 100%; } }
-      @media (max-width: 700px) {
+      @media only screen and (max-width: desktop-smallpx) {
+        #pageShare .col__code > .inner img {
+          width: 100%; } }
+      @media only screen and (max-width: 700px) {
         #pageShare .col__code > .inner img {
           width: 100%; } }
     #pageShare .col__code > .inner > .col__code__text {
@@ -4857,7 +4896,7 @@ button {
     background-position: center;
     background-size: cover;
     margin-bottom: 15px; }
-    @media (max-width: 700px) {
+    @media only screen and (max-width: 700px) {
       #pageShare .content__share__win {
         max-width: 768px;
         width: 100%; } }

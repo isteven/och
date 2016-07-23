@@ -6,10 +6,16 @@
 
 //Media Queries
 $tablet-and-below: "(max-width: 768px)";
+$mobile-only: "(max-width: 767px)";
+$small-mobile: "(max-width: 480px)";
 
-$desktop-large-min: 1440px;
+$short-height-screens: "(max-height: 700px)";
+
+$desktop-large-min: 1201px;
 $desktop-medium-max: $desktop-large-min - 1;
-$desktop-medium-min: 1280px;
+$desktop-medium-min: 992px;
+$desktop-small-max: $desktop-medium-min - 1;
+$desktop-small-min: 769px;
 $tablet-max: 1024px;
 $tablet-min: 737px;
 // $tablet-portrait-min: 414px;
@@ -27,8 +33,8 @@ $mobile-max: 736px;
       @content;
     }
   }
-  @else if $media == "desktop" {
-    @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  @else if $media == "desktop-small" {
+    @media only screen and (min-width: $desktop-small-min) and (max-width: $desktop-small-max) {
       @content;
     }
   }

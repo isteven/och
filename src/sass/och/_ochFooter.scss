@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media #{$mobile-only} {
   #pageLanding, #pageShare {
     .ftr {
       position: relative;

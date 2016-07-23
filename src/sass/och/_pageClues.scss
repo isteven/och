@@ -1,94 +1,68 @@
+#pageClues {
+    z-index: 100;
+    @media #{$mobile-only} {
+        overflow: hidden;
+    }
+}
 #pageClues > div > img {
     width: 30%;
     height: auto;
     margin-left: 10px;
+    @media #{$small-mobile} {
+        width: 40%;
+        height: auto;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
 }
-@media (max-width: 480px){
-	#pageClues > div > img {
-	    width: 40%;
-	    height: auto;
-	    margin-left: 10px;
-	    margin-bottom: 10px;
-	}
-}
-
-#pageClues {
-    z-index: 100;
-}
-
 #pageClues .clue-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: #000000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #000000;
 }
-
 #pageClues .slick-slider .slick-slide {
-  padding: 0 5px;
+    padding: 0 5px;
 }
-
-
 #pageClues .centerElement {
-  padding: 0;
-}
+    padding: 0;
+    @include respond-to(desktop-large) {
+        width: 1000px;
+    }
+    @include respond-to(desktop-medium) {
+        width: 900px;
+    }
+    @include respond-to(desktop-small) {
+        position: absolute;
+        top: 50%;
+        left: auto;
+        transform: translate(0, -50%);
+    }
+    @media #{$tablet-and-below} {
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        // overflow: hidden;
+    }
 
-@media (min-width: 1050px) {
-  #pageClues .centerElement {
-    width: 1000px;
-  }
-}
-
-@media (max-width: 1000px){
-  #pageClues .centerElement {
-    left: auto;
-    transform: translate(0, -50%);
-  }
-}
-
-@media (max-width: 900px){
-  #pageClues .centerElement {
-    // left: auto;
-    // transform: translate(0, -50%);
-    position: absolute;
-    top: 50%;
-  }
-}
-
-@media (max-width: 768px){
-  #pageClues .centerElement {
-    // left: auto;
-    // transform: translate(0, -50%);
-    // position: absolute;
-    // top: 50%;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-}
-
-@include respond-to("tablet-p") {
-  #pageClues .centerElement {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-
-  }
-}
-
-@include respond-to("tablet-ls") {
-  #pageClues .centerElement {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
+    @include respond-to("tablet-p") {
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+    @include respond-to("tablet-ls") {
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
 }
 
 .closeButtonRed {
@@ -101,36 +75,29 @@
     background-size: cover;
     background-image: url('../img/icon-close.png');
 }
-
 #pageClues .closeButtonRed {
-  position: fixed;
+    position: fixed;
+
+    @media (min-width: 600px) {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 0;
+        right: 4px;
+    }
+
+    @media #{$tablet-and-below} {
+        top: -40px;
+    }
 }
 
-@media (min-width: 600px) {
-  #pageClues .closeButtonRed {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 0;
-    right: 4px;
-  }
-  #pageClues img {
-    width: 30%;
-    padding: 0 5px;
-  }
+#pageClues img {
+    @media (min-width: 600px) {
+        width: 30%;
+        padding: 0 5px;
+    }
 }
-
-@media (max-width: 768px){
-  #pageClues .closeButtonRed {
-    // left: auto;
-    // transform: translate(0, -50%);
-    // position: absolute;
-    // top: 50%;
-    top: -40px;
-  }
-}
-
 
 #pageClues .btnBlood {
-  margin-top: 30px;
+    margin-top: 30px;
 }
