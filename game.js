@@ -287,6 +287,7 @@ var hidePage = function(page) {
     $(page).fadeOut();
 };
 
+//  GAME:: TAKE PHOTO
 $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
     // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
@@ -359,7 +360,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
 });
 
-
+//  GAME:: CLOSE THE CLUE MODAL WHEN CLICK/DRAG ON BODY
 $('#pano').on('click touchstart', function() {
 
     if ($('#cluePlaceholder').hasClass('active-clue-placeholder')) {
@@ -368,6 +369,7 @@ $('#pano').on('click touchstart', function() {
 
 });
 
+//  GAME:: CLOSE THE CLUE IMAGE
 $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
@@ -406,6 +408,7 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
 });
 
+//  GAME:: FOUND ALL THE CLUES, PROCEED TO GUESS NAME SECTION
 $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
     e.preventDefault();
     hidePage('#cluePlaceholder');
@@ -414,6 +417,7 @@ $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
     jumpScare.cancel(); //cancel off the jumpscare
 });
 
+//  GAME:: TRIGGER TO DISPLAY THE CLUES MODAL FOUND SO FAR
 var showClues = function() {
     var allCluesFound = 0;
     $('#pageClues .closeButtonRed').show();
@@ -476,6 +480,7 @@ function initSlick() {
 
 var triggerIdlePontianak;
 
+//  GUESSNAME:: DISABLE ENTER BUTTON IF PONTIANAK IS STILL ANIMATING
 function enableEnterButton(pontianakIdx) {
     $('#pageGuessName').find('.btnBlood').addClass('active');
 
@@ -505,6 +510,7 @@ function enableEnterButton(pontianakIdx) {
 
 }
 
+//  GUESSNAME:: ANIMATE PONTIANAK IF GUESSED WRONG LETTER
 function animatePontianakError(triesLeft, haveWaiting) {
 
     $('.pontianakBox > div').hide();
@@ -539,6 +545,7 @@ function animatePontianakError(triesLeft, haveWaiting) {
 
 }
 
+//  GUESSNAME:: ANIMATE LAST PONTIANAK FOR GUESSDATE SECTION
 function animatePontianakSpecial() {
     $('.pontianakSpecial').show();
 
@@ -557,6 +564,8 @@ function animatePontianakSpecial() {
     }
 }
 
+
+//  SOUND FOR WHOLE GAMEPLAY
 var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
     src: [ 'audio/mp3/bgm.mp3'],

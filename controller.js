@@ -577,6 +577,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
 
+    /*
+    *   PRELOADER FOR IMAGES AND AUDIOS
+    */
     var loadManifest = function($data, callback) {
 
       $http({
@@ -641,7 +644,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         if (loaded == audioFiles.length){
         	// all have loaded
           hidePage('.preloader');
-          showPage('#pageLanding');
+          // showPage('#pageLanding');
         }
     }
 
