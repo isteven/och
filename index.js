@@ -59,7 +59,7 @@
       scare: function(status) {
         $('#scare').show();
         $('.scare-overlay').addClass('active');
-        // playSfx( 'jump-scare' );
+        playSfx( 'jump-scare' );
         shownScare = true;
 
         if (Modernizr.mq('(max-width: 700px)')) {
