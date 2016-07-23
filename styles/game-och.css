@@ -117,7 +117,7 @@
   display: none;
   margin-top: 20px; }
   #cluePlaceholder .finale-copy > p {
-    font-weight: 900; }
+    font-weight: 700; }
   #cluePlaceholder .finale-copy.active {
     display: block; }
 
@@ -628,6 +628,10 @@
   #pageLanding .content-title-block > h1 {
     margin-bottom: 20px;
     line-height: 1.1em; }
+  #pageLanding .content-title-block .landing__intro {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.2em; }
   @media (max-width: 768px) {
     #pageLanding .content-title-block {
       width: 80%; } }
@@ -776,7 +780,7 @@
   background-image: url("../img/texture_inactive.jpg");
   background-repeat: no-repeat;
   border: none;
-  font-weight: 900;
+  font-weight: 700;
   color: #878787 !important;
   -webkit-transition: all .5s ease-out;
   -moz-transition: all .5s ease-out;
@@ -1120,7 +1124,7 @@
     left: 0;
     margin-left: 0; } }
 #pageGuessDate .single-column .centerVer .guess-date-title {
-  font-weight: 600;
+  font-weight: 300;
   color: #cc0a00;
   font-size: 22px;
   font-size: 2.2rem; }

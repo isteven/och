@@ -48,6 +48,11 @@
       line-height: 1.1em;
     }
 
+    .landing__intro {
+      @include font-size(16);
+      line-height: 1.2em;
+    }
+
     @media (max-width: 768px) {
         width: 80%;
     }

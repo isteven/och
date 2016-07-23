@@ -70,7 +70,7 @@
 }
 #pageGuessDate .single-column .centerVer .guess-date-title {
     // font-size: 22px;
-    font-weight: 600;
+    font-weight: $lato-light;
     color: #cc0a00;
     @include font-size(22);
 }
@@ -108,7 +108,7 @@
     // font-weight: bold;
     border-right: 1px solid #a80101;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: $lato-bold;
     // font-size: 20px;
     @include font-size(20);
     line-height: 1em;
