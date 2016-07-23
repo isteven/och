@@ -162,6 +162,8 @@
     }
 
     #pageLanding .content-title-block {
+      width: 550px;
+      
       .landing__intro {
           margin-bottom: 0px;
           @include font-size(16*0.8);

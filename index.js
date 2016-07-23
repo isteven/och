@@ -59,7 +59,8 @@
       scare: function(status) {
         $('#scare').show();
         $('.scare-overlay').addClass('active');
-        playSfx( 'jump-scare' );
+        // playSfx( 'jump-scare' );
+        shownScare = true;
 
         if (Modernizr.mq('(max-width: 700px)')) {
             var element = document.querySelector('#scare');
@@ -68,8 +69,6 @@
                 frames: 10
             });
             sprite.to(9);
-
-            shownScare = true;
 
             sprite.on('frame', function(eventName){
               if ( this.frame == 9 ) {
@@ -211,8 +210,12 @@
           jumpScare.cancel(); //clear timeout for jumpscare
         }
 
+        console.log(shownScare);
+
         if (scene.data.id == '0-scene-1' ) {
           $('.prop-hotspot-light').addClass('active');
+        } else {
+          $('.prop-hotspot-light').removeClass('active');
         }
 
         //  JAC: hide jump scare for time being...
@@ -220,11 +223,6 @@
           hasVisitedScareZone = true;
           jumpScare.setup();
         }
-
-        if (scene.data.id == '0-scene-3' ) {
-
-        }
-
     }
     //
     // function updateSceneName(scene) {

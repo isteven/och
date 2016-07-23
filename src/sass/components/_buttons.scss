@@ -16,6 +16,11 @@
     -moz-transition: all .5s ease-out;
     transition: all .5s ease-out;
 
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+      height: 32px;
+      line-height: 30px;
+    }
+
 
 }
 .btnBlood.active {

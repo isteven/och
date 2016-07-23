@@ -259,25 +259,33 @@ var showPanoCenter = function() {
     $(".realclue .panoCenter").fadeIn("slow", "swing", function() {
         // Animation complete
     });
-}
+};
 
 var hidePanoCenter = function() {
     $(".realclue .panoCenter").fadeOut("slow", "swing", function() {
         // Animation complete
     });
-}
+};
 
 var showFakeClue = function() {
     $(".fakeclue .panoCenter").fadeIn("slow", "swing", function() {
         // Animation complete
     });
-}
+};
 
 var hideFakeClue = function() {
     $(".fakeclue .panoCenter").fadeOut("slow", "swing", function() {
         // Animation complete
     });
-}
+};
+
+var showPage = function(newPage) {
+    $(newPage).fadeIn();
+};
+
+var hidePage = function(page) {
+    $(page).fadeOut();
+};
 
 $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
@@ -312,6 +320,8 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
       } else {
         //  FOUND FAKE CLUES
           canClick[clueId - 1] = false;
+          $('#cluePlaceholder').find('.finale-copy').removeClass('active');
+
           $('#cluePlaceholder').fadeIn(function() {
               $(this).addClass('active-clue-placeholder');
 
@@ -362,6 +372,12 @@ $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
     if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
+      $('#cluePlaceholder > .closeButtonRed').hide();
+
+      if ( $('#cluePlaceholder').find('.finale-copy').hasClass('active') ) {
+          $('#cluePlaceholder').find('.finale-copy').hide();
+      }
+
       $('#cluePlaceholder > img').stop(true, false).animate({
         opacity: 0,
         width: $('#cluePlaceholder > img').width()/4+'px',
@@ -397,15 +413,6 @@ $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
 
     jumpScare.cancel(); //cancel off the jumpscare
 });
-
-
-var showPage = function(newPage) {
-    $(newPage).fadeIn();
-}
-
-var hidePage = function(page) {
-    $(page).fadeOut();
-}
 
 var showClues = function() {
     var allCluesFound = 0;
@@ -549,6 +556,7 @@ function animatePontianakSpecial() {
 
     }
 }
+
 var sfx = {};
 sfx[ 'enter-game' ] = new Howl({
     src: [ 'audio/mp3/bgm.mp3'],

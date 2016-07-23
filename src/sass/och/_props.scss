@@ -180,7 +180,19 @@
     	width: 60%;
 	}
 }
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
+  .cluePlaceholder img {
+    width: 60%;
+  }
+}
+
 @media (max-width: 767px){
+  #cluePlaceholder .closeButtonRed {
+    right: 24%;
+  }
+}
+
+@media #{$short-height-screens-width} and #{$short-height-screens-max} {
   #cluePlaceholder .closeButtonRed {
     right: 24%;
   }

@@ -4133,6 +4133,10 @@ a:hover {
   -webkit-transition: all .5s ease-out;
   -moz-transition: all .5s ease-out;
   transition: all .5s ease-out; }
+  @media (min-width: 769px) and (max-height: 700px) {
+    .btnBlood {
+      height: 32px;
+      line-height: 30px; } }
 
 .btnBlood.active {
   background-image: url("../img/texture.jpg");
@@ -4717,10 +4721,12 @@ button {
     top: 100px;
     transform: translate(-50%, 0%); }
 
-  #pageLanding .content-title-block .landing__intro {
-    margin-bottom: 0px;
-    font-size: 12.8px;
-    font-size: 1.28rem; }
+  #pageLanding .content-title-block {
+    width: 550px; }
+    #pageLanding .content-title-block .landing__intro {
+      margin-bottom: 0px;
+      font-size: 12.8px;
+      font-size: 1.28rem; }
 
   #pageLanding .col-sm-6 {
     margin-bottom: 10px; }
