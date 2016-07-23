@@ -105,7 +105,7 @@ window.languageSet['en']['how-many-nights'] = 'How many nights will Halloween Ho
 window.languageSet['zh']['how-many-nights'] = '万圣节惊魂夜6现场活动<br>将持续多久？';
 
 window.languageSet['en']['collected-all-clue-copy'] = 'You have collected all the clues.';
-window.languageSet['zh']['collected-all-clue-copy'] = 'zh-collected-all-clue-copy';
+window.languageSet['zh']['collected-all-clue-copy'] = '你已收集所有线索';
 
 window.languageSet['en']['guess-name-button'] = 'GUESS THE NAME NOW';
 window.languageSet['zh']['guess-name-button'] = '猜测姓名';
