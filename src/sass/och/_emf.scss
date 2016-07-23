@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-@media (max-width: 480px){
+@media #{$small-mobile} {
 	.emf__container {
 		top: 85%;
 	}

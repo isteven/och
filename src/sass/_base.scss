@@ -1,16 +1,29 @@
+//Typography
+$lato-light: 300;
+//$lato-regular: 400;  /**dropping*/
+//$lato-medium: 500;  /**dropping*/
+//$lato-semibold: 600;  /**dropping*/
+$lato-bold: 700;
+//$lato-black: 900;  /**dropping*/
+
+
 html, body {
     font-family: lato, sans-serif;
     color: #e5e5cf;
-    font-weight: $lato-regular;
+    font-weight: $lato-light;
     /*font-size: 16px !important;*/
     overflow: hidden;
     // font-size: 16px;
     @include font-size(14);
     line-height: 1.2em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+      @include font-size(14*0.8);
+    }
 }
 @media (max-width: 768px){
     html, body{
-        overflow: auto;
+        overflow-y: auto;
     }
 }
 
@@ -20,6 +33,11 @@ h1 {
     // font-weight: 600;
     text-transform: capitalize;
     opacity: 1 !important;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(30*0.8);
+    }
 }
 
 h2 {
@@ -27,6 +45,11 @@ h2 {
     @include font-size(20);
     // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(20*0.8);
+    }
 }
 
 h3 {
@@ -34,34 +57,65 @@ h3 {
     @include font-size(16);
     // font-weight: 600;
     text-transform: capitalize;
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h4 {
     @include font-size(16);
+    line-height: 1.1em;
     // font-size: 16px;
     // line-height: 16px;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(16*0.8);
+    }
 }
 
 h5 {
     // font-size: 14px;
     @include font-size(14);
+    line-height: 1.1em;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(14*0.8);
+    }
 }
 
 h6 {
-    // font-size: 12px;
     @include font-size(12);
+    line-height: normal;
+
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+        @include font-size(12*0.8);
+    }
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-edo {
+    font-family: "edoregular", sans-serif;
+}
+.font-trajan-pro {
+    font-family: "trajan-pro-3", courier;
 }
 
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
-
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
 .margin-bottom-15 {
     margin-bottom: 15px;
 }
-
-.font-trajan-pro {
-    font-family: "trajan-pro-3", courier;
+.margin-bottom-10 {
+    margin-bottom: 10px;
 }
 
 .fg-whitish {
@@ -185,7 +239,7 @@ a:hover {
         // font-size: 14px;
         @include font-size(14);
         // line-height: 18px;
-        font-weight: $lato-semibold;
+        font-weight: $lato-light;
     }
     .centerInlineHor .guessBox > p {
         // font-size: 14px;
@@ -305,6 +359,7 @@ a:hover {
 .center-ver-parent {
     display: flex;
     justify-content: center;
+    -ms-justify-content : center;
     align-items: center;
 }
 @media (max-width: 768px) {
@@ -313,6 +368,16 @@ a:hover {
         justify-content: center;
         align-items:flex-start;
     }
+    .bloodBox.center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.center-ver-parent-fix {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-ver-hor-parent {

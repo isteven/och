@@ -60,6 +60,7 @@
         $('#scare').show();
         $('.scare-overlay').addClass('active');
         playSfx( 'jump-scare' );
+        shownScare = true;
 
         if (Modernizr.mq('(max-width: 700px)')) {
             var element = document.querySelector('#scare');
@@ -68,8 +69,6 @@
                 frames: 10
             });
             sprite.to(9);
-
-            shownScare = true;
 
             sprite.on('frame', function(eventName){
               if ( this.frame == 9 ) {
@@ -100,15 +99,16 @@
     };
 
     // Detect whether we are on a touch device.
-    document.body.classList.add('no-touch');
-    window.addEventListener('touchstart', function() {
-        document.body.classList.remove('no-touch');
-        document.body.classList.add('touch');
-    });
+    // document.body.classList.add('no-touch');
+    // window.addEventListener('touchstart', function() {
+    //     document.body.classList.remove('no-touch');
+    //     document.body.classList.add('touch');
+    // });
 
     // Use tooltip fallback mode on IE < 11.
     if (bowser.msie && parseFloat(bowser.version) < 11) {
-        document.body.classList.add('tooltip-fallback');
+        // document.body.classList.add('tooltip-fallback');
+        $('body').addClass('tooltip-fallback');
     }
 
     // Viewer options.
@@ -210,8 +210,12 @@
           jumpScare.cancel(); //clear timeout for jumpscare
         }
 
+        console.log(shownScare);
+
         if (scene.data.id == '0-scene-1' ) {
           $('.prop-hotspot-light').addClass('active');
+        } else {
+          $('.prop-hotspot-light').removeClass('active');
         }
 
         //  JAC: hide jump scare for time being...
@@ -219,11 +223,6 @@
           hasVisitedScareZone = true;
           jumpScare.setup();
         }
-
-        if (scene.data.id == '0-scene-3' ) {
-
-        }
-
     }
     //
     // function updateSceneName(scene) {

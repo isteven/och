@@ -8,10 +8,9 @@
     height: 100%;
     position: absolute;
     z-index: 50;
-}
-@media (max-width: 768px) {
-    #pageFails {
-        background-image: url( ../img/m_fail_bg.jpg );
+
+    @media #{$tablet-and-below} {
+      background-image: url( ../img/m_fail_bg.jpg );
     }
 }
 

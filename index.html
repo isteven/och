@@ -56,6 +56,7 @@
         <tnc ng-show="tnc.active"></tnc>
         <a href="" ng-show="tnc.active && tnc.init" ng-class="{'init':tnc.init}" class="fade tnc__close icon--close" ng-click="tnc.active = false"></a>
 
+        <div class="header" style="background-color: white; height: 100px; width: 100%; position: absolute; top: 0; z-index: 1000;"></div>
         <!-- page landing -->
         <div id="pageLanding">
             <div class="container">
@@ -66,14 +67,14 @@
                             <!-- Old Changi Hospital -->
                         </h1>
 
-                        <h4 class="margin-bottom-30" ng-bind-html="getContent('intro', true)">
-                        </h4>
+                        <p class="margin-bottom-30 landing__intro" ng-bind-html="getContent('intro', true)">
+                        </p>
                     </div>
 
-                    <div class="blood-bg center-block">
+                    <div class="blood-bg center-block has-4-blocks">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p class="fg-orange black" ng-bind-html="getContent('instruction', true)">
+                                <p class="fg-orange bold" ng-bind-html="getContent('instruction', true)">
                                     <!-- TO SURVIVE THIS TEST, YOU MUST KNOW EVIL BY NAME -->
                                 </p>
                             </div>
@@ -149,7 +150,7 @@
             </div>
         </div>
         <!-- guess name -->
-        <div id="pageGuessName">
+        <div id="pageGuessName" class="page">
             <div class="inner">
                 <div class="single-column">
 
@@ -227,7 +228,7 @@
         <div class="guess-overlay"></div>
 
         <!-- guess date -->
-        <div id="pageGuessDate">
+        <div id="pageGuessDate" class="page">
             <div class="inner">
                 <div class="single-column">
                     <div class="centerVer centerInlineHor">
@@ -236,8 +237,8 @@
                             {{ getContent( 'not-yet-over' ) }}
 
                         </h5>
-                        <h3 class="centerInlineHor">
-                            {{ getContent( 'how-many-nights' ) }}
+                        <h3 class="centerInlineHor" ng-bind-html="getContent( 'how-many-nights', true )">
+                            <!-- {{ getContent( 'how-many-nights' ) }} -->
                             <!-- How many nights will Halloween Horror Nights 6 be held? -->
                         </h3>
                         <div>
@@ -256,7 +257,7 @@
         </div>
 
         <!-- share -->
-        <div id="pageShare">
+        <div id="pageShare" class="page">
           <!-- for game shares that has background code -->
             <!-- <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')"> -->
             <div class="container">
@@ -267,9 +268,9 @@
                             <h1 class="font-trajan-pro fg-whitish">
                                 {{getContent( 'title-share' )}}
                             </h1>
-                            <h4 class="">
+                            <p class="col__leaderboard__intro">
                                 {{getContent( 'intro-share' )}}
-                            </h4>
+                            </p>
                             <div class="content__share__win center-block">
                                 <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
                                     {{getContent( 'share-and-win' )}}
@@ -284,7 +285,7 @@
                                         <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter " ng-click="share_twitter()"></a>
                                         <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo " ng-click="share_weibo()"></a>
                                     </div>
-                                    <p>
+                                    <p class="terms-conditions">
                                         <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
                                             {{getContent( 'terms-and-conditions' )}}
                                         </a>
@@ -298,7 +299,7 @@
                                         <div class="row">
 
                                           <div class="col-xs-6 bold" >
-                                              <div ng-repeat="entry in entryResult">
+                                               <div class="timings" ng-repeat="entry in entryResult | limitTo: 5">
                                                 <div ng-if="$index < 5" ng-class="{'gray-out': entry.time === 0}">
                                                   <span class="numbering ">
                                                       {{entry.idxString}}.
@@ -308,8 +309,8 @@
                                               </div>
                                           </div>
                                           <div class="col-xs-6 bold" >
-                                              <div ng-repeat="entry in entryResult">
-                                                <div ng-if="$index >= 5" ng-class="{'gray-out': entry.time === 0}">
+                                              <div class="timings" ng-repeat="entry in entryResult" ng-if="$index >= 5">
+                                                <div ng-class="{'gray-out': entry.time === 0}">
                                                   <span class="numbering ">
                                                       {{entry.idxString}}.
                                                   </span>
@@ -414,7 +415,7 @@
             </div>
         </div>
 
-        <div id="pageClues">
+        <div id="pageClues" class="page">
             <div class="centerElement centerInlineHor">
                 <a href="#" class="closeButtonRed"></a>
                 <div class="clues">
@@ -438,7 +439,11 @@
         </script>
         <script src="config.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script src="vendor/classList.js"></script>
         <script src="vendor/bowser.min.js"></script>
         <script src="vendor/marzipano.js"></script>
         <script src="vendor/DeviceOrientationControlMethod.js"></script>
@@ -448,11 +453,8 @@
         <!-- <script src="vendor/codebird.js"></script> -->
 
         <script src="https://platform.twitter.com/widgets.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.29/howler.min.js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+
+
 
         <script src="language.js"></script>
         <script src="controller.js"></script>
