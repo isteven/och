@@ -88,17 +88,18 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //   { idxString: '09', time: 0},
     //   { idxString: '10', time: 0}  ];
 
-      $scope.entryResult = [
-        { idxString: '01', time: 0},
-        { idxString: '02', time: 0},
-        { idxString: '03', time: 0},
-        { idxString: '04', time: 0},
-        { idxString: '05', time: 0},
-        { idxString: '06', time: 0},
-        { idxString: '07', time: 0},
-        { idxString: '08', time: 0},
-        { idxString: '09', time: 0},
-        { idxString: '10', time: 0}  ];
+    $scope.entryResult = [
+      { idxString: '01', time: 0},
+      { idxString: '02', time: 0},
+      { idxString: '03', time: 0},
+      { idxString: '04', time: 0},
+      { idxString: '05', time: 0},
+      { idxString: '06', time: 0},
+      { idxString: '07', time: 0},
+      { idxString: '08', time: 0},
+      { idxString: '09', time: 0},
+      { idxString: '10', time: 0}
+    ];
 
     // $scope.entry1to5 = [];
     // $scope.entry2to5 = [];

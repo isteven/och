@@ -62,21 +62,32 @@ h5 {
 }
 
 h6 {
-    // font-size: 12px;
     @include font-size(12);
-    line-height: 1.1em;
+    line-height: normal;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-edo {
+    font-family: "edoregular", sans-serif;
+}
+.font-trajan-pro {
+    font-family: "trajan-pro-3", courier;
 }
 
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
-
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
 .margin-bottom-15 {
     margin-bottom: 15px;
 }
-
-.font-trajan-pro {
-    font-family: "trajan-pro-3", courier;
+.margin-bottom-10 {
+    margin-bottom: 10px;
 }
 
 .fg-whitish {
@@ -320,6 +331,7 @@ a:hover {
 .center-ver-parent {
     display: flex;
     justify-content: center;
+    -ms-justify-content : center;
     align-items: center;
 }
 @media (max-width: 768px) {
@@ -328,6 +340,16 @@ a:hover {
         justify-content: center;
         align-items:flex-start;
     }
+    .bloodBox.center-ver-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.center-ver-parent-fix {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-ver-hor-parent {
