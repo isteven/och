@@ -102,7 +102,7 @@ window.languageSet['en']['not-yet-over'] = 'This Is Yet To be Over';
 window.languageSet['zh']['not-yet-over'] = '尚未结束';
 
 window.languageSet['en']['how-many-nights'] = 'How many nights will Halloween Horror Nights 6 be held?';
-window.languageSet['zh']['how-many-nights'] = '万圣节惊魂夜6现场活动<br/>将持续多久？';
+window.languageSet['zh']['how-many-nights'] = '万圣节惊魂夜6现场活动将持续多久？';
 
 window.languageSet['en']['collected-all-clue-copy'] = 'You have collected all the clues.';
 window.languageSet['zh']['collected-all-clue-copy'] = 'zh-collected-all-clue-copy';
