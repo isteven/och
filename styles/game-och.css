@@ -119,6 +119,10 @@
       font-weight: 700; }
     .cluePlaceholder .finale-copy.active {
       display: block; }
+    @media (max-width: 767px) {
+      .cluePlaceholder .finale-copy > a {
+        font-size: 12px;
+        font-size: 1.2rem; } }
 
 /*
 *  Animations Section

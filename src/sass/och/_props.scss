@@ -185,6 +185,12 @@
     &.active {
       display: block;
     }
+
+    > a {
+      @media #{$mobile-only}{
+        @include font-size(12);
+      }
+    }
   }
 }
 
