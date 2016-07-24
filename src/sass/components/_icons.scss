@@ -11,7 +11,7 @@
 */
 
 .sprite {
-  background-image:url(../img/sprites/icons.png);
+  background-image:url(#{$game_cdn_path}/sprites/icons.png);
   background-repeat: no-repeat;
   background-size: 548px;
   display:inline-block;
@@ -58,7 +58,7 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
   .sprite {
-    background-image:url(../img/sprites/icons-2x.png);
+    background-image:url(#{$game_cdn_path}/sprites/icons-2x.png);
   }
 
 }

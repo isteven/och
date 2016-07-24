@@ -31,7 +31,7 @@
     animation: preloader_spin 1s infinite linear;
   }
   &__icon {
-    background: url(../img/icon-preloader.svg) no-repeat;
+    background: url(#{$game_cdn_path}/icon-preloader.svg) no-repeat;
     background-size: contain;
     display: inline-block;
     width: 150px;

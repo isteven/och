@@ -31,7 +31,7 @@
 .emf__visual {
   list-style-type: none;
 
-  background-image: url('../img/emf-bg.png');
+  background-image: url(#{$och_cdn_path}/emf-bg.png);
   background-repeat: no-repeat;
   background-position: left top;
 
@@ -52,7 +52,7 @@
   background-position: 0 0;
   background-repeat: no-repeat;
 
-  background-image: url('../img/sprites/emf-2x.png');
+  background-image: url(#{$och_cdn_path}/sprites/emf-2x.png);
 }
 
 .emf__visual > li.emf__1 {

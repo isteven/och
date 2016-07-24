@@ -5,7 +5,7 @@
 .blood-bg {
     width: 682px;
     height: 220px;
-    background-image: url( ../img/landing_blood.png );
+    background-image: url( #{$game_cdn_path}/landing_blood.png );
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
         top: -10px;
         // margin-top: 20px;
 
-        background-image: url( ../img/landing_blood-m.png );
+        background-image: url( #{$game_cdn_path}/landing_blood-m.png );
     }
 }
 
@@ -63,7 +63,7 @@
 
 
 #pageLanding {
-    background-image: url( ../img/landing_bg.jpg );
+    background-image: url( #{$game_cdn_path}/och/landing_bg.jpg );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -74,7 +74,15 @@
     z-index: 40;
 
     @media #{$tablet-and-below} {
-      background-image: url( ../img/landing_bg-m.png );
+      background-image: url( #{$game_cdn_path}/och/landing_bg-m.png );
+    }
+
+    .game-och & {
+      background-image: url( #{$game_cdn_path}/och/landing_bg.jpg );
+
+      @media #{$tablet-and-below} {
+        background-image: url( #{$game_cdn_path}/och/landing_bg-m.png );
+      }
     }
 
     > div.container {

@@ -420,7 +420,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     $scope.share_twitter = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/twitter?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            twitter_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
@@ -428,7 +428,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     $scope.share_weibo = function() {
         window.open(
-            'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/weibo?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            weibo_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             'weibowindow',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         )
@@ -444,7 +444,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     FB.ui({
                         method: 'share',
                         display: 'popup',
-                        href: 'http://www.halloweenhorrornights.com.sg/',
+                        href: fb_share_url,
                     }, function(response3) {
                         console.log('FB posting.. ')
                         var tempEmail = response2.email;

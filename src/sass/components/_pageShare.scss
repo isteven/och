@@ -249,7 +249,7 @@
     }
     .content__share__win {
         width: 288px;
-        background-image: url("../img/texture.jpg");
+        background-image: url(#{$game_cdn_path}/texture.jpg);
         background-position: center;
         background-size: cover;
         margin-bottom: 15px;

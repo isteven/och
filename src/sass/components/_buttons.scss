@@ -6,7 +6,7 @@
     line-height: 40px;
     background-position: center;
     background-size: cover;
-    background-image: url('../img/texture_inactive.jpg');
+    background-image: url(#{$game_cdn_path}/texture_inactive.jpg);
     background-repeat: no-repeat;
     border: none;
     font-weight: $lato-bold;
@@ -24,11 +24,11 @@
 
 }
 .btnBlood.active {
-    background-image: url('../img/texture.jpg');
+    background-image: url(#{$game_cdn_path}/texture.jpg);
     background-color: #a80101;
 }
 
 
 .btnBlood.active:hover {
-    background-image: url( '../img/transparent.png' );
+    background-image: url( #{$game_cdn_path}/transparent.png );
 }

@@ -77,7 +77,7 @@
     width: 25px;
     height: 25px;
     background-size: cover;
-    background-image: url('../img/icon-close.png');
+    background-image: url(#{$och_cdn_path}/icon-close.png);
 }
 #pageClues .closeButtonRed {
     position: fixed;

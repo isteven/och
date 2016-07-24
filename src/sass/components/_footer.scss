@@ -6,6 +6,7 @@
 // Variables
 // ======================================
 
+$game_footer_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game/footer";
 $padding: 10px;
 
 $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -20,7 +21,7 @@ $yellow-light: #e5e5cf;
 $offwhite: $yellow-light;
 $offwhite-dull: rgba(#d6d3bb, 0.5);
 
-$texture: url(../assets/images/texture.jpg);
+$texture: url(#{$game_footer_cdn_path}/texture.jpg);
 
 $menu-link-color: $yolk;
 
@@ -161,7 +162,7 @@ html {
 		padding: 10px;
 
 		@include small {
-			position: absolute; 
+			position: absolute;
 			padding: 10px 20px;
 		}
 
@@ -414,7 +415,7 @@ html {
 	input[type="checkbox"], .checkbox--dummy {
 
 		appearance: none;
-		background: url('../img/footer/checkbox.png') no-repeat center top;
+		background: url(#{$game_footer_cdn_path}/checkbox.png) no-repeat center top;
 		cursor: pointer;
 		width: 15px;
 		height: 16px;
@@ -464,14 +465,14 @@ html[data-useragent*='MSIE 10.0'] {
 
 .icon {
 	&--close {
-        @include icon( url('../img/footer/icon-close.png'), 20px, 20px );
+        @include icon( url(#{$game_footer_cdn_path}/icon-close.png), 20px, 20px );
 
         &--dark {
-            @include icon( url('../img/footer/icon-close-dark.png'), 20px, 20px );
+            @include icon( url(#{$game_footer_cdn_path}/icon-close-dark.png), 20px, 20px );
         }
 
         &--light {
-            @include icon( url('../img/footer/icon-close-light.png'), 25px, 25px );
+            @include icon( url(#{$game_footer_cdn_path}/icon-close-light.png), 25px, 25px );
         }
     }
 }
@@ -505,7 +506,7 @@ button {
 
     &--textured {
         transition: all 200ms ease-out;
-        background-image: url(../img/footer/texture.jpg);
+        background-image: url(#{$game_footer_cdn_path}/texture.jpg);
         color: $yellow-light;
         font-weight: 900;
         text-transform: uppercase;
@@ -514,7 +515,7 @@ button {
         display: inline-block;
 
         &:hover {
-            background-image: url(../img/footer/transparent.jpg);
+            background-image: url(#{$game_footer_cdn_path}/transparent.jpg);
         }
 
         @include small {

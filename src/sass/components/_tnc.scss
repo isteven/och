@@ -37,7 +37,7 @@ $mobile-max: 736px;
         }
 
         @media (max-width: $mobile-max){
-            background-image: url('../img/icon-close-light.png');
+            background-image: url(#{$game_cdn_path}/och/icon-close-light.png);
             top: 20px;
             right: 20px;
             width: 25px;

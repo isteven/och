@@ -1,5 +1,14 @@
 @import "mixins";
 
+//  local
+// $game_cdn_path: "img/";
+// $och_cdn_path: "img/";
+
+//  image path for shared game components
+$game_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game";
+//  image path for och game only
+$och_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game/och";
+
 //Typography
 $lato-light: 300;
 $lato-regular: 400;  /**dropping*/

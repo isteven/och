@@ -183,7 +183,7 @@
   transform: translate(-50%, -50%);
   z-index: 12;
   display: none;
-  background-image: url("../img/sprites/scare.jpg");
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/sprites/scare.jpg);
   background-repeat: no-repeat;
   background-position: 0 0; }
 
@@ -206,7 +206,7 @@
   #scare {
     width: 389px;
     height: 447px;
-    background-image: url("../img/sprites/scare-m.png"); } }
+    background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/sprites/scare-m.png); } }
 .emf__container {
   display: none;
   position: absolute;
@@ -231,7 +231,7 @@
 
 .emf__visual {
   list-style-type: none;
-  background-image: url("../img/emf-bg.png");
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/emf-bg.png);
   background-repeat: no-repeat;
   background-position: left top;
   width: 150px;
@@ -247,7 +247,7 @@
   height: 25px;
   background-position: 0 0;
   background-repeat: no-repeat;
-  background-image: url("../img/sprites/emf-2x.png"); }
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/sprites/emf-2x.png); }
 
 .emf__visual > li.emf__1 {
   background-position: 0px 0px; }
@@ -706,7 +706,7 @@
   width: 25px;
   height: 25px;
   background-size: cover;
-  background-image: url("../img/icon-close.png"); }
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/icon-close.png); }
 
 #pageClues .closeButtonRed {
   position: fixed; }
@@ -730,7 +730,7 @@
   margin-top: 30px; }
 
 #pageGuessName {
-  background-image: url("../img/q1_bg.png");
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/q1_bg.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 1440px;
@@ -742,7 +742,7 @@
 
 @media (max-width: 769px) {
   #pageGuessName {
-    background-image: url("../img/q1_bg-m.jpg");
+    background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/q1_bg-m.jpg);
     background-size: 768px;
     background-position: center -100px;
     overflow: hidden; } }
@@ -789,7 +789,7 @@
   margin: 0 5px;
   height: 54px;
   width: 38px;
-  background: url("../img/dash.png") no-repeat center bottom;
+  background: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/dash.png) no-repeat center bottom;
   background-size: 38px;
   vertical-align: top; }
 
@@ -887,33 +887,33 @@
   height: 800px; }
 
 .pontianak1 {
-  background: transparent url(../img/01_ponappear.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/01_ponappear.png) 0 0 no-repeat; }
 
 .pontianak2 {
-  background: transparent url(../img/02_ponwait.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/02_ponwait.png) 0 0 no-repeat; }
 
 .pontianak3 {
-  background: transparent url(../img/03_ponturn_1.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/03_ponturn_1.png) 0 0 no-repeat; }
 
 .pontianak4 {
-  background: transparent url(../img/04_ponwait_1.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/04_ponwait_1.png) 0 0 no-repeat; }
 
 .pontianak5 {
-  background: transparent url(../img/05_ponturn_2.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/05_ponturn_2.png) 0 0 no-repeat; }
 
 .pontianak6 {
-  background: transparent url(../img/06_ponwait_2.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/06_ponwait_2.png) 0 0 no-repeat; }
 
 .pontianak7 {
-  background: transparent url(../img/07_ponturn_3.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/07_ponturn_3.png) 0 0 no-repeat; }
 
 .pontianak8 {
-  background: transparent url(../img/08_ponwait_3.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/08_ponwait_3.png) 0 0 no-repeat; }
 
 /*.pontianak9, .pontianakSpecial { background: transparent url( ../img/09_pondash.png ) 0 0 no-repeat; width: 750px !important ; }*/
 .pontianak9,
 .pontianakSpecial {
-  background: transparent url(../img/09_pondash.png) 0 0 no-repeat; }
+  background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/09_pondash.png) 0 0 no-repeat; }
 
 .pontianakSpecial {
   /*background-position-x: -5400px;*/
@@ -933,7 +933,7 @@
     height: 1020px; }
 
   .pontianak9, .pontianakSpecial {
-    background: transparent url(../img/09_pondash-m.png) 0 0 no-repeat;
+    background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/09_pondash-m.png) 0 0 no-repeat;
     width: 768px; }
 
   .pontianak1 {
@@ -977,7 +977,7 @@
     height: 635px; }
 
   .pontianak9, .pontianakSpecial {
-    background: transparent url(../img/09_pondash_480.png) 0 0 no-repeat;
+    background: transparent url(https://dg0l7q9c72lxu.cloudfront.net/game/och/09_pondash_480.png) 0 0 no-repeat;
     width: 480px; }
 
   .pontianakSpecial {
@@ -1079,10 +1079,10 @@
   display: inline-block;
   border-style: solid;
   border-width: 4px 4px 4px 4px;
-  -moz-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
-  -webkit-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
-  -o-border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
-  border-image: url("../img/texture.jpg") 4 4 4 4 repeat;
+  -moz-border-image: url(game_cdn_path/texture.jpg) 4 4 4 4 repeat;
+  -webkit-border-image: url(game_cdn_path/texture.jpg) 4 4 4 4 repeat;
+  -o-border-image: url(game_cdn_path/texture.jpg) 4 4 4 4 repeat;
+  border-image: url(game_cdn_path/texture.jpg) 4 4 4 4 repeat;
   background-color: rgba(0, 0, 0, 0.6);
   margin-top: 12px; }
 
@@ -1156,7 +1156,7 @@
     height: 635px;
     margin-left: -240px; } }
 #pageFails {
-  background-image: url(../img/fail_bg.jpg);
+  background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/fail_bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1167,7 +1167,7 @@
   z-index: 50; }
   @media (max-width: 768px) {
     #pageFails {
-      background-image: url(../img/m_fail_bg.jpg); } }
+      background-image: url(https://dg0l7q9c72lxu.cloudfront.net/game/och/m_fail_bg.jpg); } }
 
 #pageFails .centerElement {
   top: 50%;

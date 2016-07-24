@@ -16,8 +16,11 @@
 
         <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/> -->
 
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/game-och.css">
+        <!-- <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/game-och.css"> -->
+
+        <link rel="stylesheet" href="dist/styles/main.css">
+        <link rel="stylesheet" href="dist/styles/game-och.css">
 
     </head>
 
@@ -96,29 +99,29 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="img/icon_search.png"/>
+                                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_search.png?v1"/>
                                 <br/>
-                                {{getContent('icon-text-1')}}
+                                <span ng-bind-html="getContent('icon-text-1', true)"></span>
                                 <!-- Look for hidden clues with the help of an EMF indicator. -->
                             </div>
                             <div class="col-sm-6">
-                                <img src="img/icon_camera.png"/>
+                                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera.png?v1"/>
                                 <br/>
-                                {{getContent('icon-text-2')}}
+                                <span ng-bind-html="getContent('icon-text-2', true)"></span>
                                 <!-- Snap a photo when the EMF indicator peaks. -->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="img/icon_clues.png"/>
+                                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_clues.png?v1"/>
                                 <br/>
-                                {{getContent('icon-text-3')}}
+                                <span ng-bind-html="getContent('icon-text-3', true)"></span>
                                 <!-- Collect all 3 clues to unravel the name. -->
                             </div>
                             <div class="col-sm-6">
-                                <img src="img/icon_timer.png"/>
+                                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_timer.png?v1"/>
                                 <br/>
-                                {{getContent('icon-text-4')}}
+                                <span ng-bind-html="getContent('icon-text-4', true)"></span>
                                 <!-- Time is the key to higher chances of winning. -->
                             </div>
                         </div>
@@ -235,7 +238,7 @@
 
             <!-- clues counter -->
             <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-                <img src="img/clue.png"/>
+                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/clue.png?v1"/>
             </div>
 
             <footer class="ftr"></footer>
@@ -348,11 +351,15 @@
                     <div class="col__code" >
                         <div class="middle-spacer"></div>
                         <div class="inner">
-                          <img class="code" ng-if="lang == 'en'" src="img/och-code.jpg" />
-                          <img class="code" ng-if="lang == 'zh'" src="img/zh/och-code.jpg" />
+                          <img class="code" ng-if="lang == 'en'" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/och-code.jpg?v1" />
+                          <img class="code" ng-if="lang == 'zh'" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/och-code.jpg?v1" />
                           <div class="col__code__text">
                             <p ng-bind-html="getContent( 'code-instruction', true )"></p>
-                            <a download="img/code.jpg" href="img/code.jpg" target="_blank" class="link__download">
+                            <a ng-if="lang == 'en'" download="https://dg0l7q9c72lxu.cloudfront.net/game/och/och-code.jpg?v1" href="https://dg0l7q9c72lxu.cloudfront.net/game/och/och-code.jpg?v1" target="_blank" class="link__download">
+                                <span class="sprite icon_download "></span>
+                                {{getContent( 'code-download' )}}
+                            </a>
+                            <a ng-if="lang == 'zh'" download="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/och-code.jpg?v1" href="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/och-code.jpg?v1" target="_blank" class="link__download">
                                 <span class="sprite icon_download "></span>
                                 {{getContent( 'code-download' )}}
                             </a>
@@ -388,30 +395,30 @@
 
             <!-- clues location in pano -->
             <div id="clue-1" class="clue realclue">
-                <img ng-if="lang == 'en'" data-clue-id="1" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
-                <img ng-if="lang == 'zh'" data-clue-id="1" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="1" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera_ingame.png?v1" />
+                <img ng-if="lang == 'zh'" data-clue-id="1" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/icon_camera_ingame.png?v1" />
             </div>
             <div id="clue-2" class="clue realclue">
-                <img ng-if="lang == 'en'" data-clue-id="2" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
-                <img ng-if="lang == 'zh'" data-clue-id="2" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="2" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera_ingame.png?v1" />
+                <img ng-if="lang == 'zh'" data-clue-id="2" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/icon_camera_ingame.png?v1" />
             </div>
             <div id="clue-3" class="clue realclue">
-                <img ng-if="lang == 'en'" data-clue-id="3" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
-                <img ng-if="lang == 'zh'" data-clue-id="3" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="3" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera_ingame.png?v1" />
+                <img ng-if="lang == 'zh'" data-clue-id="3" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/icon_camera_ingame.png?v1" />
             </div>
             <div id="clue-4" class="clue fakeclue">
-                <img ng-if="lang == 'en'" data-clue-id="4" ng-class="lang" class="panoCenter"  src="img/icon_camera_ingame.png" />
-                <img ng-if="lang == 'zh'" data-clue-id="4" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="4" ng-class="lang" class="panoCenter"  src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera_ingame.png?v1" />
+                <img ng-if="lang == 'zh'" data-clue-id="4" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/icon_camera_ingame.png?v1" />
             </div>
             <div id="clue-5" class="clue fakeclue">
-                <img ng-if="lang == 'en'" data-clue-id="5" ng-class="lang" class="panoCenter"  src="img/icon_camera_ingame.png" />
-                <img ng-if="lang == 'zh'" data-clue-id="5" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="5" ng-class="lang" class="panoCenter"  src="https://dg0l7q9c72lxu.cloudfront.net/game/och/icon_camera_ingame.png?v1" />
+                <img ng-if="lang == 'zh'" data-clue-id="5" ng-class="lang" class="panoCenter" src="https://dg0l7q9c72lxu.cloudfront.net/game/och/zh/icon_camera_ingame.png?v1" />
             </div>
 
 
             <!-- clues counter -->
             <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-                <img src="img/clue.png"/>
+                <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/clue.png?v1"/>
             </div>
 
             <footer class="ftr"></footer>
@@ -442,9 +449,9 @@
             <div class="centerElement centerInlineHor">
                 <a href="#" class="closeButtonRed"></a>
                 <div class="clues">
-                    <img src="img/photo_clue_blank.png"/>
-                    <img src="img/photo_clue_blank.png"/>
-                    <img src="img/photo_clue_blank.png"/>
+                    <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/photo_clue_blank.png?v1"/>
+                    <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/photo_clue_blank.png?v1"/>
+                    <img src="https://dg0l7q9c72lxu.cloudfront.net/game/och/photo_clue_blank.png?v1"/>
                 </div>
                 <a href="#" class="btnBlood">
                     {{getContent('guess-name-button')}}
@@ -466,24 +473,28 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <script src="vendor/classList.js"></script>
-        <script src="vendor/bowser.min.js"></script>
-        <script src="vendor/marzipano.js"></script>
-        <script src="vendor/DeviceOrientationControlMethod.js"></script>
-        <script src="vendor/motio.min.js"></script>
+        <!-- <script src="vendor/classList.js"></script>-->
+
         <!-- <script src="vendor/jquery.motio.min.js"></script> -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
         <!-- <script src="vendor/codebird.js"></script> -->
 
         <script src="https://platform.twitter.com/widgets.js"></script>
 
+        <script src="vendor/bowser.min.js"></script>
+        <script src="vendor/marzipano.min.js"></script>
+        <script src="vendor/DeviceOrientationControlMethod.js"></script>
+        <script src="vendor/motio.min.js"></script>
 
-        <script src="config.js"></script>
+        <!-- <script src="config.js"></script>
         <script src="language.js"></script>
         <script src="controller.js"></script>
         <script src="data.js"></script>
         <script src="index.js"></script>
-        <script src="game.js"></script>
+        <script src="game.js"></script> -->
+
+        <script src="dist/scripts/main.js"></script>
+
         <script src="footer/footer.directive.js"></script>
         <script src="equalizer/equalizer.directive.js"></script>
         <script src="tnc/tnc.directive.js"></script>

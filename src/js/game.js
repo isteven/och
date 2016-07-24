@@ -317,7 +317,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           });
           $('#cluePlaceholder > .clue .closeButtonRed').show();
 
-          $('#cluePlaceholder > .clue img').attr('src', 'img/'+lang+'photo_clue_' + clueId + '.jpg');
+          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/'+lang+'photo_clue_' + clueId + '.jpg');
 
           hidePanoCenter();
 
@@ -358,7 +358,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           $('#cluePlaceholder > .clue .closeButtonRed').hide();
           //$('#cluePlaceholder > .closeButtonRed').show();
           // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
-          $('#cluePlaceholder > .clue img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/photo_clue_' + clueId + '.jpg');
 
           hideFakeClue();
       }
@@ -436,7 +436,7 @@ var showClues = function() {
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
             var tempDom = $('#pageClues .clues img');
-            $(tempDom[i]).attr('src', 'img/'+lang+'photo_clue_' + (i + 1) + '.jpg');
+            $(tempDom[i]).attr('src', cdn_url+'/och/'+lang+'photo_clue_' + (i + 1) + '.jpg');
             allCluesFound++;
         }
     }
@@ -599,5 +599,5 @@ sfx[ 'user-fails' ] = new Howl({
 });
 
 function playSfx(param) {
-    // sfx[ param ].play();
+    sfx[ param ].play();
 }

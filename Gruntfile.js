@@ -83,21 +83,17 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      // concat and minify scripts
-      target: {
-        files: {
-          '<%= site.dest %>/js/main.min.js': ['<%= site.dest %>/js/main.js'],
-          '<%= site.dest %>/js/vendor/jquery.min.js': ['<%= site.dest %>/js/vendor/jquery.js'],
-          '<%= site.dest %>/js/vendor/modernizr.min.js': ['<%= site.dest %>/js/vendor/modernizr.js']
+        js: { //target
+            src: ['<%= site.src %>/js/main.js'],
+            dest: '<%= site.dist %>/scripts/main.min.js'
         }
-      }
     },
 
     sass: {
       main: {
         files: {
-          'styles/main.css': '<%= site.src %>/sass/main.scss',
-          'styles/game-och.css': '<%= site.src %>/sass/game-och.scss',
+          '<%= site.dist %>/styles/main.css': '<%= site.src %>/sass/main.scss',
+          '<%= site.dist %>/styles/game-och.css': '<%= site.src %>/sass/game-och.scss',
           // '<%= site.dest %>/css/font-awesome.min.css': '<%= site.src %>/sass/font-awesome.min.scss',
           // '<%= site.dest %>/css/jquery-ui.css': '<%= site.src %>/sass/jquery-ui.scss',
           // '<%= site.dest %>/css/owl-carousel.css': '<%= site.src %>/sass/owl.carousel.scss',
@@ -107,23 +103,28 @@ module.exports = function(grunt) {
       },
     },
 
+    ngAnnotate: {
+        options: {
+            singleQuotes: true
+        },
+        app: {
+            files: {
+                '<%= site.src %>/js/temp/controller.js': ['<%= site.src %>/js/controller.js']
+            }
+        }
+    },
+
     concat: {
       js: {
         src: [
-          '<%= vendor %>/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js',
-          '<%= vendor %>/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js',
-          '<%= vendor %>/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js',
-          '<%= vendor %>/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js',
-          '<%= vendor %>/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js',
-          '<%= vendor %>/isInViewport/lib/isInViewport.js',
-          '<%= vendor %>/jquery-touchswipe/jquery.touchSwipe.js',
-          '<%= site.src %>/js/owl.carousel.min.js',
-          '<%= site.src %>/js/jquery.jscrollpane.min.js',
-          '<%= site.src %>/js/jquery.mousewheel.js',
-          '<%= site.src %>/js/plugins.js',
-          '<%= site.src %>/js/main.js'
+          '<%= site.src %>/js/config.js',
+          '<%= site.src %>/js/language.js',
+          '<%= site.src %>/js/temp/controller.js',
+          '<%= site.src %>/js/data.js',
+          '<%= site.src %>/js/index.js',
+          '<%= site.src %>/js/game.js'
         ],
-        dest: '<%= site.dest %>/js/main.js'
+        dest: '<%= site.dist %>/scripts/main.js'
       },
     },
 
@@ -131,15 +132,12 @@ module.exports = function(grunt) {
       target: {
         files: [{
           expand: true,
-          cwd: '<%= site.dest %>/css',
+          cwd: 'styles/',
           src: [
-            'bootstrap.css',
-            'jquery-ui.css',
-            'owl-theme.css',
-            'owl-carousel.css',
-            'main.css'
+            'main.css',
+            'game-och.css'
           ],
-          dest: '<%= site.dest %>/css/',
+          dest: '<%= site.dist %>/styles/',
           ext: '.min.css'
         }]
       }
@@ -195,7 +193,8 @@ module.exports = function(grunt) {
     //   fonts: ['<%= site.dest %>/fonts/'],
     // }
     clean: {
-      css: ['styles/'],
+      css: ['<%= site.dist %>/styles/'],
+      js: ['<%= site.dist %>/scripts/']
     }
   });
 
@@ -209,6 +208,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-ng-annotate');
 
   grunt.registerTask('watchcontexthelper', function (target){
     switch (target) {
@@ -259,12 +259,14 @@ module.exports = function(grunt) {
   // Default tasks to be run.
   grunt.registerTask('default', [
     'clean:css',
+    'clean:js',
     // 'copy:img',
     // 'copy:assets',
     // 'copy:js-vendor',
     // 'copy:json',
     // 'copy:fonts',
-    // 'concat',
+    'ngAnnotate',
+    'concat',
     'sass'
 
     //'prettify'
@@ -275,15 +277,12 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('production', [
-    'clean:dist',
-    'copy:img',
-    'copy:assets',
-    'copy:js-vendor',
-    'copy:json',
-    'copy:fonts',
+    'clean:css',
+    'clean:js',
+    'ngAnnotate',
     'concat',
-    'uglify',
     'sass',
+    'uglify',
     'cssmin'
   ]);
 

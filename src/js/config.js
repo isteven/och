@@ -6,9 +6,6 @@ var environmentConfigs = {
 
     local: {
         apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        // TODO:: UPDATE DURING DEPLOYMENT
-        //  apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        //  THIS IS JUST FOR TIME BEING
         gameId  : 1 // Old Changi Hospital
     },
     uat: {
@@ -16,7 +13,7 @@ var environmentConfigs = {
         gameId  : 1 // Old Changi Hospital
     },
     prod: {
-        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        apiUrl  : 'http://halloweenhorrornights.com.sg/',
         gameId  : 1 // Old Changi Hospital
     }
 };
@@ -34,3 +31,9 @@ var globalConfigs = {
 var configGet = function( property ){
     return environmentConfigs[ environment ][ property ];
 }
+
+var fb_share_url = 'http://www.halloweenhorrornights.com.sg/';
+var twitter_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/twitter';
+var weibo_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/weibo';
+
+var cdn_url = "https://dg0l7q9c72lxu.cloudfront.net/game";

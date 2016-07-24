@@ -1,5 +1,5 @@
 #pageFails {
-    background-image: url( ../img/fail_bg.jpg );
+    background-image: url( #{$och_cdn_path}/fail_bg.jpg );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +10,7 @@
     z-index: 50;
 
     @media #{$tablet-and-below} {
-      background-image: url( ../img/m_fail_bg.jpg );
+      background-image: url( #{$och_cdn_path}/m_fail_bg.jpg );
     }
 }
 

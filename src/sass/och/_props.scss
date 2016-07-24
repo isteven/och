@@ -279,7 +279,7 @@
   transform: translate(-50%, -50%);
   z-index: 12;
   display: none;
-  background-image: url('../img/sprites/scare.jpg');
+  background-image: url(#{$och_cdn_path}/sprites/scare.jpg);
   background-repeat: no-repeat;
   // background-size: cover;
   background-position: 0 0;
@@ -306,6 +306,6 @@
   #scare {
     width: 389px;
     height: 447px;
-    background-image: url('../img/sprites/scare-m.png');
+    background-image: url(#{$och_cdn_path}/sprites/scare-m.png);
   }
 }
