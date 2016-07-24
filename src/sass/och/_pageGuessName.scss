@@ -132,10 +132,10 @@
     display: inline-block;
     border-style: solid;
     border-width: 4px 4px 4px 4px;
-    -moz-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -webkit-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    -o-border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
-    border-image: url(../img/texture.jpg) 4 4 4 4 repeat;
+    -moz-border-image: url(#{$game_cdn_path}/texture.jpg) 4 4 4 4 repeat;
+    -webkit-border-image: url(#{$game_cdn_path}/texture.jpg) 4 4 4 4 repeat;
+    -o-border-image: url(#{$game_cdn_path}/texture.jpg) 4 4 4 4 repeat;
+    border-image: url(#{$game_cdn_path}/texture.jpg) 4 4 4 4 repeat;
     background-color: rgba(0, 0, 0, 0.60);
     padding: 20px;
 
