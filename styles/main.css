@@ -3946,12 +3946,7 @@ a:hover {
     vertical-align: bottom;
     margin-right: 5px;
     font-size: 150%;
-    text-align: center; }
-
-  .centerInlineHor .guessBox > button {
-    padding: 6px 11px;
-    font-size: 0.9em;
-    font-weight: 700; } }
+    text-align: center; } }
 @media (max-width: 320px) {
   .centerInlineHor .guessBox {
     padding: 15px 20px; } }
@@ -4147,7 +4142,7 @@ a:hover {
 
 .preloader {
   position: absolute;
-  z-index: 30;
+  z-index: 10;
   top: 0;
   left: 0;
   height: 100%;

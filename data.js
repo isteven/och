@@ -2,6 +2,7 @@ var APP_DATA = {
     "scenes": [{
         "id": "0-scene-1",
         "name": "Level 1",
+        "zh_name": "1级",
         "faceSize": 1024,
         "initialViewParameters": {
             "yaw": -1.2,
@@ -28,6 +29,7 @@ var APP_DATA = {
     }, {
         "id": "0-scene-2",
         "name": "Level 2",
+        "zh_name": "2级",
         "levels": [{
             "tileSize": 256,
             "size": 256,
@@ -38,7 +40,7 @@ var APP_DATA = {
         }],
         "faceSize": 2048,
         "initialViewParameters": {
-            "yaw": -1.2,
+            "yaw": -1.6,
             "pitch": 0,
             "fov": 1.5707963267948966
         },
@@ -56,6 +58,7 @@ var APP_DATA = {
     }, {
         "id": "0-scene-3",
         "name": "Ward",
+        "zh_name": "病房",
         "levels": [{
             "tileSize": 256,
             "size": 256,
@@ -66,7 +69,7 @@ var APP_DATA = {
         }],
         "faceSize": 2048,
         "initialViewParameters": {
-            "yaw": -1.2,
+            "yaw": 1.2,
             "pitch": 0,
             "fov": 1.5707963267948966
         },

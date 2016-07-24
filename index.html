@@ -164,6 +164,7 @@
 
             </div>
         </div>
+
         <!-- guess name -->
         <div id="pageGuessName" class="page">
             <div class="inner">
@@ -239,7 +240,6 @@
 
             <footer class="ftr"></footer>
         </div>
-
         <div class="guess-overlay"></div>
 
         <!-- guess date -->
@@ -348,7 +348,8 @@
                     <div class="col__code" >
                         <div class="middle-spacer"></div>
                         <div class="inner">
-                          <img class="code" src="img/och-code.jpg" />
+                          <img class="code" ng-if="lang == 'en'" src="img/och-code.jpg" />
+                          <img class="code" ng-if="lang == 'zh'" src="img/zh/och-code.jpg" />
                           <div class="col__code__text">
                             <p ng-bind-html="getContent( 'code-instruction', true )"></p>
                             <a download="img/code.jpg" href="img/code.jpg" target="_blank" class="link__download">
@@ -365,7 +366,7 @@
         </div>
 
         <!-- Marzipano Pano -->
-        <div id="pano">
+        <div id="pano" ng-class="lang">
 
             <div id="pano-overlay"></div>
 
@@ -387,25 +388,29 @@
 
             <!-- clues location in pano -->
             <div id="clue-1" class="clue realclue">
-                <img data-clue-id="1" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="1" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'zh'" data-clue-id="1" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
             </div>
             <div id="clue-2" class="clue realclue">
-                <img data-clue-id="2" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="2" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'zh'" data-clue-id="2" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
             </div>
             <div id="clue-3" class="clue realclue">
-                <img data-clue-id="3" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="3" ng-class="lang" class="panoCenter" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'zh'" data-clue-id="3" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
             </div>
             <div id="clue-4" class="clue fakeclue">
-                <img class="panoCenter" data-clue-id="4" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="4" ng-class="lang" class="panoCenter"  src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'zh'" data-clue-id="4" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
             </div>
             <div id="clue-5" class="clue fakeclue">
-                <img class="panoCenter" data-clue-id="5" src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'en'" data-clue-id="5" ng-class="lang" class="panoCenter"  src="img/icon_camera_ingame.png" />
+                <img ng-if="lang == 'zh'" data-clue-id="5" ng-class="lang" class="panoCenter" src="img/zh/icon_camera_ingame.png" />
             </div>
 
 
             <!-- clues counter -->
             <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-                <!-- <div class="clue-glow"></div> -->
                 <img src="img/clue.png"/>
             </div>
 
@@ -419,8 +424,11 @@
 
         <!-- single clue -->
         <div id="cluePlaceholder" class="cluePlaceholder">
-            <a href="#" class="closeButtonRed"></a>
-            <img/>
+            <div class="clue">
+              <a href="#" class="closeButtonRed"></a>
+              <img/>
+            </div>
+
             <div class="finale-copy">
               <p>{{getContent('collected-all-clue-copy')}}</p>
               <a href="#" class="btnBlood active">
@@ -452,7 +460,7 @@
                 Typekit.load({async: true});
             } catch (e) {}
         </script>
-        <script src="config.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -470,7 +478,7 @@
         <script src="https://platform.twitter.com/widgets.js"></script>
 
 
-
+        <script src="config.js"></script>
         <script src="language.js"></script>
         <script src="controller.js"></script>
         <script src="data.js"></script>

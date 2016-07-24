@@ -6,6 +6,8 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     var gameEndTime = null;
     $scope.elapsedGameTime = null;
 
+    $scope.gameIsLoaded = false;
+
     $scope.menu = {};
     $scope.menu.active = false;
     $scope.footer = {};
@@ -159,38 +161,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     $scope.playSfx = function(param) {
-            window.playSfx(param);
-        }
-        /*
-        $scope.animatePontianakError( triesLeft ) {
+        window.playSfx(param);
+    }
 
-            console.log( 'animating pontianak ERROR: ' + triesLeft );
-            $( '.pontianakBox div' ).fadeOut( 800 );
-            var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 1;
-            masterPontianakIdx = pontianakIdx;
-            console.log( 'pontianak index ERROR:'  + pontianakIdx );
-            $( '.pontianak' + pontianakIdx ).show();
-            $( '.pontianak' + pontianakIdx ).sprite({
-                no_of_frames: frameQty[ pontianakIdx - 1 ],
-                fps: 8,
-                play_frames: frameQty[ pontianakIdx - 1 ]
-            });
-        }
-
-        $scope.animatePontianakWaiting( triesLeft ) {
-        console.log( 'animating pontianak WAITING: ' + triesLeft );
-        var pontianakIdx = ( ( 5 - triesLeft ) * 2 ) + 2;
-        masterPontianakIdx = pontianakIdx;
-        console.log( 'pontianak index WAITING:'  + pontianakIdx );
-        // $( '.pontianak' + ( pontianakIdx - 1 )).fadeOut( 500 );
-        $( '.pontianakBox div' ).fadeOut( 800 );
-        $( '.pontianak' + pontianakIdx ).show();
-        $( '.pontianak' + pontianakIdx ).sprite({
-            no_of_frames: frameQty[ pontianakIdx - 1 ],
-            fps: 4
-        });
-        }
-        */
     $scope.checkName = function() {
         if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active')) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
@@ -273,21 +246,21 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                         //  Mobile and tablet has more animation frames,
                         //  so duration needs slightly longer
                         window.setTimeout(function() {
-                            document.activeElement.blur();
+                            // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
-                            showPage('#pageGuessDate');
+                            $('#pageGuessDate').show();
+                            showPage('#pageGuessDate .single-column');
 
                         }, 1000);
                     } else {
                         window.setTimeout(function() {
-                            document.activeElement.blur();
+                            // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
                             $('#pageGuessDate').show();
 
                             showPage('#pageGuessDate .single-column');
-                            // showPage('#pageGuessDate');
                         }, 500);
                     }
 
@@ -552,9 +525,10 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
         // showPage( '#pano' );
         // hidePage('.fadePage');
+        $('.preloader').hide();
         $('#pageLanding').fadeOut(400);
-        hidePage('#pageFails');
-        $('.pontianakBox div').hide();
+        // hidePage('#pageFails');
+        // $('.pontianakBox div').hide();
         showPage('.emf__container');
         $('.cluesCtr').addClass('active');
 
@@ -571,6 +545,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
+    /* TNC Toggle */
     $scope.tncToggle = function() {
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
@@ -609,7 +584,9 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
           count++;
           if ( count === $data.images.length ) {
             //after loading images, proceed to load audios
+            $scope.gameIsLoaded = true;
             loadAudios();
+
           }
         };
 
@@ -628,25 +605,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         "audio/mp3/fail.mp3"
     ];
 
-    function preloadAudio(url) {
+    var preloadAudio = function(url) {
         var audio = new Audio();
         // once this file loads, it will call loadedAudio()
         // the file will be kept by the browser as cache
         audio.addEventListener('canplaythrough', loadedAudio, false);
         audio.src = url;
-    }
-
-    var loaded = 0;
-    function loadedAudio() {
-        // this will be called every time an audio file is loaded
-        // we keep track of the loaded files vs the requested files
-        loaded++;
-        if (loaded == audioFiles.length){
-        	// all have loaded
-          hidePage('.preloader');
-          // showPage('#pageLanding');
-        }
-    }
+    };
 
     var loadAudios = function() {
 
@@ -655,9 +620,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
       }
     };
 
+    var loaded = 0;
+    function loadedAudio() {
+        // this will be called every time an audio file is loaded
+        // we keep track of the loaded files vs the requested files
+        loaded++;
+        if (loaded == audioFiles.length){
+        	// all have loaded
+          // showPage('#pageLanding');
+          $('.preloader').fadeOut(400);
+          // showPage('#pageLanding');
+        }
+    }
+
     //  on first load, show preloader first and load the assets
-    showPage('.preloader');
-    loadManifest();
+    if ( !$scope.gameIsLoaded ) {
+      showPage('.preloader');
+      loadManifest();
+    }
+
     showPage('#pageLanding');
 
     // $scope.startGame();

@@ -295,10 +295,19 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
     playSfx( 'take-photo' );
 
     var clueId = $(this).data('clue-id');
+    var lang = '';
+
+    if ( $(this).hasClass('zh') ) {
+      lang = 'zh/';
+    }
 
     if ( canClick[clueId - 1] ) {
       if ( !cluesFound[clueId - 1]) {
           //  FOUND REAL CLUES AND STILL AVAILABLE
+          canClick[clueId - 1] = false;
+          cluesFound[clueId - 1] = true;
+
+          //  EMF SWITCH OFF
           $('.emf__visual').attr('class', 'emf__visual is-region-5');
           $('.emf__reader > span.num').html(generate_random_number(5));
           $('.emf__reader > span.static').removeClass('hidden');
@@ -306,11 +315,9 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           $('#cluePlaceholder').fadeIn(function() {
               $(this).addClass('active-clue-placeholder');
           });
-          $('#cluePlaceholder > .closeButtonRed').show();
-          $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+          $('#cluePlaceholder > .clue .closeButtonRed').show();
 
-          canClick[clueId - 1] = false;
-          cluesFound[clueId - 1] = true;
+          $('#cluePlaceholder > .clue img').attr('src', 'img/'+lang+'photo_clue_' + clueId + '.jpg');
 
           hidePanoCenter();
 
@@ -321,6 +328,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
       } else {
         //  FOUND FAKE CLUES
           canClick[clueId - 1] = false;
+
           $('#cluePlaceholder').find('.finale-copy').removeClass('active');
 
           $('#cluePlaceholder').fadeIn(function() {
@@ -328,16 +336,16 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 
               setTimeout(function(){
 
-                $('#cluePlaceholder > img').stop(true, false).animate({
+                 $('#cluePlaceholder > .clue > img').stop(true, false).animate({
                   opacity: 0,
-                  width: $('#cluePlaceholder > img').width()/2+'px',
-                  height: $('#cluePlaceholder > img').height()/2+'px'
+                  width: $('#cluePlaceholder > .clue > img').width()/2+'px',
+                  height: $('#cluePlaceholder > .clue > img').height()/2+'px'
                 },
                 400,
                 function() {
                   $(this).hide();
-                  $('#cluePlaceholder > img').attr('src', '');
-                  $('#cluePlaceholder > img').attr('style', '');
+                  $('#cluePlaceholder > .clue > img').attr('src', '');
+                  $('#cluePlaceholder > .clue > img').attr('style', '');
                   $('#cluePlaceholder').attr('style', '');
                   $(this).removeClass('active-clue-placeholder');
                   $('#cluePlaceholder').removeClass('fakeClue');
@@ -347,10 +355,10 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
           });
 
           $('#cluePlaceholder').addClass('fakeClue');
-          $('#cluePlaceholder > .closeButtonRed').hide();
+          $('#cluePlaceholder > .clue .closeButtonRed').hide();
           //$('#cluePlaceholder > .closeButtonRed').show();
           // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
-          $('#cluePlaceholder > img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
+          $('#cluePlaceholder > .clue img').attr('src', 'img/photo_clue_' + clueId + '.jpg');
 
           hideFakeClue();
       }
@@ -364,7 +372,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 $('#pano').on('click touchstart', function() {
 
     if ($('#cluePlaceholder').hasClass('active-clue-placeholder')) {
-        $('#cluePlaceholder > .closeButtonRed').click();
+        $('#cluePlaceholder > .clue .closeButtonRed').click();
     }
 
 });
@@ -372,32 +380,29 @@ $('#pano').on('click touchstart', function() {
 //  GAME:: CLOSE THE CLUE IMAGE
 $('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
 
-    if (!$('#cluePlaceholder').hasClass('fakeClue')) {
+    if ( !$('#cluePlaceholder').hasClass('fakeClue') ) {
 
-      $('#cluePlaceholder > .closeButtonRed').hide();
+      $('#cluePlaceholder > .clue > .closeButtonRed').hide();
 
       if ( $('#cluePlaceholder').find('.finale-copy').hasClass('active') ) {
           $('#cluePlaceholder').find('.finale-copy').hide();
       }
 
-      $('#cluePlaceholder > img').stop(true, false).animate({
+      $('#cluePlaceholder > .clue > img').stop(true, false).animate({
         opacity: 0,
         width: $('#cluePlaceholder > img').width()/4+'px',
         height: $('#cluePlaceholder > img').height()/4+'px'
       },400, function() {
           // $('.cluesCtr').show();
           $(this).hide();
-          $('#cluePlaceholder > img').attr('src', '');
-          $('#cluePlaceholder > img').attr('style', '');
+          $('#cluePlaceholder > .clue > img').attr('src', '');
+          $('#cluePlaceholder > .clue > img').attr('style', '');
           $('#cluePlaceholder').attr('style', '');
           $('#cluePlaceholder').addClass('cluePlaceholder');
           $('#cluePlaceholder').removeClass('active-clue-placeholder');
       });
 
       $('#cluePlaceholder').stop(true, false).animate({
-          // height: '20px',
-          // width: '20px',
-          // transform:'scale(0.5)',
           top: '85%',
           left: '90%'
       }, 400, function() {
@@ -588,5 +593,5 @@ sfx[ 'user-fails' ] = new Howl({
 });
 
 function playSfx(param) {
-    sfx[ param ].play();
+    // sfx[ param ].play();
 }

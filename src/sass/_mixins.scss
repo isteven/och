@@ -5,14 +5,16 @@
 
 
 //Media Queries
+$short-height-screens-max: "(max-height: 700px)";
+$short-height-screens-width: "(min-width: 769px)";
+$fallback-tablet-height-screens: "(max-height: 600px)";
+
+
 $tablet-and-below: "(max-width: 768px)";
 $mobile-only: "(max-width: 767px)";
 $small-mobile: "(max-width: 480px)";
+$screen-iphone4: "(max-width: 320px)";
 
-$short-height-screens-max: "(max-height: 700px)";
-$short-height-screens-width: "(min-width: 769px)";
-
-$fallback-tablet-height-screens: "(max-height: 600px)";
 
 $desktop-large-min: 1201px;
 $desktop-medium-max: $desktop-large-min - 1;

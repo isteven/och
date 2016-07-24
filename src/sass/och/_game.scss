@@ -36,4 +36,12 @@
       transform: none;
     }
   }
+
+  &.en {
+    .hotspot__text__zh { display: none; }
+  }
+
+  &.zh {
+    .hotspot__text__en { display: none; }
+  }
 }

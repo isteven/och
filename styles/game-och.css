@@ -3,15 +3,7 @@
 /**dropping*/
 /**dropping*/
 /*
-*  Fake clues Section
-*
-*/
-.prop-hotspot-clue {
-  display: none; }
-
-/*
 *  Clue Image
-*  All Scenes
 */
 .cluesCtr {
   width: 100px;
@@ -23,20 +15,22 @@
   display: none; }
   .cluesCtr.active {
     display: block; }
+  @media (max-width: 767px) {
+    .cluesCtr {
+      bottom: 70px;
+      right: 10px;
+      width: 80px;
+      height: 80px; } }
+  @media (min-width: 769px) and (max-height: 700px) {
+    .cluesCtr {
+      bottom: 70px;
+      right: 40px; } }
+  .cluesCtr img {
+    width: 100%; }
 
-.cluesCtr img {
-  width: 100%; }
-
-@media (max-width: 600px) {
-  .cluesCtr {
-    bottom: 70px;
-    right: 10px;
-    width: 80px;
-    height: 80px; } }
-@media (min-width: 769px) and (max-height: 700px) {
-  .cluesCtr {
-    bottom: 70px;
-    right: 40px; } }
+/*
+*  Animating glow on clue icon
+*/
 .cluesCtr.is-max .clue-glow {
   width: 50%;
   height: 50%;
@@ -96,40 +90,35 @@
   width: auto;
   transform: translate(-50%, -50%);
   text-align: center; }
-
-@media (max-width: 767px) {
-  .cluePlaceholder {
-    width: 100%;
-    top: 45%; } }
-@media (max-width: 480px) {
-  .cluePlaceholder {
-    top: 40%; } }
-@media (max-width: 320px) {
-  .cluePlaceholder {
-    top: 36%; } }
-#cluePlaceholder img {
-  max-width: 300px;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.7); }
-
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
+    .cluePlaceholder {
+      top: 45%; } }
+  @media (max-width: 480px) {
+    .cluePlaceholder {
+      top: 40%; } }
+  @media (max-width: 320px) {
+    .cluePlaceholder {
+      top: 36%; } }
   .cluePlaceholder img {
-    width: 60%; } }
-@media (min-width: 769px) and (max-height: 700px) {
-  .cluePlaceholder img {
-    width: 60%; } }
-@media (max-width: 767px) {
-  #cluePlaceholder .closeButtonRed {
-    right: 24%; } }
-@media (min-width: 769px) and (max-height: 700px) {
-  #cluePlaceholder .closeButtonRed {
-    right: 24%; } }
-#cluePlaceholder .finale-copy {
-  display: none;
-  margin-top: 20px; }
-  #cluePlaceholder .finale-copy > p {
-    font-weight: 700; }
-  #cluePlaceholder .finale-copy.active {
-    display: block; }
+    width: 100%; }
+  .cluePlaceholder .clue {
+    max-width: 300px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.7);
+    position: relative; }
+    @media (max-width: 767px) {
+      .cluePlaceholder .clue {
+        width: 100%; } }
+    @media (min-width: 769px) and (max-height: 700px) {
+      .cluePlaceholder .clue {
+        width: 60%;
+        margin: 0 auto; } }
+  .cluePlaceholder .finale-copy {
+    display: none;
+    margin-top: 20px; }
+    .cluePlaceholder .finale-copy > p {
+      font-weight: 700; }
+    .cluePlaceholder .finale-copy.active {
+      display: block; }
 
 /*
 *  Animations Section
@@ -621,6 +610,10 @@
     font-style: italic; }
     #pano .link-hotspot-tooltip:hover {
       transform: none; }
+  #pano.en .hotspot__text__zh {
+    display: none; }
+  #pano.zh .hotspot__text__en {
+    display: none; }
 
 #pageClues {
   z-index: 100; }
@@ -769,11 +762,10 @@
   #pageGuessName > .inner {
     width: auto;
     overflow: hidden;
-    top: 0;
-    height: 100%;
     transform: none;
-    left: 0;
-    position: static; } }
+    position: static;
+    top: 0;
+    left: 0; } }
 #pageGuessName .single-column {
   position: relative;
   z-index: 1; }
@@ -840,8 +832,6 @@
   padding: 20px;
   margin-top: 30px;
   width: 300px; }
-  .guessBox .btnBlood {
-    padding: 6px 11px; }
 
 .guessBox > input {
   background-color: transparent;
@@ -849,7 +839,7 @@
   border-bottom: 2px solid #a80101;
   color: #fff;
   text-align: center;
-  border-radius: none;
+  border-radius: 0;
   margin-right: 10px;
   font-size: 32px;
   font-size: 3.2rem; }
@@ -988,10 +978,12 @@
 
   .pontianakSpecial {
     background-position: -1440px -1905px; } }
+/* Duplicated CluesCtr on GuessName section */
 @media (max-width: 480px) {
   #pageGuessName .cluesCtr {
     display: block;
     position: relative;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;

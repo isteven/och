@@ -1,15 +1,5 @@
 /*
-*  Fake clues Section
-*
-*/
-.prop-hotspot-clue {
-  display: none;
-}
-
-
-/*
 *  Clue Image
-*  All Scenes
 */
 .cluesCtr {
   width: 100px;
@@ -25,28 +15,28 @@
   &.active {
     display: block;
   }
-}
 
-.cluesCtr img {
-  width: 100%;
-}
-
-@media (max-width: 600px){
-  .cluesCtr {
+  @media #{$mobile-only}{
     bottom: 70px;
     right: 10px;
 
     width: 80px;
     height: 80px;
   }
-}
-@media #{$short-height-screens-width} and #{$short-height-screens-max} {
-  .cluesCtr {
+
+  @media #{$short-height-screens-width} and #{$short-height-screens-max} {
     bottom: 70px;
     right: 40px;
   }
+
+  img {
+    width: 100%;
+  }
 }
 
+/*
+*  Animating glow on clue icon
+*/
 .cluesCtr.is-max .clue-glow {
   // background-color: #cc0a00;
   width: 50%;
@@ -151,63 +141,50 @@
 
     text-align: center;
 
-}
-@media (max-width: 767px){
-	.cluePlaceholder {
-    	width: 100%;
-      top: 45%;
-	}
-}
-@media (max-width: 480px){
-	.cluePlaceholder {
-    	top: 40%;
-	}
-}
-@media (max-width: 320px){
-	.cluePlaceholder {
-    	top: 36%;
-	}
-}
+  @media #{$mobile-only}{
+    top: 45%;
+  }
 
-#cluePlaceholder img {
-    // height: 100%;
-    // width: 70%;
+  @media #{$small-mobile}{
+    top: 40%;
+  }
+
+  @media #{$screen-iphone4}{
+    top: 36%;
+  }
+
+
+  img {
+    width: 100%;
+  }
+
+  .clue {
     max-width: 300px;
     box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.7);
-}
-@media (max-width: 767px){
-	.cluePlaceholder img {
-    	width: 60%;
-	}
-}
-@media #{$short-height-screens-width} and #{$short-height-screens-max} {
-  .cluePlaceholder img {
-    width: 60%;
-  }
-}
+    position: relative;
 
-@media (max-width: 767px){
-  #cluePlaceholder .closeButtonRed {
-    right: 24%;
-  }
-}
+    @media #{$mobile-only}{
+      width: 100%;
+    }
 
-@media #{$short-height-screens-width} and #{$short-height-screens-max} {
-  #cluePlaceholder .closeButtonRed {
-    right: 24%;
-  }
-}
-
-#cluePlaceholder .finale-copy {
-  display: none;
-  margin-top: 20px;
-
-  > p {
-    font-weight: $lato-bold;
+    @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+      width: 60%;
+      margin: 0 auto;
+    }
   }
 
-  &.active {
-    display: block;
+
+  .finale-copy {
+    display: none;
+    margin-top: 20px;
+
+    > p {
+      font-weight: $lato-bold;
+    }
+
+    &.active {
+      display: block;
+    }
   }
 }
 
