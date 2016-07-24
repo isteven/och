@@ -1010,7 +1010,7 @@ controls.enableMethod('deviceOrientation');
 var scenes = APP_DATA.scenes.map(function(sceneData) {
 
   var source = Marzipano.ImageUrlSource.fromString(
-      "../img/och/" + sceneData.id + "/{f}.jpg");
+      "img/och/" + sceneData.id + "/{f}.jpg");
     // var source = Marzipano.ImageUrlSource.fromString(
     //     cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
 
