@@ -425,12 +425,18 @@ $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
 //  GAME:: TRIGGER TO DISPLAY THE CLUES MODAL FOUND SO FAR
 var showClues = function() {
     var allCluesFound = 0;
+    var lang = '';
     $('#pageClues .closeButtonRed').show();
     showPage('#pageClues');
+
+    if( $('body').hasClass('zh') ) {
+      lang = 'zh/';
+    }
+
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
             var tempDom = $('#pageClues .clues img');
-            $(tempDom[i]).attr('src', 'img/photo_clue_' + (i + 1) + '.jpg');
+            $(tempDom[i]).attr('src', 'img/'+lang+'photo_clue_' + (i + 1) + '.jpg');
             allCluesFound++;
         }
     }
