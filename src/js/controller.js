@@ -609,12 +609,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     };
 
     var audioFiles = [
-        cdn_url+"/och/audio/mp3/bgm.mp3",
-        cdn_url+"/och/audio/mp3/takephoto.mp3",
-        cdn_url+"/och/audio/mp3/jumpscare.mp3",
-        cdn_url+"/och/audio/mp3/pon_appear.mp3",
-        cdn_url+"/och/audio/mp3/pon_dash.mp3",
-        cdn_url+"/och/audio/mp3/fail.mp3"
+        cdn_url+"/och/audio/bgm.mp3",
+        cdn_url+"/och/audio/takephoto.mp3",
+        cdn_url+"/och/audio/jumpscare.mp3",
+        cdn_url+"/och/audio/pon_appear.mp3",
+        cdn_url+"/och/audio/pon_dash.mp3",
+        cdn_url+"/och/audio/fail.mp3"
     ];
 
     var preloadAudio = function(url) {

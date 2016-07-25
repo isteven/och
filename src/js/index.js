@@ -110,8 +110,8 @@ controls.enableMethod('deviceOrientation');
 // Create scenes.
 var scenes = APP_DATA.scenes.map(function(sceneData) {
 
-  var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
-    // var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
+  // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
+    var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
 
     // var geometry = new Marzipano.CubeGeometry(sceneData.levels);
     var geometry = new Marzipano.CubeGeometry([{

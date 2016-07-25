@@ -767,12 +767,12 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     };
 
     var audioFiles = [
-        cdn_url+"/och/audio/mp3/bgm.mp3",
-        cdn_url+"/och/audio/mp3/takephoto.mp3",
-        cdn_url+"/och/audio/mp3/jumpscare.mp3",
-        cdn_url+"/och/audio/mp3/pon_appear.mp3",
-        cdn_url+"/och/audio/mp3/pon_dash.mp3",
-        cdn_url+"/och/audio/mp3/fail.mp3"
+        cdn_url+"/och/audio/bgm.mp3",
+        cdn_url+"/och/audio/takephoto.mp3",
+        cdn_url+"/och/audio/jumpscare.mp3",
+        cdn_url+"/och/audio/pon_appear.mp3",
+        cdn_url+"/och/audio/pon_dash.mp3",
+        cdn_url+"/och/audio/fail.mp3"
     ];
 
     var preloadAudio = function(url) {
@@ -1028,8 +1028,8 @@ controls.enableMethod('deviceOrientation');
 // Create scenes.
 var scenes = APP_DATA.scenes.map(function(sceneData) {
 
-  var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
-    // var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
+  // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
+    var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
 
     // var geometry = new Marzipano.CubeGeometry(sceneData.levels);
     var geometry = new Marzipano.CubeGeometry([{

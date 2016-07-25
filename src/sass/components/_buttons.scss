@@ -12,9 +12,9 @@
     font-weight: $lato-bold;
     color: #e5e5cf;
 
-    -webkit-transition: all .5s ease-out;
-    -moz-transition: all .5s ease-out;
-    transition: all .5s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    transition: all .2s ease-out;
 
     @media #{$short-height-screens-width} and #{$short-height-screens-max} {
       height: 32px;
