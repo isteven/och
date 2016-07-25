@@ -209,6 +209,10 @@
             @include respond-to(700) {
                 width: 100%;
             }
+
+            @media #{$short-height-screens-width} and #{$short-height-screens-max} {
+              width: 70%;
+            }
         }
         > .inner > .col__code__text {
             @include font-size(14);

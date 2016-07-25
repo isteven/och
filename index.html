@@ -303,11 +303,17 @@
                                         <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter " ng-click="share_twitter()"></a>
                                         <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo " ng-click="share_weibo()"></a>
                                     </div>
-                                    <p class="terms-conditions">
+                                    <p class="terms-conditions" ng-if="lang == 'en'">
                                         <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
                                             {{getContent( 'terms-and-conditions' )}}
                                         </a>
                                         {{getContent( 'terms-and-conditions-apply' )}}
+                                    </p>
+                                    <p class="terms-conditions" ng-if="lang == 'zh'">
+                                      {{getContent( 'terms-and-conditions' )}}
+                                      <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
+                                          {{getContent( 'terms-and-conditions-apply' )}}
+                                      </a>
                                     </p>
                                     <div class="content__share__win__leaderboard">
                                         <p>

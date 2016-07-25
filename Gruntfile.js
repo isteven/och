@@ -35,13 +35,13 @@ module.exports = function(grunt) {
           nospawn: true
         },
       },
-      // js: {
-      //   files: ['<%= site.src %>/js/**/*.js'],
-      //   tasks: ['watchcontexthelper:js'],
-      //   options: {
-      //     nospawn: true
-      //   },
-      // },
+      js: {
+        files: ['<%= site.src %>/js/**/*.js'],
+        tasks: ['watchcontexthelper:js'],
+        options: {
+          nospawn: true
+        },
+      },
       // img: {
       //   files: ['<%= site.src %>/images/**/*'],
       //   tasks: ['watchcontexthelper:img'],

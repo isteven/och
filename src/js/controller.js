@@ -345,11 +345,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                 //     idx++;
                 // });
 
-                for( var i = 1; i <= 10; i++ ) {
+                for( var i = 0; i < 10; i++ ) {
 
                   if ( success.data[i] !== undefined ) {
 
-                    $scope.entryResult[i-1].time = success.data[i].time;
+                    $scope.entryResult[i].time = success.data[i].time;
 
                   }
 
@@ -428,13 +428,20 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
     $scope.share_weibo = function() {
         window.open(
-            weibo_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            weibo_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime + '&gameShareImage=' + weibo_share_image,
             'weibowindow',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         )
     }
 
     var fbPost = function(fbId, response1) {
+      var game_url = fb_share_url+$scope.lang+'/games/och';
+      var desc = fb_share_desc_en;
+
+      if( $scope.lang == 'zh' ){
+        desc = fb_share_desc_cn;
+      }
+
         FB.api(
             "/" + fbId,
             function(response2) {
@@ -442,9 +449,14 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     console.log('FB get user info');
                     console.log(response2);
                     FB.ui({
-                        method: 'share',
+                        // method: 'share',
+                        method: 'feed',
+                        link: game_url,
+                        description: desc,
+                        // caption: 'this is the caption',
+                        picture: fb_share_image,
                         display: 'popup',
-                        href: fb_share_url,
+                        // href: fb_share_url,
                     }, function(response3) {
                         console.log('FB posting.. ')
                         var tempEmail = response2.email;
@@ -637,6 +649,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     if ( !$scope.gameIsLoaded ) {
       showPage('.preloader');
       loadManifest();
+      // hidePage('.preloader');
     }
 
     showPage('#pageLanding');

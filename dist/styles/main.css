@@ -4969,6 +4969,9 @@ button {
       @media only screen and (max-width: 700px) {
         #pageShare .col__code > .inner img {
           width: 100%; } }
+      @media (min-width: 769px) and (max-height: 700px) {
+        #pageShare .col__code > .inner img {
+          width: 70%; } }
     #pageShare .col__code > .inner > .col__code__text {
       font-size: 14px;
       font-size: 1.4rem;
