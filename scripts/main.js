@@ -536,6 +536,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
     }
 
     $scope.share_facebook = function () {
+        /*
         if (window.fbLoggedIn) {
             fbPost(window.fbResponse.authResponse.userID, window.fbResponse);
         } else {
@@ -552,6 +553,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
                 }
             });
         }
+        */
         /*
         FB.getLoginStatus(function(response ) {
             if (response.status === 'connected') {
@@ -578,22 +580,23 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
     }
 
     $scope.share_twitter = function () {
-        window.open(
-            twitter_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
-            '1468140690854',
-            'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
-        );
+        // window.open(
+        //     twitter_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+        //     '1468140690854',
+        //     'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
+        // );
     }
 
     $scope.share_weibo = function () {
-        window.open(
-            weibo_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime + '&gameShareImage=' + weibo_share_image,
-            'weibowindow',
-            'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
-        )
+        // window.open(
+        //     weibo_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime + '&gameShareImage=' + weibo_share_image,
+        //     'weibowindow',
+        //     'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
+        // )
     }
 
     var fbPost = function (fbId, response1) {
+        /*
         var game_url = fb_share_url + $scope.lang + '/games/och';
         var desc = fb_share_desc_en;
 
@@ -640,6 +643,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
                 }
             }
         );
+        */
     }
 
     // $scope.share_twitter = function() {
@@ -664,6 +668,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
     // }
 
     var postToDb = function (param) {
+        /*
         console.log('postToDb()');
         $http({
             method: 'POST',
@@ -679,6 +684,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http
                 console.log(error);
             }
         );
+        */
     }
 
     $scope.startGame = function () {
