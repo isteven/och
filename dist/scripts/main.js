@@ -5,16 +5,16 @@ var environment = 'local';
 var environmentConfigs = {
 
     local: {
-        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId: 1 // Old Changi Hospital
     },
     uat: {
-        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId: 1 // Old Changi Hospital
     },
     prod: {
-        apiUrl  : 'http://halloweenhorrornights.com.sg/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://halloweenhorrornights.com.sg/',
+        gameId: 1 // Old Changi Hospital
     }
 };
 
@@ -23,13 +23,13 @@ var environmentConfigs = {
  * so you have to use use different variable names with the environmentConfigs.
  */
 var globalConfigs = {
-    apiVersion          : 'v1.0',
-    dateFormat          : 'DD MMMM YYYY',
-    dateTimeFormat      : 'DD MMMM YYYY, HH:mm'
+    apiVersion: 'v1.0',
+    dateFormat: 'DD MMMM YYYY',
+    dateTimeFormat: 'DD MMMM YYYY, HH:mm'
 };
 
-var configGet = function( property ){
-    return environmentConfigs[ environment ][ property ];
+var configGet = function (property) {
+    return environmentConfigs[environment][property];
 }
 
 var fb_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/';
@@ -42,7 +42,8 @@ var twitter_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/tw
 var weibo_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/weibo';
 var weibo_share_image = 'https://rws-hhn6-s3.s3.amazonaws.com/game/och/share/weibo_OCH.jpg';
 
-var cdn_url = "https://dg0l7q9c72lxu.cloudfront.net/game";
+//var cdn_url = "https://dg0l7q9c72lxu.cloudfront.net/game";
+var cdn_url = "img/";
 
 // DON'T TOUCH THESE...
 
@@ -158,7 +159,7 @@ window.languageSet['zh']['guess-name-button'] = '猜测姓名';
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
     var gameStartTime = null;
     var gameEndTime = null;
@@ -185,7 +186,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         date: 16
     }, {
         date: 18
-    }, ];
+    },];
 
     $scope.lang = 'en';
 
@@ -197,7 +198,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }, {
         letter: '瑰',
         display: false
-    }, ];
+    },];
     nameArr1['en'] = [{
         letter: 'r',
         display: false
@@ -249,16 +250,16 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //   { idxString: '10', time: 0}  ];
 
     $scope.entryResult = [
-      { idxString: '01', time: 0},
-      { idxString: '02', time: 0},
-      { idxString: '03', time: 0},
-      { idxString: '04', time: 0},
-      { idxString: '05', time: 0},
-      { idxString: '06', time: 0},
-      { idxString: '07', time: 0},
-      { idxString: '08', time: 0},
-      { idxString: '09', time: 0},
-      { idxString: '10', time: 0}
+        { idxString: '01', time: 0 },
+        { idxString: '02', time: 0 },
+        { idxString: '03', time: 0 },
+        { idxString: '04', time: 0 },
+        { idxString: '05', time: 0 },
+        { idxString: '06', time: 0 },
+        { idxString: '07', time: 0 },
+        { idxString: '08', time: 0 },
+        { idxString: '09', time: 0 },
+        { idxString: '10', time: 0 }
     ];
 
     // $scope.entry1to5 = [];
@@ -267,16 +268,16 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
     var masterPontianakIdx = 1;
 
-    $scope.showFooterPopup = function(type) {
+    $scope.showFooterPopup = function (type) {
         $scope.footer.popupActive = true;
         $scope.footer.section = type;
     }
 
-    $scope.hideFooterPopup = function(type) {
+    $scope.hideFooterPopup = function (type) {
         $scope.footer.popupActive = false;
     }
 
-    $scope.getContent = function(index, html) {
+    $scope.getContent = function (index, html) {
         // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
         if (html) {
             return $sce.trustAsHtml(window.languageSet[$scope.lang][index]);
@@ -318,25 +319,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    $scope.playSfx = function(param) {
+    $scope.playSfx = function (param) {
         window.playSfx(param);
     }
 
-    $scope.checkName = function() {
+    $scope.checkName = function () {
         if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active')) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
             var letterIsCorrect = false;
             var result1 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name1);
             var result2 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name2);
             if (result1.length > 0) {
-                angular.forEach(result1, function(value, key) {
+                angular.forEach(result1, function (value, key) {
                     $scope.name1[value].display = true;
                 });
                 letterIsCorrect = true;
                 $scope.guessCorrect = true;
             }
             if (result2.length > 0) {
-                angular.forEach(result2, function(value, key) {
+                angular.forEach(result2, function (value, key) {
                     $scope.name2[value].display = true;
                 });
                 letterIsCorrect = true;
@@ -361,13 +362,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     if (Modernizr.mq('(max-width: 769px)')) {
                         //  Mobile and tablet has more animation frames,
                         //  so duration needs slightly longer
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
                             $scope.playSfx('user-fails');
                         }, 1000);
                     } else {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
                             $scope.playSfx('user-fails');
@@ -380,13 +381,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             // if correct answer
             else {
                 var nameIsCorrect = true;
-                angular.forEach($scope.name1, function(value, key) {
+                angular.forEach($scope.name1, function (value, key) {
                     // console.log( value );
                     if (!value.display) {
                         nameIsCorrect = false;
                     }
                 });
-                angular.forEach($scope.name2, function(value, key) {
+                angular.forEach($scope.name2, function (value, key) {
                     // console.log( value );
                     if (!value.display) {
                         nameIsCorrect = false;
@@ -403,7 +404,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     if (Modernizr.mq('(max-width: 769px)')) {
                         //  Mobile and tablet has more animation frames,
                         //  so duration needs slightly longer
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
@@ -412,7 +413,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
                         }, 1000);
                     } else {
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
@@ -431,7 +432,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    $scope.initiateJumpScare = function() {
+    $scope.initiateJumpScare = function () {
         $('.pontianakBox div').fadeOut(800);
         var pontianakIdx = ((5 - triesLeft) * 2) + 1;
         console.log('pontianak index:' + pontianakIdx);
@@ -443,15 +444,15 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         });
     }
 
-    $scope.showPage = function(domString) {
+    $scope.showPage = function (domString) {
         window.showPage(domString);
     }
 
-    $scope.hidePage = function(domString) {
+    $scope.hidePage = function (domString) {
         window.hidePage(domString);
     }
 
-    $scope.checkDate = function(date) {
+    $scope.checkDate = function (date) {
         if (date == 16) {
             calculateGameTime();
             loadLeaderboard();
@@ -465,26 +466,26 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    loadLeaderboard = function() {
-      // console.log('loadleaderboard');
+    loadLeaderboard = function () {
+        // console.log('loadleaderboard');
 
-      // var result = [{"id":48,"time":22644},{"id":46,"time":22692},{"id":45,"time":24211},{"id":47,"time":28202},{"id":44,"time":30356},{"id":41,"time":36683},{"id":42,"time":36879},{"id":43,"time":36879}];
-      //
-      // for( var i = 1; i <= 10; i++ ) {
-      //
-      //   if ( result[i] !== undefined ) {
-      //
-      //     $scope.entryResult[i-1].time = result[i].time;
-      //
-      //   }
-      //
-      // }
+        // var result = [{"id":48,"time":22644},{"id":46,"time":22692},{"id":45,"time":24211},{"id":47,"time":28202},{"id":44,"time":30356},{"id":41,"time":36683},{"id":42,"time":36879},{"id":43,"time":36879}];
+        //
+        // for( var i = 1; i <= 10; i++ ) {
+        //
+        //   if ( result[i] !== undefined ) {
+        //
+        //     $scope.entryResult[i-1].time = result[i].time;
+        //
+        //   }
+        //
+        // }
 
         $http({
             method: 'GET',
             url: configGet('apiUrl') + 'game/board/1',
         }).then(
-            function(success) {
+            function (success) {
                 // var idx = 0;
                 // angular.forEach(success.data, function(value, key) {
                 //     //console.log( value );
@@ -503,45 +504,45 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                 //     idx++;
                 // });
 
-                for( var i = 0; i < 10; i++ ) {
+                for (var i = 0; i < 10; i++) {
 
-                  if ( success.data[i] !== undefined ) {
+                    if (success.data[i] !== undefined) {
 
-                    $scope.entryResult[i].time = success.data[i].time;
+                        $scope.entryResult[i].time = success.data[i].time;
 
-                  }
+                    }
 
                 }
 
             },
-            function(error) {
+            function (error) {
                 console.log(error);
             }
         );
     }
 
-    var calculateGameTime = function() {
+    var calculateGameTime = function () {
         gameEndTime = performance.now();
         $scope.elapsedGameTime = gameEndTime - gameStartTime;
         console.log('elapsed game time (ms): ' + $scope.elapsedGameTime);
         console.log('elapsed game time (s): ' + $scope.elapsedGameTime * 0.001);
     }
 
-    $scope.millisToMinutesAndSeconds = function(millis) {
+    $scope.millisToMinutesAndSeconds = function (millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         var paddedMinutes = pad('00', minutes, true);
         return paddedMinutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
-    $scope.share_facebook = function() {
+    $scope.share_facebook = function () {
         if (window.fbLoggedIn) {
             fbPost(window.fbResponse.authResponse.userID, window.fbResponse);
         } else {
-            FB.login(function(response) {
+            FB.login(function (response) {
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function(response) {
+                    FB.api('/me', function (response) {
                         console.log(response);
                         fbPost(response.id, response);
                         // console.log('Good to see you, ' + response.name + '.');
@@ -576,33 +577,33 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         */
     }
 
-    $scope.share_twitter = function() {
+    $scope.share_twitter = function () {
         window.open(
-            twitter_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            twitter_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
     }
 
-    $scope.share_weibo = function() {
+    $scope.share_weibo = function () {
         window.open(
-            weibo_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime + '&gameShareImage=' + weibo_share_image,
+            weibo_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime + '&gameShareImage=' + weibo_share_image,
             'weibowindow',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         )
     }
 
-    var fbPost = function(fbId, response1) {
-      var game_url = fb_share_url+$scope.lang+'/games/och';
-      var desc = fb_share_desc_en;
+    var fbPost = function (fbId, response1) {
+        var game_url = fb_share_url + $scope.lang + '/games/och';
+        var desc = fb_share_desc_en;
 
-      if( $scope.lang == 'zh' ){
-        desc = fb_share_desc_cn;
-      }
+        if ($scope.lang == 'zh') {
+            desc = fb_share_desc_cn;
+        }
 
         FB.api(
             "/" + fbId,
-            function(response2) {
+            function (response2) {
                 if (response2 && !response2.error) {
                     console.log('FB get user info');
                     console.log(response2);
@@ -615,7 +616,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                         picture: fb_share_image,
                         display: 'popup',
                         // href: fb_share_url,
-                    }, function(response3) {
+                    }, function (response3) {
                         console.log('FB posting.. ')
                         var tempEmail = response2.email;
                         if (!tempEmail) {
@@ -662,25 +663,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //
     // }
 
-    var postToDb = function(param) {
+    var postToDb = function (param) {
         console.log('postToDb()');
         $http({
             method: 'POST',
             url: configGet('apiUrl') + 'game/submit',
             data: param
         }).then(
-            function(success) {
+            function (success) {
                 console.log('postToDb success');
                 console.log(success);
             },
-            function(error) {
+            function (error) {
                 console.log('postToDb ERROR');
                 console.log(error);
             }
         );
     }
 
-    $scope.startGame = function() {
+    $scope.startGame = function () {
 
         gameStartTime = performance.now();
 
@@ -716,7 +717,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     /* TNC Toggle */
-    $scope.tncToggle = function() {
+    $scope.tncToggle = function () {
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
@@ -725,57 +726,57 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     /*
     *   PRELOADER FOR IMAGES AND AUDIOS
     */
-    var loadManifest = function($data, callback) {
+    var loadManifest = function ($data, callback) {
 
-      $http({
-          method: 'GET',
-          url: 'manifest/manifest-och.json',
-      }).then(
-          function(success) {
-              loadImages(success.data);
-              // console.log(success.data);
-          },
-          function(error) {
-              console.log(error);
-          }
-      );
+        $http({
+            method: 'GET',
+            url: 'manifest/manifest-och.json',
+        }).then(
+            function (success) {
+                loadImages(success.data);
+                // console.log(success.data);
+            },
+            function (error) {
+                console.log(error);
+            }
+        );
 
     };
 
-    var loadImages = function($data) {
+    var loadImages = function ($data) {
 
-      var count = 0;
+        var count = 0;
 
-      angular.forEach( $data.images, function( value, key ){
+        angular.forEach($data.images, function (value, key) {
 
-        var img = new Image();
+            var img = new Image();
 
-        img.onload = function(){
-          count++;
-          if ( count === $data.images.length ) {
-            //after loading images, proceed to load audios
-            $scope.gameIsLoaded = true;
-            loadAudios();
+            img.onload = function () {
+                count++;
+                if (count === $data.images.length) {
+                    //after loading images, proceed to load audios
+                    $scope.gameIsLoaded = true;
+                    loadAudios();
 
-          }
-        };
+                }
+            };
 
-        // img.src = 'img/'+value;
-        img.src = cdn_url+'/'+value;
-      });
+            img.src = 'img/' + value;
+            //img.src = cdn_url + '/' + value;
+        });
 
     };
 
     var audioFiles = [
-        cdn_url+"/och/audio/bgm.mp3",
-        cdn_url+"/och/audio/takephoto.mp3",
-        cdn_url+"/och/audio/jumpscare.mp3",
-        cdn_url+"/och/audio/pon_appear.mp3",
-        cdn_url+"/och/audio/pon_dash.mp3",
-        cdn_url+"/och/audio/fail.mp3"
+        cdn_url + "/och/audio/bgm.mp3",
+        cdn_url + "/och/audio/takephoto.mp3",
+        cdn_url + "/och/audio/jumpscare.mp3",
+        cdn_url + "/och/audio/pon_appear.mp3",
+        cdn_url + "/och/audio/pon_dash.mp3",
+        cdn_url + "/och/audio/fail.mp3"
     ];
 
-    var preloadAudio = function(url) {
+    var preloadAudio = function (url) {
         var audio = new Audio();
         // once this file loads, it will call loadedAudio()
         // the file will be kept by the browser as cache
@@ -783,11 +784,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         audio.src = url;
     };
 
-    var loadAudios = function() {
+    var loadAudios = function () {
 
-      for (var i in audioFiles) {
-          preloadAudio(audioFiles[i]);
-      }
+        for (var i in audioFiles) {
+            preloadAudio(audioFiles[i]);
+        }
     };
 
     var loaded = 0;
@@ -795,19 +796,19 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         // this will be called every time an audio file is loaded
         // we keep track of the loaded files vs the requested files
         loaded++;
-        if (loaded == audioFiles.length){
-        	// all have loaded
-          // showPage('#pageLanding');
-          $('.preloader').fadeOut(400);
-          // showPage('#pageLanding');
+        if (loaded == audioFiles.length) {
+            // all have loaded
+            // showPage('#pageLanding');
+            $('.preloader').fadeOut(400);
+            // showPage('#pageLanding');
         }
     }
 
     //  on first load, show preloader first and load the assets
-    if ( !$scope.gameIsLoaded ) {
-      showPage('.preloader');
-      loadManifest();
-      // hidePage('.preloader');
+    if (!$scope.gameIsLoaded) {
+        showPage('.preloader');
+        loadManifest();
+        // hidePage('.preloader');
     }
 
     showPage('#pageLanding');
@@ -928,7 +929,7 @@ var timeoutID;
 // Grab elements from DOM.
 var panoElement = document.querySelector('#pano');
 
-var AnimateSprite = function(el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
+var AnimateSprite = function (el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
     if (!el || el.length == 0) return;
 
     var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
@@ -965,7 +966,7 @@ var AnimateSprite = function(el, frameWidth, frameHeight, numCols, totalFrame, d
 };
 
 var jumpScare = {
-    scare: function(status) {
+    scare: function (status) {
         $('#scare').show();
         $('.scare-overlay').addClass('active');
         playSfx('jump-scare');
@@ -979,14 +980,14 @@ var jumpScare = {
             });
             sprite.to(9);
 
-            sprite.on('frame', function(eventName) {
+            sprite.on('frame', function (eventName) {
                 if (this.frame == 9) {
                     $('#scare').hide();
                     $('.scare-overlay').removeClass('active');
                 }
             });
         } else {
-            AnimateSprite($('#scare'), 974, 1119, 5, 10, 0.5, 0, function() {
+            AnimateSprite($('#scare'), 974, 1119, 5, 10, 0.5, 0, function () {
                 $('#scare').hide();
                 $('.scare-overlay').removeClass('active');
             });
@@ -995,13 +996,13 @@ var jumpScare = {
 
         this.timeoutID = undefined;
     },
-    setup: function() {
-        this.timeoutID = window.setTimeout(function(status) {
+    setup: function () {
+        this.timeoutID = window.setTimeout(function (status) {
             this.scare(status);
         }.bind(this), 6000);
     },
 
-    cancel: function() {
+    cancel: function () {
         window.clearTimeout(this.timeoutID);
         this.timeoutID = undefined;
     }
@@ -1026,10 +1027,10 @@ controls.registerMethod('deviceOrientation', deviceOrientationControlMethod);
 controls.enableMethod('deviceOrientation');
 
 // Create scenes.
-var scenes = APP_DATA.scenes.map(function(sceneData) {
+var scenes = APP_DATA.scenes.map(function (sceneData) {
 
-  // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
-    var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
+    // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
+    var source = Marzipano.ImageUrlSource.fromString(cdn_url + "/och/" + sceneData.id + "/{f}.jpg");
 
     // var geometry = new Marzipano.CubeGeometry(sceneData.levels);
     var geometry = new Marzipano.CubeGeometry([{
@@ -1049,7 +1050,7 @@ var scenes = APP_DATA.scenes.map(function(sceneData) {
     });
 
     // Create link hotspots.
-    sceneData.linkHotspots.forEach(function(hotspot) {
+    sceneData.linkHotspots.forEach(function (hotspot) {
         var element = createLinkHotspotElement(hotspot);
         marzipanoScene.hotspotContainer().createHotspot(element, {
             yaw: hotspot.yaw,
@@ -1059,17 +1060,17 @@ var scenes = APP_DATA.scenes.map(function(sceneData) {
 
     // Create Props hotspots.
     if (sceneData.propHotspots !== undefined) {
-        sceneData.propHotspots.forEach(function(hotspot) {
+        sceneData.propHotspots.forEach(function (hotspot) {
             var element = createPropHotspotsElement(hotspot);
             marzipanoScene.hotspotContainer().createHotspot(element, {
                 yaw: hotspot.yaw,
                 pitch: hotspot.pitch
             }, {
-                perspective: {
-                    radius: hotspot.radius,
-                    extraRotations: hotspot.extraRotations
-                }
-            });
+                    perspective: {
+                        radius: hotspot.radius,
+                        extraRotations: hotspot.extraRotations
+                    }
+                });
         });
     }
 
@@ -1119,7 +1120,7 @@ function createLinkHotspotElement(hotspot) {
 
     // Create image element.
     var icon = document.createElement('img');
-    icon.src = cdn_url+'/och/link.png';
+    icon.src = cdn_url + 'link.png';
     icon.classList.add('link-hotspot-icon');
 
     // Set rotation transform.
@@ -1130,7 +1131,7 @@ function createLinkHotspotElement(hotspot) {
     }
 
     // Add click event handler.
-    wrapper.addEventListener('click', function() {
+    wrapper.addEventListener('click', function () {
         switchScene(findSceneById(hotspot.target));
     });
 
@@ -1191,7 +1192,7 @@ function stopTouchAndScrollEventPropagation(element, eventList) {
         'wheel', 'mousewheel'
     ];
     for (var i = 0; i < eventList.length; i++) {
-        element.addEventListener(eventList[i], function(event) {
+        element.addEventListener(eventList[i], function (event) {
             event.stopPropagation();
         });
     }
@@ -1328,13 +1329,13 @@ var region_3_range = 1.6;
 var region_4_range = 2.2;
 var region_5_range = 2.8;
 
-var throttle = function(callback, limit) {
+var throttle = function (callback, limit) {
     var wait = false; // Initially, we're not waiting
-    return function() { // We return a throttled function
+    return function () { // We return a throttled function
         if (!wait) { // If we're not waiting
             callback.call(); // Execute users function
             wait = true; // Prevent future invocations
-            setTimeout(function() { // After a period of time
+            setTimeout(function () { // After a period of time
                 wait = false; // And allow future invocations
             }, limit);
         }
@@ -1343,7 +1344,7 @@ var throttle = function(callback, limit) {
 
 var fake_hotspot = 0;
 
-var viewChangeThrottled = throttle(function() {
+var viewChangeThrottled = throttle(function () {
     // Get the current viewport dimensions
     // var size = activeScene.marzipanoObject.view().size();
 
@@ -1354,7 +1355,7 @@ var viewChangeThrottled = throttle(function() {
 
     //  EMF AND REAL CLUES
     if (!cluesFound[activeSceneIdx]) {
-        if ( is_in_range(panning_x, hotspot_x, region_1_range) ) {
+        if (is_in_range(panning_x, hotspot_x, region_1_range)) {
             //  region 1, at the max region, 5 lights
             $('.emf__visual').attr('class', 'emf__visual is-region-1');
 
@@ -1369,7 +1370,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').addClass('hidden');
             }
 
-        } else if ( is_in_range(panning_x, hotspot_x, region_2_range) ) {
+        } else if (is_in_range(panning_x, hotspot_x, region_2_range)) {
             //  region 2, 4 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-2');
             canClick[activeSceneIdx] = false;
@@ -1380,7 +1381,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').removeClass('hidden');
             }
 
-        } else if ( is_in_range(panning_x, hotspot_x, region_3_range) ) {
+        } else if (is_in_range(panning_x, hotspot_x, region_3_range)) {
             //  region 3, 3 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-3');
             canClick[activeSceneIdx] = false;
@@ -1467,118 +1468,118 @@ var viewChangeThrottled = throttle(function() {
 
 }, 250);
 
-scenes.map(function(scene) {
+scenes.map(function (scene) {
     var view = scene.marzipanoObject.view();
     view.addEventListener('change', viewChangeThrottled);
 });
 
-var showPanoCenter = function() {
-    $(".realclue .panoCenter").fadeIn("slow", "swing", function() {
+var showPanoCenter = function () {
+    $(".realclue .panoCenter").fadeIn("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var hidePanoCenter = function() {
-    $(".realclue .panoCenter").fadeOut("slow", "swing", function() {
+var hidePanoCenter = function () {
+    $(".realclue .panoCenter").fadeOut("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var showFakeClue = function() {
-    $(".fakeclue .panoCenter").fadeIn("slow", "swing", function() {
+var showFakeClue = function () {
+    $(".fakeclue .panoCenter").fadeIn("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var hideFakeClue = function() {
-    $(".fakeclue .panoCenter").fadeOut("slow", "swing", function() {
+var hideFakeClue = function () {
+    $(".fakeclue .panoCenter").fadeOut("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var showPage = function(newPage) {
+var showPage = function (newPage) {
     $(newPage).fadeIn();
 };
 
-var hidePage = function(page) {
+var hidePage = function (page) {
     $(page).fadeOut();
 };
 
 //  GAME:: TAKE PHOTO
-$('.clue').on('click touchstart', '.panoCenter', function(e) {
+$('.clue').on('click touchstart', '.panoCenter', function (e) {
 
     // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     e.preventDefault();
-    playSfx( 'take-photo' );
+    playSfx('take-photo');
 
     var clueId = $(this).data('clue-id');
     var lang = '';
 
-    if ( $(this).hasClass('zh') ) {
-      lang = 'zh/';
+    if ($(this).hasClass('zh')) {
+        lang = 'zh/';
     }
 
-    if ( canClick[clueId - 1] ) {
-      if ( !cluesFound[clueId - 1]) {
-          //  FOUND REAL CLUES AND STILL AVAILABLE
-          canClick[clueId - 1] = false;
-          cluesFound[clueId - 1] = true;
+    if (canClick[clueId - 1]) {
+        if (!cluesFound[clueId - 1]) {
+            //  FOUND REAL CLUES AND STILL AVAILABLE
+            canClick[clueId - 1] = false;
+            cluesFound[clueId - 1] = true;
 
-          //  EMF SWITCH OFF
-          $('.emf__visual').attr('class', 'emf__visual is-region-5');
-          $('.emf__reader > span.num').html(generate_random_number(5));
-          $('.emf__reader > span.static').removeClass('hidden');
+            //  EMF SWITCH OFF
+            $('.emf__visual').attr('class', 'emf__visual is-region-5');
+            $('.emf__reader > span.num').html(generate_random_number(5));
+            $('.emf__reader > span.static').removeClass('hidden');
 
-          $('#cluePlaceholder').fadeIn(function() {
-              $(this).addClass('active-clue-placeholder');
-          });
-          $('#cluePlaceholder > .clue .closeButtonRed').show();
+            $('#cluePlaceholder').fadeIn(function () {
+                $(this).addClass('active-clue-placeholder');
+            });
+            $('#cluePlaceholder > .clue .closeButtonRed').show();
 
-          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/'+lang+'photo_clue_' + clueId + '.jpg');
+            $('#cluePlaceholder > .clue img').attr('src', cdn_url + 'photo_clue_' + clueId + '.jpg');
 
-          hidePanoCenter();
+            hidePanoCenter();
 
-          if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
-            $('#cluePlaceholder').find('.finale-copy').addClass('active');
-          }
+            if (cluesFound[0] && cluesFound[1] && cluesFound[2]) {
+                $('#cluePlaceholder').find('.finale-copy').addClass('active');
+            }
 
-      } else {
-        //  FOUND FAKE CLUES
-          canClick[clueId - 1] = false;
+        } else {
+            //  FOUND FAKE CLUES
+            canClick[clueId - 1] = false;
 
-          $('#cluePlaceholder').find('.finale-copy').removeClass('active');
+            $('#cluePlaceholder').find('.finale-copy').removeClass('active');
 
-          $('#cluePlaceholder').fadeIn(function() {
-              $(this).addClass('active-clue-placeholder');
+            $('#cluePlaceholder').fadeIn(function () {
+                $(this).addClass('active-clue-placeholder');
 
-              setTimeout(function(){
+                setTimeout(function () {
 
-                 $('#cluePlaceholder > .clue > img').stop(true, false).animate({
-                  opacity: 0,
-                  width: $('#cluePlaceholder > .clue > img').width()/2+'px',
-                  height: $('#cluePlaceholder > .clue > img').height()/2+'px'
-                },
-                400,
-                function() {
-                  $(this).hide();
-                  $('#cluePlaceholder > .clue > img').attr('src', '');
-                  $('#cluePlaceholder > .clue > img').attr('style', '');
-                  $('#cluePlaceholder').attr('style', '');
-                  $(this).removeClass('active-clue-placeholder');
-                  $('#cluePlaceholder').removeClass('fakeClue');
-                }
-                );
-              }, 1500);
-          });
+                    $('#cluePlaceholder > .clue > img').stop(true, false).animate({
+                        opacity: 0,
+                        width: $('#cluePlaceholder > .clue > img').width() / 2 + 'px',
+                        height: $('#cluePlaceholder > .clue > img').height() / 2 + 'px'
+                    },
+                        400,
+                        function () {
+                            $(this).hide();
+                            $('#cluePlaceholder > .clue > img').attr('src', '');
+                            $('#cluePlaceholder > .clue > img').attr('style', '');
+                            $('#cluePlaceholder').attr('style', '');
+                            $(this).removeClass('active-clue-placeholder');
+                            $('#cluePlaceholder').removeClass('fakeClue');
+                        }
+                    );
+                }, 1500);
+            });
 
-          $('#cluePlaceholder').addClass('fakeClue');
-          $('#cluePlaceholder > .clue .closeButtonRed').hide();
-          //$('#cluePlaceholder > .closeButtonRed').show();
-          // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
-          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/photo_clue_' + clueId + '.jpg');
+            $('#cluePlaceholder').addClass('fakeClue');
+            $('#cluePlaceholder > .clue .closeButtonRed').hide();
+            //$('#cluePlaceholder > .closeButtonRed').show();
+            // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
+            $('#cluePlaceholder > .clue img').attr('src', cdn_url + 'photo_clue_' + clueId + '.jpg');
 
-          hideFakeClue();
-      }
+            hideFakeClue();
+        }
 
     }
 
@@ -1586,7 +1587,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 });
 
 //  GAME:: CLOSE THE CLUE MODAL WHEN CLICK/DRAG ON BODY
-$('#pano').on('click touchstart', function() {
+$('#pano').on('click touchstart', function () {
 
     if ($('#cluePlaceholder').hasClass('active-clue-placeholder')) {
         $('#cluePlaceholder > .clue .closeButtonRed').click();
@@ -1595,43 +1596,43 @@ $('#pano').on('click touchstart', function() {
 });
 
 //  GAME:: CLOSE THE CLUE IMAGE
-$('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
+$('#cluePlaceholder').on('click', '.closeButtonRed', function (e) {
 
-    if ( !$('#cluePlaceholder').hasClass('fakeClue') ) {
+    if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
-      $('#cluePlaceholder > .clue > .closeButtonRed').hide();
+        $('#cluePlaceholder > .clue > .closeButtonRed').hide();
 
-      if ( $('#cluePlaceholder').find('.finale-copy').hasClass('active') ) {
-          $('#cluePlaceholder').find('.finale-copy').hide();
-      }
+        if ($('#cluePlaceholder').find('.finale-copy').hasClass('active')) {
+            $('#cluePlaceholder').find('.finale-copy').hide();
+        }
 
-      $('#cluePlaceholder > .clue > img').stop(true, false).animate({
-        opacity: 0,
-        width: $('#cluePlaceholder > img').width()/4+'px',
-        height: $('#cluePlaceholder > img').height()/4+'px'
-      },400, function() {
-          // $('.cluesCtr').show();
-          $(this).hide();
-          $('#cluePlaceholder > .clue > img').attr('src', '');
-          $('#cluePlaceholder > .clue > img').attr('style', '');
-          $('#cluePlaceholder').attr('style', '');
-          $('#cluePlaceholder').addClass('cluePlaceholder');
-          $('#cluePlaceholder').removeClass('active-clue-placeholder');
-      });
+        $('#cluePlaceholder > .clue > img').stop(true, false).animate({
+            opacity: 0,
+            width: $('#cluePlaceholder > img').width() / 4 + 'px',
+            height: $('#cluePlaceholder > img').height() / 4 + 'px'
+        }, 400, function () {
+            // $('.cluesCtr').show();
+            $(this).hide();
+            $('#cluePlaceholder > .clue > img').attr('src', '');
+            $('#cluePlaceholder > .clue > img').attr('style', '');
+            $('#cluePlaceholder').attr('style', '');
+            $('#cluePlaceholder').addClass('cluePlaceholder');
+            $('#cluePlaceholder').removeClass('active-clue-placeholder');
+        });
 
-      $('#cluePlaceholder').stop(true, false).animate({
-          top: '85%',
-          left: '90%'
-      }, 400, function() {
-          $('#cluePlaceholder').attr('style', '');
-      });
+        $('#cluePlaceholder').stop(true, false).animate({
+            top: '85%',
+            left: '90%'
+        }, 400, function () {
+            $('#cluePlaceholder').attr('style', '');
+        });
 
     }
 
 });
 
 //  GAME:: FOUND ALL THE CLUES, PROCEED TO GUESS NAME SECTION
-$('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
+$('#cluePlaceholder').on('click', '.btnBlood.active', function (e) {
     e.preventDefault();
     hidePage('#cluePlaceholder');
     showPage('#pageGuessName');
@@ -1640,29 +1641,29 @@ $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
 });
 
 //  GAME:: TRIGGER TO DISPLAY THE CLUES MODAL FOUND SO FAR
-var showClues = function() {
+var showClues = function () {
     var allCluesFound = 0;
     var lang = '';
     $('#pageClues .closeButtonRed').show();
     showPage('#pageClues');
 
-    if( $('body').hasClass('zh') ) {
-      lang = 'zh/';
+    if ($('body').hasClass('zh')) {
+        lang = 'zh/';
     }
 
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
             var tempDom = $('#pageClues .clues img');
-            $(tempDom[i]).attr('src', cdn_url+'/och/'+lang+'photo_clue_' + (i + 1) + '.jpg');
+            $(tempDom[i]).attr('src', cdn_url + 'photo_clue_' + (i + 1) + '.jpg');
             allCluesFound++;
         }
     }
-    $('#pageClues').on('click touchstart', '.closeButtonRed', function(e) {
+    $('#pageClues').on('click touchstart', '.closeButtonRed', function (e) {
         // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
-    $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
+    $('#pageClues').on('click touchstart', '.clue-overlay', function (e) {
         // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
@@ -1674,7 +1675,7 @@ var showClues = function() {
         //     showPage('#pageGuessName');
         // });
 
-        $('#pageClues').on('click', '.btnBlood.active', function(e) {
+        $('#pageClues').on('click', '.btnBlood.active', function (e) {
             hidePage('#pageClues');
             showPage('#pageGuessName');
         });
@@ -1718,16 +1719,16 @@ function enableEnterButton(pontianakIdx) {
 
         var nextFrameIndex = pontianakIdx + 1;
 
-        triggerIdlePontianak = setTimeout(function() {
+        triggerIdlePontianak = setTimeout(function () {
             $('.pontianakBox > div').hide();
             // $('.pontianak' + pontianakIdx).hide();
             $('.pontianak' + (nextFrameIndex)).show();
 
             clearInterval(frameInterval);
 
-            frameInterval = setInterval(function() {
+            frameInterval = setInterval(function () {
                 //  waiting pontianak shivers
-                AnimateSprite($('.pontianak' + nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15, pontianakIdx, function() {
+                AnimateSprite($('.pontianak' + nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15, pontianakIdx, function () {
                     clearInterval(frameInterval);
                 });
             }, 5000);
@@ -1795,26 +1796,26 @@ function animatePontianakSpecial() {
 
 //  SOUND FOR WHOLE GAMEPLAY
 var sfx = {};
-sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/bgm.mp3'],
+sfx['enter-game'] = new Howl({
+    src: ['audio/mp3/bgm.mp3'],
     loop: true
 });
-sfx[ 'take-photo' ] = new Howl({
+sfx['take-photo'] = new Howl({
     src: ['audio/mp3/takephoto.mp3']
 });
-sfx[ 'jump-scare' ] = new Howl({
+sfx['jump-scare'] = new Howl({
     src: ['audio/mp3/jumpscare.mp3']
 });
-sfx[ 'pon-appear' ] = new Howl({
+sfx['pon-appear'] = new Howl({
     src: ['audio/mp3/pon_appear.mp3']
 });
-sfx[ 'pon-dash' ] = new Howl({
+sfx['pon-dash'] = new Howl({
     src: ['audio/mp3/pon_dash.mp3']
 });
-sfx[ 'user-fails' ] = new Howl({
+sfx['user-fails'] = new Howl({
     src: ['audio/mp3/fail.mp3']
 });
 
 function playSfx(param) {
-    sfx[ param ].play();
+    sfx[param].play();
 }

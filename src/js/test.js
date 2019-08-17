@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
     var gameStartTime = null;
     var gameEndTime = null;
@@ -27,7 +27,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         date: 16
     }, {
         date: 18
-    }, ];
+    },];
 
     $scope.lang = 'en';
 
@@ -39,7 +39,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }, {
         letter: '瑰',
         display: false
-    }, ];
+    },];
     nameArr1['en'] = [{
         letter: 'r',
         display: false
@@ -91,16 +91,16 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //   { idxString: '10', time: 0}  ];
 
     $scope.entryResult = [
-      { idxString: '01', time: 0},
-      { idxString: '02', time: 0},
-      { idxString: '03', time: 0},
-      { idxString: '04', time: 0},
-      { idxString: '05', time: 0},
-      { idxString: '06', time: 0},
-      { idxString: '07', time: 0},
-      { idxString: '08', time: 0},
-      { idxString: '09', time: 0},
-      { idxString: '10', time: 0}
+        { idxString: '01', time: 0 },
+        { idxString: '02', time: 0 },
+        { idxString: '03', time: 0 },
+        { idxString: '04', time: 0 },
+        { idxString: '05', time: 0 },
+        { idxString: '06', time: 0 },
+        { idxString: '07', time: 0 },
+        { idxString: '08', time: 0 },
+        { idxString: '09', time: 0 },
+        { idxString: '10', time: 0 }
     ];
 
     // $scope.entry1to5 = [];
@@ -109,16 +109,16 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     var frameQty = [9, 8, 7, 8, 6, 8, 6, 8, 8];
     var masterPontianakIdx = 1;
 
-    $scope.showFooterPopup = function(type) {
+    $scope.showFooterPopup = function (type) {
         $scope.footer.popupActive = true;
         $scope.footer.section = type;
     }
 
-    $scope.hideFooterPopup = function(type) {
+    $scope.hideFooterPopup = function (type) {
         $scope.footer.popupActive = false;
     }
 
-    $scope.getContent = function(index, html) {
+    $scope.getContent = function (index, html) {
         // console.log( index, $scope.lang, window.languageSet[ $scope.lang ][ index ] );
         if (html) {
             return $sce.trustAsHtml(window.languageSet[$scope.lang][index]);
@@ -160,25 +160,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    $scope.playSfx = function(param) {
+    $scope.playSfx = function (param) {
         window.playSfx(param);
     }
 
-    $scope.checkName = function() {
+    $scope.checkName = function () {
         if ($scope.singleLetter != '' && $('#pageGuessName .btnBlood').hasClass('active')) {
             // $( '.pontianak' + masterPontianakIdx - 1 ).spStop();
             var letterIsCorrect = false;
             var result1 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name1);
             var result2 = searchArrayOfObject($scope.singleLetter, 'letter', $scope.name2);
             if (result1.length > 0) {
-                angular.forEach(result1, function(value, key) {
+                angular.forEach(result1, function (value, key) {
                     $scope.name1[value].display = true;
                 });
                 letterIsCorrect = true;
                 $scope.guessCorrect = true;
             }
             if (result2.length > 0) {
-                angular.forEach(result2, function(value, key) {
+                angular.forEach(result2, function (value, key) {
                     $scope.name2[value].display = true;
                 });
                 letterIsCorrect = true;
@@ -203,13 +203,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     if (Modernizr.mq('(max-width: 769px)')) {
                         //  Mobile and tablet has more animation frames,
                         //  so duration needs slightly longer
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
                             $scope.playSfx('user-fails');
                         }, 1000);
                     } else {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // hidePage( '#pageGuessName' );
                             showPage('#pageFails');
                             $scope.playSfx('user-fails');
@@ -222,13 +222,13 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             // if correct answer
             else {
                 var nameIsCorrect = true;
-                angular.forEach($scope.name1, function(value, key) {
+                angular.forEach($scope.name1, function (value, key) {
                     // console.log( value );
                     if (!value.display) {
                         nameIsCorrect = false;
                     }
                 });
-                angular.forEach($scope.name2, function(value, key) {
+                angular.forEach($scope.name2, function (value, key) {
                     // console.log( value );
                     if (!value.display) {
                         nameIsCorrect = false;
@@ -245,7 +245,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     if (Modernizr.mq('(max-width: 769px)')) {
                         //  Mobile and tablet has more animation frames,
                         //  so duration needs slightly longer
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
@@ -254,7 +254,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
                         }, 1000);
                     } else {
-                        window.setTimeout(function() {
+                        window.setTimeout(function () {
                             // document.activeElement.blur();
                             $('.cluesCtr').hide();
                             hidePage('#pageGuessName');
@@ -273,7 +273,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    $scope.initiateJumpScare = function() {
+    $scope.initiateJumpScare = function () {
         $('.pontianakBox div').fadeOut(800);
         var pontianakIdx = ((5 - triesLeft) * 2) + 1;
         console.log('pontianak index:' + pontianakIdx);
@@ -285,15 +285,15 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         });
     }
 
-    $scope.showPage = function(domString) {
+    $scope.showPage = function (domString) {
         window.showPage(domString);
     }
 
-    $scope.hidePage = function(domString) {
+    $scope.hidePage = function (domString) {
         window.hidePage(domString);
     }
 
-    $scope.checkDate = function(date) {
+    $scope.checkDate = function (date) {
         if (date == 16) {
             calculateGameTime();
             loadLeaderboard();
@@ -307,26 +307,26 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         }
     }
 
-    loadLeaderboard = function() {
-      // console.log('loadleaderboard');
+    loadLeaderboard = function () {
+        // console.log('loadleaderboard');
 
-      // var result = [{"id":48,"time":22644},{"id":46,"time":22692},{"id":45,"time":24211},{"id":47,"time":28202},{"id":44,"time":30356},{"id":41,"time":36683},{"id":42,"time":36879},{"id":43,"time":36879}];
-      //
-      // for( var i = 1; i <= 10; i++ ) {
-      //
-      //   if ( result[i] !== undefined ) {
-      //
-      //     $scope.entryResult[i-1].time = result[i].time;
-      //
-      //   }
-      //
-      // }
+        // var result = [{"id":48,"time":22644},{"id":46,"time":22692},{"id":45,"time":24211},{"id":47,"time":28202},{"id":44,"time":30356},{"id":41,"time":36683},{"id":42,"time":36879},{"id":43,"time":36879}];
+        //
+        // for( var i = 1; i <= 10; i++ ) {
+        //
+        //   if ( result[i] !== undefined ) {
+        //
+        //     $scope.entryResult[i-1].time = result[i].time;
+        //
+        //   }
+        //
+        // }
 
         $http({
             method: 'GET',
             url: configGet('apiUrl') + 'game/board/1',
         }).then(
-            function(success) {
+            function (success) {
                 // var idx = 0;
                 // angular.forEach(success.data, function(value, key) {
                 //     //console.log( value );
@@ -345,45 +345,45 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                 //     idx++;
                 // });
 
-                for( var i = 1; i <= 10; i++ ) {
+                for (var i = 1; i <= 10; i++) {
 
-                  if ( success.data[i] !== undefined ) {
+                    if (success.data[i] !== undefined) {
 
-                    $scope.entryResult[i-1].time = success.data[i].time;
+                        $scope.entryResult[i - 1].time = success.data[i].time;
 
-                  }
+                    }
 
                 }
 
             },
-            function(error) {
+            function (error) {
                 console.log(error);
             }
         );
     }
 
-    var calculateGameTime = function() {
+    var calculateGameTime = function () {
         gameEndTime = performance.now();
         $scope.elapsedGameTime = gameEndTime - gameStartTime;
         console.log('elapsed game time (ms): ' + $scope.elapsedGameTime);
         console.log('elapsed game time (s): ' + $scope.elapsedGameTime * 0.001);
     }
 
-    $scope.millisToMinutesAndSeconds = function(millis) {
+    $scope.millisToMinutesAndSeconds = function (millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         var paddedMinutes = pad('00', minutes, true);
         return paddedMinutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
-    $scope.share_facebook = function() {
+    $scope.share_facebook = function () {
         if (window.fbLoggedIn) {
             fbPost(window.fbResponse.authResponse.userID, window.fbResponse);
         } else {
-            FB.login(function(response) {
+            FB.login(function (response) {
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function(response) {
+                    FB.api('/me', function (response) {
                         console.log(response);
                         fbPost(response.id, response);
                         // console.log('Good to see you, ' + response.name + '.');
@@ -418,26 +418,26 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         */
     }
 
-    $scope.share_twitter = function() {
+    $scope.share_twitter = function () {
         window.open(
-            twitter_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            twitter_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             '1468140690854',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         );
     }
 
-    $scope.share_weibo = function() {
+    $scope.share_weibo = function () {
         window.open(
-            weibo_share_url+'?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
+            weibo_share_url + '?gameId=' + configGet('gameId') + '&gameTime=' + $scope.elapsedGameTime,
             'weibowindow',
             'width=400,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0'
         )
     }
 
-    var fbPost = function(fbId, response1) {
+    var fbPost = function (fbId, response1) {
         FB.api(
             "/" + fbId,
-            function(response2) {
+            function (response2) {
                 if (response2 && !response2.error) {
                     console.log('FB get user info');
                     console.log(response2);
@@ -445,7 +445,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                         method: 'share',
                         display: 'popup',
                         href: fb_share_url,
-                    }, function(response3) {
+                    }, function (response3) {
                         console.log('FB posting.. ')
                         var tempEmail = response2.email;
                         if (!tempEmail) {
@@ -492,25 +492,25 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     //
     // }
 
-    var postToDb = function(param) {
+    var postToDb = function (param) {
         console.log('postToDb()');
         $http({
             method: 'POST',
             url: configGet('apiUrl') + 'game/submit',
             data: param
         }).then(
-            function(success) {
+            function (success) {
                 console.log('postToDb success');
                 console.log(success);
             },
-            function(error) {
+            function (error) {
                 console.log('postToDb ERROR');
                 console.log(error);
             }
         );
     }
 
-    $scope.startGame = function() {
+    $scope.startGame = function () {
 
         gameStartTime = performance.now();
 
@@ -528,7 +528,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         $('.preloader').hide();
         $('#pageLanding').fadeOut(400);
         // hidePage('#pageFails');
-        // $('.pontianakBox div').hide();
+        //$('.pontianakBox div').hide();
         showPage('.emf__container');
         $('.cluesCtr').addClass('active');
 
@@ -546,7 +546,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     }
 
     /* TNC Toggle */
-    $scope.tncToggle = function() {
+    $scope.tncToggle = function () {
         console.log('tnc toggle');
         $scope.$broadcast('tnc.toggle');
     }
@@ -555,44 +555,44 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
     /*
     *   PRELOADER FOR IMAGES AND AUDIOS
     */
-    var loadManifest = function($data, callback) {
+    var loadManifest = function ($data, callback) {
 
-      $http({
-          method: 'GET',
-          url: 'manifest/manifest-och.json',
-      }).then(
-          function(success) {
-              loadImages(success.data);
-              // console.log(success.data);
-          },
-          function(error) {
-              console.log(error);
-          }
-      );
+        $http({
+            method: 'GET',
+            url: 'manifest/manifest-och.json',
+        }).then(
+            function (success) {
+                loadImages(success.data);
+                // console.log(success.data);
+            },
+            function (error) {
+                console.log(error);
+            }
+        );
 
     };
 
-    var loadImages = function($data) {
+    var loadImages = function ($data) {
 
-      var count = 0;
+        var count = 0;
 
-      angular.forEach( $data.images, function( value, key ){
+        angular.forEach($data.images, function (value, key) {
 
-        var img = new Image();
+            var img = new Image();
 
-        img.onload = function(){
-          count++;
-          if ( count === $data.images.length ) {
-            //after loading images, proceed to load audios
-            $scope.gameIsLoaded = true;
-            loadAudios();
+            img.onload = function () {
+                count++;
+                if (count === $data.images.length) {
+                    //after loading images, proceed to load audios
+                    $scope.gameIsLoaded = true;
+                    loadAudios();
 
-          }
-        };
+                }
+            };
 
-        img.src = 'img/'+value;
+            img.src = 'img/' + value;
 
-      });
+        });
 
     };
 
@@ -605,7 +605,7 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         "audio/mp3/fail.mp3"
     ];
 
-    var preloadAudio = function(url) {
+    var preloadAudio = function (url) {
         var audio = new Audio();
         // once this file loads, it will call loadedAudio()
         // the file will be kept by the browser as cache
@@ -613,11 +613,11 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         audio.src = url;
     };
 
-    var loadAudios = function() {
+    var loadAudios = function () {
 
-      for (var i in audioFiles) {
-          preloadAudio(audioFiles[i]);
-      }
+        for (var i in audioFiles) {
+            preloadAudio(audioFiles[i]);
+        }
     };
 
     var loaded = 0;
@@ -625,18 +625,18 @@ myApp.controller('bodyCtrl', ['$scope', '$http', '$sce', function($scope, $http,
         // this will be called every time an audio file is loaded
         // we keep track of the loaded files vs the requested files
         loaded++;
-        if (loaded == audioFiles.length){
-        	// all have loaded
-          // showPage('#pageLanding');
-          $('.preloader').fadeOut(400);
-          // showPage('#pageLanding');
+        if (loaded == audioFiles.length) {
+            // all have loaded
+            // showPage('#pageLanding');
+            $('.preloader').fadeOut(400);
+            // showPage('#pageLanding');
         }
     }
 
     //  on first load, show preloader first and load the assets
-    if ( !$scope.gameIsLoaded ) {
-      showPage('.preloader');
-      loadManifest();
+    if (!$scope.gameIsLoaded) {
+        showPage('.preloader');
+        loadManifest();
     }
 
     showPage('#pageLanding');

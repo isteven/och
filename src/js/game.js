@@ -111,13 +111,13 @@ var region_3_range = 1.6;
 var region_4_range = 2.2;
 var region_5_range = 2.8;
 
-var throttle = function(callback, limit) {
+var throttle = function (callback, limit) {
     var wait = false; // Initially, we're not waiting
-    return function() { // We return a throttled function
+    return function () { // We return a throttled function
         if (!wait) { // If we're not waiting
             callback.call(); // Execute users function
             wait = true; // Prevent future invocations
-            setTimeout(function() { // After a period of time
+            setTimeout(function () { // After a period of time
                 wait = false; // And allow future invocations
             }, limit);
         }
@@ -126,7 +126,7 @@ var throttle = function(callback, limit) {
 
 var fake_hotspot = 0;
 
-var viewChangeThrottled = throttle(function() {
+var viewChangeThrottled = throttle(function () {
     // Get the current viewport dimensions
     // var size = activeScene.marzipanoObject.view().size();
 
@@ -137,7 +137,7 @@ var viewChangeThrottled = throttle(function() {
 
     //  EMF AND REAL CLUES
     if (!cluesFound[activeSceneIdx]) {
-        if ( is_in_range(panning_x, hotspot_x, region_1_range) ) {
+        if (is_in_range(panning_x, hotspot_x, region_1_range)) {
             //  region 1, at the max region, 5 lights
             $('.emf__visual').attr('class', 'emf__visual is-region-1');
 
@@ -152,7 +152,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').addClass('hidden');
             }
 
-        } else if ( is_in_range(panning_x, hotspot_x, region_2_range) ) {
+        } else if (is_in_range(panning_x, hotspot_x, region_2_range)) {
             //  region 2, 4 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-2');
             canClick[activeSceneIdx] = false;
@@ -163,7 +163,7 @@ var viewChangeThrottled = throttle(function() {
                 $('.emf__reader > span.static').removeClass('hidden');
             }
 
-        } else if ( is_in_range(panning_x, hotspot_x, region_3_range) ) {
+        } else if (is_in_range(panning_x, hotspot_x, region_3_range)) {
             //  region 3, 3 lights blink 1
             $('.emf__visual').attr('class', 'emf__visual is-region-3');
             canClick[activeSceneIdx] = false;
@@ -250,118 +250,118 @@ var viewChangeThrottled = throttle(function() {
 
 }, 250);
 
-scenes.map(function(scene) {
+scenes.map(function (scene) {
     var view = scene.marzipanoObject.view();
     view.addEventListener('change', viewChangeThrottled);
 });
 
-var showPanoCenter = function() {
-    $(".realclue .panoCenter").fadeIn("slow", "swing", function() {
+var showPanoCenter = function () {
+    $(".realclue .panoCenter").fadeIn("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var hidePanoCenter = function() {
-    $(".realclue .panoCenter").fadeOut("slow", "swing", function() {
+var hidePanoCenter = function () {
+    $(".realclue .panoCenter").fadeOut("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var showFakeClue = function() {
-    $(".fakeclue .panoCenter").fadeIn("slow", "swing", function() {
+var showFakeClue = function () {
+    $(".fakeclue .panoCenter").fadeIn("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var hideFakeClue = function() {
-    $(".fakeclue .panoCenter").fadeOut("slow", "swing", function() {
+var hideFakeClue = function () {
+    $(".fakeclue .panoCenter").fadeOut("slow", "swing", function () {
         // Animation complete
     });
 };
 
-var showPage = function(newPage) {
+var showPage = function (newPage) {
     $(newPage).fadeIn();
 };
 
-var hidePage = function(page) {
+var hidePage = function (page) {
     $(page).fadeOut();
 };
 
 //  GAME:: TAKE PHOTO
-$('.clue').on('click touchstart', '.panoCenter', function(e) {
+$('.clue').on('click touchstart', '.panoCenter', function (e) {
 
     // var activeSceneIdx = activeSceneList.indexOf(activeScene.data.id);
     e.preventDefault();
-    playSfx( 'take-photo' );
+    playSfx('take-photo');
 
     var clueId = $(this).data('clue-id');
     var lang = '';
 
-    if ( $(this).hasClass('zh') ) {
-      lang = 'zh/';
+    if ($(this).hasClass('zh')) {
+        lang = 'zh/';
     }
 
-    if ( canClick[clueId - 1] ) {
-      if ( !cluesFound[clueId - 1]) {
-          //  FOUND REAL CLUES AND STILL AVAILABLE
-          canClick[clueId - 1] = false;
-          cluesFound[clueId - 1] = true;
+    if (canClick[clueId - 1]) {
+        if (!cluesFound[clueId - 1]) {
+            //  FOUND REAL CLUES AND STILL AVAILABLE
+            canClick[clueId - 1] = false;
+            cluesFound[clueId - 1] = true;
 
-          //  EMF SWITCH OFF
-          $('.emf__visual').attr('class', 'emf__visual is-region-5');
-          $('.emf__reader > span.num').html(generate_random_number(5));
-          $('.emf__reader > span.static').removeClass('hidden');
+            //  EMF SWITCH OFF
+            $('.emf__visual').attr('class', 'emf__visual is-region-5');
+            $('.emf__reader > span.num').html(generate_random_number(5));
+            $('.emf__reader > span.static').removeClass('hidden');
 
-          $('#cluePlaceholder').fadeIn(function() {
-              $(this).addClass('active-clue-placeholder');
-          });
-          $('#cluePlaceholder > .clue .closeButtonRed').show();
+            $('#cluePlaceholder').fadeIn(function () {
+                $(this).addClass('active-clue-placeholder');
+            });
+            $('#cluePlaceholder > .clue .closeButtonRed').show();
 
-          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/'+lang+'photo_clue_' + clueId + '.jpg');
+            $('#cluePlaceholder > .clue img').attr('src', cdn_url + 'photo_clue_' + clueId + '.jpg');
 
-          hidePanoCenter();
+            hidePanoCenter();
 
-          if ( cluesFound[0] && cluesFound[1] && cluesFound[2] ) {
-            $('#cluePlaceholder').find('.finale-copy').addClass('active');
-          }
+            if (cluesFound[0] && cluesFound[1] && cluesFound[2]) {
+                $('#cluePlaceholder').find('.finale-copy').addClass('active');
+            }
 
-      } else {
-        //  FOUND FAKE CLUES
-          canClick[clueId - 1] = false;
+        } else {
+            //  FOUND FAKE CLUES
+            canClick[clueId - 1] = false;
 
-          $('#cluePlaceholder').find('.finale-copy').removeClass('active');
+            $('#cluePlaceholder').find('.finale-copy').removeClass('active');
 
-          $('#cluePlaceholder').fadeIn(function() {
-              $(this).addClass('active-clue-placeholder');
+            $('#cluePlaceholder').fadeIn(function () {
+                $(this).addClass('active-clue-placeholder');
 
-              setTimeout(function(){
+                setTimeout(function () {
 
-                 $('#cluePlaceholder > .clue > img').stop(true, false).animate({
-                  opacity: 0,
-                  width: $('#cluePlaceholder > .clue > img').width()/2+'px',
-                  height: $('#cluePlaceholder > .clue > img').height()/2+'px'
-                },
-                400,
-                function() {
-                  $(this).hide();
-                  $('#cluePlaceholder > .clue > img').attr('src', '');
-                  $('#cluePlaceholder > .clue > img').attr('style', '');
-                  $('#cluePlaceholder').attr('style', '');
-                  $(this).removeClass('active-clue-placeholder');
-                  $('#cluePlaceholder').removeClass('fakeClue');
-                }
-                );
-              }, 1500);
-          });
+                    $('#cluePlaceholder > .clue > img').stop(true, false).animate({
+                        opacity: 0,
+                        width: $('#cluePlaceholder > .clue > img').width() / 2 + 'px',
+                        height: $('#cluePlaceholder > .clue > img').height() / 2 + 'px'
+                    },
+                        400,
+                        function () {
+                            $(this).hide();
+                            $('#cluePlaceholder > .clue > img').attr('src', '');
+                            $('#cluePlaceholder > .clue > img').attr('style', '');
+                            $('#cluePlaceholder').attr('style', '');
+                            $(this).removeClass('active-clue-placeholder');
+                            $('#cluePlaceholder').removeClass('fakeClue');
+                        }
+                    );
+                }, 1500);
+            });
 
-          $('#cluePlaceholder').addClass('fakeClue');
-          $('#cluePlaceholder > .clue .closeButtonRed').hide();
-          //$('#cluePlaceholder > .closeButtonRed').show();
-          // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
-          $('#cluePlaceholder > .clue img').attr('src', cdn_url+'/och/photo_clue_' + clueId + '.jpg');
+            $('#cluePlaceholder').addClass('fakeClue');
+            $('#cluePlaceholder > .clue .closeButtonRed').hide();
+            //$('#cluePlaceholder > .closeButtonRed').show();
+            // $('#cluePlaceholder > img').attr('src', "img/scene-0-props/photo_clue_' + (activeSceneIdx + 1) + '.jpg");
+            $('#cluePlaceholder > .clue img').attr('src', cdn_url + 'photo_clue_' + clueId + '.jpg');
 
-          hideFakeClue();
-      }
+            hideFakeClue();
+        }
 
     }
 
@@ -369,7 +369,7 @@ $('.clue').on('click touchstart', '.panoCenter', function(e) {
 });
 
 //  GAME:: CLOSE THE CLUE MODAL WHEN CLICK/DRAG ON BODY
-$('#pano').on('click touchstart', function() {
+$('#pano').on('click touchstart', function () {
 
     if ($('#cluePlaceholder').hasClass('active-clue-placeholder')) {
         $('#cluePlaceholder > .clue .closeButtonRed').click();
@@ -378,43 +378,43 @@ $('#pano').on('click touchstart', function() {
 });
 
 //  GAME:: CLOSE THE CLUE IMAGE
-$('#cluePlaceholder').on('click', '.closeButtonRed', function(e) {
+$('#cluePlaceholder').on('click', '.closeButtonRed', function (e) {
 
-    if ( !$('#cluePlaceholder').hasClass('fakeClue') ) {
+    if (!$('#cluePlaceholder').hasClass('fakeClue')) {
 
-      $('#cluePlaceholder > .clue > .closeButtonRed').hide();
+        $('#cluePlaceholder > .clue > .closeButtonRed').hide();
 
-      if ( $('#cluePlaceholder').find('.finale-copy').hasClass('active') ) {
-          $('#cluePlaceholder').find('.finale-copy').hide();
-      }
+        if ($('#cluePlaceholder').find('.finale-copy').hasClass('active')) {
+            $('#cluePlaceholder').find('.finale-copy').hide();
+        }
 
-      $('#cluePlaceholder > .clue > img').stop(true, false).animate({
-        opacity: 0,
-        width: $('#cluePlaceholder > img').width()/4+'px',
-        height: $('#cluePlaceholder > img').height()/4+'px'
-      },400, function() {
-          // $('.cluesCtr').show();
-          $(this).hide();
-          $('#cluePlaceholder > .clue > img').attr('src', '');
-          $('#cluePlaceholder > .clue > img').attr('style', '');
-          $('#cluePlaceholder').attr('style', '');
-          $('#cluePlaceholder').addClass('cluePlaceholder');
-          $('#cluePlaceholder').removeClass('active-clue-placeholder');
-      });
+        $('#cluePlaceholder > .clue > img').stop(true, false).animate({
+            opacity: 0,
+            width: $('#cluePlaceholder > img').width() / 4 + 'px',
+            height: $('#cluePlaceholder > img').height() / 4 + 'px'
+        }, 400, function () {
+            // $('.cluesCtr').show();
+            $(this).hide();
+            $('#cluePlaceholder > .clue > img').attr('src', '');
+            $('#cluePlaceholder > .clue > img').attr('style', '');
+            $('#cluePlaceholder').attr('style', '');
+            $('#cluePlaceholder').addClass('cluePlaceholder');
+            $('#cluePlaceholder').removeClass('active-clue-placeholder');
+        });
 
-      $('#cluePlaceholder').stop(true, false).animate({
-          top: '85%',
-          left: '90%'
-      }, 400, function() {
-          $('#cluePlaceholder').attr('style', '');
-      });
+        $('#cluePlaceholder').stop(true, false).animate({
+            top: '85%',
+            left: '90%'
+        }, 400, function () {
+            $('#cluePlaceholder').attr('style', '');
+        });
 
     }
 
 });
 
 //  GAME:: FOUND ALL THE CLUES, PROCEED TO GUESS NAME SECTION
-$('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
+$('#cluePlaceholder').on('click', '.btnBlood.active', function (e) {
     e.preventDefault();
     hidePage('#cluePlaceholder');
     showPage('#pageGuessName');
@@ -423,29 +423,29 @@ $('#cluePlaceholder').on('click', '.btnBlood.active', function(e) {
 });
 
 //  GAME:: TRIGGER TO DISPLAY THE CLUES MODAL FOUND SO FAR
-var showClues = function() {
+var showClues = function () {
     var allCluesFound = 0;
     var lang = '';
     $('#pageClues .closeButtonRed').show();
     showPage('#pageClues');
 
-    if( $('body').hasClass('zh') ) {
-      lang = 'zh/';
+    if ($('body').hasClass('zh')) {
+        lang = 'zh/';
     }
 
     for (var i = 0; i < 3; i++) {
         if (cluesFound[i]) {
             var tempDom = $('#pageClues .clues img');
-            $(tempDom[i]).attr('src', cdn_url+'/och/'+lang+'photo_clue_' + (i + 1) + '.jpg');
+            $(tempDom[i]).attr('src', cdn_url + 'photo_clue_' + (i + 1) + '.jpg');
             allCluesFound++;
         }
     }
-    $('#pageClues').on('click touchstart', '.closeButtonRed', function(e) {
+    $('#pageClues').on('click touchstart', '.closeButtonRed', function (e) {
         // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
 
-    $('#pageClues').on('click touchstart', '.clue-overlay', function(e) {
+    $('#pageClues').on('click touchstart', '.clue-overlay', function (e) {
         // $('.fadePage').fadeOut();
         $('#pageClues').hide();
     });
@@ -457,7 +457,7 @@ var showClues = function() {
         //     showPage('#pageGuessName');
         // });
 
-        $('#pageClues').on('click', '.btnBlood.active', function(e) {
+        $('#pageClues').on('click', '.btnBlood.active', function (e) {
             hidePage('#pageClues');
             showPage('#pageGuessName');
         });
@@ -501,16 +501,16 @@ function enableEnterButton(pontianakIdx) {
 
         var nextFrameIndex = pontianakIdx + 1;
 
-        triggerIdlePontianak = setTimeout(function() {
+        triggerIdlePontianak = setTimeout(function () {
             $('.pontianakBox > div').hide();
             // $('.pontianak' + pontianakIdx).hide();
             $('.pontianak' + (nextFrameIndex)).show();
 
             clearInterval(frameInterval);
 
-            frameInterval = setInterval(function() {
+            frameInterval = setInterval(function () {
                 //  waiting pontianak shivers
-                AnimateSprite($('.pontianak' + nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15, pontianakIdx, function() {
+                AnimateSprite($('.pontianak' + nextFrameIndex), 640, 800, 3, frameQty[pontianakIdx], 0.15, pontianakIdx, function () {
                     clearInterval(frameInterval);
                 });
             }, 5000);
@@ -578,26 +578,26 @@ function animatePontianakSpecial() {
 
 //  SOUND FOR WHOLE GAMEPLAY
 var sfx = {};
-sfx[ 'enter-game' ] = new Howl({
-    src: [ 'audio/mp3/bgm.mp3'],
+sfx['enter-game'] = new Howl({
+    src: ['audio/mp3/bgm.mp3'],
     loop: true
 });
-sfx[ 'take-photo' ] = new Howl({
+sfx['take-photo'] = new Howl({
     src: ['audio/mp3/takephoto.mp3']
 });
-sfx[ 'jump-scare' ] = new Howl({
+sfx['jump-scare'] = new Howl({
     src: ['audio/mp3/jumpscare.mp3']
 });
-sfx[ 'pon-appear' ] = new Howl({
+sfx['pon-appear'] = new Howl({
     src: ['audio/mp3/pon_appear.mp3']
 });
-sfx[ 'pon-dash' ] = new Howl({
+sfx['pon-dash'] = new Howl({
     src: ['audio/mp3/pon_dash.mp3']
 });
-sfx[ 'user-fails' ] = new Howl({
+sfx['user-fails'] = new Howl({
     src: ['audio/mp3/fail.mp3']
 });
 
 function playSfx(param) {
-    sfx[ param ].play();
+    sfx[param].play();
 }

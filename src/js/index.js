@@ -10,7 +10,7 @@ var timeoutID;
 // Grab elements from DOM.
 var panoElement = document.querySelector('#pano');
 
-var AnimateSprite = function(el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
+var AnimateSprite = function (el, frameWidth, frameHeight, numCols, totalFrame, duration, currentFrameNo, onAnimateEnd) {
     if (!el || el.length == 0) return;
 
     var repeatAnimate = el.data('is-repeat') != undefined ? el.data('is-repeat') : 0;
@@ -47,7 +47,7 @@ var AnimateSprite = function(el, frameWidth, frameHeight, numCols, totalFrame, d
 };
 
 var jumpScare = {
-    scare: function(status) {
+    scare: function (status) {
         $('#scare').show();
         $('.scare-overlay').addClass('active');
         playSfx('jump-scare');
@@ -61,14 +61,14 @@ var jumpScare = {
             });
             sprite.to(9);
 
-            sprite.on('frame', function(eventName) {
+            sprite.on('frame', function (eventName) {
                 if (this.frame == 9) {
                     $('#scare').hide();
                     $('.scare-overlay').removeClass('active');
                 }
             });
         } else {
-            AnimateSprite($('#scare'), 974, 1119, 5, 10, 0.5, 0, function() {
+            AnimateSprite($('#scare'), 974, 1119, 5, 10, 0.5, 0, function () {
                 $('#scare').hide();
                 $('.scare-overlay').removeClass('active');
             });
@@ -77,13 +77,13 @@ var jumpScare = {
 
         this.timeoutID = undefined;
     },
-    setup: function() {
-        this.timeoutID = window.setTimeout(function(status) {
+    setup: function () {
+        this.timeoutID = window.setTimeout(function (status) {
             this.scare(status);
         }.bind(this), 6000);
     },
 
-    cancel: function() {
+    cancel: function () {
         window.clearTimeout(this.timeoutID);
         this.timeoutID = undefined;
     }
@@ -108,10 +108,10 @@ controls.registerMethod('deviceOrientation', deviceOrientationControlMethod);
 controls.enableMethod('deviceOrientation');
 
 // Create scenes.
-var scenes = APP_DATA.scenes.map(function(sceneData) {
+var scenes = APP_DATA.scenes.map(function (sceneData) {
 
-  // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
-    var source = Marzipano.ImageUrlSource.fromString(cdn_url+"/och/" + sceneData.id + "/{f}.jpg");
+    // var source = Marzipano.ImageUrlSource.fromString("img/och/" + sceneData.id + "/{f}.jpg");
+    var source = Marzipano.ImageUrlSource.fromString(cdn_url + sceneData.id + "/{f}.jpg");
 
     // var geometry = new Marzipano.CubeGeometry(sceneData.levels);
     var geometry = new Marzipano.CubeGeometry([{
@@ -131,7 +131,7 @@ var scenes = APP_DATA.scenes.map(function(sceneData) {
     });
 
     // Create link hotspots.
-    sceneData.linkHotspots.forEach(function(hotspot) {
+    sceneData.linkHotspots.forEach(function (hotspot) {
         var element = createLinkHotspotElement(hotspot);
         marzipanoScene.hotspotContainer().createHotspot(element, {
             yaw: hotspot.yaw,
@@ -141,17 +141,17 @@ var scenes = APP_DATA.scenes.map(function(sceneData) {
 
     // Create Props hotspots.
     if (sceneData.propHotspots !== undefined) {
-        sceneData.propHotspots.forEach(function(hotspot) {
+        sceneData.propHotspots.forEach(function (hotspot) {
             var element = createPropHotspotsElement(hotspot);
             marzipanoScene.hotspotContainer().createHotspot(element, {
                 yaw: hotspot.yaw,
                 pitch: hotspot.pitch
             }, {
-                perspective: {
-                    radius: hotspot.radius,
-                    extraRotations: hotspot.extraRotations
-                }
-            });
+                    perspective: {
+                        radius: hotspot.radius,
+                        extraRotations: hotspot.extraRotations
+                    }
+                });
         });
     }
 
@@ -201,7 +201,7 @@ function createLinkHotspotElement(hotspot) {
 
     // Create image element.
     var icon = document.createElement('img');
-    icon.src = cdn_url+'/och/link.png';
+    icon.src = cdn_url + 'link.png';
     icon.classList.add('link-hotspot-icon');
 
     // Set rotation transform.
@@ -212,7 +212,7 @@ function createLinkHotspotElement(hotspot) {
     }
 
     // Add click event handler.
-    wrapper.addEventListener('click', function() {
+    wrapper.addEventListener('click', function () {
         switchScene(findSceneById(hotspot.target));
     });
 
@@ -273,7 +273,7 @@ function stopTouchAndScrollEventPropagation(element, eventList) {
         'wheel', 'mousewheel'
     ];
     for (var i = 0; i < eventList.length; i++) {
-        element.addEventListener(eventList[i], function(event) {
+        element.addEventListener(eventList[i], function (event) {
             event.stopPropagation();
         });
     }

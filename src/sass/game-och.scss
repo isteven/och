@@ -5,9 +5,12 @@
 // $och_cdn_path: "img/";
 
 //  image path for shared game components
-$game_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game";
+// $game_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game";
 //  image path for och game only
-$och_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game/och";
+// $och_cdn_path: "img/och";
+
+$game_cdn_path: "img/";
+$och_cdn_path: "img/";
 
 //Typography
 $lato-light: 300;

@@ -5,16 +5,16 @@ var environment = 'local';
 var environmentConfigs = {
 
     local: {
-        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId: 1 // Old Changi Hospital
     },
     uat: {
-        apiUrl  : 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://stg.craftandcode.com.sg/clients/rws/hhn6/',
+        gameId: 1 // Old Changi Hospital
     },
     prod: {
-        apiUrl  : 'http://halloweenhorrornights.com.sg/',
-        gameId  : 1 // Old Changi Hospital
+        apiUrl: 'http://halloweenhorrornights.com.sg/',
+        gameId: 1 // Old Changi Hospital
     }
 };
 
@@ -23,13 +23,13 @@ var environmentConfigs = {
  * so you have to use use different variable names with the environmentConfigs.
  */
 var globalConfigs = {
-    apiVersion          : 'v1.0',
-    dateFormat          : 'DD MMMM YYYY',
-    dateTimeFormat      : 'DD MMMM YYYY, HH:mm'
+    apiVersion: 'v1.0',
+    dateFormat: 'DD MMMM YYYY',
+    dateTimeFormat: 'DD MMMM YYYY, HH:mm'
 };
 
-var configGet = function( property ){
-    return environmentConfigs[ environment ][ property ];
+var configGet = function (property) {
+    return environmentConfigs[environment][property];
 }
 
 var fb_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/';
@@ -42,4 +42,6 @@ var twitter_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/tw
 var weibo_share_url = 'http://stg.craftandcode.com.sg/clients/rws/hhn6/game/weibo';
 var weibo_share_image = 'https://rws-hhn6-s3.s3.amazonaws.com/game/och/share/weibo_OCH.jpg';
 
-var cdn_url = "https://dg0l7q9c72lxu.cloudfront.net/game";
+// var cdn_url = "https://dg0l7q9c72lxu.cloudfront.net/game";
+
+var cdn_url = "img/";

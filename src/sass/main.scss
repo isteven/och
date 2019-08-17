@@ -4,9 +4,9 @@
 @import "mixins";
 
 //  local
-// $game_cdn_path: "img/";
+$game_cdn_path: "img/";
 
-$game_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game";
+// $game_cdn_path: "https://dg0l7q9c72lxu.cloudfront.net/game";
 
 @import "marzipano-styles";
 @import "menu";
