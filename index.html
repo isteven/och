@@ -129,404 +129,409 @@
                 </div>
 
                 <div class="start-game-col">
-                    <a class="btnBlood active" ng-click="startGame();playSfx( 'enter-game' );">
+                    <a class="btnBlood active"
+                        ng-click="startGame();playSfx( 'enter-game' );showPage( '#interactionPromptTemp' );"">
                         {{getContent('start-button')}}
                         <!-- START NOW -->
                     </a>
                 </div>
 
             </div>
-            <footer class="ftr"></footer>
-        </div>
+            <footer class=" ftr"></footer>
+                </div>
 
-    </div>
+            </div>
 
-    <!-- fail -->
-    <div id="pageFails" class="page">
-        <div class="centerElement centerInlineHor">
-            <h1 class="font-trajan-pro fg-whitish" ng-bind-html="getContent( 'title-fail', true )">
+            <!-- fail -->
+            <div id="pageFails" class="page">
+                <div class="centerElement centerInlineHor">
+                    <h1 class="font-trajan-pro fg-whitish" ng-bind-html="getContent( 'title-fail', true )">
 
-                <!-- The Past Has<br/>Caught To You -->
-            </h1>
+                        <!-- The Past Has<br/>Caught To You -->
+                    </h1>
 
-            <br />
-            <h4 ng-bind-html="getContent( 'intro-fail', true )">
+                    <br />
+                    <h4 ng-bind-html="getContent( 'intro-fail', true )">
 
-                <!-- However, history tends to repeat itself.
+                        <!-- However, history tends to repeat itself.
 
                   <br/>
                   You've been given another chance to unravel
                   <br/>
                   the true name of evil. -->
 
-            </h4>
-            <br />
-            <a class="btnBlood active" onclick="location.reload()">
-                <!-- TRY AGAIN -->
-                {{getContent( 'retry-button' )}}
-            </a>
-
-        </div>
-    </div>
-
-    <!-- guess name -->
-    <div id="pageGuessName" class="page">
-        <div class="inner">
-            <div class="single-column">
-
-                <div class="guessIntro">
-                    <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">
-                        <!-- Who Am I? -->
-                        {{ getContent( 'who-am-i' ) }}
-                    </h1>
-                    <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">
-                        <!-- THERE'S NO  -->
-                        {{ getContent( 'not-in-my-name-1' ) }}
-                        '{{failLetter}}'
-                        {{ getContent( 'not-in-my-name-2' ) }}
-                        <!-- IN MY NAME -->
-                    </h1>
-                    <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">
-                        <!-- YOU HAVE -->
-                        {{ getContent( 'tries-left-1' ) }}
-                        {{triesLeft}}
-                        {{ getContent( 'tries-left-2' ) }}
-                        <!-- TRIES LEFT -->
-                    </h1>
-                </div>
-
-                <div class="centerInlineHor">
-                    <div class="inputBorder" ng-repeat="item in name1">
-                        <span ng-if="item.display">{{item.letter}}</span>
-                        <!-- <img src="img/dash.png" /> -->
-                    </div>
-                </div>
-                <div class="centerInlineHor">
-                    <div class="inputBorder" ng-repeat="item in name2">
-                        <span ng-if="item.display">{{item.letter}}</span>
-                        <!-- <img src="img/dash.png" /> -->
-                    </div>
-                </div>
-                <div class="centerInlineHor">
-                    <div class="guessBox">
-                        <p>
-                            {{ getContent( 'enter-letter' ) }}
-                            <!-- Enter a letter to unravel the name -->
-                        </p>
-                        <input type="text" ng-model="singleLetter"
-                            ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1" size="5"
-                            class="edoFont" />
-                        <button ng-click="checkName()" class="btnBlood active">
-                            {{ getContent( 'enter-button' ) }}
-                            <!-- ENTER -->
-                        </button>
-                        <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="pontianakBox">
-                <div class="pontianak1"></div>
-                <div class="pontianak2"></div>
-                <div class="pontianak3"></div>
-                <div class="pontianak4"></div>
-                <div class="pontianak5"></div>
-                <div class="pontianak6"></div>
-                <div class="pontianak7"></div>
-                <div class="pontianak8"></div>
-                <div class="pontianak9"></div>
-            </div>
-        </div>
-
-        <!-- clues counter -->
-        <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-            <img src="img/clue.png?v1" />
-        </div>
-
-        <footer class="ftr"></footer>
-    </div>
-    <div class="guess-overlay"></div>
-
-    <!-- guess date -->
-    <div id="pageGuessDate" class="page">
-
-        <!-- interaction prompt icon
-        <div id="interactionPromptTemp" ng-click="hidePage( '#interactionPromptTemp' );" class="center-ver-parent">
-            <img src="img/interaction_prompt.png" class="center-block" />
-        </div> -->
-
-        <div class="inner">
-            <div class="single-column">
-                <div class="centerVer centerInlineHor">
-                    <h5 class="font-trajan-pro centerInlineHor guess-date-title">
-                        <!-- This Is Yet To be Over -->
-                        {{ getContent( 'not-yet-over' ) }}
-
-                    </h5>
-                    <h3 class="centerInlineHor" ng-bind-html="getContent( 'how-many-nights', true )">
-                        <!-- {{ getContent( 'how-many-nights' ) }} -->
-                        <!-- How many nights will Halloween Horror Nights 6 be held? -->
-                    </h3>
-                    <div>
-                        <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
-                            {{date.date}}
-                        </a>
-                    </div>
+                    </h4>
                     <br />
-                    <br />
+                    <a class="btnBlood active" onclick="location.reload()">
+                        <!-- TRY AGAIN -->
+                        {{getContent( 'retry-button' )}}
+                    </a>
+
                 </div>
             </div>
-            <div class="pontianakSpecial"></div>
-        </div>
 
-        <footer class="ftr"></footer>
-    </div>
+            <!-- guess name -->
+            <div id="pageGuessName" class="page">
+                <div class="inner">
+                    <div class="single-column">
 
-    <!-- share -->
-    <div id="pageShare" class="page">
-        <!-- for game shares that has background code -->
-        <!-- <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')"> -->
-        <div class="container">
-            <div class="row center-block page__share__row">
+                        <div class="guessIntro">
+                            <h1 class="centerInlineHor font-edo fg-black" ng-show="guessCorrect">
+                                <!-- Who Am I? -->
+                                {{ getContent( 'who-am-i' ) }}
+                            </h1>
+                            <h1 class="centerInlineHor font-edo fg-black" ng-show="!guessCorrect">
+                                <!-- THERE'S NO  -->
+                                {{ getContent( 'not-in-my-name-1' ) }}
+                                '{{failLetter}}'
+                                {{ getContent( 'not-in-my-name-2' ) }}
+                                <!-- IN MY NAME -->
+                            </h1>
+                            <h1 class="centerInlineHor font-edo fg-black last" ng-show="!guessCorrect">
+                                <!-- YOU HAVE -->
+                                {{ getContent( 'tries-left-1' ) }}
+                                {{triesLeft}}
+                                {{ getContent( 'tries-left-2' ) }}
+                                <!-- TRIES LEFT -->
+                            </h1>
+                        </div>
 
-                <div class="col__leaderboard">
-                    <div class="col__leaderboard__inner">
-                        <h1 class="font-trajan-pro fg-whitish">
-                            {{getContent( 'title-share' )}}
-                        </h1>
-                        <p class="col__leaderboard__intro">
-                            {{getContent( 'intro-share' )}}
-                        </p>
-                        <div class="content__share__win center-block">
-                            <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
-                                {{getContent( 'share-and-win' )}}
-                            </h4>
-                            <div class="content__share__win__inner center-hor-block-children">
-                                <p class="content__share__win__timing">
-                                    {{getContent( 'your-time' )}}
-                                    <span class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                        <div class="centerInlineHor">
+                            <div class="inputBorder" ng-repeat="item in name1">
+                                <span ng-if="item.display">{{item.letter}}</span>
+                                <!-- <img src="img/dash.png" /> -->
+                            </div>
+                        </div>
+                        <div class="centerInlineHor">
+                            <div class="inputBorder" ng-repeat="item in name2">
+                                <span ng-if="item.display">{{item.letter}}</span>
+                                <!-- <img src="img/dash.png" /> -->
+                            </div>
+                        </div>
+                        <div class="centerInlineHor">
+                            <div class="guessBox">
+                                <p>
+                                    {{ getContent( 'enter-letter' ) }}
+                                    <!-- Enter a letter to unravel the name -->
                                 </p>
-                                <div class="content__share__win__socials">
-                                    <a href="#" ng-if="lang == 'en'" class="sprite icon_fb "
-                                        ng-click="share_facebook()"></a>
-                                    <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter "
-                                        ng-click="share_twitter()"></a>
-                                    <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo "
-                                        ng-click="share_weibo()"></a>
-                                </div>
-                                <p class="terms-conditions" ng-if="lang == 'en'">
-                                    <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
-                                        {{getContent( 'terms-and-conditions' )}}
-                                    </a>
-                                    {{getContent( 'terms-and-conditions-apply' )}}
-                                </p>
-                                <p class="terms-conditions" ng-if="lang == 'zh'">
-                                    {{getContent( 'terms-and-conditions' )}}
-                                    <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
-                                        {{getContent( 'terms-and-conditions-apply' )}}
-                                    </a>
-                                </p>
-                                <div class="content__share__win__leaderboard">
-                                    <p>
-                                        {{getContent( 'leaderboard' )}}
-                                    </p>
+                                <input type="text" ng-model="singleLetter"
+                                    ng-keyup="($event.keyCode || $event.which) == 13 && checkName()" maxlength="1"
+                                    size="5" class="edoFont" />
+                                <button ng-click="checkName()" class="btnBlood active">
+                                    {{ getContent( 'enter-button' ) }}
+                                    <!-- ENTER -->
+                                </button>
+                                <!-- <button onclick="hidePage( '#pageGuessName' ); showPage( '#pageGuessDate'); animatePontianakError( 1 );" class="btnBlood active">GUESS DATE</button> -->
+                            </div>
+                        </div>
 
-                                    <div class="row">
+                    </div>
 
-                                        <div class="col-xs-6 bold">
-                                            <div class="timings" ng-repeat="entry in entryResult | limitTo: 5">
-                                                <div ng-if="$index < 5" ng-class="{'gray-out': entry.time === 0}">
-                                                    <span class="numbering ">
-                                                        {{entry.idxString}}.
-                                                    </span>
-                                                    {{ millisToMinutesAndSeconds(entry.time) }}
-                                                </div>
-                                            </div>
+                    <div class="pontianakBox">
+                        <div class="pontianak1"></div>
+                        <div class="pontianak2"></div>
+                        <div class="pontianak3"></div>
+                        <div class="pontianak4"></div>
+                        <div class="pontianak5"></div>
+                        <div class="pontianak6"></div>
+                        <div class="pontianak7"></div>
+                        <div class="pontianak8"></div>
+                        <div class="pontianak9"></div>
+                    </div>
+                </div>
+
+                <!-- clues counter -->
+                <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+                    <img src="img/clue.png?v1" />
+                </div>
+
+                <footer class="ftr"></footer>
+            </div>
+            <div class="guess-overlay"></div>
+
+            <!-- guess date -->
+            <div id="pageGuessDate" class="page">
+
+                <div class="inner">
+                    <div class="single-column">
+                        <div class="centerVer centerInlineHor">
+                            <h5 class="font-trajan-pro centerInlineHor guess-date-title">
+                                <!-- This Is Yet To be Over -->
+                                {{ getContent( 'not-yet-over' ) }}
+
+                            </h5>
+                            <h3 class="centerInlineHor" ng-bind-html="getContent( 'how-many-nights', true )">
+                                <!-- {{ getContent( 'how-many-nights' ) }} -->
+                                <!-- How many nights will Halloween Horror Nights 6 be held? -->
+                            </h3>
+                            <div>
+                                <a ng-repeat="date in dates" ng-click="checkDate( date.date )">
+                                    {{date.date}}
+                                </a>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                    <div class="pontianakSpecial"></div>
+                </div>
+
+                <footer class="ftr"></footer>
+            </div>
+
+            <!-- share -->
+            <div id="pageShare" class="page">
+                <!-- for game shares that has background code -->
+                <!-- <div class="container has-background-code" style="background-image: url('img/bow-code.jpg')"> -->
+                <div class="container">
+                    <div class="row center-block page__share__row">
+
+                        <div class="col__leaderboard">
+                            <div class="col__leaderboard__inner">
+                                <h1 class="font-trajan-pro fg-whitish">
+                                    {{getContent( 'title-share' )}}
+                                </h1>
+                                <p class="col__leaderboard__intro">
+                                    {{getContent( 'intro-share' )}}
+                                </p>
+                                <div class="content__share__win center-block">
+                                    <h4 class="content__share__win__title font-trajan-pro bold fg-orange">
+                                        {{getContent( 'share-and-win' )}}
+                                    </h4>
+                                    <div class="content__share__win__inner center-hor-block-children">
+                                        <p class="content__share__win__timing">
+                                            {{getContent( 'your-time' )}}
+                                            <span
+                                                class="fg-orange">{{millisToMinutesAndSeconds( elapsedGameTime )}}</span>
+                                        </p>
+                                        <div class="content__share__win__socials">
+                                            <a href="#" ng-if="lang == 'en'" class="sprite icon_fb "
+                                                ng-click="share_facebook()"></a>
+                                            <a href="#" ng-if="lang == 'en'" class="sprite icon_twitter "
+                                                ng-click="share_twitter()"></a>
+                                            <a href="#" ng-if="lang == 'zh'" class="sprite icon_weibo "
+                                                ng-click="share_weibo()"></a>
                                         </div>
-                                        <div class="col-xs-6 bold">
-                                            <div class="timings" ng-repeat="entry in entryResult" ng-if="$index >= 5">
-                                                <div ng-class="{'gray-out': entry.time === 0}">
-                                                    <span class="numbering ">
-                                                        {{entry.idxString}}.
-                                                    </span>
-                                                    {{ millisToMinutesAndSeconds(entry.time) }}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <p class="terms-conditions" ng-if="lang == 'en'">
+                                            <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
+                                                {{getContent( 'terms-and-conditions' )}}
+                                            </a>
+                                            {{getContent( 'terms-and-conditions-apply' )}}
+                                        </p>
+                                        <p class="terms-conditions" ng-if="lang == 'zh'">
+                                            {{getContent( 'terms-and-conditions' )}}
+                                            <a ng-click="tncToggle()" class="link__terms-conditions fg-orange">
+                                                {{getContent( 'terms-and-conditions-apply' )}}
+                                            </a>
+                                        </p>
+                                        <div class="content__share__win__leaderboard">
+                                            <p>
+                                                {{getContent( 'leaderboard' )}}
+                                            </p>
 
+                                            <div class="row">
+
+                                                <div class="col-xs-6 bold">
+                                                    <div class="timings" ng-repeat="entry in entryResult | limitTo: 5">
+                                                        <div ng-if="$index < 5"
+                                                            ng-class="{'gray-out': entry.time === 0}">
+                                                            <span class="numbering ">
+                                                                {{entry.idxString}}.
+                                                            </span>
+                                                            {{ millisToMinutesAndSeconds(entry.time) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 bold">
+                                                    <div class="timings" ng-repeat="entry in entryResult"
+                                                        ng-if="$index >= 5">
+                                                        <div ng-class="{'gray-out': entry.time === 0}">
+                                                            <span class="numbering ">
+                                                                {{entry.idxString}}.
+                                                            </span>
+                                                            {{ millisToMinutesAndSeconds(entry.time) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
                                     </div>
+                                </div>
+                                <p><a class="link__replay" onclick="location.reload()"><span
+                                            class="sprite icon_replay"></span>
+                                        {{getContent( 'replay' )}}
+                                    </a></p>
+                            </div>
+                        </div>
 
+                        <div class="col__code">
+                            <div class="middle-spacer"></div>
+                            <div class="inner">
+                                <img class="code" ng-if="lang == 'en'" src="img/och-code.jpg?v1" />
+                                <img class="code" ng-if="lang == 'zh'" src="img/zh/och-code.jpg?v1" />
+                                <div class="col__code__text">
+                                    <p ng-bind-html="getContent( 'code-instruction', true )"></p>
+                                    <a ng-if="lang == 'en'" download="img/och-code.jpg?v1" href="img/och-code.jpg?v1"
+                                        target="_blank" class="link__download">
+                                        <span class="sprite icon_download "></span>
+                                        {{getContent( 'code-download' )}}
+                                    </a>
+                                    <a ng-if="lang == 'zh'" download="img/zh/och-code.jpg?v1"
+                                        href="img/zh/och-code.jpg?v1" target="_blank" class="link__download">
+                                        <span class="sprite icon_download "></span>
+                                        {{getContent( 'code-download' )}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <p><a class="link__replay" onclick="location.reload()"><span class="sprite icon_replay"></span>
-                                {{getContent( 'replay' )}}
-                            </a></p>
+
                     </div>
                 </div>
+                <footer class="ftr"></footer>
+            </div>
 
-                <div class="col__code">
-                    <div class="middle-spacer"></div>
-                    <div class="inner">
-                        <img class="code" ng-if="lang == 'en'" src="img/och-code.jpg?v1" />
-                        <img class="code" ng-if="lang == 'zh'" src="img/zh/och-code.jpg?v1" />
-                        <div class="col__code__text">
-                            <p ng-bind-html="getContent( 'code-instruction', true )"></p>
-                            <a ng-if="lang == 'en'" download="img/och-code.jpg?v1" href="img/och-code.jpg?v1"
-                                target="_blank" class="link__download">
-                                <span class="sprite icon_download "></span>
-                                {{getContent( 'code-download' )}}
-                            </a>
-                            <a ng-if="lang == 'zh'" download="img/zh/och-code.jpg?v1" href="img/zh/och-code.jpg?v1"
-                                target="_blank" class="link__download">
-                                <span class="sprite icon_download "></span>
-                                {{getContent( 'code-download' )}}
-                            </a>
-                        </div>
-                    </div>
+            <!-- Marzipano Pano -->
+            <div id="pano" ng-class="lang">
+                <!-- interaction prompt icon -->
+                <div id="interactionPromptTemp" ng-click="hidePage( '#interactionPromptTemp' );"
+                    class="center-ver-parent">
+                    <img src="img/interaction_prompt.png" class="center-block" />
                 </div>
 
+                <div id="pano-overlay"></div>
+
+                <!-- EMP meter -->
+                <div class="emf__container">
+                    <ul class="emf__visual">
+                        <li class="emf__1"></li>
+                        <li class="emf__2"></li>
+                        <li class="emf__3"></li>
+                        <li class="emf__4"></li>
+                        <li class="emf__5"></li>
+                    </ul>
+                    <p class="emf__reader">
+                        <span class="num"></span>
+                        <span class="static">mG</span>
+                    </p>
+                </div>
+
+
+                <!-- clues location in pano -->
+                <div id="clue-1" class="clue realclue">
+                    <img ng-if="lang == 'en'" data-clue-id="1" ng-class="lang" class="panoCenter"
+                        src="img/icon_camera_ingame.png?v1" />
+                    <img ng-if="lang == 'zh'" data-clue-id="1" ng-class="lang" class="panoCenter"
+                        src="img/zh/icon_camera_ingame.png?v1" />
+                </div>
+                <div id="clue-2" class="clue realclue">
+                    <img ng-if="lang == 'en'" data-clue-id="2" ng-class="lang" class="panoCenter"
+                        src="img/icon_camera_ingame.png?v1" />
+                    <img ng-if="lang == 'zh'" data-clue-id="2" ng-class="lang" class="panoCenter"
+                        src="img/zh/icon_camera_ingame.png?v1" />
+                </div>
+                <div id="clue-3" class="clue realclue">
+                    <img ng-if="lang == 'en'" data-clue-id="3" ng-class="lang" class="panoCenter"
+                        src="img/icon_camera_ingame.png?v1" />
+                    <img ng-if="lang == 'zh'" data-clue-id="3" ng-class="lang" class="panoCenter"
+                        src="img/zh/icon_camera_ingame.png?v1" />
+                </div>
+                <div id="clue-4" class="clue fakeclue">
+                    <img ng-if="lang == 'en'" data-clue-id="4" ng-class="lang" class="panoCenter"
+                        src="img/icon_camera_ingame.png?v1" />
+                    <img ng-if="lang == 'zh'" data-clue-id="4" ng-class="lang" class="panoCenter"
+                        src="img/zh/icon_camera_ingame.png?v1" />
+                </div>
+                <div id="clue-5" class="clue fakeclue">
+                    <img ng-if="lang == 'en'" data-clue-id="5" ng-class="lang" class="panoCenter"
+                        src="img/icon_camera_ingame.png?v1" />
+                    <img ng-if="lang == 'zh'" data-clue-id="5" ng-class="lang" class="panoCenter"
+                        src="img/zh/icon_camera_ingame.png?v1" />
+                </div>
+
+
+                <!-- clues counter -->
+                <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
+                    <img src="img/clue.png?v1" />
+                </div>
+
+                <footer class="ftr"></footer>
             </div>
-        </div>
-        <footer class="ftr"></footer>
-    </div>
 
-    <!-- Marzipano Pano -->
-    <div id="pano" ng-class="lang">
-
-        <div id="pano-overlay"></div>
-
-        <!-- EMP meter -->
-        <div class="emf__container">
-            <ul class="emf__visual">
-                <li class="emf__1"></li>
-                <li class="emf__2"></li>
-                <li class="emf__3"></li>
-                <li class="emf__4"></li>
-                <li class="emf__5"></li>
-            </ul>
-            <p class="emf__reader">
-                <span class="num"></span>
-                <span class="static">mG</span>
-            </p>
-        </div>
-
-
-        <!-- clues location in pano -->
-        <div id="clue-1" class="clue realclue">
-            <img ng-if="lang == 'en'" data-clue-id="1" ng-class="lang" class="panoCenter"
-                src="img/icon_camera_ingame.png?v1" />
-            <img ng-if="lang == 'zh'" data-clue-id="1" ng-class="lang" class="panoCenter"
-                src="img/zh/icon_camera_ingame.png?v1" />
-        </div>
-        <div id="clue-2" class="clue realclue">
-            <img ng-if="lang == 'en'" data-clue-id="2" ng-class="lang" class="panoCenter"
-                src="img/icon_camera_ingame.png?v1" />
-            <img ng-if="lang == 'zh'" data-clue-id="2" ng-class="lang" class="panoCenter"
-                src="img/zh/icon_camera_ingame.png?v1" />
-        </div>
-        <div id="clue-3" class="clue realclue">
-            <img ng-if="lang == 'en'" data-clue-id="3" ng-class="lang" class="panoCenter"
-                src="img/icon_camera_ingame.png?v1" />
-            <img ng-if="lang == 'zh'" data-clue-id="3" ng-class="lang" class="panoCenter"
-                src="img/zh/icon_camera_ingame.png?v1" />
-        </div>
-        <div id="clue-4" class="clue fakeclue">
-            <img ng-if="lang == 'en'" data-clue-id="4" ng-class="lang" class="panoCenter"
-                src="img/icon_camera_ingame.png?v1" />
-            <img ng-if="lang == 'zh'" data-clue-id="4" ng-class="lang" class="panoCenter"
-                src="img/zh/icon_camera_ingame.png?v1" />
-        </div>
-        <div id="clue-5" class="clue fakeclue">
-            <img ng-if="lang == 'en'" data-clue-id="5" ng-class="lang" class="panoCenter"
-                src="img/icon_camera_ingame.png?v1" />
-            <img ng-if="lang == 'zh'" data-clue-id="5" ng-class="lang" class="panoCenter"
-                src="img/zh/icon_camera_ingame.png?v1" />
-        </div>
-
-
-        <!-- clues counter -->
-        <div class="cluesCtr" onclick="showPage( '#pageClues'); showClues();">
-            <img src="img/clue.png?v1" />
-        </div>
-
-        <footer class="ftr"></footer>
-    </div>
-
-    <div class="scare-container">
-        <div id="scare"></div>
-        <div class="scare-overlay"></div>
-    </div>
-
-    <!-- single clue -->
-    <div id="cluePlaceholder" class="cluePlaceholder">
-        <div class="clue">
-            <a href="#" class="closeButtonRed"></a>
-            <img />
-        </div>
-
-        <div class="finale-copy">
-            <p>{{getContent('collected-all-clue-copy')}}</p>
-            <a href="#" class="btnBlood active">
-                {{getContent('guess-name-button')}}
-                <!-- GUESS THE NAME -->
-            </a>
-        </div>
-    </div>
-
-    <div id="pageClues" class="page">
-        <div class="centerElement centerInlineHor">
-            <a href="#" class="closeButtonRed"></a>
-            <div class="clues">
-                <img src="img/photo_clue_blank.png?v1" />
-                <img src="img/photo_clue_blank.png?v1" />
-                <img src="img/photo_clue_blank.png?v1" />
+            <div class="scare-container">
+                <div id="scare"></div>
+                <div class="scare-overlay"></div>
             </div>
-            <a href="#" class="btnBlood">
-                {{getContent('guess-name-button')}}
-                <!-- GUESS THE NAME -->
-            </a>
-        </div>
-        <div class="clue-overlay"></div>
-    </div>
 
-    <script src=https://use.typekit.net/gmu3kbc.js> </script> <script>
-        try {
-            Typekit.load({ async: true });
-        } catch (e) { }
-    </script>
+            <!-- single clue -->
+            <div id="cluePlaceholder" class="cluePlaceholder">
+                <div class="clue">
+                    <a href="#" class="closeButtonRed"></a>
+                    <img />
+                </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <!-- <script src="vendor/classList.js"></script>-->
+                <div class="finale-copy">
+                    <p>{{getContent('collected-all-clue-copy')}}</p>
+                    <a href="#" class="btnBlood active">
+                        {{getContent('guess-name-button')}}
+                        <!-- GUESS THE NAME -->
+                    </a>
+                </div>
+            </div>
 
-    <!-- <script src="vendor/jquery.motio.min.js"></script> -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <!-- <script src="vendor/codebird.js"></script> -->
+            <div id="pageClues" class="page">
+                <div class="centerElement centerInlineHor">
+                    <a href="#" class="closeButtonRed"></a>
+                    <div class="clues">
+                        <img src="img/photo_clue_blank.png?v1" />
+                        <img src="img/photo_clue_blank.png?v1" />
+                        <img src="img/photo_clue_blank.png?v1" />
+                    </div>
+                    <a href="#" class="btnBlood">
+                        {{getContent('guess-name-button')}}
+                        <!-- GUESS THE NAME -->
+                    </a>
+                </div>
+                <div class="clue-overlay"></div>
+            </div>
 
-    <script src="https://platform.twitter.com/widgets.js"></script>
+            <script src=https://use.typekit.net/gmu3kbc.js> </script> <script>
+                try {
+                    Typekit.load({ async: true });
+                } catch (e) { }
+            </script>
 
-    <script src="vendor/bowser.min.js"></script>
-    <script src="vendor/marzipano.min.js"></script>
-    <script src="vendor/DeviceOrientationControlMethod.js"></script>
-    <script src="vendor/motio.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0-beta14/howler.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+            <!-- <script src="vendor/classList.js"></script>-->
 
-    <!-- <script src="config.js"></script>
+            <!-- <script src="vendor/jquery.motio.min.js"></script> -->
+            <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+            <!-- <script src="vendor/codebird.js"></script> -->
+
+            <script src="https://platform.twitter.com/widgets.js"></script>
+
+            <script src="vendor/bowser.min.js"></script>
+            <script src="vendor/marzipano.min.js"></script>
+            <script src="vendor/DeviceOrientationControlMethod.js"></script>
+            <script src="vendor/motio.min.js"></script>
+
+            <!-- <script src="config.js"></script>
         <script src="language.js"></script>
         <script src="controller.js"></script>
         <script src="data.js"></script>
         <script src="index.js"></script>
         <script src="game.js"></script> -->
 
-    <script src="dist/scripts/main.js"></script>
+            <script src="dist/scripts/main.js"></script>
 
-    <script src="footer/footer.directive.js"></script>
-    <script src="equalizer/equalizer.directive.js"></script>
-    <script src="tnc/tnc.directive.js"></script>
+            <script src="footer/footer.directive.js"></script>
+            <script src="equalizer/equalizer.directive.js"></script>
+            <script src="tnc/tnc.directive.js"></script>
 
 </body>
 
