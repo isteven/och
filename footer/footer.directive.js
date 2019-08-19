@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -10,7 +10,7 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'footer/footer.html',
-      link : footerLink,
+      link: footerLink,
       controller: footerController,
       controllerAs: 'footer',
       bindToController: true
@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function footerController( $scope, $http ) {
+    function footerController($scope, $http) {
       var vm = this;
 
       vm.popupActive = false;
@@ -29,34 +29,35 @@
       };
 
 
-      this.showPopup = function( name ) {
-        console.log('show: ' + name );
+      this.showPopup = function (name) {
+        console.log('show: ' + name);
         vm.section = name;
         vm.popupActive = true;
       };
 
-      this.hidePopup = function( name ) {
+      this.hidePopup = function (name) {
         console.log('hide');
         vm.popupActive = false;
       };
 
-      $scope.$on('home.feed', function(){
+      $scope.$on('home.feed', function () {
         vm.displayScroll = false;
       });
 
-      $scope.$on('home.main', function(){
+      $scope.$on('home.main', function () {
         vm.displayScroll = true;
       });
 
-      $scope.scrollDown = function() {
+      $scope.scrollDown = function () {
         $scope.$parent.$broadcast('scroll down');
       }
 
-      this.share = function ( platform ) {
+      this.share = function (platform) {
 
-        switch ( platform ) {
+        switch (platform) {
 
           case 'fb':
+            /*
             FB.ui({
               method: 'share',
               hashtag: '#HHN6',
@@ -65,10 +66,11 @@
             }, function(response){
               // something?
             });
-          break;
+            */
+            break;
 
           case 'twitter':
-
+            /*
             var width  = 575,
             height = 350,
             left   = ($(window).width()  - width)  / 2,
@@ -82,11 +84,11 @@
 
             window.open(url, 'twitter', opts);
             return false;
-
+            */
             break;
 
           case 'email':
-
+            /*
             var url;
             var subject = 'Halloween Horror Nights 6';
             var body = 'Be drawn in by the darkness within in the upcoming Halloween Horror Nights 6 at Universal Studios Singapore. Check it out now: http://www.halloweenhorrornights.com.sg/';
@@ -94,10 +96,10 @@
             url = 'mailto:?body=' + body + '&subject=' + subject;
 
             window.open(url, '_self');
+            */
 
 
-
-          break;
+            break;
 
         }
 

@@ -1,45 +1,92 @@
-
 <img class="ftr__background" src="img/footer/gradient-footer.png" />
-<a class="ftr__logo" href="http://www.rwsentosa.com/" target="_blank"><img src="img/footer/footer-rws.png"/></a>
+<a class="ftr__logo" href="http://www.rwsentosa.com/" target="_blank">
+    <!-- <img src="img/footer/footer-rws.png" /> -->
+</a>
 <a href="" ng-show="isHomeHome && footer.displayScroll" ng-click="scrollDown()" class="fade nav--footer__scroll">
     <img src="img/footer/text-more.png" /><br>
     <span class="icon--arrow--down"></span>
 </a>
 <div class="ftr__links">
-    <p class="ftr__link" id="ftr__credit">PHOTO BY 360SNAPSHOTS</p>
-    <equalizer></equalizer>
-    <a class="ftr__link" href="" ng-click="footer.showPopup('share')">Share</a>
-    <a class="ftr__link" href="" ng-click="footer.showPopup('connected')">Stay connected</a>
-    <a class="ftr__link" href="" ng-click="footer.showPopup('legal')">Legal</a>
-</div>
-<div class="ftr__popup ftr__wrapper--{{ footer.section }}" ng-class="{ 'is-active' : footer.popupActive }" ng-switch="footer.section">
 
-	<div class="inner ftr__popup--legal" ng-switch-when="legal">
-		<img class="h-web" src="img/footer/footer-warning.svg" />
+    <!-- <p class="ftr__link" id="ftr__credit">PHOTO BY 360SNAPSHOTS</p> -->
+    <equalizer></equalizer>
+    <!-- <a class="ftr__link" href="" ng-click="footer.showPopup('share')">Share</a>
+    <a class="ftr__link" href="" ng-click="footer.showPopup('connected')">Stay connected</a>
+    <a class="ftr__link" href="" ng-click="footer.showPopup('legal')">Legal</a> -->
+</div>
+<div class="ftr__popup ftr__wrapper--{{ footer.section }}" ng-class="{ 'is-active' : footer.popupActive }"
+    ng-switch="footer.section">
+
+    <div class="inner ftr__popup--legal" ng-switch-when="legal">
+        <img class="h-web" src="img/footer/footer-warning.svg" />
         <img class="h-mobile ftr__warning" src="img/footer/mobile/footer-warning.svg" />
         <ul class="list--reset list--horizontal">
-            <li><a href="http://www.rwsentosa.com/language/en-US/Homepage/LegalInformation?utma=13620910.732713475.1466058001.1467725821.1468074531.13&utmb=13620910.1.10.1468074531&utmc=13620910&utmx=-&utmz=13620910.1467196272.10.3.utmcsr=baidu|utmccn=(organic)|utmcmd=organic&utmv=-&__utmk=224757082" target="_blank">Legal Information</a></li>
-            <li><a href="http://www.rwsentosa.com/language/en-US/Homepage/ContactUs?utma=13620910.732713475.1466058001.1467725821.1468074531.13&utmb=13620910.1.10.1468074531&utmc=13620910&utmx=-&utmz=13620910.1467196272.10.3.utmcsr=baidu|utmccn=(organic)|utmcmd=organic&utmv=-&__utmk=224757082" target="_blank">Contact Us</a></li>
+            <li><a href="http://www.rwsentosa.com/language/en-US/Homepage/LegalInformation?utma=13620910.732713475.1466058001.1467725821.1468074531.13&utmb=13620910.1.10.1468074531&utmc=13620910&utmx=-&utmz=13620910.1467196272.10.3.utmcsr=baidu|utmccn=(organic)|utmcmd=organic&utmv=-&__utmk=224757082"
+                    target="_blank">Legal Information</a></li>
+            <li><a href="http://www.rwsentosa.com/language/en-US/Homepage/ContactUs?utma=13620910.732713475.1466058001.1467725821.1468074531.13&utmb=13620910.1.10.1468074531&utmc=13620910&utmx=-&utmz=13620910.1467196272.10.3.utmcsr=baidu|utmccn=(organic)|utmcmd=organic&utmv=-&__utmk=224757082"
+                    target="_blank">Contact Us</a></li>
             <li><a href="" ng-click="tncToggle()">Terms & Conditions</a></li>
         </ul>
         <p class="legal__rights">UNIVERSAL STUDIOS, UNIVERSAL STUDIOS SINGAPORE, Universal Globe logo, and
-all Universal elements and related indicia TM & © Universal Studios. All Rights Reserved.</p>
-	</div>
+            all Universal elements and related indicia TM & © Universal Studios. All Rights Reserved.</p>
+    </div>
 
     <div class="inner ftr__popup--connected h-clearfix" ng-switch-when="connected">
         <div class="connected__follow">
             <h3>Follow Us</h3>
-            <a class="ftr__icon ftr__icon--fb" href="https://www.facebook.com/ResortsWorldatSentosa" target="_blank"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"/></svg></a>
+            <a class="ftr__icon ftr__icon--fb" href="https://www.facebook.com/ResortsWorldatSentosa"
+                target="_blank"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 25.6 53">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #e5e5cf;
+                            }
+                        </style>
+                    </defs>
+                    <path class="cls-1"
+                        d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z"
+                        transform="translate(-187.2 -373.5)" />
+                </svg></a>
 
-            <a class="ftr__icon" href="https://www.instagram.com/rwsentosa/" target="_blank"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z" transform="translate(-337.7 -242.8)"/></svg></a>
+            <a class="ftr__icon" href="https://www.instagram.com/rwsentosa/" target="_blank"><svg id="Layer_1"
+                    data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #e5e5cf;
+                            }
+                        </style>
+                    </defs>
+                    <path class="cls-1"
+                        d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
+                        transform="translate(-337.7 -242.8)" />
+                </svg></a>
 
-            <a class="ftr__icon" href="https://www.youtube.com/user/rwsentosa" target="_blank"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.4 55"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M493.2,258.2v12.3l-1,.9-.9.4a.8.8,0,0,1-.6-.3,1.2,1.2,0,0,1-.2-.8V258.2h-3.3v13.5a3.4,3.4,0,0,0,.6,2.2,2.1,2.1,0,0,0,1.7.7,4.4,4.4,0,0,0,1.9-.5,7.2,7.2,0,0,0,1.9-1.5v1.8h3.3V258.2Zm-10.1.8a4.8,4.8,0,0,0-3.4-1.2,5.5,5.5,0,0,0-3.6,1.1,3.7,3.7,0,0,0-1.3,3v8.4a4.3,4.3,0,0,0,1.3,3.3,5.7,5.7,0,0,0,7,0,4.1,4.1,0,0,0,1.3-3.2V262A3.9,3.9,0,0,0,483.1,259ZM481,270.6a1.3,1.3,0,0,1-.4,1,1.4,1.4,0,0,1-1.1.4,1.3,1.3,0,0,1-1-.4,1.4,1.4,0,0,1-.4-1v-8.8a1,1,0,0,1,.4-.8,1.4,1.4,0,0,1,1-.3,1.7,1.7,0,0,1,1.1.3,1,1,0,0,1,.4.8Zm-10.3-18.2-2.3,8.8h-.3l-2.4-8.8H462l4.4,13.2v8.7h3.7v-9.1l4.3-12.8Zm25.8,38.6a2.3,2.3,0,0,1,.3,1.3v1.5h-2.6v-1.5a2,2,0,0,1,.3-1.3,1.4,1.4,0,0,1,2,0Zm-10.2-.1a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291ZM503,279.7H457a9.2,9.2,0,0,0-9.2,9.2v9.4a9.2,9.2,0,0,0,9.2,9.2h46a9.2,9.2,0,0,0,9.2-9.2v-9.4A9.3,9.3,0,0,0,503,279.7Zm-33.6,6.5H466v17h-3.3v-17h-3.4v-2.9h10.2Zm9.7,17h-3v-1.6a5.5,5.5,0,0,1-1.7,1.4,3.4,3.4,0,0,1-1.7.5,1.9,1.9,0,0,1-1.6-.7,3.2,3.2,0,0,1-.5-2V288.5h2.9v11.3a1.2,1.2,0,0,0,.2.7.7.7,0,0,0,.6.2l.8-.3a3,3,0,0,0,.9-.8V288.5h3Zm10.6-3.1a3.7,3.7,0,0,1-.7,2.4,2.5,2.5,0,0,1-2,.8,3.3,3.3,0,0,1-1.5-.3,4,4,0,0,1-1.3-1v1.1h-3V283.3h3v6.4a4.6,4.6,0,0,1,1.3-1,3.1,3.1,0,0,1,1.4-.4,2.5,2.5,0,0,1,2.1.9,4.3,4.3,0,0,1,.7,2.7Zm10.2-3.9h-5.6V299a3.1,3.1,0,0,0,.3,1.6,1.1,1.1,0,0,0,1,.5,1.2,1.2,0,0,0,1-.4,3.1,3.1,0,0,0,.3-1.7v-.7h3.1v.7a4.6,4.6,0,0,1-1.1,3.4,4.2,4.2,0,0,1-3.3,1.1,4,4,0,0,1-3.1-1.2,4.7,4.7,0,0,1-1.1-3.3v-6.6a4.1,4.1,0,0,1,1.3-3.1,4.4,4.4,0,0,1,3.2-1.2,4.1,4.1,0,0,1,3.1,1.1,4.4,4.4,0,0,1,1.1,3.2Zm-14.4-5.6h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6a1.6,1.6,0,0,0-.3-1.1A1.1,1.1,0,0,0,485.5,290.6Zm.9.4a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Z" transform="translate(-447.8 -252.5)"/></svg></a>
+            <a class="ftr__icon" href="https://www.youtube.com/user/rwsentosa" target="_blank"><svg id="Layer_1"
+                    data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.4 55">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #e5e5cf;
+                            }
+                        </style>
+                    </defs>
+                    <path class="cls-1"
+                        d="M493.2,258.2v12.3l-1,.9-.9.4a.8.8,0,0,1-.6-.3,1.2,1.2,0,0,1-.2-.8V258.2h-3.3v13.5a3.4,3.4,0,0,0,.6,2.2,2.1,2.1,0,0,0,1.7.7,4.4,4.4,0,0,0,1.9-.5,7.2,7.2,0,0,0,1.9-1.5v1.8h3.3V258.2Zm-10.1.8a4.8,4.8,0,0,0-3.4-1.2,5.5,5.5,0,0,0-3.6,1.1,3.7,3.7,0,0,0-1.3,3v8.4a4.3,4.3,0,0,0,1.3,3.3,5.7,5.7,0,0,0,7,0,4.1,4.1,0,0,0,1.3-3.2V262A3.9,3.9,0,0,0,483.1,259ZM481,270.6a1.3,1.3,0,0,1-.4,1,1.4,1.4,0,0,1-1.1.4,1.3,1.3,0,0,1-1-.4,1.4,1.4,0,0,1-.4-1v-8.8a1,1,0,0,1,.4-.8,1.4,1.4,0,0,1,1-.3,1.7,1.7,0,0,1,1.1.3,1,1,0,0,1,.4.8Zm-10.3-18.2-2.3,8.8h-.3l-2.4-8.8H462l4.4,13.2v8.7h3.7v-9.1l4.3-12.8Zm25.8,38.6a2.3,2.3,0,0,1,.3,1.3v1.5h-2.6v-1.5a2,2,0,0,1,.3-1.3,1.4,1.4,0,0,1,2,0Zm-10.2-.1a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291ZM503,279.7H457a9.2,9.2,0,0,0-9.2,9.2v9.4a9.2,9.2,0,0,0,9.2,9.2h46a9.2,9.2,0,0,0,9.2-9.2v-9.4A9.3,9.3,0,0,0,503,279.7Zm-33.6,6.5H466v17h-3.3v-17h-3.4v-2.9h10.2Zm9.7,17h-3v-1.6a5.5,5.5,0,0,1-1.7,1.4,3.4,3.4,0,0,1-1.7.5,1.9,1.9,0,0,1-1.6-.7,3.2,3.2,0,0,1-.5-2V288.5h2.9v11.3a1.2,1.2,0,0,0,.2.7.7.7,0,0,0,.6.2l.8-.3a3,3,0,0,0,.9-.8V288.5h3Zm10.6-3.1a3.7,3.7,0,0,1-.7,2.4,2.5,2.5,0,0,1-2,.8,3.3,3.3,0,0,1-1.5-.3,4,4,0,0,1-1.3-1v1.1h-3V283.3h3v6.4a4.6,4.6,0,0,1,1.3-1,3.1,3.1,0,0,1,1.4-.4,2.5,2.5,0,0,1,2.1.9,4.3,4.3,0,0,1,.7,2.7Zm10.2-3.9h-5.6V299a3.1,3.1,0,0,0,.3,1.6,1.1,1.1,0,0,0,1,.5,1.2,1.2,0,0,0,1-.4,3.1,3.1,0,0,0,.3-1.7v-.7h3.1v.7a4.6,4.6,0,0,1-1.1,3.4,4.2,4.2,0,0,1-3.3,1.1,4,4,0,0,1-3.1-1.2,4.7,4.7,0,0,1-1.1-3.3v-6.6a4.1,4.1,0,0,1,1.3-3.1,4.4,4.4,0,0,1,3.2-1.2,4.1,4.1,0,0,1,3.1,1.1,4.4,4.4,0,0,1,1.1,3.2Zm-14.4-5.6h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6a1.6,1.6,0,0,0-.3-1.1A1.1,1.1,0,0,0,485.5,290.6Zm.9.4a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Zm0,0a1.1,1.1,0,0,0-.9-.4h-.6l-.6.5v9.2l.7.5.7.2a.9.9,0,0,0,.8-.3,1.5,1.5,0,0,0,.3-1v-7.6A1.6,1.6,0,0,0,486.4,291Z"
+                        transform="translate(-447.8 -252.5)" />
+                </svg></a>
         </div>
         <div class="connected__subscribe">
             <div class="inner">
                 <h3>Be Warned Of Stirring Evils</h3>
                 <input type="email" placeholder="Email address" /> <button class="btn btn--textured">Submit</button>
-                <p><input ng-class="{'is-checked': footer.tnc.agreed}" type="checkbox" id="agree" ng-model="footer.tnc.agreed"/><span ng-class="{'is-checked': footer.tnc.agreed}" ng-click="footer.tnc.agreed = !footer.tnc.agreed" class="checkbox--dummy"></span><label for="agree"><small>&nbsp;I consent to Resorts World Sentosa (“RWS”) to collect, use and disclose to companies within the Genting Group, my personal data for customer research and marketing purposes.</small></label></p>
+                <p><input ng-class="{'is-checked': footer.tnc.agreed}" type="checkbox" id="agree"
+                        ng-model="footer.tnc.agreed" /><span ng-class="{'is-checked': footer.tnc.agreed}"
+                        ng-click="footer.tnc.agreed = !footer.tnc.agreed" class="checkbox--dummy"></span><label
+                        for="agree"><small>&nbsp;I consent to Resorts World Sentosa (“RWS”) to collect, use and disclose
+                            to companies within the Genting Group, my personal data for customer research and marketing
+                            purposes.</small></label></p>
 
             </div>
         </div>
@@ -47,10 +94,62 @@ all Universal elements and related indicia TM & © Universal Studios. All Rights
 
     <div class="inner ftr__popup--spread" ng-switch-when="share">
         <h3>Spread The Evil</h3>
-        <a class="ftr__icon ftr__icon--fb" ng-click="footer.share('fb')" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z" transform="translate(-187.2 -373.5)"/></svg></a>
-        <a class="ftr__icon" ng-click="footer.share('twitter')" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 45"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M619.7,153.8a23.3,23.3,0,0,1-6.6,1.8,11.4,11.4,0,0,0,5.1-6.3,23.3,23.3,0,0,1-7.3,2.8,11.6,11.6,0,0,0-8.4-3.6,11.5,11.5,0,0,0-11.5,11.4,11.1,11.1,0,0,0,.3,2.6,32.9,32.9,0,0,1-23.8-11.9,11.3,11.3,0,0,0,3.6,15.2,11.7,11.7,0,0,1-5.2-1.4h0a11.4,11.4,0,0,0,9.3,11.1,11.4,11.4,0,0,1-3,.4l-2.2-.2a11.5,11.5,0,0,0,10.8,7.9,23.4,23.4,0,0,1-14.3,4.9l-2.8-.2a33,33,0,0,0,17.7,5.1c21.2,0,32.8-17.3,32.8-32.3,0-.5,0-1,0-1.5a23.1,23.1,0,0,0,5.8-5.9" transform="translate(-563.4 -148.5)"/></svg></a>
-        <a class="ftr__icon" ng-click="footer.share('email')" href=""><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 45"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M480.6,289.8l-7.8-6.8L450.5,302a4.5,4.5,0,0,0,3.1,1.2h53.9a4.5,4.5,0,0,0,3.1-1.2l-22.3-19.1Zm0,0" transform="translate(-449.1 -258.3)"/><path class="cls-1" d="M510.6,259.5a4.4,4.4,0,0,0-3.1-1.2H453.6a4.5,4.5,0,0,0-3.1,1.2l30.1,25.8Zm0,0" transform="translate(-449.1 -258.3)"/><path class="cls-1" d="M449.1,262.2v37.4l21.8-18.5Zm0,0" transform="translate(-449.1 -258.3)"/><path class="cls-1" d="M490.3,281.1l21.8,18.5V262.2Zm0,0" transform="translate(-449.1 -258.3)"/></svg></a>
-        <span class="ftr__icon ftr__icon--ig" ><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55"><defs><style>.cls-1{fill:#e5e5cf;}</style></defs><path class="cls-1" d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z" transform="translate(-337.7 -242.8)"/></svg></span><a href="https://www.instagram.com/explore/tags/HHN6" target="_blank">#HHN6</a>
+        <a class="ftr__icon ftr__icon--fb" ng-click="footer.share('fb')" href=""><svg id="Layer_1" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 53">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #e5e5cf;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                    d="M187.2,391h5.5v-5.3c0-2.3.1-6,1.8-8.2s4.3-4,8.5-4c6.9,0,9.8,1,9.8,1l-1.4,8.1a18.5,18.5,0,0,0-4.4-.7c-2.1,0-4,.8-4,2.9V391h8.7l-.6,7.9H203v27.5H192.7V399h-5.5Z"
+                    transform="translate(-187.2 -373.5)" />
+            </svg></a>
+        <a class="ftr__icon" ng-click="footer.share('twitter')" href=""><svg id="Layer_1" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 45">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #e5e5cf;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                    d="M619.7,153.8a23.3,23.3,0,0,1-6.6,1.8,11.4,11.4,0,0,0,5.1-6.3,23.3,23.3,0,0,1-7.3,2.8,11.6,11.6,0,0,0-8.4-3.6,11.5,11.5,0,0,0-11.5,11.4,11.1,11.1,0,0,0,.3,2.6,32.9,32.9,0,0,1-23.8-11.9,11.3,11.3,0,0,0,3.6,15.2,11.7,11.7,0,0,1-5.2-1.4h0a11.4,11.4,0,0,0,9.3,11.1,11.4,11.4,0,0,1-3,.4l-2.2-.2a11.5,11.5,0,0,0,10.8,7.9,23.4,23.4,0,0,1-14.3,4.9l-2.8-.2a33,33,0,0,0,17.7,5.1c21.2,0,32.8-17.3,32.8-32.3,0-.5,0-1,0-1.5a23.1,23.1,0,0,0,5.8-5.9"
+                    transform="translate(-563.4 -148.5)" />
+            </svg></a>
+        <a class="ftr__icon" ng-click="footer.share('email')" href=""><svg id="Layer_1" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 45">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #e5e5cf;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                    d="M480.6,289.8l-7.8-6.8L450.5,302a4.5,4.5,0,0,0,3.1,1.2h53.9a4.5,4.5,0,0,0,3.1-1.2l-22.3-19.1Zm0,0"
+                    transform="translate(-449.1 -258.3)" />
+                <path class="cls-1" d="M510.6,259.5a4.4,4.4,0,0,0-3.1-1.2H453.6a4.5,4.5,0,0,0-3.1,1.2l30.1,25.8Zm0,0"
+                    transform="translate(-449.1 -258.3)" />
+                <path class="cls-1" d="M449.1,262.2v37.4l21.8-18.5Zm0,0" transform="translate(-449.1 -258.3)" />
+                <path class="cls-1" d="M490.3,281.1l21.8,18.5V262.2Zm0,0" transform="translate(-449.1 -258.3)" />
+            </svg></a>
+        <span class="ftr__icon ftr__icon--ig"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 55 55">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #e5e5cf;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                    d="M382.1,242.8H348.3a10.6,10.6,0,0,0-10.6,10.6v33.7a10.6,10.6,0,0,0,10.6,10.6h33.8a10.6,10.6,0,0,0,10.6-10.6V253.4A10.6,10.6,0,0,0,382.1,242.8Zm3.1,6.3h1.2v9.3h-9.3v-9.3Zm-27.8,15.5a9.7,9.7,0,1,1-1.8,5.6A9.7,9.7,0,0,1,357.4,264.7Zm30,22.5a5.3,5.3,0,0,1-5.3,5.3H348.3a5.3,5.3,0,0,1-5.3-5.3V264.7h8.2a15,15,0,1,0,27.9,0h8.2Z"
+                    transform="translate(-337.7 -242.8)" />
+            </svg></span><a href="https://www.instagram.com/explore/tags/HHN6" target="_blank">#HHN6</a>
     </div>
 
     <button class="ftr__close icon--close btn" ng-click="footer.hidePopup()">Close</button>
